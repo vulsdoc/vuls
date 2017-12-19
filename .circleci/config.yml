@@ -35,42 +35,15 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - restore-cache: *restore-yarn-cache
+      # - restore-cache: *restore-yarn-cache
       - run: *yarn
-      - save-cache: *save-yarn-cache
-      - run:
-          name: Run Test Suites
-          command: echo "test"
+      # - save-cache: *save-yarn-cache
       - run:
           name: Install Dependencies
           command: sudo apt install rsync
       - run:
           name: Deploy Website
           command: git config --global user.email "kotakanbe@users.noreply.github.com" && git config --global user.name "kotakanbe" && echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc && cd website && npm install && GIT_USER=kotakanbe npm run publish-gh-pages
-      # - run:
-          # name: Run Test Suites
-          # command: yarn test
-      # - run:
-          # name: Run Test Suites
-          # command: yarn global add docusaurus-init
-      # - run:
-          # name: Test Static Website Builds
-          # command: cd website && yarn run build
-
-  # deploy-website:
-    # <<: *defaults
-    # steps:
-      # - checkout
-      # - restore-cache: *restore-yarn-cache
-      # - run: *yarn
-      # - save-cache: *save-yarn-cache
-      # - run:
-          # name: Deploy Website
-          # commands:
-            # - git config --global user.email "kotakanbe@users.noreply.github.com"
-            # - git config --global user.name "kotakanbe"
-            # - echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
-            # - cd website && npm install && GIT_USER=kotakanbe npm run publish-gh-pages
 
 # Workflows enables us to run multiple jobs in parallel
 workflows:
@@ -79,8 +52,3 @@ workflows:
     jobs:
       - tests:
           filters: *filter-ignore-gh-pages
-      # - deploy-website:
-          # requires:
-            # - tests
-          # filters: *filter-only-master
-
