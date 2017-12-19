@@ -4,6 +4,7 @@ title: Latin-ish
 sidebar_label: Example Page
 ---
 
+aaa
 Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
 
 ## Lorem
