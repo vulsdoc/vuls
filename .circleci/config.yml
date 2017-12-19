@@ -36,18 +36,18 @@ jobs:
       # run tests!
       - run: yarn test
 
-  machine:
-    node:
-      version: 9.3.0
-    npm:
-      version: 5.6.0
-  
-  deployment:
-    website:
-      branch: master
-      commands:
-        - git config --global user.email "kotakanbe@users.noreply.github.com"
-        - git config --global user.name "kotakanbe"
-        - echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
-        - cd website && npm install && GIT_USER=kotakanbe npm run publish-gh-pages
+machine:
+  node:
+    version: 9.3.0
+  npm:
+    version: 5.6.0
+
+deployment:
+  website:
+    branch: master
+    commands:
+      - git config --global user.email "kotakanbe@users.noreply.github.com"
+      - git config --global user.name "kotakanbe"
+      - echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
+      - cd website && npm install && GIT_USER=kotakanbe npm run publish-gh-pages
 
