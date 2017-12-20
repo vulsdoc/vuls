@@ -16,16 +16,22 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Test Site' /* title for your website */,
-  tagline: 'A website for testing',
-  url: 'https://facebook.github.io' /* your website url */,
-  baseUrl: '/vuls/' /* base url for your project */,
+  title: 'Vuls',
+  tagline: 'Vulnerability scanner for Linux/FreeBSD, agentless, written in Go',
+  url: 'https://github.com/future-architect/vuls',
+  baseUrl: '/vuls/',
   projectName: 'vuls',
+  editUrl: 'https://github.com/vulsdoc/vuls/edit/master/docs/',
   headerLinks: [
     {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {page: 'help', label: 'Help'},
+    {doc: 'doc4', label: 'Community'},
     {blog: true, label: 'Blog'},
+
+    {
+      href: "https://github.com/future-architect/vuls",
+      label: "GitHub",
+      external: true
+    },
   ],
   users,
   /* path to images for header/footer */

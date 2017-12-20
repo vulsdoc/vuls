@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "A website for testing",
+    "tagline": "Vulnerability scanner for Linux/FreeBSD, agentless, written in Go",
     "doc1": "Latin-ish",
     "Example Page": "Example Page",
     "doc2": "document number 2",
@@ -11,9 +11,9 @@
     "doc4": "Other Document",
     "doc5": "Fifth Document",
     "Docs": "Docs",
-    "API": "API",
-    "Help": "Help",
+    "Community": "Community",
     "Blog": "Blog",
+    "GitHub": "GitHub",
     "Docusaurus": "Docusaurus",
     "First Category": "First Category",
     "Second Category": "Second Category"
