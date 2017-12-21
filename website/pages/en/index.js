@@ -47,16 +47,16 @@ class HomeSplash extends React.Component {
               <div className="section promoSection">
                 <div className="promoRow">
                   <div className="pluginRowBlock">
-                    <Button href="#try">Try It Out</Button>
                     <Button
                       href={
                         siteConfig.baseUrl +
                         'docs/' +
                         this.props.language +
-                        '/doc1.html'
+                        '/tutorial.html'
                       }>
-                      Example Link
+                      Tutorial
                     </Button>
+                    <Button href="#OS">Supported OS</Button>
                     <Button
                       href={
                         siteConfig.baseUrl +
@@ -64,7 +64,7 @@ class HomeSplash extends React.Component {
                         this.props.language +
                         '/doc2.html'
                       }>
-                      Example Link 2
+                      GitHub
                     </Button>
                   </div>
                 </div>
@@ -88,6 +88,18 @@ class Index extends React.Component {
         return (
           <a href={user.infoLink}>
             <img src={user.image} title={user.caption} />
+          </a>
+        );
+      });
+
+    const supportedOSes = siteConfig.supportedOSes
+      .filter(os => {
+        return os.pinned;
+      })
+      .map((os, i) => {
+        return (
+          <a href={os.infoLink} key={i}>
+            <img src={os.image} title={os.caption} />
           </a>
         );
       });
@@ -141,8 +153,7 @@ class Index extends React.Component {
             <GridBlock
               contents={[
                 {
-                  content: 'Talk about trying this out',
-                  image: siteConfig.baseUrl + 'img/docusaurus.svg',
+                  content: 'Talk about trying this out', image: siteConfig.baseUrl + 'img/docusaurus.svg',
                   imageAlign: 'left',
                   title: 'Try it Out',
                 },
@@ -150,7 +161,7 @@ class Index extends React.Component {
             />
           </Container>
 
-          <Container padding={['bottom', 'top']} background="dark">
+          <Container padding={['bottom', 'top']} background="light">
             <GridBlock
               contents={[
                 {
@@ -165,6 +176,22 @@ class Index extends React.Component {
           </Container>
 
           <div className="productShowcaseSection paddingBottom">
+            <h2>{"Supported OS"}</h2>
+            <p>Docusaurus is building websites for these projects...</p>
+            <div className="logos">{supportedOSes}</div>
+            <div className="more-users">
+              <a
+                className="button"
+                href={`${siteConfig.baseUrl}${this.props.language}/os.html`}>
+                Supported OS
+              </a>
+            </div>
+          </div>
+
+
+
+          <Container padding={['bottom', 'top']} background="light">
+          <div className="productShowcaseSection paddingBottom">
             <h2>{"Who's Using This?"}</h2>
             <p>This project is used by all these people</p>
             <div className="logos">{showcase}</div>
@@ -178,6 +205,39 @@ class Index extends React.Component {
               </a>
             </div>
           </div>
+          </Container>
+
+	  <div
+          className="productShowcaseSection paddingTop"
+          style={{ textAlign: "center" }} >
+          <h2>
+              <a href={siteConfig.baseUrl + "docs/en/english-vectors.html"}>Download pre-trained models</a>
+          </h2>
+          <Container>
+            <GridBlock
+            align="center"
+            contents={[
+              {
+                content: "Pre-trained on English webcrawl and Wikipedia",
+                image: siteConfig.baseUrl + "img/model-blue.png" ,
+                imageAlign: "top",
+                title: "[English word vectors](" + siteConfig.baseUrl + "docs/en/english-vectors.html)",
+                imageLink: siteConfig.baseUrl + "docs/en/english-vectors.html",
+                pinned : "true",
+              },
+              {
+                content: "Pre-trained on 294 different languages of Wikipedia",
+                image: siteConfig.baseUrl + "img/model-red.png",
+                imageAlign: "top",
+                title: "[Wiki word vectors](" + siteConfig.baseUrl + "docs/en/pretrained-vectors.html)",
+                imageLink: siteConfig.baseUrl + "docs/en/pretrained-vectors.html",
+              },
+            ]}
+          layout="twoColumn"
+            />
+            </Container>
+          </div>
+
         </div>
       </div>
     );
