@@ -6,7 +6,9 @@
     "publish-gh-pages": "docusaurus-publish",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version"
+    "rename-version": "docusaurus-rename-version",
+    "crowdin-upload": "export CROWDIN_DOCUSAURUS_PROJECT_ID=$CROWDIN_PROJECT_ID; export CROWDIN_DOCUSAURUS_API_KEY=$CROWDIN_API_KEY; crowdin-cli --config ../crowdin.yaml upload sources --auto-update -b master",
+    "crowdin-download": "export CROWDIN_DOCUSAURUS_PROJECT_ID=$CROWDIN_PROJECT_ID; export CROWDIN_DOCUSAURUS_API_KEY=$CROWDIN_API_KEY; crowdin-cli --config ../crowdin.yaml download -b master"
   },
   "devDependencies": {
     "docusaurus": "^1.0.3"
