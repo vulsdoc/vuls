@@ -4,6 +4,8 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "Vulnerability scanner for Linux/FreeBSD, agentless, written in Go",
+    "abstract": "Abstract",
+    "Introduction": "Introduction",
     "doc1": "Latin-ish",
     "Example Page": "Example Page",
     "doc2": "document number 2",

@@ -1,5 +1,6 @@
 {
   "docs": {
+    "Introduction": ["abstract", "tutorial-localscan"],
     "Tutorial": ["tutorial", "tutorial-localscan"],
     "Docusaurus": ["doc1"],
     "First Category": ["doc2"],
