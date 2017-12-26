@@ -1,7 +1,7 @@
 ---
 id: abstract
 title: Abstract
-sidebar_label: Introduction
+sidebar_label: Abstract
 ---
 
 For a system administrator, having to perform security vulnerability analysis and software update on a daily basis can be a burden.
@@ -18,5 +18,5 @@ Vuls is a tool created to solve the problems listed above. It has the following 
 - Vulnerability detection is done automatically to prevent any oversight.
 - Report is generated on regular basis using CRON or other methods. to manage vulnerability.
 
-![Vuls-Motivation](/img/vuls-motivation.png)
+![Vuls-Motivation](/vuls/img/docs/vuls-motivation.png)
 

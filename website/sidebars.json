@@ -1,12 +1,9 @@
 {
   "docs": {
-    "Introduction": ["abstract", "tutorial-localscan"],
-    "Tutorial": ["tutorial", "tutorial-localscan"],
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"]
+    "Introduction": ["abstract", "main-features","support-os"],
+    "Architecture": ["architecture-remote-scan", "architecture-local-scan", "architecture-fast-scan", "architecture-deep-scan"],
+    "Installation": ["install-manually-centos", "install-with-docker"]
   },
   "docs-other": {
-    "First Category": ["doc4", "doc5"]
   }
 }

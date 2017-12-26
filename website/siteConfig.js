@@ -96,8 +96,8 @@ const siteConfig = {
   projectName: 'vuls',
   editUrl: 'https://github.com/vulsdoc/vuls/edit/master/docs/',
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'Community'},
+    {doc: 'abstract', label: 'Docs'},
+    {doc: 'abstract', label: 'Community'},
     {blog: true, label: 'Blog'},
     { search: true },
     { languages: true },
