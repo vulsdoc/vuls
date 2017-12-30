@@ -1,0 +1,130 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Settings · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Settings · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/vuls/index.html"/><meta property="og:description" content="- Slack section"/><link rel="shortcut icon" href="/vuls/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/vuls/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/vuls/"><img class="logo" src="/vuls/img/docusaurus.svg"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/vuls/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/vuls/docs/ja/abstract.html" target="_self">Community</a></li><li><a href="/vuls/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/vuls/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/vuls/en">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/support-os.html">Support OS</a></li></ul></div><div class="navGroup navGroupActive"><h3>Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/architecture-fast-scan.html">Fast Scan (No root privileges)</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup navGroupActive"><h3>Installation</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/install-with-package.html">Install with Package</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/tutorial-docker.html">Docker</a></li></ul></div><div class="navGroup navGroupActive"><h3>Usage</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/vuls/docs/ja/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-configtest.html">configtest</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-scan.html">Scan</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-report.html">Report</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup navGroupActive"><h3>Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/vulsrepo.html">Vulsrepo</a></li></ul></div><div class="navGroup navGroupActive"><h3>Misc</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/ja/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-settings.md" target="_blank">Edit</a><h1>Settings</h1></header><article><div><span><ul>
+<li><p>Slack section</p>
+<pre><code class="hljs">  [slack]
+  hookURL      = &quot;https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz&quot;
+  #legacyToken  = &quot;xoxp-11111111111-222222222222-3333333333&quot;
+  channel      = &quot;#channel-name&quot;
+  #channel      = &quot;${servername}&quot;
+  iconEmoji    = &quot;:ghost:&quot;
+  authUser     = &quot;username&quot;
+  notifyUsers  = [&quot;@username&quot;]
+</code></pre>
+<ul>
+<li><p>hookURL or legacyToken.<br>
+If there are a lot of vulnerabilities, it is better to use legacyToken since the Slack notification will be flooded.</p>
+<ul>
+<li><p>hookURL : Incoming webhook's URL (hookURL is ignored when legacyToken is set.)<br>
+<img src="/vuls/img/docs/vuls-slack-en.png" alt="Vuls-slack"></p></li>
+<li><p>legacyToken : slack legacy token (<a href="https://api.slack.com/custom-integrations/legacy-tokens">https://api.slack.com/custom-integrations/legacy-tokens</a>)<br>
+<img src="https://user-images.githubusercontent.com/8997330/31842418-02b703f2-b629-11e7-8ec3-beda5d3a397e.png" alt="Vuls-slack-thread"></p></li>
+</ul></li>
+<li><p>channel : channel name. If you set <code>${servername}</code> to channel, the report will be sent to each channel.<br>
+In the following example, the report will be sent to the <code>#server1</code> and <code>#server2</code>.<br>
+Be sure to create these channels before scanning.</p>
+<pre><code class="hljs">  [slack]
+  channel      = &quot;${servername}&quot;
+  ...snip...
+  
+  [servers]
+  
+  [servers.server1]
+  host         = &quot;172.31.4.82&quot;
+  ...snip...
+  
+  [servers.server2]
+  host         = &quot;172.31.4.83&quot;
+  ...snip...
+</code></pre></li>
+<li><p>iconEmoji: emoji</p></li>
+<li><p>authUser: username of the slack team</p></li>
+<li><p>notifyUsers: a list of Slack usernames to send Slack notifications. If you set <code>[&quot;@foo&quot;, &quot;@bar&quot;]</code> to notifyUsers, @foo @bar will be included in text.<br>
+So @foo, @bar can receive mobile push notifications on their smartphone.</p></li>
+</ul></li>
+<li><p>EMail section</p>
+<pre><code class="hljs">  [email]
+  smtpAddr      = &quot;smtp.gmail.com&quot;
+  smtpPort      = &quot;587&quot;
+  user          = &quot;username&quot;
+  password      = &quot;password&quot;
+  from          = &quot;from@address.com&quot;
+  to            = [&quot;to@address.com&quot;]
+  cc            = [&quot;cc@address.com&quot;]
+  subjectPrefix = &quot;[vuls]&quot;
+</code></pre></li>
+<li><p>Default section</p>
+<pre><code class="hljs">  [default]
+  #port        = &quot;22&quot;
+  #user        = &quot;username&quot;
+  #keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+  #cpeNames = [
+  #  &quot;cpe:/a:rubyonrails:ruby_on_rails:4.2.1&quot;,
+  #]
+  #ignoreCves = [&quot;CVE-2016-6313&quot;]
+  #optional = [
+  #    [&quot;key&quot;, &quot;value&quot;],
+  #]
+</code></pre>
+<p>Items of the default section will be used if not specified.</p></li>
+<li><p>servers section</p>
+<pre><code class="hljs">  [servers]
+  
+  [servers.172-31-4-82]
+  host         = &quot;172.31.4.82&quot;
+  #port        = &quot;22&quot;
+  #user        = &quot;root&quot;
+  #keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+  #type        = &quot;pseudo&quot;
+  #cpeNames = [
+  #  &quot;cpe:/a:rubyonrails:ruby_on_rails:4.2.1&quot;,
+  #]
+  #ignoreCves = [&quot;CVE-2016-6314&quot;]
+  #optional = [
+  #    [&quot;key&quot;, &quot;value&quot;],
+  #]
+  #[servers.172-31-4-82.containers]
+  #type = &quot;lxd&quot; # or &quot;docker&quot; or &quot;lxc&quot;
+  #includes = [&quot;${running}&quot;]
+  #excludes = [&quot;container_name&quot;, &quot;container_id&quot;]
+</code></pre>
+<p>You can overwrite the default value specified in default section.</p>
+<ul>
+<li>host: IP address or hostname of target server</li>
+<li>port: SSH Port number</li>
+<li>user: SSH username</li>
+<li>keyPath: SSH private key path</li>
+<li>type: &quot;pseudo&quot; for non-ssh scanning. see <a href="https://github.com/future-architect/vuls/pull/531">#531</a></li>
+<li>cpeNames: see <a href="#usage-scan-vulnerability-of-non-os-package">Usage: Scan vulnerability of non-OS package</a> //TODO change link</li>
+<li>ignoreCves: CVE IDs that will not be reported. But output to JSON file.</li>
+<li>optional: Add additional information to JSON report.</li>
+<li>containers: see [Example: Scan containers (Docker/LXD)(#example-scan-containers-dockerlxd) //TODO change link</li>
+</ul>
+<p>Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see <a href="#-ssh-native-insecure-option">-ssh-native-insecure option</a> //TODO change link</p>
+<p>Multiple SSH authentication methods are supported.</p>
+<ul>
+<li>SSH agent</li>
+<li>SSH public key authentication (with password and empty password) Password authentication is not supported.</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="usage-automatic-discovery.html">← Automatic Discovery</a><a class="docs-next button" href="usage-configtest.html">configtest →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/vuls/" class="nav-home"><img src="/vuls/img/docusaurus.svg" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/vuls/docs/ja/doc1.html">Getting Started (or other categories)</a><a href="/vuls/docs/ja/doc2.html">Guides (or other categories)</a><a href="/vuls/docs/ja/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/vuls/ja/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank">Twitter</a></div><div><h5>More</h5><a href="/vuls/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/facebook/test-site" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/vuls/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2017 Facebook Inc.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
+                indexName: 'vulsdoc',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

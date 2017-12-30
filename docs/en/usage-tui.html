@@ -1,0 +1,105 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>TUI(Terminal Based Viewer) · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="TUI(Terminal Based Viewer) · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/vuls/index.html"/><meta property="og:description" content="## Display the latest scan results"/><link rel="shortcut icon" href="/vuls/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/vuls/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/vuls/"><img class="logo" src="/vuls/img/docusaurus.svg"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/vuls/docs/en/abstract.html" target="_self">Docs</a></li><li><a href="/vuls/docs/en/abstract.html" target="_self">Community</a></li><li><a href="/vuls/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/vuls/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/vuls/ja">日本語</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/support-os.html">Support OS</a></li></ul></div><div class="navGroup navGroupActive"><h3>Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/architecture-fast-scan.html">Fast Scan (No root privileges)</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup navGroupActive"><h3>Installation</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/install-with-package.html">Install with Package</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/tutorial-docker.html">Docker</a></li></ul></div><div class="navGroup navGroupActive"><h3>Usage</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-configtest.html">configtest</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-scan.html">Scan</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-report.html">Report</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/vuls/docs/en/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup navGroupActive"><h3>Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/vulsrepo.html">Vulsrepo</a></li></ul></div><div class="navGroup navGroupActive"><h3>Misc</h3><ul><li class="navListItem"><a class="navItem" href="/vuls/docs/en/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/vuls/docs/en/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-tui.md" target="_blank">Edit</a><h1>TUI(Terminal Based Viewer)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" name="display-the-latest-scan-results"></a><a href="#display-the-latest-scan-results" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display the latest scan results</h2>
+<pre><code class="hljs">tui:
+        tui
+                [-refresh-cve]
+                [-cvedb-<span class="hljs-keyword">type</span>=sqlite3|mysql|postgres]
+                [-cvedb-path=/path/<span class="hljs-keyword">to</span>/cve.sqlite3]
+                [-cvedb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1323</span> DB connection <span class="hljs-built_in">string</span>]
+                [-ovaldb-<span class="hljs-keyword">type</span>=sqlite3|mysql]
+                [-ovaldb-path=/path/<span class="hljs-keyword">to</span>/oval.sqlite3]
+                [-ovaldb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>]
+                [-cvss-over=<span class="hljs-number">7</span>]
+                [-ignore-unscored-cves]
+                [-ignore-unfixed]
+                [-refresh-cve]
+                [-results-dir=/path/<span class="hljs-keyword">to</span>/results]
+                [-log-dir=/path/<span class="hljs-keyword">to</span>/log]
+                [-debug]
+                [-debug-sql]
+                [-pipe]
+
+  -cvedb-path <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/sqlite3 (<span class="hljs-keyword">For</span> get cve detail from cve.sqlite3) 
+  -cvedb-<span class="hljs-keyword">type</span> <span class="hljs-built_in">string</span>
+        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">for</span> fetching CVE dictionary (sqlite3, mysql <span class="hljs-keyword">or</span> postgres) (<span class="hljs-keyword">default</span> <span class="hljs-string">"sqlite3"</span>)
+  -cvedb-url <span class="hljs-built_in">string</span>
+        http://cve-dictionary.com:<span class="hljs-number">8080</span> DB connection <span class="hljs-built_in">string</span>
+  -ovaldb-path <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/sqlite3 (<span class="hljs-keyword">For</span> get oval detail from oval.sqlite3) (<span class="hljs-keyword">default</span> <span class="hljs-string">"/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3"</span>)
+  -ovaldb-<span class="hljs-keyword">type</span> <span class="hljs-built_in">string</span>
+        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">for</span> fetching OVAL dictionary (sqlite3 <span class="hljs-keyword">or</span> mysql) (<span class="hljs-keyword">default</span> <span class="hljs-string">"sqlite3"</span>)
+  -ovaldb-url <span class="hljs-built_in">string</span>
+        http://goval-dictionary.com:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> mysql connection <span class="hljs-built_in">string</span>
+  -cvss-over float
+        -cvss-over=<span class="hljs-number">6.5</span> means reporting CVSS Score <span class="hljs-number">6.5</span> <span class="hljs-keyword">and</span> over (<span class="hljs-keyword">default</span>: <span class="hljs-number">0</span> (means <span class="hljs-keyword">report</span> <span class="hljs-keyword">all</span>))
+  -ignore-unfixed
+        Don<span class="hljs-symbol">'t</span> <span class="hljs-keyword">report</span> the unfixed CVEs
+  -ignore-unscored-cves
+        Don<span class="hljs-symbol">'t</span> <span class="hljs-keyword">report</span> the unscored CVEs
+  -debug
+        debug mode
+  -debug-sql
+        debug SQL
+  -log-dir <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/log (<span class="hljs-keyword">default</span> <span class="hljs-string">"/var/log/vuls"</span>)
+  -pipe
+        <span class="hljs-keyword">Use</span> stdin via PIPE
+  -refresh-cve
+        Refresh CVE information <span class="hljs-keyword">in</span> JSON <span class="hljs-keyword">file</span> under results dir
+  -results-dir <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/results 
+</code></pre>
+<p>Key binding is below.</p>
+<table>
+<thead>
+<tr><th style="text-align:left">key</th><th style="text-align:left"></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">TAB</td><td style="text-align:left">move cursor among the panes</td></tr>
+<tr><td style="text-align:left">Arrow up/down</td><td style="text-align:left">move cursor to up/down</td></tr>
+<tr><td style="text-align:left">Ctrl+j, Ctrl+k</td><td style="text-align:left">move cursor to up/down</td></tr>
+<tr><td style="text-align:left">Ctrl+u, Ctrl+d</td><td style="text-align:left">page up/down</td></tr>
+</tbody>
+</table>
+<p>For details, see <a href="https://github.com/future-architect/vuls/blob/master/report/tui.go">https://github.com/future-architect/vuls/blob/master/report/tui.go</a></p>
+<h2><a class="anchor" aria-hidden="true" name="display-the-previous-scan-results"></a><a href="#display-the-previous-scan-results" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display the previous scan results</h2>
+<ul>
+<li>Display the list of scan results.</li>
+</ul>
+<pre><code class="hljs">$ vuls history
+2016<span class="hljs-string">-12</span><span class="hljs-string">-30</span>T10:34:38<span class="hljs-string">+09</span>:00 1 servers: u16
+2016<span class="hljs-string">-12</span><span class="hljs-string">-28</span>T19:15:19<span class="hljs-string">+09</span>:00 1 servers: ama
+2016<span class="hljs-string">-12</span><span class="hljs-string">-28</span>T19:10:03<span class="hljs-string">+09</span>:00 1 servers: cent6
+</code></pre>
+<ul>
+<li>Display the result of scan 2016-12-30T10:34:38+09:00</li>
+</ul>
+<pre><code class="hljs">$ vuls tui 2016<span class="hljs-string">-12</span><span class="hljs-string">-30</span>T10:34:38<span class="hljs-string">+09</span>:00
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" name="display-the-previous-scan-results-using-peco"></a><a href="#display-the-previous-scan-results-using-peco" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display the previous scan results using peco</h1>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls <span class="hljs-built_in">history</span> | peco | vuls tui -pipe</span>
+</code></pre>
+<p><a href="https://asciinema.org/a/emi7y7docxr60bq080z10t7v8"><img src="https://asciinema.org/a/emi7y7docxr60bq080z10t7v8.png" alt="asciicast"></a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="usage-report.html">← Report</a><a class="docs-next button" href="usage-scan-non-os-packages.html">Scan vulnerabilites of non-OS packages →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/vuls/" class="nav-home"><img src="/vuls/img/docusaurus.svg" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/vuls/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/vuls/docs/en/doc2.html">Guides (or other categories)</a><a href="/vuls/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/vuls/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank">Twitter</a></div><div><h5>More</h5><a href="/vuls/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/facebook/test-site" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/vuls/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2017 Facebook Inc.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
+                indexName: 'vulsdoc',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
