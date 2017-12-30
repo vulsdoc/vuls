@@ -16,7 +16,7 @@ Vuls is a tool created to solve the problems listed above. It has the following 
 - Informs users of the vulnerabilities that are related to the system.
 - Informs users of the servers that are affected.
 - Vulnerability detection is done automatically to prevent any oversight.
-- Report is generated on regular basis using CRON or other methods. to manage vulnerability.
+- Report is generated on regular basis using CRON or other methods to manage vulnerability.
 
 ![Vuls-Motivation](/vuls/img/docs/vuls-motivation.png)
 
