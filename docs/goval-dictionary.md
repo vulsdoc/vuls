@@ -23,4 +23,5 @@ $ vuls report -ovaldb-url=http://192.168.0.1:1323
 - [Debian](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-debian)
 - [Oracle](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
 - [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
+- [Alpine](https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
 

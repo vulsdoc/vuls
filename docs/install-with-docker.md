@@ -4,12 +4,10 @@ title: Install with Docker
 sidebar_label: Install with Docker
 ---
 
-# Caution
-
 Vuls's Docker images are built per commit.
 If you want to use the latest Docker image, you should remove the existing images, and pull it once again.
 
-# How to confirm your versions
+## How to confirm your versions
 
 - go-cve-dictionary
 
@@ -35,7 +33,7 @@ $ docker run  --rm  vuls/vuls -v
 vuls v0.0.xxx xxxx
 ```
 
-# Remove your old Docker images
+## Remove your old Docker images
 
 - go-cve-dictionary
 
@@ -55,7 +53,7 @@ $ docker rmi vuls/goval-dictionary
 $ docker rmi vuls/vuls
 ```
 
-# Deploy go-cve-dictionary
+## Deploy go-cve-dictionary
 
 ```
 $ docker pull vuls/go-cve-dictionary
@@ -80,7 +78,7 @@ $ for i in `seq 2002 $(date +"%Y")`; do \
 To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data)
 change URL
 
-# Deploy goval-dictionary
+## Deploy goval-dictionary
 
 ```
 $ docker pull vuls/goval-dictionary
@@ -103,7 +101,7 @@ $ docker run --rm -it \
 
 To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
-# Deploy Vuls
+## Deploy Vuls
 
 ```
 $ docker pull vuls/vuls
@@ -114,7 +112,7 @@ $ docker run  --rm  vuls/vuls -v
 
 vuls v0.1.xxx xxxx
 ```
-# Supported tags and respective `Dockerfile` links
+## Supported tags and respective `Dockerfile` links
 
 - go-cve-dictionary
   - [`latest` (*go-cve-dictionary:latest Dockerfile*)]()
