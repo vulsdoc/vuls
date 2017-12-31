@@ -4,6 +4,8 @@ title: Update Vuls to the latest version
 sidebar_label: Update Vuls to the latest version
 ---
 
+## Update manually
+
 - Update go-cve-dictionary  
 If the DB schema was changed, please specify new SQLite3, MySQL, PostgreSQL or Redis DB file.
 ```
@@ -34,7 +36,11 @@ $ make install
 - If an error occurs, delete `$GOPATH/pkg` before executing it
 
 
-#TODO 
+## Update using docker
 
-Docker setup
-package setup
+If you set up on docker, first delete images and then pull images. For details, see [Docker setup](install-with-docker.md)
+
+
+## Update using package
+comming soon
+

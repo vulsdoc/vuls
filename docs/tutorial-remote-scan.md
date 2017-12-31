@@ -1,6 +1,6 @@
 ---
 id: tutorial-remote-scan
-title: Remote Scan Mode
+title: Tutorial: Remote Scan Mode
 sidebar_label: Remote Scan Mode
 ---
 
@@ -87,8 +87,7 @@ ubuntu  ubuntu16.04     30 updatable packages
 
 ## Step6. Reporting
 
-See [Tutorial: Local Scan Mode#Step9. Reporting](#step9-reporting)  
-See [Tutorial: Local Scan Mode#Step10. TUI](#step10-tui)  
-See [Tutorial: Local Scan Mode#Step11. Web UI](#step11-web-ui)
+- See [Tutorial: Local Scan#Step6. Reporting](tutorial-local-scan.md#step6-reporting)
+- See [Tutorial: Local Scan#Step7. TUI](tutorial-local-scan.md#step7-tui)
+- See [Tutorial: Local Scan#Step8. Web UI](tutorial-local-scan.html#step8-web-ui)
 
-//TODO change links

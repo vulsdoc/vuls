@@ -11,6 +11,8 @@ It is possible to detect vulnerabilities in non-OS packages, such as something y
     **Check CPE Naming Format: 2.2**
 
     - [go-cpe-dictionary](https://github.com/kotakanbe/go-cpe-dictionary) is a good choice for geeks.   
+    [![asciicast](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png)](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0)
+
     You can search a CPE name by the application name incrementally.
 
 - Configuration  

@@ -1,8 +1,10 @@
 ---
 id: tutorial-docker
-title: Tutorial: Using Docker
-sidebar_label: Docker
+title: Tutorial: Scan using Docker
+sidebar_label: Scan using Docker
 ---
+
+Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
 
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
@@ -13,6 +15,7 @@ sidebar_label: Docker
 
 ## Step1. Fetch NVD
 
+- [kotakanbe/go-cve-dictioanry:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
 ```console
 $ for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
@@ -37,7 +40,7 @@ $ docker run --rm -it \
 
 ## Step2. Configuration
 
-Create config.toml referring to [this](https://github.com/future-architect/vuls#configuration).
+Create config.toml referring to [this](usage-settings.md).
 
 ```toml
 [servers]
@@ -61,6 +64,8 @@ $ docker run --rm -it\
     -config=./config.toml # path to config.toml in docker
 ```
 
+[Usage: configtest](usage-configtest.md)
+
 ## Step4. Scan
 
 ```console
@@ -73,6 +78,8 @@ $ docker run --rm -it \
     vuls/vuls scan \
     -config=./config.toml # path to config.toml in docker
 ```
+
+[Usage: Scan](usage-scan.md)
 
 ## Step5. Report
 
@@ -89,6 +96,8 @@ $ docker run --rm -it \
     -config=./config.toml # path to config.toml in docker
 ```
 
+[Usage: Report](usage-report.md)
+
 ## Step6. vulsrepo
 
 ```console
@@ -97,6 +106,8 @@ $docker run -dt \
     -p 5111:5111 \
     vuls/vulsrepo
 ```
+
+[VulsRepo](vulsrepo.md)
 
 ## Tips
 
