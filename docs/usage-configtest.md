@@ -84,7 +84,7 @@ The configtest subcommand also checks sudo settings on target servers whether Vu
 ```
 Defaults:vuls !requiretty
 ```
-For details, see [-ssh-native-insecure option](#-ssh-native-insecure-option)
+For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
 Example of /etc/sudoers on target servers
 

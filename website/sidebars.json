@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Introduction": ["abstract", "main-features","support-os"],
+    "Introduction": ["abstract", "main-features","supported-os"],
     "Architecture": ["architecture-remote-scan", "architecture-local-scan", "architecture-fast-scan", "architecture-deep-scan"],
     "Installation": ["install-manually-centos", "install-with-docker", "install-with-package"],
     "Tutorial": ["tutorial", "tutorial-local-scan", "tutorial-remote-scan", "tutorial-docker"],

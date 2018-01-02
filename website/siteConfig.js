@@ -90,10 +90,9 @@ const supportedOSes = [
 
 const siteConfig = {
   title: 'Vuls',
-  tagline: 'Vulnerability scanner for Linux/FreeBSD, agentless, written in Go',
+  tagline: 'Agentless Vulnerability Scanner for Linux/FreeBSD',
   url: 'https://github.com/future-architect/vuls',
   baseUrl: '/vuls/',
-  projectName: 'vuls',
   editUrl: 'https://github.com/vulsdoc/vuls/edit/master/docs/',
   headerLinks: [
     {doc: 'abstract', label: 'Docs'},
@@ -115,7 +114,7 @@ const siteConfig = {
     indexName: "vulsdoc"
   },
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
+  headerIcon: 'img/docs/vuls_icon.png',
   footerIcon: 'img/docusaurus.svg',
   favicon: 'img/favicon.png',
   /* colors for website */

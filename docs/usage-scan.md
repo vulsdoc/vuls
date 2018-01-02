@@ -59,8 +59,8 @@ scan:
 You need to execute `vuls configtest --deep` to check the configuration of the target server before scanning with -deep flag.
 
 For details about deep scan mode, see below.  
-* [Architecture/Deep Scan](#deep-scan)
-* [Configtest/Deep Scan Mode](#deep-scan-mode)
+* [Architecture/Deep Scan](architecture-deep-scan.md)
+* [Configtest/Deep Scan Mode](usage-configtest.md#deep-scan-mode)
 
 ## -ssh-native-insecure option
 

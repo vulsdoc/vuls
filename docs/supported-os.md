@@ -1,7 +1,7 @@
 ---
-id: support-os
-title: Support OS
-sidebar_label: Support OS
+id: supported-os
+title: Supported OS
+sidebar_label: Supported OS
 ---
 
 | Distribution |            Release |
