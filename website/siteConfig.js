@@ -116,7 +116,7 @@ const siteConfig = {
   /* path to images for header/footer */
   headerIcon: 'img/docs/vuls_icon.png',
   footerIcon: 'img/docusaurus.svg',
-  favicon: 'img/favicon.png',
+  favicon: 'img/docs/vuls_icon.png',
   /* colors for website */
   colors: {
     primaryColor: '#2E8555',
