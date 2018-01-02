@@ -122,32 +122,27 @@ class Index extends React.Component {
               contents={[
                 {
                   content:
-                    `Save time and focus on your project's documentation. Simply
-                    write docs and blog posts with [Markdown](${siteConfig.baseUrl}docs/${this.props.language}/doc-markdown.html)
-                    and Docusaurus will publish a set of static html files ready
-                    to serve.`,
-                  image: `${siteConfig.baseUrl}img/markdown.png`,
+                    `Cloud, on-premise, Docker and supports major distributions.`,
+                  image: `https://docusaurus.io/img/translation.svg`,
                   imageAlign: "top",
-                  title: "Powered by Markdown"
+                  imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/supported-os.html`,
+                  title: "Run Anyware"
                 },
                 {
                   content:
-                    `[Extend or customize](${siteConfig.baseUrl}docs/${this.props.language}/api-pages.html)
-                    your project's layout by reusing React. Docusaurus can be
-                    extended while reusing the same header and footer.`,
-                  image: `${siteConfig.baseUrl}img/react.svg`,
+                    `Vuls uses Multiple vulnerability databases OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog.`,
+                  // image: `${siteConfig.baseUrl}img/markdown.png`,
+                  image: `https://docusaurus.io/img/translation.svg`,
                   imageAlign: "top",
-                  title: "Built Using React"
+                  title: "High Quality Scan"
                 },
                 {
                   content:
-                    `[Localization](${siteConfig.baseUrl}docs/${this.props.language}/translation.html)
-                    comes pre-configured. Use [Crowdin](https://crowdin.com/) to translate your docs
-                    into over 70 languages.`,
-                  image: `${siteConfig.baseUrl}img/translation.svg`,
+                    `It is possible to acquire the state of the server executing some commands. Vuls warns when the scan target server was updated the kernel etc. but not restarting it.`,
+                  image: `https://docusaurus.io/img/translation.svg`,
                   imageAlign: "top",
-                  title: "Ready for Translations"
-                }
+                  title: "Dynamic Analysis"
+                },
               ]}
               layout="threeColumn"
             />
@@ -158,23 +153,30 @@ class Index extends React.Component {
               contents={[
                 {
                   content:
-                    `Support users on all versions of your project. Document
-                    [versioning](${siteConfig.baseUrl}docs/${this.props.language}/versioning.html)
-                    helps you keep documentation in sync with project releases.`,
-                  image: `${siteConfig.baseUrl}img/versioning.svg`,
+                    `Remote scan mode is required to only setup one machine that is connected to other scan target servers via SSH. If you don't want the central Vuls server to connect to each server by SSH, you can use Vuls in the Local Scan mode.`,
+                  image: `https://docusaurus.io/img/translation.svg`,
                   imageAlign: "top",
-                  title: "Document Versioning"
+                  imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-remote-local.html`,
+                  title: "Remote and Local Scan"
                 },
                 {
                   content:
-                    `Make it easy for your community to [find](${siteConfig.baseUrl}docs/${this.props.language}/search.html) what they need in your documentation.
-                    We proudly support [Algolia documentation search](https://www.algolia.com/).`,
-                  image: `${siteConfig.baseUrl}img/search.svg`,
+                    `Fast scan mode scans without root privilege, no internet access, almost no load on the scan target server. Deep scan mode scans in more detail.`,
+                  image: `https://docusaurus.io/img/translation.svg`,
                   imageAlign: "top",
-                  title: "Document Search"
-                }
+                  imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-fast-deep.html`,
+                  title: "Fast and Deep Scan"
+                },
+                {
+                  content:
+                    `It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the CPE.`,
+                  image: `https://docusaurus.io/img/translation.svg`,
+                  imageAlign: "top",
+                  title: "Scan Vulnerabilites of non-OS packages",
+                  imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/usage-scan-non-os-packages.html`
+                },
               ]}
-              layout="twoColumn"
+              layout="threeColumn"
             />
           </Container>
 

@@ -1,7 +1,7 @@
 ---
 id: architecture-fast-scan
 title: Fast Scan (No root privileges)
-sidebar_label: Fast Scan (No root privileges)
+sidebar_label: > Fast Scan
 ---
 
 ![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow-fast.png)
