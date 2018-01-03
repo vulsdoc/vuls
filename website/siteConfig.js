@@ -96,7 +96,7 @@ const siteConfig = {
   editUrl: 'https://github.com/vulsdoc/vuls/edit/master/docs/',
   headerLinks: [
     {doc: 'abstract', label: 'Docs'},
-    {doc: 'abstract', label: 'Community'},
+    {doc: 'community', label: 'Community'},
     {blog: true, label: 'Blog'},
     { search: true },
     { languages: true },
@@ -115,18 +115,18 @@ const siteConfig = {
   },
   /* path to images for header/footer */
   headerIcon: 'img/docs/vuls_icon.png',
-  footerIcon: 'img/docusaurus.svg',
+  footerIcon: 'img/docs/vuls_icon.png',
   favicon: 'img/docs/vuls_icon.png',
   /* colors for website */
   colors: {
-    primaryColor: '#2E8555',
+    primaryColor: '#1b47b8',
     secondaryColor: '#205C3B',
   },
   // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
   copyright:
     'Copyright © ' +
     new Date().getFullYear() +
-    ' Your Name or Your Company Name',
+    'kotakanbe',
   organizationName: 'vulsdoc', // or set an env variable ORGANIZATION_NAME
   projectName: 'vuls', // or set an env variable PROJECT_NAME
   highlight: {
@@ -135,7 +135,7 @@ const siteConfig = {
   },
   scripts: ['https://buttons.github.io/buttons.js'],
   // You may provide arbitrary config keys to be used as needed by your template.
-  repoUrl: 'https://github.com/facebook/test-site',
+  repoUrl: 'https://github.com/future-architect/ uls',
 };
 
 module.exports = siteConfig;

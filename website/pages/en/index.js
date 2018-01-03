@@ -123,7 +123,7 @@ class Index extends React.Component {
                 {
                   content:
                     `Cloud, on-premise, Docker and supports major distributions.`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/anyware.png`,
                   imageAlign: "top",
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/supported-os.html`,
                   title: "Run Anyware"
@@ -131,15 +131,14 @@ class Index extends React.Component {
                 {
                   content:
                     `Vuls uses Multiple vulnerability databases OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog.`,
-                  // image: `${siteConfig.baseUrl}img/markdown.png`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/hq.png`,
                   imageAlign: "top",
                   title: "High Quality Scan"
                 },
                 {
                   content:
                     `It is possible to acquire the state of the server executing some commands. Vuls warns when the scan target server was updated the kernel etc. but not restarting it.`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/dynamic.png`,
                   imageAlign: "top",
                   title: "Dynamic Analysis"
                 },
@@ -154,7 +153,7 @@ class Index extends React.Component {
                 {
                   content:
                     `Remote scan mode is required to only setup one machine that is connected to other scan target servers via SSH. If you don't want the central Vuls server to connect to each server by SSH, you can use Vuls in the Local Scan mode.`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/remote.png`,
                   imageAlign: "top",
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-remote-local.html`,
                   title: "Remote and Local Scan"
@@ -162,7 +161,7 @@ class Index extends React.Component {
                 {
                   content:
                     `Fast scan mode scans without root privilege, no internet access, almost no load on the scan target server. Deep scan mode scans in more detail.`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/deep.png`,
                   imageAlign: "top",
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-fast-deep.html`,
                   title: "Fast and Deep Scan"
@@ -170,7 +169,7 @@ class Index extends React.Component {
                 {
                   content:
                     `It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the CPE.`,
-                  image: `https://docusaurus.io/img/translation.svg`,
+		  image: `${siteConfig.baseUrl}img/non-os.png`,
                   imageAlign: "top",
                   title: "Scan Vulnerabilites of non-OS packages",
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/usage-scan-non-os-packages.html`

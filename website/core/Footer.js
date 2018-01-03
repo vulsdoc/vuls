@@ -28,61 +28,40 @@ class Footer extends React.Component {
                 this.props.config.baseUrl +
                 'docs/' +
                 this.props.language +
-                '/doc1.html'
+                '/abstract.html'
               }>
-              Getting Started (or other categories)
+              Introduction
             </a>
             <a
               href={
                 this.props.config.baseUrl +
                 'docs/' +
                 this.props.language +
-                '/doc2.html'
+                '/architecture-remote-local.html'
               }>
-              Guides (or other categories)
+              Architecture
             </a>
             <a
               href={
                 this.props.config.baseUrl +
                 'docs/' +
                 this.props.language +
-                '/doc3.html'
+                '/tutorial.html'
               }>
-              API Reference (or other categories)
+              Tutorial
             </a>
           </div>
           <div>
             <h5>Community</h5>
-            <a
-              href={
-                this.props.config.baseUrl + this.props.language + '/users.html'
-              }>
-              User Showcase
-            </a>
-            <a
-              href="http://stackoverflow.com/questions/tagged/"
-              target="_blank">
-              Stack Overflow
-            </a>
-            <a href="https://discordapp.com/">Project Chat</a>
-            <a href="https://twitter.com/" target="_blank">
-              Twitter
-            </a>
+            <a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a>
+            <a href="https://vuls-github.slack.com/">Slack</a>
+            <a href="https://twitter.com/vuls_en">Twitter(English)</a>
+            <a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a>
           </div>
           <div>
             <h5>More</h5>
             <a href={this.props.config.baseUrl + 'blog'}>Blog</a>
-            <a href="https://github.com/">GitHub</a>
-            <a
-              className="github-button"
-              href={this.props.config.repoUrl}
-              data-icon="octicon-star"
-              data-count-href="/facebook/docusaurus/stargazers"
-              data-show-count={true}
-              data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
-              Star
-            </a>
+            <a href="https://github.com/future-architect/vuls">GitHub</a>
           </div>
         </section>
 
@@ -91,14 +70,13 @@ class Footer extends React.Component {
           target="_blank"
           className="fbOpenSource">
           <img
-            src={this.props.config.baseUrl + 'img/oss_logo.png'}
-            alt="Facebook Open Source"
+            src={this.props.config.baseUrl + 'img/docs/vuls_logo.png'}
             width="170"
             height="45"
           />
         </a>
         <section className="copyright">
-          Copyright &copy; {currentYear} Facebook Inc.
+          Copyright &copy; {currentYear} kotakanbe
         </section>
       </footer>
     );

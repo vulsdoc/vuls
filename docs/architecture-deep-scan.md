@@ -1,7 +1,7 @@
 ---
 id: architecture-deep-scan
 title: Deep Scan
-sidebar_label: > Deep Scan
+sidebar_label: - Deep Scan
 ---
 
 ![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
