@@ -99,18 +99,6 @@ class Index extends React.Component {
         );
       });
 
-    const supportedOSes = siteConfig.supportedOSes
-      .filter(os => {
-        return os.pinned;
-      })
-      .map((os, i) => {
-        return (
-          <a href={os.infoLink} key={i}>
-            <img src={os.image} title={os.caption} />
-          </a>
-        );
-      });
-
     return (
       <div>
         <HomeSplash language={language} />
@@ -222,21 +210,7 @@ class Index extends React.Component {
             />
           </Container>
 
-          <div className="productShowcaseSection paddingBottom">
-            <h2>{"Supported OS"}</h2>
-            <p>Docusaurus is building websites for these projects...</p>
-            <div className="logos">{supportedOSes}</div>
-            <div className="more-users">
-              <a
-                className="button"
-                href={`${siteConfig.baseUrl}${this.props.language}/os.html`}>
-                Supported OS
-              </a>
-            </div>
-          </div>
-
-
-          <Container padding={['bottom', 'top']} background="light">
+          <Container padding={['bottom', 'top']}>
           <div className="productShowcaseSection paddingBottom">
             <h2>{"Who's Using This?"}</h2>
             <p>This project is used by all these people</p>
@@ -252,38 +226,6 @@ class Index extends React.Component {
             </div>
           </div>
           </Container>
-
-	  <div
-          className="productShowcaseSection paddingTop"
-          style={{ textAlign: "center" }} >
-          <h2>
-              <a href={siteConfig.baseUrl + "docs/en/english-vectors.html"}>Download pre-trained models</a>
-          </h2>
-          <Container>
-            <GridBlock
-            align="center"
-            contents={[
-              {
-                content: "Pre-trained on English webcrawl and Wikipedia",
-                image: "https://asciinema.org/a/3y9zrf950agiko7klg8abvyck.png",
-                imageAlign: "top",
-                title: "[English word vectors](" + siteConfig.baseUrl + "docs/en/english-vectors.html)",
-                imageLink: "https://asciinema.org/a/3y9zrf950agiko7klg8abvyck",
-                pinned : "true",
-              },
-              {
-                content: "Pre-trained on 294 different languages of Wikipedia",
-                image: siteConfig.baseUrl + "img/model-red.png",
-                imageAlign: "top",
-                title: "[Wiki word vectors](" + siteConfig.baseUrl + "docs/en/pretrained-vectors.html)",
-                imageLink: siteConfig.baseUrl + "docs/en/pretrained-vectors.html",
-              },
-            ]}
-          layout="twoColumn"
-            />
-            </Container>
-          </div>
-
         </div>
       </div>
     );
