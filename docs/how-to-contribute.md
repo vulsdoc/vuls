@@ -15,6 +15,7 @@ sidebar_label: Contribute
 
 
 # TODO
+english
 issue, pull request. make fmt
 documentation
 localization

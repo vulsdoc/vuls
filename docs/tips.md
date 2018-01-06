@@ -38,7 +38,7 @@ Run with --debug, --sql-debug option.
 [Riak docs](http://docs.basho.com/riak/latest/ops/tuning/open-files-limit/) is awesome.
 
 - Does Vuls accept SSH connections with fish-shell or old zsh as the login shell?  
-~~No, Vuls needs a user on the server for bash login. see also [#8](/../../issues/8)~~  
+~~No, Vuls needs a user on the server for bash login.~~  
 Yes, fixed in [#545](https://github.com/future-architect/vuls/pull/545)
 
 - Windows  

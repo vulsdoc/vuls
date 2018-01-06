@@ -156,7 +156,7 @@ class Index extends React.Component {
                 },
                 {
                   content:
-                    `It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the CPE.`,
+                    `It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm).`,
 		  image: `${siteConfig.baseUrl}img/non-os.png`,
                   imageAlign: "top",
                   title: "Scan Vulnerabilites of non-OS packages",

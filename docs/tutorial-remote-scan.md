@@ -18,7 +18,7 @@ We will use the Vuls server (called localhost) created in the previous tutorial.
 
 ## Step1. Launch new Ubuntu Linux
 
-Same like as [Tutorial: Local Scan Mode#Step1. Launch CentOS7](#step1-launch-centos7)  
+Same like as [Tutorial: Local Scan Mode#Step1. Launch CentOS7](tutorial-local-scan.md#step1-launch-centos7)  
 Launch a new terminal and SSH to the Remote host.  
 To add the remote host's Host Key to $HOME/.ssh/known_hosts, you need to log in to the remote host through SSH before scanning.
 
@@ -27,7 +27,7 @@ To add the remote host's Host Key to $HOME/.ssh/known_hosts, you need to log in 
 Vuls doesn't support SSH password authentication. So you have to use SSH key-based authentication.  
 Create a keypair on the localhost then append the public key to authorized_keys on the remote host.  
 
-- localhost
+- localhosT
 ```bash
 $ ssh-keygen -t rsa
 ```
@@ -89,5 +89,5 @@ ubuntu  ubuntu16.04     30 updatable packages
 
 - See [Tutorial: Local Scan#Step6. Reporting](tutorial-local-scan.md#step6-reporting)
 - See [Tutorial: Local Scan#Step7. TUI](tutorial-local-scan.md#step7-tui)
-- See [Tutorial: Local Scan#Step8. Web UI](tutorial-local-scan.html#step8-web-ui)
+- See [Tutorial: Local Scan#Step8. Web UI](tutorial-local-scan.md#step8-web-ui)
 

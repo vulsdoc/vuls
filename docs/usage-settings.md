@@ -110,15 +110,12 @@ sidebar_label: Settings
     - user: SSH username
     - keyPath: SSH private key path
     - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
-    - cpeNames: see [Usage: Scan vulnerability of non-OS package](#usage-scan-vulnerability-of-non-os-package)
-    //TODO change link
+    - cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
     - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
     - optional: Add additional information to JSON report.
-    - containers: see [Example: Scan containers (Docker/LXD)(#example-scan-containers-dockerlxd)
-    //TODO change link
+    - containers: see [Example: Scan containers (Docker/LXD)(usage-scan.md#example-scan-containers-docker-lxd-lxc)
 
-    Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see [-ssh-native-insecure option](#-ssh-native-insecure-option)
-    //TODO change link
+    Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
     Multiple SSH authentication methods are supported.  
     - SSH agent

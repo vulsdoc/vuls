@@ -105,7 +105,7 @@ With this sample command, it will ..
 ## Example: Scan via shell instead of SSH.
 
 Vuls scans localhost instead of SSH if the host address is `localhst or 127.0.0.1` and the port is `local` in config.
-For more details, see [Architecture section](#architecture)
+For more details, see [Architecture section](architecture-local-scan.md)
 
 - config.toml
   ```
@@ -124,7 +124,7 @@ see [Docker Blog:Why you don't need to run SSHd in your Docker containers](https
 ### Docker
 
 Vuls scans Docker containers via `docker exec` instead of SSH.  
-For more details, see [Architecture section](#architecture)
+For more details, see [Architecture section](architecture-remote-scan.html)
 
 - To scan all of running containers  
   `"${running}"` needs to be set in the containers item.

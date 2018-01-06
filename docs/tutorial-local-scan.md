@@ -148,6 +148,3 @@ $ vuls tui
 [VulsRepo](https://github.com/usiusi360/vulsrepo) is a awesome Web UI for Vuls.  
 Check it out the [Online Demo](http://usiusi360.github.io/vulsrepo/).
 
-TODO chagne link
-
-
