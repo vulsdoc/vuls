@@ -59,6 +59,7 @@ scan:
 You need to execute `vuls configtest --deep` to check the configuration of the target server before scanning with -deep flag.
 
 For details about deep scan mode, see below.  
+
 * [Architecture/Deep Scan](architecture-deep-scan.md)
 * [Configtest/Deep Scan Mode](usage-configtest.md#deep-scan-mode)
 
@@ -91,6 +92,7 @@ But it is important to note that this mode does not check the host key.
 $ vuls scan -ask-key-password
 ```
 With this sample command, it will ..
+
 - Ask SSH key password before scanning
 - Scan all servers defined in config file
 
@@ -99,6 +101,7 @@ With this sample command, it will ..
 $ vuls scan server1 server2
 ```
 With this sample command, it will ..
+
 - Use SSH Key-Based authentication with empty password (without -ask-key-password option)
 - Scan only 2 servers (server1, server2)
 

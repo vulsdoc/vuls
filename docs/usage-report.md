@@ -226,6 +226,7 @@ $ vuls report \
       -cvedb-path=$PWD/cve.sqlite3
 ```
 With this sample command, it will ..
+
 - Send scan results to slack
 - Only Report CVEs that CVSS score is over 7
 
@@ -237,12 +238,14 @@ $ vuls report \
       -cvedb-path=$PWD/cve.sqlite3
 ```
 With this sample command, it will ..
+
 - Send scan results to slack
 - Only Report CVEs that CVSS score is over 7
 
 
 ## Example: Put results in S3 bucket
 To put results in S3 bucket, configure following settings in AWS before reporting.
+
 - Create S3 bucket. see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html)  
 - Configure access to S3 resources. You can do this in several ways:
   - Configure the environment variables. see [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
@@ -285,6 +288,7 @@ $ vuls report \
       -aws-profile=default
 ```
 With this sample command, it will ..
+ 
 - Put scan result(JSON) in S3 bucket. The bucket name is "vuls" in ap-northeast-1 and profile is "default"
 
 ## Example: Put results in Azure Blob storage

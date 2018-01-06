@@ -47,12 +47,14 @@ Search for NVD at report time and detect vulnerability of software specified as 
 [OWASP Dependency check](https://www.owasp.org/index.php/OWASP_Dependency_Check) is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.
 
 Benefit of integrating Vuls And OWASP Dependency Check is below.
+
 - Automatic Update of Vuls config when the libraries are updated.
 - Reporting by Email or Slack by using Vuls.
 - Reporting in Japanese
   - OWASP Dependency Check supports only English
 
 How to integrate Vuls with OWASP Dependency Check
+
 - Execute OWASP Dependency Check with --format=XML option.
 - Define the xml file path of dependency check in config.toml.
 
