@@ -66,7 +66,8 @@ scan:
 <p>You need to execute <code>vuls configtest --deep</code> to check the configuration of the target server before scanning with -deep flag.</p>
 <p>For details about deep scan mode, see below.</p>
 <ul>
-<li><a href="/vuls/docs/ja/architecture-deep-scan.html">Architecture/Deep Scan</a> * <a href="/vuls/docs/ja/usage-configtest.html#deep-scan-mode">Configtest/Deep Scan Mode</a></li>
+<li><a href="/vuls/docs/ja/architecture-deep-scan.html">Architecture/Deep Scan</a></li>
+<li><a href="/vuls/docs/ja/usage-configtest.html#deep-scan-mode">Configtest/Deep Scan Mode</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name="ssh-native-insecure-option"></a><a href="#ssh-native-insecure-option" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ssh-native-insecure option</h2>
 <p>Vuls supports different types of SSH.</p>
@@ -89,11 +90,19 @@ This is useful in situations where you may not have access to traditional UNIX t
 <h2><a class="anchor" aria-hidden="true" name="example-scan-all-servers-defined-in-config-file"></a><a href="#example-scan-all-servers-defined-in-config-file" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan all servers defined in config file</h2>
 <pre><code class="hljs">$ vuls scan -ask-key-password
 </code></pre>
-<p>With this sample command, it will .. - Ask SSH key password before scanning - Scan all servers defined in config file</p>
+<p>With this sample command, it will ..</p>
+<ul>
+<li>Ask SSH key password before scanning</li>
+<li>Scan all servers defined in config file</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" name="example-scan-specific-servers"></a><a href="#example-scan-specific-servers" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan specific servers</h2>
 <pre><code class="hljs">$ vuls scan server1 server2
 </code></pre>
-<p>With this sample command, it will .. - Use SSH Key-Based authentication with empty password (without -ask-key-password option) - Scan only 2 servers (server1, server2)</p>
+<p>With this sample command, it will ..</p>
+<ul>
+<li>Use SSH Key-Based authentication with empty password (without -ask-key-password option)</li>
+<li>Scan only 2 servers (server1, server2)</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" name="example-scan-via-shell-instead-of-ssh"></a><a href="#example-scan-via-shell-instead-of-ssh" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan via shell instead of SSH.</h2>
 <p>Vuls scans localhost instead of SSH if the host address is <code>localhst or 127.0.0.1</code> and the port is <code>local</code> in config. For more details, see <a href="/vuls/docs/ja/architecture-local-scan.html">Architecture section</a></p>
 <ul>

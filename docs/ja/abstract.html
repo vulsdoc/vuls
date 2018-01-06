@@ -16,16 +16,16 @@
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/abstract.md" target="_blank">Edit</a><h1>Abstract</h1></header><article><div><span><p>毎日のように発見される脆弱性の調査やソフトウェアアップデート作業は、システム管理者にとって負荷の高いタスクである。 プロダクション環境ではサービス停止リスクを避けるために、パッケージマネージャの自動更新機能を使わずに手動更新で運用するケースも多い。 だが、手動更新での運用には以下の問題がある。</p>
 <ul>
-<li>System administrator will have to constantly watch out for any new vulnerabilities in NVD(National Vulnerability Database) or similar databases.</li>
-<li>It might be impossible for the system administrator to monitor all the software if there are a large number of software installed in server.</li>
-<li>It is expensive to perform analysis to determine the servers affected by new vulnerabilities. The possibility of overlooking a server or two during analysis is there.</li>
+<li>システム管理者がNVD(National Vulnerability Database)やJVNなどで新着の脆弱性をウォッチし続けなければならない</li>
+<li>サーバにインストールされているソフトウェアは膨大であり、システム管理者が全てを把握するのは困難</li>
+<li>新着の脆弱性がどのサーバに該当するのかといった調査コストが大きく、漏れる可能性がある</li>
 </ul>
-<p>Vuls is a tool created to solve the problems listed above. It has the following characteristics.</p>
+<p>Vulsは上に挙げた手動運用での課題を解決するツールであり、以下の特徴がある。</p>
 <ul>
-<li>Informs users of the vulnerabilities that are related to the system.</li>
-<li>Informs users of the servers that are affected.</li>
-<li>Vulnerability detection is done automatically to prevent any oversight.</li>
-<li>Report is generated on regular basis using CRON or other methods to manage vulnerability.</li>
+<li>システムに関係ある脆弱性のみ教えてくれる</li>
+<li>その脆弱性に該当するサーバを教えてくれる</li>
+<li>自動スキャンのため脆弱性検知の漏れを防ぐことができる</li>
+<li>CRONなどで定期実行、レポートすることで脆弱性の放置を防ぐことできる</li>
 </ul>
 <p><img src="/vuls/img/docs/vuls-motivation.png" alt="Vuls-Motivation"></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="main-features.html">Main Features →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/vuls/" class="nav-home"><img src="/vuls/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/vuls/docs/ja/abstract.html">Introduction</a><a href="/vuls/docs/ja/architecture-remote-local.html">Architecture</a><a href="/vuls/docs/ja/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/vuls/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/vuls/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
