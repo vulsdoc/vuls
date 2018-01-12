@@ -1,4 +1,4 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Tips · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Tips · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/vuls/index.html"/><meta property="og:description" content="- Unable to go get vuls  "/><link rel="shortcut icon" href="/vuls/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/vuls/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/vuls/"><img class="logo" src="/vuls/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/vuls/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/vuls/docs/ja/community.html" target="_self">Community</a></li><li><a href="/vuls/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/vuls/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/vuls/en">English</a></li></ul></div></li><script>
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Tips · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Tips · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/vuls/index.html"/><meta property="og:description" content="- go get時にエラーが出る  "/><link rel="shortcut icon" href="/vuls/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/vuls/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/vuls/"><img class="logo" src="/vuls/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/vuls/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/vuls/docs/ja/community.html" target="_self">Community</a></li><li><a href="/vuls/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/vuls/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/vuls/en">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(){
@@ -15,20 +15,22 @@
             nav.classList.toggle('docsSliderActive');
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/tips.md" target="_blank">Edit</a><h1>Tips</h1></header><article><div><span><ul>
-<li><p>Unable to go get vuls<br>
-Update git to the latest version. Old version of git can't get some repositories.<br>
+<li><p>go get時にエラーが出る<br>
+Gitを最新版にアップデートしてお試しを。古いバージョンだとリポジトリにアクセスできないことがある<br>
 see <a href="https://groups.google.com/forum/#!topic/mgo-users/rO1-gUDFo_g">https://groups.google.com/forum/#!topic/mgo-users/rO1-gUDFo_g</a></p></li>
-<li><p>HTTP Proxy Support<br>
-If your system is behind HTTP proxy, you have to specify --http-proxy option.</p></li>
-<li><p>How to Daemonize go-cve-dictionary<br>
+<li><p>HTTP Proxy サポート プロキシ環境下では、-http-proxyオプションを指定</p></li>
+<li><p>go-cve-dictionaryのデーモン化<br>
 Use Systemd, Upstart or supervisord, daemontools...</p></li>
-<li><p>How to Enable Automatic-Update of Vulnerability Data.<br>
-Use job scheduler like Cron (with -last2y option).</p></li>
-<li><p>How to Enable Automatic-Scan.<br>
-Use job scheduler like Cron.<br>
-Set NOPASSWORD option in /etc/sudoers on target servers.<br>
-Use SSH Key-Based Authentication with no passphrase or ssh-agent.</p></li>
-<li><p>How to cross compile</p>
+<li><p>NVD, JVNの脆弱性データベースの自動更新<br>
+CRON (with -last2yオプションを指定) などを使えば可能</p></li>
+<li><p>自動定期スキャン<br>
+CRONなどを使い、自動化のためにsudoと、秘密鍵のパスワードなしでも実行可能なようにする</p></li>
+</ul>
+<pre><code class="hljs">- スキャン対象サーバの /etc/sudoers に NOPASSWORD を設定する
+- 秘密鍵パスフレーズなしの公開鍵認証か、ssh-agentを使う
+</code></pre>
+<ul>
+<li><p>クロスコンパイル</p>
 <pre><code class="hljs css bash"></code></pre></li>
 </ul>
 <p>$ cd /path/to/your/local-git-reporsitory/vuls
@@ -43,9 +45,9 @@ $ GOOS=linux GOARCH=amd64 go build -o vuls.amd64</p>
 - Adjusting Open File Limit  
     [Riak docs](http://docs.basho.<span class="hljs-keyword">com</span>/riak/latest/ops/tuning/<span class="hljs-keyword">open</span>-<span class="hljs-keyword">files</span>-limit/) <span class="hljs-keyword">is</span> awesome.
 
-- Does Vuls accept SSH connections with fish-<span class="hljs-keyword">shell</span> <span class="hljs-built_in">or</span> old zsh <span class="hljs-keyword">as</span> the login <span class="hljs-keyword">shell</span>?  
+- スキャン対象サーバのログインシェルにBash以外の、例えばFish Shell や ZSHが設定されているサーバをスキャンできる？  
     ~~No, Vuls needs <span class="hljs-keyword">a</span> user <span class="hljs-keyword">on</span> the server <span class="hljs-keyword">for</span> bash login.~~  
-    Yes, fixed in [#<span class="hljs-number">545</span>](http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/future-architect/vuls/pull/<span class="hljs-number">545</span>)
+    はい、できます。[#<span class="hljs-number">545</span>](http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/future-architect/vuls/pull/<span class="hljs-number">545</span>)でできるようになった
 
 - Windows  
     Use Microsoft Baseline Security Analyzer. [MBSA](http<span class="hljs-variable">s:</span>//technet.microsoft.<span class="hljs-keyword">com</span>/<span class="hljs-keyword">en</span>-us/security/cc184924.aspx)</code></pre>
