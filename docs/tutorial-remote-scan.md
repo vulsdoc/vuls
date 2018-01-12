@@ -27,7 +27,7 @@ To add the remote host's Host Key to $HOME/.ssh/known_hosts, you need to log in 
 Vuls doesn't support SSH password authentication. So you have to use SSH key-based authentication.  
 Create a keypair on the localhost then append the public key to authorized_keys on the remote host.  
 
-- localhosT
+- localhost
 ```bash
 $ ssh-keygen -t rsa
 ```
