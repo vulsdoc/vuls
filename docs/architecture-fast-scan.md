@@ -6,8 +6,7 @@ sidebar_label: Fast Scan
 
 ![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow-fast.png)
 
-- Scan without Root Privilege
-- Scan with No internet access on some OS.
+TODOaaa
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access <br>on scan tareget|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -22,3 +21,5 @@ sidebar_label: Fast Scan
 | Amazon      |                                   Fast |　                No |         No |                                    Need |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
+
+TODOaaa
