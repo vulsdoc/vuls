@@ -15,6 +15,7 @@
             nav.classList.toggle('docsSliderActive');
           };
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/architecture-deep-scan.md" target="_blank">Edit</a><h1>Deep Scan</h1></header><article><div><span><p><img src="/vuls/img/docs/vuls-scan-flow.png" alt="Vuls-Scan-Flow"></p>
+<p>TODOaaa</p>
 <p>| Distribution    |         Scan Speed         | Need Root Privilege |   OVAL    | スキャン対象サーバの<br>
 インターネット接続要否 |
 |:--------------- |:--------------------------:|:-------------------:|:---------:|:-------------------------:|
@@ -31,6 +32,7 @@
 | FreeBSD         |            Fast            |        　 No         |    No     |           Need            |
 | Amazon          |            Slow            |        　 No         |    No     |           Need            |
 | SUSE Enterprise |            Fast            |        　 No         | Supported |            No             |</p>
+<p>TODOaaa</p>
 <ul>
 <li><p>On Ubuntu, Debian and Raspbian <code>apt-get changelog</code>でアップデート対象のパッケージのチェンジログを取得し、含まれるCVE IDをパースする。アップデート対象のパッケージが沢山ある場合、チェンジログの取得に時間がかかるので、初回のスキャンは遅い。 ただ、２回目以降はKVSである<a href="https://github.com/boltdb/bolt">boltdb</a>にキャッシュしたchangelogを使うので速くなる。</p></li>
 <li><p>CentOSでは<code>yum changelog</code>でアップデート対象のパッケージのチェンジログを取得し、含まれるCVE IDをパースする。</p></li>
