@@ -6,6 +6,7 @@ sidebar_label: Deep Scan
 
 ![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
 
+
 | Distribution|                            Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access <br>on scan tareget|
 |:------------|:-------------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
 | Alpine      |                                  Fast |　                      No | Supported |                                    Need |
