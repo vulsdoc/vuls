@@ -88,25 +88,27 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 
 Example of /etc/sudoers on target servers
 
-- RHEL 5 / Oracle Linux 5
+#### RHEL 5 / Oracle Linux 5
 
 ```
 vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never list-security --security, /usr/bin/yum --color=never info-security, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
 
-- RHEL 6, 7 / Oracle Linux 6, 7
+#### RHEL 6, 7 / Oracle Linux 6, 7
 
 ```
 vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never --security updateinfo list updates, /usr/bin/yum --color=never --security updateinfo updates, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
 
-- Debian/Ubuntu/Raspbian
+#### Debian/Ubuntu/Raspbian
 
 ```
 vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
 
-- On CentOS, Amazon Linux, SUSE Enterprise, FreeBSD, it is possible to scan without root privilege for now.
+#### On CentOS, Amazon Linux, SUSE Enterprise, FreeBSD
+
+Scan without root privilege for now.
