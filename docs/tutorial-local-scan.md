@@ -104,7 +104,7 @@ CVE-2015-2806           10.0 HIGH (nvd)
                         Confidence: 100 / OvalMatch
 
 ... snip ...
-````
+```
 
 View full report.
 
