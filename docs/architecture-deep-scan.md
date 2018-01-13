@@ -9,18 +9,18 @@ sidebar_label: Deep Scan
 TODOaaa
 
 
-| Distribution|                            Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access <br>on scan tareget|
-|:------------|:-------------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
-| Alpine      |                                  Fast |　                      No | Supported |                                    Need |
-| CentOS      |                                  Slow |　                      No | Supported |                                    Need |
-| RHEL        |                                  Slow |　                    Need | Supported |                                    Need |
-| Oracle      |                                  Slow |　                    Need | Supported |                                    Need |
-| Ubuntu      |1st time: Slow <br> From 2nd time: Fast|                      Need | Supported |                                    Need |
-| Debian      |1st time: Slow <br> From 2nd time: Fast|                      Need | Supported |                                    Need |
-| Raspbian    |1st time: Slow <br> From 2nd time: Fast|                      Need |        No |                                    Need |
-| FreeBSD     |                                  Fast |　                      No |        No |                                    Need |
-| Amazon      |                                  Slow |　                      No |        No |                                    Need |
-| SUSE Enterprise |                              Fast |　                      No |  Supported |                                     No |
+| Distribution|                        Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access <br>on scan tareget|
+|:------------|:---------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
+| Alpine      |                              Fast |　                      No | Supported |                                    Need |
+| CentOS      |                              Slow |　                      No | Supported |                                    Need |
+| RHEL        |                              Slow |　                    Need | Supported |                                    Need |
+| Oracle      |                              Slow |　                    Need | Supported |                                    Need |
+| Ubuntu      |1st time: Slow, From 2nd time: Fast|                      Need | Supported |                                    Need |
+| Debian      |1st time: Slow, From 2nd time: Fast|                      Need | Supported |                                    Need |
+| Raspbian    |1st time: Slow, From 2nd time: Fast|                      Need |        No |                                    Need |
+| FreeBSD     |                              Fast |　                      No |        No |                                    Need |
+| Amazon      |                              Slow |　                      No |        No |                                    Need |
+| SUSE Enterprise |                          Fast |　                      No |  Supported |                                     No |
 
 
 TODOaaa
