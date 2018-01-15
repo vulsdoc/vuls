@@ -4,7 +4,7 @@ title: Deep Scan
 sidebar_label: Deep Scan
 ---
 
-![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
+![Vuls-Scan-Flow](/img/docs/vuls-scan-flow.png)
 
 TODOaaa
 

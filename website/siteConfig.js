@@ -9,7 +9,7 @@
 const users = [
   {
     caption: 'User1',
-    image: '/vuls/img/docusaurus.svg',
+    image: '/img/docusaurus.svg',
     infoLink: 'https://www.facebook.com',
     pinned: true,
   },
@@ -18,7 +18,7 @@ const users = [
 const supportedOSes = [
   {
     caption: 'RedHat Enterprise Linux',
-    image: '/vuls/img/redhat-logo_640x480.jpg',
+    image: '/img/redhat-logo_640x480.jpg',
     infoLink: 'https://www.prettier.io',
     // fbOpenSource: false,
     pinned: true,
@@ -135,7 +135,7 @@ const siteConfig = {
   },
   scripts: ['https://buttons.github.io/buttons.js'],
   // You may provide arbitrary config keys to be used as needed by your template.
-  repoUrl: 'https://github.com/future-architect/ uls',
+  repoUrl: 'https://github.com/future-architect/vuls',
 };
 
 module.exports = siteConfig;

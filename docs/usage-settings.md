@@ -20,7 +20,7 @@ sidebar_label: Settings
     If there are a lot of vulnerabilities, it is better to use legacyToken since the Slack notification will be flooded.
 
       - hookURL : Incoming webhook's URL (hookURL is ignored when legacyToken is set.)  
-      ![Vuls-slack](/vuls/img/docs/vuls-slack-en.png)
+      ![Vuls-slack](/img/docs/vuls-slack-en.png)
 
       - legacyToken : slack legacy token (https://api.slack.com/custom-integrations/legacy-tokens)  
       ![Vuls-slack-thread](https://user-images.githubusercontent.com/8997330/31842418-02b703f2-b629-11e7-8ec3-beda5d3a397e.png)
