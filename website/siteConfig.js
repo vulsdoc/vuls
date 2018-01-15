@@ -92,7 +92,7 @@ const siteConfig = {
   title: 'Vuls',
   tagline: 'Agentless Vulnerability Scanner for Linux/FreeBSD',
   url: 'https://github.com/future-architect/vuls',
-  baseUrl: '/vuls/',
+  baseUrl: '/',
   editUrl: 'https://github.com/vulsdoc/vuls/edit/master/docs/',
   headerLinks: [
     {doc: 'abstract', label: 'Docs'},
