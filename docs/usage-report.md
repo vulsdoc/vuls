@@ -319,7 +319,7 @@ $ vuls scan \
 
 ## Example: IgnoreCves
 
-Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs. But these ignoreCves will be output to JSON file like below.
+Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.
 
 - config.toml
 ```toml
@@ -330,27 +330,6 @@ ignoreCves = ["CVE-2016-6313"]
 host     = "192.168.11.11"
 user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
-```
-
-- bsd.json
-```json
-[
-  {
-    "ServerName": "bsd",
-    "Family": "FreeBSD",
-    "Release": "10.3-RELEASE",
-    "IgnoredCves" : [
-      "CveDetail" : {
-        "CVE-2016-6313",
-        ...
-      },
-      "CveDetail" : {
-        "CVE-2016-6314",
-        ...
-      }
-    ]
-  }
-]
 ```
 
 

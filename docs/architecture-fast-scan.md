@@ -20,4 +20,4 @@ sidebar_label: Fast Scan
 
 
  
-![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)
+!Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)
