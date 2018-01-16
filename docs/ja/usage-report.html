@@ -241,22 +241,22 @@ Confidence              100 / OvalMatch
 </ul>
 <p>With this sample command, it will ..</p>
 <ul>
-<li>Send scan results to slack</li>
-<li>Only Report CVEs that CVSS score is over 7</li>
+<li>Slack通知</li>
+<li>CVSS score が 7.0以上のもののみ通知</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
-<p>To put results in S3 bucket, configure following settings in AWS before reporting.</p>
+<p>事前にAWS関連の設定を行う</p>
 <ul>
-<li>Create S3 bucket. see <a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html">Creating a Bucket</a></li>
-<li>Configure access to S3 resources. You can do this in several ways:
+<li>S3バケットを作成 <a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html">Creating a Bucket</a></li>
+<li>いずれかの方法でS3リソースへアクセスする設定を行う
 <ul>
-<li>Configure the environment variables. see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
-<li>Configure the security credentials. see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
-<li>Create an IAM role for the service and attach it to the service(EC2, AWS Lambda). <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">Creating a Role to Delegate Permissions to an AWS Service</a></li>
+<li>環境変数を設定 <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
+<li>Security Credentialsを設定 <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
+<li>サービス用のIAMロールを作成し、サービス(EC2, AWS Lambda)にアタッチ <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">Creating a Role to Delegate Permissions to an AWS Service</a></li>
 </ul></li>
-<li>To configure environment variables, security credentials, create an access key. see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM Users</a></li>
+<li>環境変数、Security Credentialsを設定する場合はアクセスキーを作成する <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM Users</a></li>
 </ul>
-<p>Example of IAM policy:</p>
+<p>IAMポリシーの例:</p>
 <pre><code class="hljs">{
     &quot;Version&quot;: &quot;2012-10-17&quot;,
     &quot;Statement&quot;: [
@@ -286,12 +286,12 @@ $ vuls report \
       -aws-s3-bucket=vuls \
       -aws-profile=default
 </code></pre>
-<p>With this sample command, it will ..</p>
+<p>この例では、</p>
 <ul>
-<li>Put scan result(JSON) in S3 bucket. The bucket name is &quot;vuls&quot; in ap-northeast-1 and profile is &quot;default&quot;</li>
+<li>結果をJSON形式でS3に格納する。 バケット名はvuls リージョンはap-northeast-1 利用するProfileはdefault</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name="example-put-results-in-azure-blob-storage"></a><a href="#example-put-results-in-azure-blob-storage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in Azure Blob storage</h2>
-<p>To put results in Azure Blob Storage, configure following settings in Azure before reporting. - Create a Azure Blob container</p>
+<p>事前にAzure Blob関連の設定を行う - Azure Blob Containerを作成</p>
 <pre><code class="hljs">$ vuls scan \
       -cvedb-path=$PWD/cve.sqlite3 \
       -report-azure-blob \
@@ -299,8 +299,8 @@ $ vuls report \
       -azure-account=test \
       -azure-key=access-key-string
 </code></pre>
-<p>With this sample command, it will .. - Put scan result(JSON) in Azure Blob Storage. The container name is &quot;vuls&quot;, storage account is &quot;test&quot; and accesskey is &quot;access-key-string&quot;</p>
-<p>account and access key can be defined in environment variables.</p>
+<p>この例では、 結果をXML形式でBlobに格納する。 コンテナ名はvuls ストレージアカウント名はtest アクセスキーはaccess-key-string</p>
+<p>また、アカウント名とアクセスキーは環境変数でも定義が可能</p>
 <pre><code class="hljs">$ export AZURE_STORAGE_ACCOUNT=test
 $ export AZURE_STORAGE_ACCESS_KEY=access-key-string
 $ vuls scan \
@@ -309,7 +309,7 @@ $ vuls scan \
       -azure-container=vuls
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="example-ignorecves"></a><a href="#example-ignorecves" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves</h2>
-<p>Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs. But these ignoreCves will be output to JSON file like below.</p>
+<p>Slack, EMail, テキスト出力しないくないCVE IDがある場合は、設定ファイルに定義することでレポートされなくなる。 ただ、JSONファイルには以下のように出力される。</p>
 <ul>
 <li>config.toml</li>
 </ul>
@@ -343,9 +343,9 @@ $ vuls scan \
 ]
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="example-add-optional-key-value-pairs-to-json"></a><a href="#example-add-optional-key-value-pairs-to-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Add optional key-value pairs to JSON</h2>
-<p>Optional key-value can be outputted to JSON.<br>
-The key-value in the default section will be overwritten by servers section's key-value.<br>
-For instance, you can use this field for Azure ResourceGroup name, Azure VM Name and so on.</p>
+<p>追加情報をJSONに含めることができる。<br>
+デフォルトセクションのkey-valueはserversセクションのもので上書きされる。<br>
+使い方の例として、AzureリソースグループやVM名を指定しておくことで、結果のJSONをスクリプトでパースしてAzure VMの操作をする、などが可能。</p>
 <ul>
 <li>config.toml</li>
 </ul>

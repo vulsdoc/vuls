@@ -1,4 +1,4 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Scan vulnerabilites of non-OS packages · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Scan vulnerabilites of non-OS packages · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm)."/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Scan vulnerabilites of non-OS packages · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Scan vulnerabilites of non-OS packages · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="Vulsは、 [CPE](https://nvd.nist.gov/cpe.cfm)に登録されているソフトウェアであれば、自分でコンパイルしたものや、言語のライブラリ、フレームワークなど、OSパッケージ以外のソフトウェアの脆弱性もスキャン可能。"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(){
@@ -14,18 +14,18 @@
           toggler.onclick = function() {
             nav.classList.toggle('docsSliderActive');
           };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-scan-non-os-packages.md" target="_blank">Edit</a><h1>Scan vulnerabilites of non-OS packages</h1></header><article><div><span><p>It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>.</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-scan-non-os-packages.md" target="_blank">Edit</a><h1>Scan vulnerabilites of non-OS packages</h1></header><article><div><span><p>Vulsは、 <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>に登録されているソフトウェアであれば、自分でコンパイルしたものや、言語のライブラリ、フレームワークなど、OSパッケージ以外のソフトウェアの脆弱性もスキャン可能。</p>
 <ul>
-<li><p>How to search CPE name by software name</p>
+<li><p>CPEの検索方法</p>
 <ul>
 <li><p><a href="https://web.nvd.nist.gov/view/cpe/search">NVD: Search Common Platform Enumerations (CPE)</a>  <br>
 <strong>Check CPE Naming Format: 2.2</strong></p></li>
 <li><p><a href="https://github.com/kotakanbe/go-cpe-dictionary">go-cpe-dictionary</a> is a good choice for geeks.<br>
 <a href="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0"><img src="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png" alt="asciicast"></a></p></li>
 </ul>
-<p>You can search a CPE name by the application name incrementally.</p></li>
+<p>ターミナル上でCPEをインクリメンタル検索出来るツール</p></li>
 <li><p>Configuration<br>
-To detect the vulnerability of Ruby on Rails v4.2.1, cpeNames needs to be set in the servers section.</p>
+例えば、Ruby on Rails v4.2.1の脆弱性を検知したい場合は、serversセクションに以下のように定義する。</p>
 <pre><code class="hljs">  [servers]
   
   [servers.172-31-4-82]
@@ -36,7 +36,7 @@ To detect the vulnerability of Ruby on Rails v4.2.1, cpeNames needs to be set in
     &quot;cpe:/a:rubyonrails:ruby_on_rails:4.2.1&quot;,
   ]
 </code></pre></li>
-<li><p>type=&quot;pseudo&quot; Specify this when you want to detect vulnerability by specifying cpename without SSH connection. The pseudo type does not do anything when scanning. Search for NVD at report time and detect vulnerability of software specified as cpenamae.</p>
+<li><p>ネットワーク機器など、スキャン対象にSSH接続しない場合はtype=&quot;pseudo&quot;を指定する。 pseudoタイプはスキャンする時に、何もしません。 レポート時にNVDを検索し、cpenamae として指定されているソフトウェアの脆弱性を検出する。</p>
 <pre><code class="hljs">  [servers]
   
   [servers.172-31-4-82]
@@ -47,20 +47,20 @@ To detect the vulnerability of Ruby on Rails v4.2.1, cpeNames needs to be set in
 </code></pre></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name="usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental"></a><a href="#usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)</h2>
-<p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a> is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.</p>
-<p>Benefit of integrating Vuls And OWASP Dependency Check is below.</p>
+<p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a>は、プログラミング言語のライブラリを特定し（CPEを推測）、公開済みの脆弱性を検知するツール。</p>
+<p>VulsとDependency Checkを連携すると以下の利点がある</p>
 <ul>
-<li>Automatic Update of Vuls config when the libraries are updated.</li>
-<li>Reporting by Email or Slack by using Vuls.</li>
-<li>Reporting in Japanese
+<li>ライブラリを更新した場合に、config.tomlのCPEの定義を変更しなくても良い</li>
+<li>Vulsの機能でSlack, Emailで通知可能</li>
+<li>日本語のレポートが可能
 <ul>
-<li>OWASP Dependency Check supports only English</li>
+<li>Dependency Checkは日本語レポートに対応していない</li>
 </ul></li>
 </ul>
-<p>How to integrate Vuls with OWASP Dependency Check</p>
+<p>VulsとDependency Checkを連携させる方法は以下</p>
 <ul>
-<li><p>Execute OWASP Dependency Check with --format=XML option.</p></li>
-<li><p>Define the xml file path of dependency check in config.toml.</p>
+<li><p>Dependency Checkを、--format=XMLをつけて実行する</p></li>
+<li><p>そのXMLをconfig.toml内で以下のように定義する</p>
 <pre><code class="hljs">  [servers]
   
   [servers.172-31-4-82]
