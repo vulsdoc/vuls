@@ -141,7 +141,7 @@ Vuls has Terminal-Based User Interface to display the scan result.
 $ vuls tui
 ```
 
-![Vuls-TUI](/vuls/img/docs/hello-vuls-tui.png)
+![Vuls-TUI](/img/docs/hello-vuls-tui.png)
 
 ## Step8. Web UI
 

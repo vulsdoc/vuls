@@ -4,7 +4,6 @@ title: Deep Scan
 sidebar_label: Deep Scan
 ---
 
-
 | Distribution|                        Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access <br>on scan tareget|
 |:------------|:---------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
 | Alpine      |                              Fast |　                      No | Supported |                                    Need |
@@ -19,8 +18,7 @@ sidebar_label: Deep Scan
 | SUSE Enterprise |                          Fast |　                      No |  Supported |                                     No |
 
 
-![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
-
+![Vuls-Scan-Flow](/img/docs/vuls-scan-flow.png)
 
 
 - On Ubuntu, Debian and Raspbian
