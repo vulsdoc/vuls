@@ -1,4 +1,4 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Fast Scan (No root privileges) · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Fast Scan (No root privileges) · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="| Distribution |       Release |"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Fast Scan (No root privileges) · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Fast Scan (No root privileges) · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(){
@@ -14,7 +14,8 @@
           toggler.onclick = function() {
             nav.classList.toggle('docsSliderActive');
           };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/architecture-fast-scan.md" target="_blank">Edit</a><h1>Fast Scan (No root privileges)</h1></header><article><div><span><table>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/architecture-fast-scan.md" target="_blank">Edit</a><h1>Fast Scan (No root privileges)</h1></header><article><div><span><p><img src="/img/docs/vuls-scan-flow-fast.png" alt="Vuls-Scan-Flow"></p>
+<table>
 <thead>
 <tr><th style="text-align:left">Distribution</th><th style="text-align:right">Release</th></tr>
 </thead>
@@ -50,96 +51,6 @@
 <tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">Supported</td><td style="text-align:center">No</td></tr>
 </tbody>
 </table>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |</p>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |
-| CentOS       |    Fast    |        　 No         | Supported |                   No                    |</p>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |
-| CentOS       |    Fast    |        　 No         | Supported |                   No                    |
-| RHEL         |    Fast    |        　 No         | Supported |                   No                    |</p>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |
-| CentOS       |    Fast    |        　 No         | Supported |                   No                    |
-| RHEL         |    Fast    |        　 No         | Supported |                   No                    |
-| Oracle       |    Fast    |        　 No         | Supported |                   No                    |</p>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |
-| CentOS       |    Fast    |        　 No         | Supported |                   No                    |
-| RHEL         |    Fast    |        　 No         | Supported |                   No                    |
-| Oracle       |    Fast    |        　 No         | Supported |                   No                    |
-| Ubuntu       |    Fast    |        　 No         | Supported |                   No                    |</p>
-<p>| Distribution | Scan Speed | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:----------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |    Fast    |        　 No         | Supported |                  Need                   |
-| CentOS       |    Fast    |        　 No         | Supported |                   No                    |
-| RHEL         |    Fast    |        　 No         | Supported |                   No                    |
-| Oracle       |    Fast    |        　 No         | Supported |                   No                    |
-| Ubuntu       |    Fast    |        　 No         | Supported |                   No                    |
-| Debian       |    Fast    |        　 No         | Supported |                   No                    |</p>
-<p>| Distribution |              Scan Speed               | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:-------------------------------------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |                 Fast                  |        　 No         | Supported |                  Need                   |
-| CentOS       |                 Fast                  |        　 No         | Supported |                   No                    |
-| RHEL         |                 Fast                  |        　 No         | Supported |                   No                    |
-| Oracle       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Ubuntu       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Debian       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Raspbian     | 1st time: Slow<br>
-From 2nd time: Fast |        Need         |    No     |                  Need                   |</p>
-<p>| Distribution |              Scan Speed               | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:-------------------------------------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |                 Fast                  |        　 No         | Supported |                  Need                   |
-| CentOS       |                 Fast                  |        　 No         | Supported |                   No                    |
-| RHEL         |                 Fast                  |        　 No         | Supported |                   No                    |
-| Oracle       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Ubuntu       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Debian       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Raspbian     | 1st time: Slow<br>
-From 2nd time: Fast |        Need         |    No     |                  Need                   |
-| FreeBSD      |                 Fast                  |        　 No         |    No     |                  Need                   |</p>
-<p>| Distribution |              Scan Speed               | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:------------ |:-------------------------------------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine       |                 Fast                  |        　 No         | Supported |                  Need                   |
-| CentOS       |                 Fast                  |        　 No         | Supported |                   No                    |
-| RHEL         |                 Fast                  |        　 No         | Supported |                   No                    |
-| Oracle       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Ubuntu       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Debian       |                 Fast                  |        　 No         | Supported |                   No                    |
-| Raspbian     | 1st time: Slow<br>
-From 2nd time: Fast |        Need         |    No     |                  Need                   |
-| FreeBSD      |                 Fast                  |        　 No         |    No     |                  Need                   |
-| Amazon       |                 Fast                  |        　 No         |    No     |                  Need                   |</p>
-<p>| Distribution    |              Scan Speed               | Need Root Privilege |   OVAL    | Need Internet Access<br>
-on scan tareget |
-|:--------------- |:-------------------------------------:|:-------------------:|:---------:|:---------------------------------------:|
-| Alpine          |                 Fast                  |        　 No         | Supported |                  Need                   |
-| CentOS          |                 Fast                  |        　 No         | Supported |                   No                    |
-| RHEL            |                 Fast                  |        　 No         | Supported |                   No                    |
-| Oracle          |                 Fast                  |        　 No         | Supported |                   No                    |
-| Ubuntu          |                 Fast                  |        　 No         | Supported |                   No                    |
-| Debian          |                 Fast                  |        　 No         | Supported |                   No                    |
-| Raspbian        | 1st time: Slow<br>
-From 2nd time: Fast |        Need         |    No     |                  Need                   |
-| FreeBSD         |                 Fast                  |        　 No         |    No     |                  Need                   |
-| Amazon          |                 Fast                  |        　 No         |    No     |                  Need                   |
-| SUSE Enterprise |                 Fast                  |        　 No         | Supported |                   No                    |</p>
-<p>!Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="architecture-fast-deep.html">← Fast and Deep scan</a><a class="docs-next button" href="architecture-deep-scan.html">Deep Scan →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/ja/abstract.html">Introduction</a><a href="/docs/ja/architecture-remote-local.html">Architecture</a><a href="/docs/ja/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
                 apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
