@@ -4,9 +4,6 @@ title: Fast Scan (No root privileges)
 sidebar_label: Fast Scan
 ---
 
-![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow-fast.png)
-
-TODOaaa
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access <br>on scan tareget|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -22,4 +19,5 @@ TODOaaa
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
 
-TODOaaa
+ 
+![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow-fast.png)

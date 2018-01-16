@@ -51,7 +51,7 @@ scan:
   -timeout int
         Number of seconds for processing other than scan (default 300)
   -timeout-scan int
-        Number of second for scaning vulnerabilities for all servers (default 7200)
+        Number of second for scanning vulnerabilities for all servers (default 7200)
 ```
 
 ## -deep option

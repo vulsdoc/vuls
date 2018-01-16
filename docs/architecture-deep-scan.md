@@ -4,10 +4,6 @@ title: Deep Scan
 sidebar_label: Deep Scan
 ---
 
-![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
-
-TODOaaa
-
 
 | Distribution|                        Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access <br>on scan tareget|
 |:------------|:---------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
@@ -23,7 +19,9 @@ TODOaaa
 | SUSE Enterprise |                          Fast |　                      No |  Supported |                                     No |
 
 
-TODOaaa
+![Vuls-Scan-Flow](/vuls/img/docs/vuls-scan-flow.png)
+
+
 
 - On Ubuntu, Debian and Raspbian
 Vuls issues `apt-get changelog` for each upgradable packages and parse the changelog.  

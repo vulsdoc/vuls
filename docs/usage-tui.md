@@ -72,6 +72,7 @@ For details, see https://github.com/future-architect/vuls/blob/master/report/tui
 ## Display the previous scan results
 
 - Display the list of scan results.
+
 ```
 $ vuls history
 2016-12-30T10:34:38+09:00 1 servers: u16
@@ -80,6 +81,7 @@ $ vuls history
 ```
 
 - Display the result of scan 2016-12-30T10:34:38+09:00
+
 ```
 $ vuls tui 2016-12-30T10:34:38+09:00
 ```
