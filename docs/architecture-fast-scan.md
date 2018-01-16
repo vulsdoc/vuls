@@ -14,7 +14,7 @@ sidebar_label: Fast Scan
 |:------------|:----------:|:-------------------:|:----------:|:--------------------:|
 | Alpine      | Fast       |　                No |  Supported |                 Need |
 
-| Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access <br>on scan tareget |
+| Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
 | Alpine      |                                   Fast |　                No |  Supported |                                    Need |
 | CentOS      |                                   Fast |　                No |  Supported |                                      No |
