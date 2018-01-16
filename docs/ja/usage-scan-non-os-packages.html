@@ -36,7 +36,7 @@
     &quot;cpe:/a:rubyonrails:ruby_on_rails:4.2.1&quot;,
   ]
 </code></pre></li>
-<li><p>ネットワーク機器など、スキャン対象にSSH接続しない場合はtype=&quot;pseudo&quot;を指定する。 pseudoタイプはスキャンする時に、何もしません。 レポート時にNVDを検索し、cpenamae として指定されているソフトウェアの脆弱性を検出する。</p>
+<li><p>ネットワーク機器など、スキャン対象にSSH接続しない場合はtype=&quot;pseudo&quot;を指定する。 pseudoタイプはスキャン時は何もしない。 レポート時にNVDを検索し、cpenamae として指定されているソフトウェアの脆弱性を検出する。</p>
 <pre><code class="hljs">  [servers]
   
   [servers.172-31-4-82]
@@ -50,7 +50,7 @@
 <p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a>は、プログラミング言語のライブラリを特定し（CPEを推測）、公開済みの脆弱性を検知するツール。</p>
 <p>VulsとDependency Checkを連携すると以下の利点がある</p>
 <ul>
-<li>ライブラリを更新した場合に、config.tomlのCPEの定義を変更しなくても良い</li>
+<li>ライブラリをアップデートした場合に、config.tomlのCPEの定義を変更しなくても良い</li>
 <li>Vulsの機能でSlack, Emailで通知可能</li>
 <li>日本語のレポートが可能
 <ul>
