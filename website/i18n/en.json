@@ -28,6 +28,8 @@
     "Contribute": "Contribute",
     "install-manually-centos": "Install Manually on CentOS",
     "Install Manually on CentOS": "Install Manually on CentOS",
+    "install-with-ansible": "Install with Ansible",
+    "Install with Ansible": "Install with Ansible",
     "install-with-docker": "Install with Docker",
     "Install with Docker": "Install with Docker",
     "install-with-package": "Install with Package",

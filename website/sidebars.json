@@ -2,7 +2,7 @@
   "docs": {
     "Introduction": ["abstract", "main-features","supported-os"],
     "Architecture": ["architecture-remote-local", "architecture-remote-scan", "architecture-local-scan", "architecture-fast-deep", "architecture-fast-scan", "architecture-deep-scan"],
-    "Installation": ["install-manually-centos", "install-with-docker", "install-with-package"],
+    "Installation": ["install-manually-centos", "install-with-docker", "install-with-package", "install-with-ansible"],
     "Tutorial": ["tutorial", "tutorial-local-scan", "tutorial-remote-scan", "tutorial-docker"],
     "Usage": ["usage-automatic-discovery", "usage-settings", "usage-configtest", "usage-scan", "usage-report", "usage-tui", "usage-scan-non-os-packages"],
     "Vulsrepo": ["vulsrepo"],
