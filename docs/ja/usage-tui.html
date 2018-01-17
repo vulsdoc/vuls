@@ -1,4 +1,4 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>TUI(Terminal Based Viewer) · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="TUI(Terminal Based Viewer) · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="## Display the latest scan results"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>TUI(Terminal Based Viewer) · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="TUI(Terminal Based Viewer) · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="## 最新のスキャン結果の表示"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/ja/abstract.html" target="_self">Docs</a></li><li><a href="/docs/ja/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/en">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(){
@@ -14,64 +14,64 @@
           toggler.onclick = function() {
             nav.classList.toggle('docsSliderActive');
           };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-tui.md" target="_blank">Edit</a><h1>TUI(Terminal Based Viewer)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" name="display-the-latest-scan-results"></a><a href="#display-the-latest-scan-results" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display the latest scan results</h2>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-tui.md" target="_blank">Edit</a><h1>TUI(Terminal Based Viewer)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最新のスキャン結果の表示</h2>
 <pre><code class="hljs">tui:
         tui
-                [-refresh-cve]
-                [-cvedb-type=sqlite3|mysql|postgres]
-                [-cvedb-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 DB connection string]
-                [-ovaldb-type=sqlite3|mysql]
-                [-ovaldb-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-                [-cvss-over=7]
-                [-ignore-unscored-cves]
-                [-ignore-unfixed]
-                [-refresh-cve]
-                [-results-dir=/path/to/results]
-                [-log-dir=/path/to/log]
-                [-debug]
-                [-debug-sql]
-                [-pipe]
+                 [-refresh-cve]
+                 [-cvedb-type=sqlite3|mysql|postgres]
+                 [-cvedb-path=/path/to/cve.sqlite3]
+                 [-cvedb-url=http://127.0.0.1:1323 DB connection string]
+                 [-ovaldb-type=sqlite3|mysql]
+                 [-ovaldb-path=/path/to/oval.sqlite3]
+                 [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
+                 [-cvss-over=7]
+                 [-ignore-unscored-cves]
+                 [-ignore-unfixed]
+                 [-refresh-cve]
+                 [-results-dir=/path/to/results]
+                 [-log-dir=/path/to/log]
+                 [-debug]
+                 [-debug-sql]
+                 [-pipe]
 
-  -cvedb-path string
-        /path/to/sqlite3 (For get cve detail from cve.sqlite3) 
-  -cvedb-type string
-        DB type for fetching CVE dictionary (sqlite3, mysql or postgres) (default &quot;sqlite3&quot;)
-  -cvedb-url string
-        http://cve-dictionary.com:8080 DB connection string
-  -ovaldb-path string
-        /path/to/sqlite3 (For get oval detail from oval.sqlite3) (default &quot;/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3&quot;)
-  -ovaldb-type string
-        DB type for fetching OVAL dictionary (sqlite3 or mysql) (default &quot;sqlite3&quot;)
-  -ovaldb-url string
-        http://goval-dictionary.com:1324 or mysql connection string
-  -cvss-over float
-        -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
-  -ignore-unfixed
-        Don't report the unfixed CVEs
-  -ignore-unscored-cves
-        Don't report the unscored CVEs
-  -debug
-        debug mode
-  -debug-sql
-        debug SQL
-  -log-dir string
-        /path/to/log (default &quot;/var/log/vuls&quot;)
-  -pipe
-        Use stdin via PIPE
-  -refresh-cve
-        Refresh CVE information in JSON file under results dir
-  -results-dir string
-        /path/to/results 
+   -cvedb-path string
+         /path/to/sqlite3 (For get cve detail from cve.sqlite3)
+   -cvedb-type string
+         DB type for fetching CVE dictionary (sqlite3, mysql or postgres) (default &quot;sqlite3&quot;)
+   -cvedb-url string
+         http://cve-dictionary.com:8080 DB connection string
+   -ovaldb-path string
+         /path/to/sqlite3 (For get oval detail from oval.sqlite3) (default &quot;/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3&quot;)
+   -ovaldb-type string
+         DB type for fetching OVAL dictionary (sqlite3 or mysql) (default &quot;sqlite3&quot;)
+   -ovaldb-url string
+         http://goval-dictionary.com:1324 or mysql connection string
+   -cvss-over float
+         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
+   -ignore-unfixed
+         Don't report the unfixed CVEs
+   -ignore-unscored-cves
+         Don't report the unscored CVEs
+   -debug
+         debug mode
+   -debug-sql
+         debug SQL
+   -log-dir string
+         /path/to/log (default &quot;/var/log/vuls&quot;)
+   -pipe
+         Use stdin via PIPE
+   -refresh-cve
+         Refresh CVE information in JSON file under results dir
+   -results-dir string
+         /path/to/results 
 </code></pre>
-<p>Key binding is below.</p>
+<p>キー操作は以下。</p>
 <table>
 <thead>
-<tr><th style="text-align:left">key</th><th style="text-align:left"></th></tr>
+<tr><th style="text-align:left">キー</th><th style="text-align:left"></th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align:left">TAB</td><td style="text-align:left">move cursor among the panes</td></tr>
+<tr><td style="text-align:left">TAB</td><td style="text-align:left">カーソルのペイン間の移動</td></tr>
 <tr><td style="text-align:left">Arrow up/down</td><td style="text-align:left">move cursor to up/down</td></tr>
 <tr><td style="text-align:left">Ctrl+j, Ctrl+k</td><td style="text-align:left">move cursor to up/down</td></tr>
 <tr><td style="text-align:left">Ctrl+u, Ctrl+d</td><td style="text-align:left">page up/down</td></tr>
