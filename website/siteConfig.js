@@ -8,9 +8,9 @@
 /* List of projects/orgs using your project for the users page */
 const users = [
   {
-    caption: 'User1',
-    image: '/img/docusaurus.svg',
-    infoLink: 'https://www.facebook.com',
+    caption: 'Future Architect',
+    image: 'http://www.future.co.jp/assets/images/logo.svg',
+    infoLink: 'http://www.future.co.jp/',
     pinned: true,
   },
 ];

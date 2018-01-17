@@ -171,11 +171,11 @@ class Index extends React.Component {
             <GridBlock
               contents={[
                 {
-                  content: 'Talk about trying this out', 
+			content: 'VulsRepo is awesome OSS Web UI for Vuls. With VulsRepo you can analyze the scan results like Excel\'s pivot table. Demo is avaliable http://usiusi360.github.io/vulsrepo/', 
 		  image: 'https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif',
                   imageAlign: 'right',
-                  title: 'VulsRepo',
-                  imageLink: 'https://github.com/usiusi360/vulsrepo',
+                  title: "[VulsRepo](" +siteConfig.baseUrl + "docs/" + this.props.language + "/vulsrepo.html)",
+                  imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/vulsrepo.html`
                 },
               ]}
             />
@@ -185,10 +185,10 @@ class Index extends React.Component {
             <GridBlock
               contents={[
               {
-                content: "Pre-trained on English webcrawl and Wikipedia",
+                content: "Vuls has Terminal Based Viewer. You can view the scan result with vim-like keybindings.",
                 image: "https://asciinema.org/a/3y9zrf950agiko7klg8abvyck.png",
                 imageAlign: "left",
-                title: "[English word vectors](" + siteConfig.baseUrl + "docs/en/english-vectors.html)",
+                title: "[Terminal Based Viewer](" +siteConfig.baseUrl + "docs/" + this.props.language + "/usage-tui.html)",
                 imageLink: "https://asciinema.org/a/3y9zrf950agiko7klg8abvyck",
                 pinned : "true",
               },
@@ -201,10 +201,10 @@ class Index extends React.Component {
               contents={[
                 {
                   content:
-                    '',
+                    'Email and Slack notification is possible (supports Japanese language)',
                   image: siteConfig.baseUrl + 'img/docs/vuls-slack-en.png',
                   imageAlign: 'right',
-                  title: 'Description',
+                  title: "[Notification](" +siteConfig.baseUrl + "docs/" + this.props.language + "/usage-tui.html)",
                 },
               ]}
             />
