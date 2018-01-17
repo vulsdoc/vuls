@@ -35,7 +35,6 @@ const siteConfig = {
     },
   ],
   users,
-  supportedOSes,
   algolia: {
     apiKey: "2a8985a4307332f9c90d32a8f7c278a2",
     indexName: "vulsdoc"
