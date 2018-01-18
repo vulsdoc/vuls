@@ -27,7 +27,8 @@ With VulsRepo you can analyze the scan results like Excel's pivot table.</p>
 <h2><a class="anchor" aria-hidden="true" name="installation"></a><a href="#installation" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
 <p><em>A home folder of vuls is explained as /opt/vuls.</em></p>
 <h3><a class="anchor" aria-hidden="true" name="step1-create-a-json-report-of-vuls"></a><a href="#step1-create-a-json-report-of-vuls" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. Create a json report of vuls</h3>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls scan </span>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> /opt/vuls</span>
+<span class="hljs-meta">$</span><span class="bash"> vuls scan </span>
 <span class="hljs-meta">$</span><span class="bash"> vuls report -format-json </span>
 </code></pre>
 <p>Output to a JSON files (/opt/vuls/results/)</p>
@@ -135,7 +136,6 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login<span class="hljs-built_in"> user </span>     :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
-
 </code></pre>
 <ol start="2">
 <li>Edit vulsrepo-config.toml.</li>
