@@ -10,6 +10,7 @@ With VulsRepo you can analyze the scan results like Excel's pivot table.
 <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif" width="100%">
 
 ## Online Demo
+
 http://usiusi360.github.io/vulsrepo/
 
 ## Requirements
@@ -18,17 +19,18 @@ http://usiusi360.github.io/vulsrepo/
 - Web Browser : Google Chrome or Firefox
 
 ## Installation
+
 *A home folder of vuls is explained as /opt/vuls.*
 
 ### Step1. Create a json report of vuls
 
-````
+```
+$ cd /opt/vuls
 $ vuls scan 
 $ vuls report -format-json 
-````
+```
 
 Output to a JSON files (/opt/vuls/results/)
-
 
 
 ### Step2. Installation
@@ -37,10 +39,10 @@ From now on , executed by a user running the vuls scan.
 
 - Git clone
 
-````
+```
 $ cd $HOME
 $ git clone https://github.com/usiusi360/vulsrepo.git
-````
+```
 
 ### Step3. Change the setting of vulsrepo-server
 
@@ -139,6 +141,7 @@ http://<server-address>:5111
 ## DigestAuth
 
 1. To perform digest authentication, create an authentication file.
+
 ```
 $ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
@@ -157,10 +160,10 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
-
 ```
 
 2. Edit vulsrepo-config.toml.
+
 ```
 $ vi vulsrepo-config.toml
 [Auth]
@@ -169,6 +172,7 @@ realm = "vulsrepo_local"
 ```
 
 3. Start vulsrepo-server
+
 ```
 $ ./vulsrepo-server 
 2017/08/28 11:04:00 main.go:90: INFO: RootPath Load:  /home/vuls-user/vulsrepo
@@ -178,8 +182,10 @@ $ ./vulsrepo-server
 ```
 
 ## Build vulsrepo-server
+
 - It is necessary to build by yourself except for Linux 64bit
 - Install golang beforehand.
+
 
 ```
 $ mkdir -p $GOPATH/src/github.com/usiusi360/
@@ -225,7 +231,8 @@ If more than one package is associated with one CveID, Total will increase more 
 
 <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image008.png" width="80%">
 
-## Gallery ##
+## Gallery
+
 ![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image001.png)
 ![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image002.png)
 ![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image003.png)
