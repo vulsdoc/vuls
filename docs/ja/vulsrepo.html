@@ -21,24 +21,24 @@
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>必要条件</h2>
 <ul>
 <li><a href="https://github.com/future-architect/vuls">future-architect/Vuls</a> &gt;= v0.4.0</li>
-<li>Web Browser : Google Chrome or Firefox</li>
+<li>Webブラウザ: Google Chrome または Firefox</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>インストール</h2>
-<p><em>Vulsのホームフォルダは「/opt/vuls」であることを前提にして記載しています。</em></p>
+<p><em>Vulsのホームフォルダは「/opt/vuls」であることを前提にして記載</em></p>
 <h3><a class="anchor" aria-hidden="true" name="step1-vuls-json"></a><a href="#step1-vuls-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. VulsでJSON形式のファイルを出力</h3>
 <pre><code class="hljs">$ vuls scan 
 $ vuls report -format-json 
 </code></pre>
-<p>Output to a JSON files (/opt/vuls/results/)</p>
+<p>「/opt/vuls/results/」にJSONファイルが出力される。</p>
 <h3><a class="anchor" aria-hidden="true" name="step2-vulsrepo"></a><a href="#step2-vulsrepo" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step2. VulsRepoのインストール</h3>
-<p>From now on , executed by a user running the vuls scan.</p>
+<p>ここからは vuls scan を実行したユーザで実施する。</p>
 <ul>
-<li><p>Git clone</p>
+<li><p>GitHubからクローン</p>
 <p>$ cd $HOME
 $ git clone <a href="https://github.com/usiusi360/vulsrepo.git">https://github.com/usiusi360/vulsrepo.git</a></p></li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" name="step3-change-the-setting-of-vulsrepo-server"></a><a href="#step3-change-the-setting-of-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. Change the setting of vulsrepo-server</h3>
-<p>Set Path according to your own environment.</p>
+<h3><a class="anchor" aria-hidden="true" name="step3-vulsrepo-server"></a><a href="#step3-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. vulsrepo-serverの設定を変更</h3>
+<p>環境に合わせてパスを設定する</p>
 <pre><code class="hljs">$ cd $HOME/vulsrepo/server
 
 $ cp vulsrepo-config.toml.sample vulsrepo-config.toml
@@ -50,9 +50,9 @@ resultsPath  = &quot;/opt/vuls/results&quot;
 serverPort  = &quot;5111&quot;
 </code></pre>
 <ul>
-<li>Do not use the path of the symbolic link for resultsPath</li>
+<li>ResultsPath に対してシンボリック リンクのパスを設定してはいけない。</li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" name="step4-start-vulsrepo-server"></a><a href="#step4-start-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. Start vulsrepo-server</h3>
+<h3><a class="anchor" aria-hidden="true" name="step4-vulsrepo-server"></a><a href="#step4-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. vulsrepo-serverを起動</h3>
 <pre><code class="hljs">$ pwd
 $HOME/vulsrepo/server
 
@@ -62,50 +62,50 @@ $ ./vulsrepo-server
 2017/08/28 11:04:00 main.go:66: Start: Listening port: 5111
 </code></pre>
 <ul>
-<li>It is necessary to build by yourself except for Linux 64bit. Please look at the build section.</li>
+<li>Linux（64 ビット）以外については自分でビルドする必要がある。 「ビルド」セクションを参照すること。</li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" name="step5-always-activate-vulsrepo-server"></a><a href="#step5-always-activate-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step5. Always activate vulsrepo-server</h3>
+<h3><a class="anchor" aria-hidden="true" name="step5-vulsrepo-server"></a><a href="#step5-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step5. vulsrepo-serverを常駐起動</h3>
 <h5><a class="anchor" aria-hidden="true" name="case-systemv-etc-initd"></a><a href="#case-systemv-etc-initd" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case: SystemV (/etc/init.d)</h5>
 <ul>
-<li><p>Copy startup file. Change the contents according to the environment.</p>
+<li><p>スタートアップ ファイルをコピーする。環境に合わせて内容を変更する。</p>
 <p>$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
 $ sudo vi /etc/systemd/system/vulsrepo.service</p></li>
 </ul>
 <ul>
-<li><p>Set to start automatically</p>
+<li><p>自動起動するよう設定する。</p>
 <p>$ sudo chkconfig vulsrepo on</p></li>
 </ul>
 <ul>
-<li><p>Start vulsrepo-server</p>
+<li><p>vulsrepo-serverを起動する。</p>
 <p>$ sudo /etc/init.d/vulsrepo start</p></li>
 </ul>
 <h5><a class="anchor" aria-hidden="true" name="case-systemd-systemctl"></a><a href="#case-systemd-systemctl" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case: systemd (systemctl)</h5>
 <ul>
-<li><p>Copy startup file. Change the contents according to the environment.</p>
+<li><p>スタートアップ ファイルをコピーする。環境に合わせて内容を変更する。</p>
 <p>$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
 $ sudo vi /lib/systemd/system/vulsrepo.service</p></li>
 </ul>
 <ul>
-<li><p>Set to start automatically</p>
+<li><p>自動起動するよう設定する。</p>
 <p>$ sudo systemctl enable vulsrepo</p></li>
 </ul>
 <ul>
-<li><p>Check settings</p>
+<li><p>設定が正しいかチェックする。</p>
 <p>$ sudo systemctl list-unit-files --type=service | grep vulsrepo
 vulsrepo.service                           enabled</p></li>
 </ul>
 <ul>
-<li><p>Start vulsrepo-server</p>
+<li><p>vulsrepo-serverを起動する。</p>
 <p>$ sudo systemctl start vulsrepo</p></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="usage"></a><a href="#usage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
-<p>Access the browser</p>
+<h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使い方</h2>
+<p>ブラウザでアクセスする。</p>
 <pre><code class="hljs">http://&lt;server-address&gt;:5111
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="digestauth"></a><a href="#digestauth" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DigestAuth</h2>
+<h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ダイジェスト認証</h2>
 <ol>
-<li><p>To perform digest authentication, create an authentication file.</p>
+<li><p>ダイジェスト認証を使う場合、認証ファイルを作成する。</p>
 <p>$ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
 -c string
@@ -124,24 +124,24 @@ login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success</p></li>
 </ol>
 <ol>
-<li><p>Edit vulsrepo-config.toml.</p>
+<li><p>vulsrepo-config.tomlを編集する。</p>
 <p>$ vi vulsrepo-config.toml
 [Auth]
 authFilePath = &quot;/home/vuls-user/.htdigest&quot;
 realm = &quot;vulsrepo_local&quot;</p></li>
 </ol>
 <ol>
-<li><p>Start vulsrepo-server</p>
+<li><p>vulsrepo-serverを起動する。</p>
 <p>$ ./vulsrepo-server
 2017/08/28 11:04:00 main.go:90: INFO: RootPath Load:  /home/vuls-user/vulsrepo
 2017/08/28 11:04:00 main.go:97: INFO: ResultsPath Load:  /opt/vuls/results
 2017/08/28 11:04:00 main.go:105: INFO: AuthFilePath Load:  /home/vuls-user/.htdigest ←※
 2017/08/28 11:04:00 main.go:66: Start: Listening port: 5111</p></li>
 </ol>
-<h2><a class="anchor" aria-hidden="true" name="build-vulsrepo-server"></a><a href="#build-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build vulsrepo-server</h2>
+<h2><a class="anchor" aria-hidden="true" name="vulsrepo-server"></a><a href="#vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vulsrepo-serverをビルド</h2>
 <ul>
-<li><p>It is necessary to build by yourself except for Linux 64bit</p></li>
-<li><p>Install golang beforehand.</p>
+<li><p>Linux（64bit）以外は自分でビルドする必要がある。</p></li>
+<li><p>事前にgolangをインストールしておくこと。</p>
 <p>$ mkdir -p $GOPATH/src/github.com/usiusi360/
 $ cd $GOPATH/src/github.com/usiusi360/
 $ git clone <a href="https://github.com/usiusi360/vulsrepo.git">https://github.com/usiusi360/vulsrepo.git</a>
@@ -150,7 +150,7 @@ $ go get -u github.com/golang/dep/...
 $ dep ensure
 $ go build -o vulsrepo-server</p></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="misc"></a><a href="#misc" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc</h2>
+<h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>その他</h2>
 <h3><a class="anchor" aria-hidden="true" name="setting"></a><a href="#setting" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SETTING</h3>
 <p><img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image006.png" width="80%" /></p>
 <ul>
@@ -158,29 +158,29 @@ $ go build -o vulsrepo-server</p></li>
 </ul>
 <table>
 <thead>
-<tr><th style="text-align:left">Setting Name</th><th style="text-align:left"></th></tr>
+<tr><th style="text-align:left">設定名</th><th style="text-align:left"></th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align:left">Show / Hide the Item</td><td style="text-align:left">Set items not to be displayed on pivot table. Since the data of Summary is very large, it turns OFF when the number of vulnerabilities is large and an error occurs.</td></tr>
-<tr><td style="text-align:left">Priority</td><td style="text-align:left">Set the data to be displayed with priority in the pivot table.The default is NVD data.</td></tr>
+<tr><td style="text-align:left">Show / Hide the Item</td><td style="text-align:left">ピボット テーブルで表示する項目を設定する。Summary、CVSS Metricsのデータは非常に大きいため、脆弱性の数が多いとエラーが発生する。その場合はOFFにすると改善する場合がある。</td></tr>
+<tr><td style="text-align:left">Priority</td><td style="text-align:left">ピボットテーブルに表示するデータの優先度を設定する。デフォルトはNVD。</td></tr>
 </tbody>
 </table>
-<h3><a class="anchor" aria-hidden="true" name="sharing-settings"></a><a href="#sharing-settings" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sharing settings</h3>
+<h3><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>設定の共有</h3>
 <ul>
-<li>How to share pivot settings with others</li>
+<li>他の人と設定を共有する方法</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image007.png" width="80%" /></p>
 <ol>
-<li>Click the link display button on the upper right.</li>
-<li>Click the copy button to clickboard.</li>
-<li>Pass the copied URL to another person.</li>
-<li>When you access the URL in the browser and select the file, the pivot is displayed with the same setting.</li>
+<li>右上にあるLinkボタンをクリック</li>
+<li>ボタンをクリックしてクリックボードにコピーする</li>
+<li>他の人にURLを渡す</li>
+<li>渡されたURLにブラウザでアクセスしてファイルを選択すると、ピボットテーブルは同じ設定で表示される。</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" name="faq"></a><a href="#faq" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FAQ</h3>
 <ul>
-<li>Why does not Total of Vuls and VulsRepo result match ?</li>
+<li>何故、VulsとVulsRepoで結果の集計値が違うのか？</li>
 </ul>
-<p>Vuls aggregates the number of CveIDs included in the host. However, VulsRepo counts Packages related to CveID as one case. If more than one package is associated with one CveID, Total will increase more than Vuls.</p>
+<p>Vulsはホストに含まれるCveIDの数を集計している。 しかし、VulsRepoはパッケージ毎に含まれるCveIDの数をカウントしている。 もし1 つのパッケージに 1 つの以上の CveID が関連している場合、Vuls より合計は多くなる。</p>
 <p><img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image008.png" width="80%" /></p>
 <h2><a class="anchor" aria-hidden="true" name="gallery"></a><a href="#gallery" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gallery</h2>
 <p><img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image001.png" alt="image"> <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image002.png" alt="image"> <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image003.png" alt="image"> <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image004.png" alt="image"> <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image005.png" alt="image"></p>
