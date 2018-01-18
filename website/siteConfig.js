@@ -9,8 +9,8 @@
 const users = [
   {
     caption: 'Future Architect',
-    image: 'http://www.future.co.jp/assets/images/logo.svg',
-    infoLink: 'http://www.future.co.jp/',
+    image: 'https://www.future.co.jp/assets/images/logo.svg',
+    infoLink: 'https://www.future.co.jp/',
     pinned: true,
   },
 ];

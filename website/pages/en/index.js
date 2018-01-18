@@ -171,7 +171,7 @@ class Index extends React.Component {
             <GridBlock
               contents={[
                 {
-			content: 'VulsRepo is awesome OSS Web UI for Vuls. With VulsRepo you can analyze the scan results like Excel\'s pivot table. Demo is avaliable http://usiusi360.github.io/vulsrepo/', 
+			content: 'VulsRepo is awesome OSS Web UI for Vuls. With VulsRepo you can analyze the scan results like Excel\'s pivot table. Demo is avaliable https://usiusi360.github.io/vulsrepo/', 
 		  image: 'https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif',
                   imageAlign: 'right',
                   title: "[VulsRepo](" +siteConfig.baseUrl + "docs/" + this.props.language + "/vulsrepo.html)",
