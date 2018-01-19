@@ -70,20 +70,22 @@ In order to scan with deep scan mode, the following dependencies are required, s
 | Alpine       |      3.2 and later | - |
 | Ubuntu       |          12, 14, 16| -            |
 | Debian       |             7, 8, 9| aptitude, reboot-notifier     |
-| CentOS       |                6, 7| yum-utils, yum-plugin-changelog |
-| Amazon       |                All | yum-utils, yum-plugin-changelog |
-| RHEL         |                  5 | yum-utils, yum-changelog, yum-security |
-| RHEL         |               6, 7 | yum-utils, yum-plugin-changelog |
-| Oracle Linux |                  5 | yum-utils, yum-changelog, yum-security |
-| Oracle Linux |               6, 7 | yum-utils, yum-plugin-changelog |
+| CentOS       |                6, 7| yum-utils, yum-plugin-changelog, yum-plugin-ps |
+| Amazon       |                All | yum-utils, yum-plugin-changelog, yum-plugin-ps |
+| RHEL         |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
+| RHEL         |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
+| Oracle Linux |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
+| Oracle Linux |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
 | SUSE Enterprise|            11, 12 | - |
 | FreeBSD      |                 10 | -            |
 | Raspbian     |     Wheezy, Jessie | -            |
 
 The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls without -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
+
 ```
 Defaults:vuls !requiretty
 ```
+
 For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
 Example of /etc/sudoers on target servers
@@ -98,8 +100,9 @@ Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 #### RHEL 6, 7 / Oracle Linux 6, 7
 
 ```
-vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never --security updateinfo list updates, /usr/bin/yum --color=never --security updateinfo updates, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *
+vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never --security updateinfo list updates, /usr/bin/yum --color=never --security updateinfo updates, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *, /usr/bin/yum --color=never -q ps all
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
+
 ```
 
 #### Debian/Ubuntu/Raspbian
@@ -109,6 +112,13 @@ vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
 
-#### On CentOS, Amazon Linux, SUSE Enterprise, FreeBSD
+- Amazon Linux, CentOS
+
+```
+vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never -q ps all
+Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
+```
+
+#### On SUSE Enterprise, FreeBSD
 
 Scan without root privilege for now.

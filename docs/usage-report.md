@@ -45,6 +45,7 @@ report:
                 [-debug]
                 [-debug-sql]
                 [-pipe]
+                [-uuid]
 
 		[RFC3339 datetime format under results dir]
 
@@ -124,6 +125,9 @@ report:
         Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
         Send report via Slack
+  -uuid
+        Auto generate of scan target servers and then write to config.toml and scan result
+
 ```
 
 ## How to read a report
@@ -342,18 +346,17 @@ For instance, you can use this field for Azure ResourceGroup name, Azure VM Name
 - config.toml
 ```toml
 [default]
-optional = [
-	["key1", "default_value"],
-	["key3", "val3"],
-]
+[default.optional]
+	key1 = "default_value"
+	key3 = val3
+
 
 [servers.bsd]
 host     = "192.168.11.11"
 user     = "kanbe"
-optional = [
-	["key1", "val1"],
-	["key2", "val2"],
-]
+[servers.bsd.optional]
+	key1 = "val1"
+	key2 = "val2"
 ```
 
 - bsd.json
@@ -364,11 +367,11 @@ optional = [
     "Family": "FreeBSD",
     "Release": "10.3-RELEASE",
     .... snip ...
-    "Optional": [
-      [  "key1", "val1" ],
-      [  "key2", "val2" ],
-      [  "key3", "val3" ]
-    ]
+    "Optional": {
+        "key1": "val1" ,
+        "key2": "val2" ,
+        "key3": "val3" 
+    }
   }
 ]
 ```

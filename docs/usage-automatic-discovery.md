@@ -40,13 +40,17 @@ subjectPrefix = "[vuls]"
 #port        = "22"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
+#Memo        = "DB Server" 
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6313"]
-#optional = [
-#    ["key", "value"],
-#]
+#[default.containers]
+#type = "lxd" # or "docker"
+#includes = ["${running}"]
+#excludes = ["container_name", "container_id"]
+#[default.optional]
+#key = "value"
 
 [servers]
 
@@ -60,13 +64,12 @@ host         = "172.31.4.82"
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6313"]
-#optional = [
-#    ["key", "value"],
-#]
 #[servers.172-31-4-82.containers]
 #type = "lxd" # or "docker" or "lxc"
 #includes = ["${running}"]
 #excludes = ["container_name", "container_id"]
+#[servers.172-31-4-82.optional]
+#key = "value"
 ```
 
 You can customize your configuration using this template.

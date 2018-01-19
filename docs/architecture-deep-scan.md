@@ -33,3 +33,9 @@ Detect CVE IDs by using package manager.
 
 - On SUSE Enterprise Linux and Alpine Linux
 Same as fast scan mode for now.
+
+## Detect processes affected by update using yum-ps
+
+- RedHat, CentOS, OracleLinux and Amazon Linux
+It is possible to know processes affecting software update in advance.
+
