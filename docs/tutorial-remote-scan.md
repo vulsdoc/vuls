@@ -20,7 +20,7 @@ We will use the Vuls server (called localhost) created in the previous tutorial.
 
 Same like as [Tutorial: Local Scan Mode#Step1. Launch CentOS7](tutorial-local-scan.md#step1-launch-centos7)  
 Launch a new terminal and SSH to the Remote host.  
-To add the remote host's Host Key to $HOME/.ssh/known_hosts, you need to log in to the remote host through SSH before scanning.
+To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log in to the remote host through SSH before scanning.
 
 ## Step2. Enable to SSH from localhost
 
@@ -31,7 +31,7 @@ Create a keypair on the localhost then append the public key to authorized_keys 
 ```bash
 $ ssh-keygen -t rsa
 ```
-Copy ~/.ssh/id_rsa.pub to the clipboard.
+Copy `~/.ssh/id_rsa.pub` to the clipboard.
 
 - Remote Host
 ```
