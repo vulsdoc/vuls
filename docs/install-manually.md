@@ -91,6 +91,7 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 - [Ubuntu](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
 - [Oracle Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
 - [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
+- [Amazon Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-amazon-alas-as-oval-data-type)
 
 ## Deploy Vuls
 
