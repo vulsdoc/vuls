@@ -32,17 +32,19 @@ Create a keypair on the localhost then append the public key to authorized_keys 
 ```bash
 $ ssh-keygen -t rsa
 ```
+
 Copy `~/.ssh/id_rsa.pub` to the clipboard.
 
 ### Remote Host
 
-```
+```bash
 $ mkdir ~/.ssh
 $ chmod 700 ~/.ssh
 $ touch ~/.ssh/authorized_keys
 $ chmod 600 ~/.ssh/authorized_keys
 $ vim ~/.ssh/authorized_keys
 ```
+
 Paste from the clipboard to `~/.ssh/.authorized_keys`
 
 And also, confirm that the host keys of scan target servers has been registered in the known_hosts of the localhost.
@@ -50,7 +52,7 @@ To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log i
 
 ### localhost
 
-```
+```bash
 $ ssh ubuntu@172.31.4.82 -i ~/.ssh/id_rsa
 ```
 
@@ -58,7 +60,7 @@ $ ssh ubuntu@172.31.4.82 -i ~/.ssh/id_rsa
 
 ### localhost
 
-```
+```bash
 $ cd $HOME
 $ cat config.toml
 [servers]
@@ -72,7 +74,7 @@ keyPath     = "/home/centos/.ssh/id_rsa"
 
 ## Step4. Check config.toml and settings on the server before scanning
 
-```
+```bash
 $ vuls configtest ubuntu
 ```
 
@@ -80,7 +82,7 @@ see [Usage: configtest](#usage-configtest)
 
 ## Step5. Start Scanning
 
-```
+```bash
 $ vuls scan ubuntu
 ... snip ...
 
