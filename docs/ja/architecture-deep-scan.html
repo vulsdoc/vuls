@@ -17,19 +17,19 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/architecture-deep-scan.md" target="_blank">Edit</a><h1>Deep Scan</h1></header><article><div><span><p><img src="/img/docs/vuls-scan-flow.png" alt="Vuls-Scan-Flow"></p>
 <table>
 <thead>
-<tr><th style="text-align:left">Distribution</th><th style="text-align:center">Scan Speed</th><th style="text-align:center">Need Root Privilege</th><th style="text-align:center">OVAL</th><th style="text-align:center">Need Internet Access</th></tr>
+<tr><th style="text-align:left">Distribution</th><th style="text-align:center">Scan Speed</th><th style="text-align:center">スキャン対象サーバ上のroot権限の要否</th><th style="text-align:center">OVAL</th><th style="text-align:center">スキャン対象サーバのインターネットアクセス要否</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align:left">Alpine</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">CentOS</td><td style="text-align:center">Slow</td><td style="text-align:center">No</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">RHEL</td><td style="text-align:center">Slow</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Oracle</td><td style="text-align:center">Slow</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Ubuntu</td><td style="text-align:center">初回スキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Debian</td><td style="text-align:center">初回のスキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Raspbian</td><td style="text-align:center">初回のスキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">Need</td><td style="text-align:center">No</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">FreeBSD</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">No</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Amazon</td><td style="text-align:center">Slow</td><td style="text-align:center">No</td><td style="text-align:center">No</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">Supported</td><td style="text-align:center">No</td></tr>
+<tr><td style="text-align:left">Alpine</td><td style="text-align:center">速い</td><td style="text-align:center">不要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">CentOS</td><td style="text-align:center">遅い</td><td style="text-align:center">不要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">RHEL</td><td style="text-align:center">遅い</td><td style="text-align:center">必要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">Oracle</td><td style="text-align:center">遅い</td><td style="text-align:center">必要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">Ubuntu</td><td style="text-align:center">初回スキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">必要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">Debian</td><td style="text-align:center">初回のスキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">必要</td><td style="text-align:center">サポート済</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">Raspbian</td><td style="text-align:center">初回のスキャンは遅い ２回目のスキャンからは速い</td><td style="text-align:center">必要</td><td style="text-align:center">不要</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">FreeBSD</td><td style="text-align:center">速い</td><td style="text-align:center">不要</td><td style="text-align:center">不要</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">Amazon</td><td style="text-align:center">遅い</td><td style="text-align:center">不要</td><td style="text-align:center">不要</td><td style="text-align:center">必要</td></tr>
+<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:center">速い</td><td style="text-align:center">不要</td><td style="text-align:center">サポート済</td><td style="text-align:center">不要</td></tr>
 </tbody>
 </table>
 <ul>
