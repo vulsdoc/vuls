@@ -27,14 +27,14 @@ To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log i
 Vuls doesn't support SSH password authentication. So you have to use SSH key-based authentication.  
 Create a keypair on the localhost then append the public key to authorized_keys on the remote host.  
 
-- localhost
+### localhost
 
 ```bash
 $ ssh-keygen -t rsa
 ```
 Copy `~/.ssh/id_rsa.pub` to the clipboard.
 
-- Remote Host
+### Remote Host
 
 ```
 $ mkdir ~/.ssh
@@ -48,7 +48,7 @@ Paste from the clipboard to `~/.ssh/.authorized_keys`
 And also, confirm that the host keys of scan target servers has been registered in the known_hosts of the localhost.
 To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log in to the remote host through SSH before scanning.
 
-- localhost
+### localhost
 
 ```
 $ ssh ubuntu@172.31.4.82 -i ~/.ssh/id_rsa
@@ -56,7 +56,7 @@ $ ssh ubuntu@172.31.4.82 -i ~/.ssh/id_rsa
 
 ## Step3. Configure (config.toml)
 
-- localhost
+### localhost
 
 ```
 $ cd $HOME
