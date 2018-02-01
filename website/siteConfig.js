@@ -13,6 +13,12 @@ const users = [
     infoLink: 'https://www.future.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'Sansan',
+    image: '/img/icons/sansan.png',
+    infoLink: 'https://jp.corp-sansan.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
