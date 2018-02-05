@@ -21,7 +21,7 @@ const users = [
   },
   {
     caption: 'ITI',
-    image: '/img/icons/iti.png',
+    image: '/img/icons/iti.svg',
     infoLink: 'https://www.iti-inc.co.jp/',
     pinned: true,
   },
