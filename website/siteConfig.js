@@ -19,6 +19,12 @@ const users = [
     infoLink: 'https://jp.corp-sansan.com/',
     pinned: true,
   },
+  {
+    caption: 'ITI',
+    image: '/img/icons/iti.png',
+    infoLink: 'https://www.iti-inc.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
