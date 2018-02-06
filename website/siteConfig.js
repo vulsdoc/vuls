@@ -25,6 +25,12 @@ const users = [
     infoLink: 'https://www.iti-inc.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'Prott',
+    image: '/img/icons/prott.svg',
+    infoLink: 'https://prottapp.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
