@@ -38,6 +38,7 @@ report:
                 [-aws-region=us-west-2]
                 [-aws-s3-bucket=bucket_name]
                 [-aws-s3-results-dir=/bucket/path/to/results]
+                [-aws-s3-server-side-encryption=AES256]
                 [-azure-account=accout]
                 [-azure-key=key]
                 [-azure-container=container]
@@ -56,6 +57,8 @@ report:
         S3 bucket name
   -aws-s3-results-dir string
         /bucket/path/to/results (option)
+  -aws-s3-server-side-encryption string
+        The Server-side encryption algorithm used when storing the reports in S3 (e.g., AES256, aws:kms).
   -azure-account string
         Azure account name to use. AZURE_STORAGE_ACCOUNT environment variable is used if not specified
   -azure-container string
