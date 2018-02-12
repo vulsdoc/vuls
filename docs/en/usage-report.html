@@ -47,6 +47,7 @@
                 [-aws-region=us-west-2]
                 [-aws-s3-bucket=bucket_name]
                 [-aws-s3-results-dir=/bucket/path/to/results]
+                [-aws-s3-server-side-encryption=AES256]
                 [-azure-account=accout]
                 [-azure-key=key]
                 [-azure-container=container]
@@ -65,6 +66,8 @@
         S3 bucket <span class="hljs-keyword">name</span>
   -aws-s3-results-dir <span class="hljs-keyword">string</span>
         /bucket/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results (<span class="hljs-keyword">option</span>)
+  -aws-s3-<span class="hljs-keyword">server</span>-side-encryption <span class="hljs-keyword">string</span>
+        The <span class="hljs-keyword">Server</span>-side encryption algorithm used <span class="hljs-keyword">when</span> storing the reports <span class="hljs-keyword">in</span> S3 (e.g., AES256, aws:kms).
   -azure-<span class="hljs-keyword">account</span> <span class="hljs-keyword">string</span>
         Azure <span class="hljs-keyword">account</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> use. AZURE_STORAGE_ACCOUNT environment <span class="hljs-keyword">variable</span> <span class="hljs-keyword">is</span> used <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> specified
   -azure-<span class="hljs-keyword">container</span> <span class="hljs-keyword">string</span>
