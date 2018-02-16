@@ -31,6 +31,12 @@ const users = [
     infoLink: 'https://prottapp.com/',
     pinned: true,
   },
+  {
+    caption: 'IDCF',
+    image: '/img/icons/idcf.png',
+    infoLink: 'https://www.idcf.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
