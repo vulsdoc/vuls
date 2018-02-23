@@ -128,7 +128,7 @@ report:
         Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
         Send report via Slack
-  -to-slack
+  -to-syslog
         Send report via Syslog
 
 ```
