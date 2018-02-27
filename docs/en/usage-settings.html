@@ -69,6 +69,43 @@ So @foo, @bar can receive mobile push notifications on their smartphone.</p></li
 <span class="hljs-attr">cc</span>            = [<span class="hljs-string">"cc@address.com"</span>]
 <span class="hljs-attr">subjectPrefix</span> = <span class="hljs-string">"[vuls]"</span>
 </code></pre></li>
+<li><p>Syslog section</p>
+<pre><code class="hljs"><span class="hljs-section">[syslog]</span>
+<span class="hljs-attr">protocol</span>    = <span class="hljs-string">"tcp"</span>
+<span class="hljs-attr">host</span>        = <span class="hljs-string">"localhost"</span>
+<span class="hljs-attr">port</span>        = <span class="hljs-string">"514"</span>
+<span class="hljs-attr">tag</span>         = <span class="hljs-string">"vuls"</span>
+<span class="hljs-attr">facility</span>    = <span class="hljs-string">"local0"</span>
+<span class="hljs-attr">severity</span>    = <span class="hljs-string">"alert"</span>
+<span class="hljs-attr">verbose</span>     = <span class="hljs-literal">false</span>
+</code></pre>
+<ul>
+<li>protocol : transfer protocol (default: empty)
+<ul>
+<li><code>tcp</code> or <code>udp</code> or empty<br>
+If protocol is empty, vuls will connect to the local syslog server.</li>
+</ul></li>
+<li>host : syslog target host
+<ul>
+<li>domain name or IP address</li>
+</ul></li>
+<li>port : syslog target port (default: 514)</li>
+<li>tag : syslog tag</li>
+<li>facility : syslog facility (default: <code>auth</code>)
+<ul>
+<li>kern, user, mail, daemon, etc.</li>
+</ul></li>
+<li>severity : syslog severity (default: <code>info</code>)
+<ul>
+<li>emerg, alert, crit, etc.</li>
+</ul></li>
+<li>verbose : verbose mode  (default: false)
+<ul>
+<li>CVE detail, etc.</li>
+</ul></li>
+</ul></li>
+</ul>
+<ul>
 <li><p>Default section</p>
 <pre><code class="hljs">[default]
 <span class="hljs-meta">#</span><span class="bash">port        = <span class="hljs-string">"22"</span></span>
