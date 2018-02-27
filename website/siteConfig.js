@@ -37,6 +37,12 @@ const users = [
     infoLink: 'https://www.idcf.jp/',
     pinned: true,
   },
+  {
+    caption: 'SAKURA internet',
+    image: '/img/icons/sakura.svg',
+    infoLink: 'https://www.sakura.ad.jp/',
+    pinned: true,
+  },  
 ];
 
 const siteConfig = {
