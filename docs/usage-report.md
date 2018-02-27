@@ -24,6 +24,7 @@ report:
                 [-ignore-unfixed]
                 [-to-email]
                 [-to-slack]
+                [-to-syslog]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
@@ -127,6 +128,9 @@ report:
         Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
         Send report via Slack
+  -to-syslog
+        Send report via Syslog
+
 ```
 
 ## How to read a report

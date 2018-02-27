@@ -64,6 +64,34 @@ sidebar_label: Settings
     subjectPrefix = "[vuls]"
     ```
 
+- Syslog section
+    ```
+    [syslog]
+    protocol    = "tcp"
+    host        = "localhost"
+    port        = "514"
+    tag         = "vuls"
+    facility    = "local0"
+    severity    = "alert"
+    verbose     = false
+    ```
+    
+    - protocol : transfer protocol (default: empty)
+      - `tcp` or `udp` or empty  
+         If protocol is empty, vuls will connect to the local syslog server.
+    - host : syslog target host 
+        - domain name or IP address
+    - port : syslog target port (default: 514) 
+    - tag : syslog tag
+    - facility : syslog facility (default: `auth`)  
+        - kern, user, mail, daemon, etc.
+    - severity : syslog severity (default: `info`) 
+        - emerg, alert, crit, etc.
+    - verbose : verbose mode  (default: false)
+        - CVE detail, etc.
+    
+
+
 - Default section
     ```
     [default]
