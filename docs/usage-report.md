@@ -24,8 +24,9 @@ report:
                 [-ignore-unfixed]
                 [-to-email]
                 [-to-slack]
-                [-to-syslog]
-                [-to-localfile]
+                [-to-syslog]
+		[-to-hipchat]
+                [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
                 [-format-json]
@@ -121,7 +122,9 @@ report:
   -to-azure-blob
         Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-email
-        Send report via Email
+        Send report via Email
+  -to-hipchat
+    	Send report via hipchat
   -to-localfile
         Write report to localfile
   -to-s3
@@ -224,6 +227,21 @@ Confidence              100 / OvalMatch
   | PkgAuditMatch          | 100                |                          FreeBSD |Detection using pkg audit|
   | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
 
+
+## Example: Send scan results to HipChat
+```
+$ vuls report \
+      -to-hipchat \
+      -cvss-over=7 \
+      -cvedb-path=$PWD/cve.sqlite3
+```
+With this sample command, it will ..
+
+- Send scan results to HipChat
+- Only Report CVEs that CVSS score is over 7
+
+
+```
 
 ## Example: Send scan results to Slack
 ```
