@@ -149,4 +149,17 @@ sidebar_label: Settings
     - SSH agent
     - SSH public key authentication (with password and empty password)
     Password authentication is not supported.
+    
+- HipCha section
+
+    ```
+    [hipchat]
+    room = "vuls"
+    authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    ```
+    
+　
+    Build your own integration With your favorite name.For example vuls.
+    Once created, auth_token is available so use it.
+
 
