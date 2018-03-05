@@ -4,7 +4,8 @@ title: Settings
 sidebar_label: Settings
 ---
 
-- Slack section
+## Slack section
+
     ```
     [slack]
     hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"
@@ -51,7 +52,8 @@ sidebar_label: Settings
       If you set `["@foo", "@bar"]` to notifyUsers, @foo @bar will be included in text.  
       So @foo, @bar can receive mobile push notifications on their smartphone.  
 
-- EMail section
+## EMail section
+
     ```
     [email]
     smtpAddr      = "smtp.gmail.com"
@@ -64,7 +66,8 @@ sidebar_label: Settings
     subjectPrefix = "[vuls]"
     ```
 
-- Syslog section
+## Syslog section
+
     ```
     [syslog]
     protocol    = "tcp"
@@ -92,7 +95,8 @@ sidebar_label: Settings
     
 
 
-- Default section
+## Default section
+
     ```
     [default]
     #port        = "22"
@@ -108,7 +112,8 @@ sidebar_label: Settings
     ```
     Items of the default section will be used if not specified.
 
-- servers section
+## servers section
+
     ```
     [servers]
 
