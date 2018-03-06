@@ -129,6 +129,9 @@ see [Docker Blog:Why you don't need to run SSHd in your Docker containers](https
 Vuls scans Docker containers via `docker exec` instead of SSH.  
 For more details, see [Architecture section](architecture-remote-scan.html)
 
+If you don’t want to use root, create a Unix group called docker and add users to it
+For details, see https://docs.docker.com/install/linux/linux-postinstall/
+
 - To scan all of running containers  
   `"${running}"` needs to be set in the containers item.
     ```
