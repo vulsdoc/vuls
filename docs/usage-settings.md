@@ -150,7 +150,7 @@ sidebar_label: Settings
     - SSH public key authentication (with password and empty password)
     Password authentication is not supported.
     
-- HipCha section
+- HipChat section
 
     ```
     [hipchat]
