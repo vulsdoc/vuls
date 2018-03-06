@@ -238,18 +238,6 @@ With this sample command, it will ..
 - Only Report CVEs that CVSS score is over 7
 
 
-```
-$ vuls report \
-      -to-slack \
-      -cvss-over=7 \
-      -cvedb-path=$PWD/cve.sqlite3
-```
-With this sample command, it will ..
-
-- Send scan results to slack
-- Only Report CVEs that CVSS score is over 7
-
-
 ## Example: Put results in S3 bucket
 To put results in S3 bucket, configure following settings in AWS before reporting.
 
