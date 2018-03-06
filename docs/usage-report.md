@@ -25,7 +25,7 @@ report:
                 [-to-email]
                 [-to-slack]
                 [-to-syslog]
-		[-to-hipchat]
+                [-to-hipchat]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
