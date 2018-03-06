@@ -34,6 +34,7 @@
                 [-to-email]
                 [-to-slack]
                 [-to-syslog]
+                [-to-hipchat]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
@@ -131,6 +132,8 @@
         Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-email
         Send report via Email
+  -to-hipchat
+      Send report via hipchat
   -to-localfile
         Write report to localfile
   -to-s3
@@ -230,93 +233,71 @@ Confidence              100 / OvalMatch
 </table>
 </li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-slack"></a><a href="#example-send-scan-results-to-slack" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Slack</h2>
+<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-hipchat"></a><a href="#example-send-scan-results-to-hipchat" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to HipChat</h2>
 <pre><code class="hljs">$ vuls report \
-      -to-slack \
+      -to-hipchat \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 </code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
-<li>Send scan results to slack</li>
-<li>Only Report CVEs that CVSS score is over 7</li>
+<li><p>Send scan results to HipChat</p></li>
+<li><p>Only Report CVEs that CVSS score is over 7</p>
+<p><br />## Example: Send scan results to Slack</p></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
-<p>To put results in S3 bucket, configure following settings in AWS before reporting.</p>
-<ul>
-<li>Create S3 bucket. see <a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html">Creating a Bucket</a></li>
-<li>Configure access to S3 resources. You can do this in several ways:
-<ul>
-<li>Configure the environment variables. see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
-<li>Configure the security credentials. see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS Command Line Interface</a></li>
-<li>Create an IAM role for the service and attach it to the service(EC2, AWS Lambda). <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">Creating a Role to Delegate Permissions to an AWS Service</a></li>
-</ul></li>
-<li>To configure environment variables, security credentials, create an access key. see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM Users</a></li>
-</ul>
-<p>Example of IAM policy:</p>
-<pre><code class="hljs">{
-    &quot;Version&quot;: &quot;2012-10-17&quot;,
-    &quot;Statement&quot;: [
-        {
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:ListAllMyBuckets&quot;
-            ],
-            &quot;Resource&quot;: &quot;arn:aws:s3:::*&quot;
-        },
-        {
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Action&quot;: [
-                &quot;s3:PutObject&quot;
-            ],
-            &quot;Resource&quot;: &quot;arn:aws:s3:::vuls/*&quot;
-        }
-    ]
-}
+<p>$ vuls report \ -to-slack \ -cvss-over=7 \ -cvedb-path=$PWD/cve.sqlite3</p>
+<pre><code class="hljs">With this sample command, it will ..
+
+- Send scan results to slack
+- Only Report CVEs that CVSS score is over 7
 
 
-$ vuls report \
-      -cvedb-path=$PWD/cve.sqlite3 \
-      -to-s3 \
-      -format-json \
-      -aws-region=ap-northeast-1 \
-      -aws-s3-bucket=vuls \
-      -aws-profile=default
+## Example: Put results in S3 bucket
+To put results in S3 bucket, configure following settings in AWS before reporting.
+
+- Create S3 bucket. see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html)  
+- Configure access to S3 resources. You can do this in several ways:
+  - Configure the environment variables. see [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+  - Configure the security credentials. see [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+  - Create an IAM role for the service and attach it to the service(EC2, AWS Lambda). [Creating a Role to Delegate Permissions to an AWS Service](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)
+- To configure environment variables, security credentials, create an access key. see [Managing Access Keys for IAM Users](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+
+Example of IAM policy:
 </code></pre>
-<p>With this sample command, it will ..</p>
-<ul>
-<li>Put scan result(JSON) in S3 bucket. The bucket name is &quot;vuls&quot; in ap-northeast-1 and profile is &quot;default&quot;</li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" name="example-put-results-in-azure-blob-storage"></a><a href="#example-put-results-in-azure-blob-storage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in Azure Blob storage</h2>
-<p>To put results in Azure Blob Storage, configure following settings in Azure before reporting. - Create a Azure Blob container</p>
-<pre><code class="hljs">$ vuls scan \
-      -cvedb-path=$PWD/cve.sqlite3 \
-      -report-azure-blob \
-      -azure-container=vuls \
-      -azure-account=test \
-      -azure-key=access-key-string
+<p>{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [ &quot;s3:ListAllMyBuckets&quot; ], &quot;Resource&quot;: &quot;arn:aws:s3:::<em>&quot; }, { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: [ &quot;s3:PutObject&quot; ], &quot;Resource&quot;: &quot;arn:aws:s3:::vuls/</em>&quot; } ] }</p>
+<pre><code class="hljs">&lt;br /&gt;
 </code></pre>
-<p>With this sample command, it will .. - Put scan result(JSON) in Azure Blob Storage. The container name is &quot;vuls&quot;, storage account is &quot;test&quot; and accesskey is &quot;access-key-string&quot;</p>
-<p>account and access key can be defined in environment variables.</p>
-<pre><code class="hljs">$ export AZURE_STORAGE_ACCOUNT=test
-$ export AZURE_STORAGE_ACCESS_KEY=access-key-string
-$ vuls scan \
-      -cvedb-path=$PWD/cve.sqlite3 \
-      -report-azure-blob \
-      -azure-container=vuls
+<p>$ vuls report \ -cvedb-path=$PWD/cve.sqlite3 \ -to-s3 \ -format-json \ -aws-region=ap-northeast-1 \ -aws-s3-bucket=vuls \ -aws-profile=default</p>
+<pre><code class="hljs">With this sample command, it will ..
+
+- Put scan result(JSON) in S3 bucket. The bucket name is &quot;vuls&quot; in ap-northeast-1 and profile is &quot;default&quot;
+
+## Example: Put results in Azure Blob storage
+
+To put results in Azure Blob Storage, configure following settings in Azure before reporting.
+- Create a Azure Blob container
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-ignorecves"></a><a href="#example-ignorecves" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves</h2>
-<p>Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.</p>
-<ul>
-<li>config.toml</li>
-</ul>
-<pre><code class="hljs css toml"><span class="hljs-section">[default]</span>
-<span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6313"</span>]
-<span class="hljs-section">
-[servers.bsd]</span>
-<span class="hljs-attr">host</span>     = <span class="hljs-string">"192.168.11.11"</span>
-<span class="hljs-attr">user</span>     = <span class="hljs-string">"kanbe"</span>
-<span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6314"</span>]
+<p>$ vuls scan \ -cvedb-path=$PWD/cve.sqlite3 \ -report-azure-blob \ -azure-container=vuls \ -azure-account=test \ -azure-key=access-key-string</p>
+<pre><code class="hljs">With this sample command, it will ..
+- Put scan result(JSON) in Azure Blob Storage. The container name is &quot;vuls&quot;, storage account is &quot;test&quot; and accesskey is &quot;access-key-string&quot;
+
+account and access key can be defined in environment variables.
+</code></pre>
+<p>$ export AZURE_STORAGE_ACCOUNT=test $ export AZURE_STORAGE_ACCESS_KEY=access-key-string $ vuls scan \ -cvedb-path=$PWD/cve.sqlite3 \ -report-azure-blob \ -azure-container=vuls</p>
+<pre><code class="hljs">&lt;br /&gt;## Example: IgnoreCves
+
+Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.
+
+- config.toml
+```toml
+[default]
+ignoreCves = [&quot;CVE-2016-6313&quot;]
+
+[servers.bsd]
+host     = &quot;192.168.11.11&quot;
+user     = &quot;kanbe&quot;
+ignoreCves = [&quot;CVE-2016-6314&quot;]
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="example-add-optional-key-value-pairs-to-json"></a><a href="#example-add-optional-key-value-pairs-to-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Add optional key-value pairs to JSON</h2>
 <p>Optional key-value can be outputted to JSON.<br>
