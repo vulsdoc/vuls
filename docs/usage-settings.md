@@ -155,3 +155,12 @@ Multiple SSH authentication methods are supported.
 - SSH public key authentication (with password and empty password)
 Password authentication is not supported.
 
+
+## HipChat section
+
+```
+[hipchat]
+room = "vuls"
+authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
