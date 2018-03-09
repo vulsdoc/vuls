@@ -136,6 +136,7 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login<span class="hljs-built_in"> user </span>     :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
+
 </code></pre>
 <ol start="2">
 <li>Edit vulsrepo-config.toml.</li>
@@ -144,16 +145,34 @@ login<span class="hljs-built_in"> user </span>     :  vuls
 [Auth]
 authFilePath = <span class="hljs-string">"/home/vuls-user/.htdigest"</span>
 realm = <span class="hljs-string">"vulsrepo_local"</span>
+
 </code></pre>
 <ol start="3">
 <li>Start vulsrepo-server</li>
 </ol>
-<pre><code class="hljs">$ ./vulsrepo-server 
-<span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">90</span>: <span class="hljs-string">INFO:</span> RootPath <span class="hljs-string">Load:</span>  <span class="hljs-regexp">/home/</span>vuls-user/vulsrepo
-<span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">97</span>: <span class="hljs-string">INFO:</span> ResultsPath <span class="hljs-string">Load:</span>  <span class="hljs-regexp">/opt/</span>vuls/results
-<span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">105</span>: <span class="hljs-string">INFO:</span> AuthFilePath <span class="hljs-string">Load:</span>  <span class="hljs-regexp">/home/</span>vuls-user/.htdigest ←※
-<span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">66</span>: <span class="hljs-string">Start:</span> Listening <span class="hljs-string">port:</span> <span class="hljs-number">5111</span>
+<h2><a class="anchor" aria-hidden="true" name="use-ssl"></a><a href="#use-ssl" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use SSL</h2>
+<ol>
+<li>Create a self-signed certificate</li>
+</ol>
+<pre><code class="hljs">$ openssl genrsa -out key<span class="hljs-selector-class">.pem</span> <span class="hljs-number">2048</span>
+
+$ openssl req -new -x509 -sha256 -key key<span class="hljs-selector-class">.pem</span> -out cert<span class="hljs-selector-class">.pem</span> -days <span class="hljs-number">3650</span>
+
 </code></pre>
+<ol start="2">
+<li>Edit vulsrepo-config.toml.</li>
+</ol>
+<pre><code class="hljs">$ vi vulsrepo-config.toml
+[Server]
+
+serverSSL = <span class="hljs-string">"yes"</span>
+serverCert = <span class="hljs-string">"cert.pem"</span>
+serverKey = <span class="hljs-string">"key.pem"</span>
+
+</code></pre>
+<ol start="3">
+<li>Start vulsrepo-server</li>
+</ol>
 <h2><a class="anchor" aria-hidden="true" name="build-vulsrepo-server"></a><a href="#build-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build vulsrepo-server</h2>
 <ul>
 <li>It is necessary to build by yourself except for Linux 64bit</li>
@@ -166,6 +185,7 @@ realm = <span class="hljs-string">"vulsrepo_local"</span>
 <span class="hljs-meta">$</span><span class="bash"> go get -u github.com/golang/dep/...</span>
 <span class="hljs-meta">$</span><span class="bash"> dep ensure</span>
 <span class="hljs-meta">$</span><span class="bash"> go build -o vulsrepo-server</span>
+
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="misc"></a><a href="#misc" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc</h2>
 <h3><a class="anchor" aria-hidden="true" name="setting"></a><a href="#setting" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SETTING</h3>
