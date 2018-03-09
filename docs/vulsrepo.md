@@ -82,6 +82,7 @@ $ ./vulsrepo-server
 
 - Copy startup file. Change the contents according to the environment.
 
+
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
@@ -90,11 +91,13 @@ $ sudo vi /etc/systemd/system/vulsrepo.service
 
 - Set to start automatically
 
+
 ```
 $ sudo chkconfig vulsrepo on
 ```
 
 - Start vulsrepo-server
+
 
 ```
 $ sudo /etc/init.d/vulsrepo start
@@ -142,6 +145,7 @@ http://<server-address>:5111
 
 1. To perform digest authentication, create an authentication file.
 
+
 ```
 $ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
@@ -160,26 +164,50 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
+
 ```
 
 2. Edit vulsrepo-config.toml.
+
 
 ```
 $ vi vulsrepo-config.toml
 [Auth]
 authFilePath = "/home/vuls-user/.htdigest"
 realm = "vulsrepo_local"
+
 ```
 
 3. Start vulsrepo-server
 
+
+## Use SSL
+
+1. Create a self-signed certificate
+
+
 ```
-$ ./vulsrepo-server 
-2017/08/28 11:04:00 main.go:90: INFO: RootPath Load:  /home/vuls-user/vulsrepo
-2017/08/28 11:04:00 main.go:97: INFO: ResultsPath Load:  /opt/vuls/results
-2017/08/28 11:04:00 main.go:105: INFO: AuthFilePath Load:  /home/vuls-user/.htdigest ←※
-2017/08/28 11:04:00 main.go:66: Start: Listening port: 5111
+$ openssl genrsa -out key.pem 2048
+
+$ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650
+
 ```
+
+2. Edit vulsrepo-config.toml.
+
+
+```
+$ vi vulsrepo-config.toml
+[Server]
+
+serverSSL = "yes"
+serverCert = "cert.pem"
+serverKey = "key.pem"
+
+```
+
+3. Start vulsrepo-server
+
 
 ## Build vulsrepo-server
 
@@ -195,6 +223,7 @@ $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
 $ go build -o vulsrepo-server
+
 ```
 
 ## Misc
