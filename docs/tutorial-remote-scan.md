@@ -45,7 +45,7 @@ $ chmod 600 ~/.ssh/authorized_keys
 $ vim ~/.ssh/authorized_keys
 ```
 
-Paste from the clipboard to `~/.ssh/.authorized_keys`
+Paste from the clipboard to `~/.ssh/authorized_keys`
 
 And also, confirm that the host keys of scan target servers has been registered in the known_hosts of the localhost.
 To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log in to the remote host through SSH before scanning.
