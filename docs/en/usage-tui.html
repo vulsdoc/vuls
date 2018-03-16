@@ -25,6 +25,7 @@
                 [-ovaldb-path=/path/<span class="hljs-keyword">to</span>/oval.sqlite3]
                 [-ovaldb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>]
                 [-cvss-over=<span class="hljs-number">7</span>]
+                [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
                 [-refresh-cve]
@@ -48,6 +49,8 @@
         http://goval-dictionary.com:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> mysql connection <span class="hljs-built_in">string</span>
   -cvss-over float
         -cvss-over=<span class="hljs-number">6.5</span> means reporting CVSS Score <span class="hljs-number">6.5</span> <span class="hljs-keyword">and</span> over (<span class="hljs-keyword">default</span>: <span class="hljs-number">0</span> (means <span class="hljs-keyword">report</span> <span class="hljs-keyword">all</span>))
+  -diff
+        Difference between previous result <span class="hljs-keyword">and</span> current result
   -ignore-unfixed
         Don<span class="hljs-symbol">'t</span> <span class="hljs-keyword">report</span> the unfixed CVEs
   -ignore-unscored-cves
