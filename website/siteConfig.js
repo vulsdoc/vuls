@@ -42,7 +42,13 @@ const users = [
     image: '/img/icons/sakura.svg',
     infoLink: 'https://www.sakura.ad.jp/',
     pinned: true,
-  },  
+  },
+  {
+    caption: 'SmartHR',
+    image: '/img/icons/smarthr.svg',
+    infoLink: 'https://smarthr.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
