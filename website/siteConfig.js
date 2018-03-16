@@ -49,6 +49,12 @@ const users = [
     infoLink: 'https://smarthr.jp/',
     pinned: true,
   },
+  {
+    caption: 'Velc',
+    image: '/img/icons/velc.svg',
+    infoLink: 'https://www.velc.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
