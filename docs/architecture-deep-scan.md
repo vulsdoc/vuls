@@ -6,18 +6,18 @@ sidebar_label: Deep Scan
 
 ![Vuls-Scan-Flow](/img/docs/vuls-scan-flow.png)
 
-| Distribution|                        Scan Speed |       Need Root Privilege |      OVAL | Need Internet Access |
-|:------------|:---------------------------------:|:-------------------------:|:---------:|:---------------------------------------:|
-| Alpine      |                              Fast |　                      No | Supported |                                    Need |
-| CentOS      |                              Slow |　                      No | Supported |                                    Need |
-| RHEL        |                              Slow |　                    Need | Supported |                                    Need |
-| Oracle      |                              Slow |　                    Need | Supported |                                    Need |
-| Ubuntu      |1st time: Slow, From 2nd time: Fast|                      Need | Supported |                                    Need |
-| Debian      |1st time: Slow, From 2nd time: Fast|                      Need | Supported |                                    Need |
-| Raspbian    |1st time: Slow, From 2nd time: Fast|                      Need |        No |                                    Need |
-| FreeBSD     |                              Fast |　                      No |        No |                                    Need |
-| Amazon      |                              Slow |　                      No |        No |                                    Need |
-| SUSE Enterprise |                          Fast |　                      No |  Supported |                                     No |
+| Distribution|                        Scan Speed |  Need Root Privilege |      OVAL | Need Internet Access |
+|:------------|:---------------------------------:|:--------------------:|:---------:|:--------------------:|
+| Alpine      |                              Fast |　                 No | Supported |                 Need |
+| CentOS      |                              Slow |　                 No | Supported |                 Need |
+| RHEL        |                              Slow |　               Need | Supported |                 Need |
+| Oracle      |                              Slow |　               Need | Supported |                 Need |
+| Ubuntu      |1st time: Slow, From 2nd time: Fast|                 Need | Supported |                 Need |
+| Debian      |1st time: Slow, From 2nd time: Fast|                 Need | Supported |                 Need |
+| Raspbian    |1st time: Slow, From 2nd time: Fast|                 Need |        No |                 Need |
+| FreeBSD     |                              Fast |　                 No |        No |                 Need |
+| Amazon      |                              Slow |　                 No |        No |                 Need |
+| SUSE Enterprise |                          Fast |　                 No |  Supported |                  No |
 
 - On Ubuntu, Debian and Raspbian
 Vuls issues `apt-get changelog` for each upgradable packages and parse the changelog.  
@@ -34,8 +34,14 @@ Detect CVE IDs by using package manager.
 - On SUSE Enterprise Linux and Alpine Linux
 Same as fast scan mode for now.
 
-## Detect processes affected by update using yum-ps
+## Runtime Inspection
+
+### Detect processes affected by next pacakge update 
 
 - RedHat, CentOS, OracleLinux and Amazon Linux
-It is possible to know processes affecting software update in advance.
+It is possible to know processes affecting software update in advance using yum-ps.
 
+### Detect not-retarted-processes
+
+- Debian and Ubuntu
+Detect processes which updated before but not restarting yet using checkrestart of debian-goodies.

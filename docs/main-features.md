@@ -20,6 +20,7 @@ sidebar_label: Main Features
     - Deep Scan
         - Scan with root privilege
         - Detect processes affected by update using yum-ps (RedHat, CentOS, Oracle Linux and Amazon Linux)
+        - Detect processes which updated before but not restarting yet using checkrestart of debian-goodies (Debian and Ubuntu)
         - Parses the Changelog  
             Changelog has a history of version changes. When a security issue is fixed, the relevant CVE ID is listed.
             By parsing the changelog and analysing the updates between the installed version of software on the server and the newest version of that software

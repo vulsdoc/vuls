@@ -67,16 +67,16 @@ In order to scan with deep scan mode, the following dependencies are required, s
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
-| Alpine       |      3.2 and later | - |
-| Ubuntu       |          12, 14, 16| -            |
-| Debian       |             7, 8, 9| aptitude, reboot-notifier     |
+| Alpine       |      3.2 and later | -            |
+| Ubuntu       |          12, 14, 16| debian-goodies |
+| Debian       |             7, 8, 9| aptitude, reboot-notifier, debian-goodies |
 | CentOS       |                6, 7| yum-utils, yum-plugin-changelog, yum-plugin-ps |
 | Amazon       |                All | yum-utils, yum-plugin-changelog, yum-plugin-ps |
 | RHEL         |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
 | RHEL         |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
 | Oracle Linux |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
 | Oracle Linux |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
-| SUSE Enterprise|            11, 12 | - |
+| SUSE Enterprise|           11, 12 | -            |
 | FreeBSD      |                 10 | -            |
 | Raspbian     |     Wheezy, Jessie | -            |
 
@@ -108,7 +108,7 @@ Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 #### Debian/Ubuntu/Raspbian
 
 ```
-vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update
+vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/sbin/checkrestart
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
 
