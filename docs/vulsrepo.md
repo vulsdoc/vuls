@@ -86,7 +86,7 @@ $ ./vulsrepo-server
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
-$ sudo vi /etc/systemd/system/vulsrepo.service
+$ sudo vi /etc/init.d/vulsrepo
 ```
 
 - Set to start automatically
