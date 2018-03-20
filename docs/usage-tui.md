@@ -17,6 +17,7 @@ tui:
                 [-ovaldb-path=/path/to/oval.sqlite3]
                 [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
                 [-cvss-over=7]
+                [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
                 [-refresh-cve]
@@ -40,6 +41,8 @@ tui:
         http://goval-dictionary.com:1324 or mysql connection string
   -cvss-over float
         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
+  -diff
+        Difference between previous result and current result
   -ignore-unfixed
         Don't report the unfixed CVEs
   -ignore-unscored-cves

@@ -13,6 +13,48 @@ const users = [
     infoLink: 'https://www.future.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'Sansan',
+    image: '/img/icons/sansan.png',
+    infoLink: 'https://jp.corp-sansan.com/',
+    pinned: true,
+  },
+  {
+    caption: 'ITI',
+    image: '/img/icons/iti.svg',
+    infoLink: 'https://www.iti-inc.co.jp/',
+    pinned: true,
+  },
+  {
+    caption: 'Prott',
+    image: '/img/icons/prott.svg',
+    infoLink: 'https://prottapp.com/',
+    pinned: true,
+  },
+  {
+    caption: 'IDCF',
+    image: '/img/icons/idcf.png',
+    infoLink: 'https://www.idcf.jp/',
+    pinned: true,
+  },
+  {
+    caption: 'SAKURA internet',
+    image: '/img/icons/sakura.svg',
+    infoLink: 'https://www.sakura.ad.jp/',
+    pinned: true,
+  },
+  {
+    caption: 'SmartHR',
+    image: '/img/icons/smarthr.svg',
+    infoLink: 'https://smarthr.jp/',
+    pinned: true,
+  },
+  {
+    caption: 'Velc',
+    image: '/img/icons/velc.svg',
+    infoLink: 'https://www.velc.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {

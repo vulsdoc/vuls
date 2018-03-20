@@ -24,7 +24,9 @@ report:
                 [-ignore-unfixed]
                 [-to-email]
                 [-to-slack]
-                [-to-localfile]
+                [-to-syslog]
+                [-to-hipchat]
+                [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
                 [-format-json]
@@ -38,6 +40,7 @@ report:
                 [-aws-region=us-west-2]
                 [-aws-s3-bucket=bucket_name]
                 [-aws-s3-results-dir=/bucket/path/to/results]
+                [-aws-s3-server-side-encryption=AES256]
                 [-azure-account=accout]
                 [-azure-key=key]
                 [-azure-container=container]
@@ -57,6 +60,8 @@ report:
         S3 bucket name
   -aws-s3-results-dir string
         /bucket/path/to/results (option)
+  -aws-s3-server-side-encryption string
+        The Server-side encryption algorithm used when storing the reports in S3 (e.g., AES256, aws:kms).
   -azure-account string
         Azure account name to use. AZURE_STORAGE_ACCOUNT environment variable is used if not specified
   -azure-container string
@@ -118,7 +123,9 @@ report:
   -to-azure-blob
         Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-email
-        Send report via Email
+        Send report via Email
+  -to-hipchat
+    	Send report via hipchat
   -to-localfile
         Write report to localfile
   -to-s3
@@ -127,7 +134,8 @@ report:
         Send report via Slack
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
-
+  -to-syslog
+        Send report via Syslog
 ```
 
 ## How to read a report
@@ -222,19 +230,22 @@ Confidence              100 / OvalMatch
   | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
 
 
-## Example: Send scan results to Slack
+## Example: Send scan results to HipChat
 ```
 $ vuls report \
-      -to-slack \
+      -to-hipchat \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 ```
 With this sample command, it will ..
 
-- Send scan results to slack
+- Send scan results to HipChat
 - Only Report CVEs that CVSS score is over 7
 
 
+```
+
+## Example: Send scan results to Slack
 ```
 $ vuls report \
       -to-slack \
