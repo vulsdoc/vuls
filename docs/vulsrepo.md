@@ -110,14 +110,12 @@ $ sudo /etc/init.d/vulsrepo start
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
 $ sudo vi /lib/systemd/system/vulsrepo.service
-
 ```
 
 - Set to start automatically
 
 ```
 $ sudo systemctl enable vulsrepo
-
 ```
 
 - Check settings
@@ -164,7 +162,6 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
-
 ```
 
 2. Edit vulsrepo-config.toml.
@@ -175,7 +172,6 @@ $ vi vulsrepo-config.toml
 [Auth]
 authFilePath = "/home/vuls-user/.htdigest"
 realm = "vulsrepo_local"
-
 ```
 
 3. Start vulsrepo-server
@@ -190,7 +186,6 @@ realm = "vulsrepo_local"
 $ openssl genrsa -out key.pem 2048
 
 $ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650
-
 ```
 
 2. Edit vulsrepo-config.toml.
@@ -203,7 +198,6 @@ $ vi vulsrepo-config.toml
 serverSSL = "yes"
 serverCert = "cert.pem"
 serverKey = "key.pem"
-
 ```
 
 3. Start vulsrepo-server
@@ -223,7 +217,6 @@ $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
 $ go build -o vulsrepo-server
-
 ```
 
 ## Misc
