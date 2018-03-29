@@ -26,8 +26,7 @@
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>インストール</h2>
 <p><em>Vulsのホームフォルダは「/opt/vuls」であることを前提にして記載</em></p>
 <h3><a class="anchor" aria-hidden="true" name="step1-vuls-json"></a><a href="#step1-vuls-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. VulsでJSON形式のファイルを出力</h3>
-<pre><code class="hljs">$ cd /opt/vuls
-$ vuls scan 
+<pre><code class="hljs">$ vuls scan 
 $ vuls report -format-json 
 </code></pre>
 <p>「/opt/vuls/results/」にJSONファイルが出力される。</p>
@@ -71,7 +70,7 @@ $ ./vulsrepo-server
 <li><p>スタートアップ ファイルをコピーする。環境に合わせて内容を変更する。</p>
 <p>$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
-$ sudo vi /etc/init.d/vulsrepo</p></li>
+$ sudo vi /etc/systemd/system/init.d/vulsrepo</p></li>
 </ul>
 <ul>
 <li><p>自動起動するよう設定する。</p>
@@ -141,7 +140,7 @@ realm = &quot;vulsrepo_local&quot;</p></li>
 <p>$ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650</p></li>
 </ol>
 <ol>
-<li><p>Edit vulsrepo-config.toml.</p>
+<li><p>vulsrepo-config.tomlを編集する。</p>
 <p>$ vi vulsrepo-config.toml
 [Server]</p>
 <p>serverSSL = &quot;yes&quot;
