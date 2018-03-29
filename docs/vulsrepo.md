@@ -32,7 +32,6 @@ $ vuls report -format-json
 
 Output to a JSON files (/opt/vuls/results/)
 
-
 ### Step2. Installation
 
 From now on , executed by a user running the vuls scan.
@@ -82,7 +81,6 @@ $ ./vulsrepo-server
 
 - Copy startup file. Change the contents according to the environment.
 
-
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
@@ -91,13 +89,11 @@ $ sudo vi /etc/init.d/vulsrepo
 
 - Set to start automatically
 
-
 ```
 $ sudo chkconfig vulsrepo on
 ```
 
 - Start vulsrepo-server
-
 
 ```
 $ sudo /etc/init.d/vulsrepo start
@@ -135,14 +131,13 @@ $ sudo systemctl start vulsrepo
 
 Access the browser
 
-````
+```
 http://<server-address>:5111
-````
+```
 
 ## DigestAuth
 
 1. To perform digest authentication, create an authentication file.
-
 
 ```
 $ ./vulsrepo-server -h
@@ -166,7 +161,6 @@ login user      :  vuls
 
 2. Edit vulsrepo-config.toml.
 
-
 ```
 $ vi vulsrepo-config.toml
 [Auth]
@@ -176,11 +170,9 @@ realm = "vulsrepo_local"
 
 3. Start vulsrepo-server
 
-
 ## Use SSL
 
 1. Create a self-signed certificate
-
 
 ```
 $ openssl genrsa -out key.pem 2048
@@ -189,7 +181,6 @@ $ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650
 ```
 
 2. Edit vulsrepo-config.toml.
-
 
 ```
 $ vi vulsrepo-config.toml
@@ -207,7 +198,6 @@ serverKey = "key.pem"
 
 - It is necessary to build by yourself except for Linux 64bit
 - Install golang beforehand.
-
 
 ```
 $ mkdir -p $GOPATH/src/github.com/usiusi360/
