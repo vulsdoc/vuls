@@ -23,7 +23,8 @@ report:
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
                 [-to-email]
-                [-to-slack]
+                [-to-slack]
+		[-to-stride]
                 [-to-syslog]
                 [-to-hipchat]
                 [-to-localfile]
@@ -130,8 +131,10 @@ report:
   -to-s3
         Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
-        Send report via Slack
-  -to-syslog
+        Send report via Slack
+  -to-stride
+        Send report via Stride
+  -to-syslog
         Send report via Syslog
 
 ```
@@ -242,6 +245,25 @@ With this sample command, it will ..
 
 
 ```
+
+
+## Example: Send scan results to Stride
+```
+$ vuls report \
+      -to-stride \
+      -cvss-over=7 \
+      -cvedb-path=$PWD/cve.sqlite3
+```
+With this sample command, it will ..
+
+- Send scan results to Stride
+- Only Report CVEs that CVSS score is over 7
+
+
+```
+
+
+
 
 ## Example: Send scan results to Slack
 ```
