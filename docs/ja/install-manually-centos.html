@@ -28,8 +28,8 @@
 </ul>
 <pre><code class="hljs css bash">$ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
-$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.8.3.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.10.1.linux-amd64.tar.gz
 $ mkdir <span class="hljs-variable">$HOME</span>/go
 </code></pre>
 <p>/etc/profile.d/goenv.sh に以下の行を追加する。</p>
@@ -63,6 +63,15 @@ $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  32K Aug  6 08:10 cve.sqlite3-shm
 -rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
 </code></pre>
+<p>If you want results in Japanese, you also need to fetch the JVN data. It takes about 10 minutes (on AWS).</p>
+<pre><code class="hljs css bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
+$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 1998 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetchjvn -years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
+... snip ...
+$ ls -alh cve.sqlite3
+-rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
+-rw-r--r--. 1 centos centos  32K Aug  6 08:10 cve.sqlite3-shm
+-rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" name="deploy-goval-dictionary"></a><a href="#deploy-goval-dictionary" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy goval-dictionary</h2>
 <p><a href="https://github.com/kotakanbe/goval-dictionary">goval-dictionary</a></p>
 <pre><code class="hljs css bash">$ mkdir -p <span class="hljs-variable">$GOPATH</span>/src/github.com/kotakanbe
@@ -71,11 +80,11 @@ $ git <span class="hljs-built_in">clone</span> https://github.com/kotakanbe/gova
 $ <span class="hljs-built_in">cd</span> goval-dictionary
 $ make install
 </code></pre>
-<p><code>$GOPATH/bin</code>以下にバイナリが生成される。</p>
-<p>次に、RedHatのOVALデータベースを取得する。CentOSからはOVALが提供されていないのでRedHatのものを使う。 <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
+<p>The binary was built under <code>$GOPATH/bin</code></p>
+<p>Then fetch OVAL data of RedHat since the server to be scanned is CentOS. <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
 <pre><code class="hljs css bash">$ goval-dictionary fetch-redhat 7
 </code></pre>
-<p>CentOS以外をスキャンした場合は、OS、バージョンに対応するOVAL情報を事前に取得する。</p>
+<p>If you want to scan other than CentOS 7, fetch OVAL data according to the OS type and version of scan target server in advance.</p>
 <ul>
 <li><a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type">Alpine</a></li>
 <li><a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">RedHat, CentOS</a></li>
@@ -91,7 +100,7 @@ $ git clone https://github.com/future-architect/vuls.git
 $ cd vuls
 $ make install
 </code></pre>
-<p>もしすでにVulsをインストール済みでアップデートする場合は以下を実行する。</p>
+<p>If you have previously installed vuls and want to update, please do the following</p>
 <pre><code class="hljs">$ rm -rf $GOPATH/pkg/linux_amd64/github.com/future-architect/vuls/
 $ rm -rf $GOPATH/src/github.com/future-architect/vuls/
 $ cd $GOPATH/src/github.com/future-architect
@@ -99,7 +108,7 @@ $ git clone https://github.com/future-architect/vuls.git
 $ cd vuls
 $ make install
 </code></pre>
-<p><code>$GOPATH/bin</code>以下にバイナリが生成される。</p>
+<p>The binary was built under <code>$GOPATH/bin</code></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="architecture-deep-scan.html">← Deep Scan</a><a class="docs-next button" href="install-with-docker.html">Install with Docker →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/ja/abstract.html">Introduction</a><a href="/docs/ja/architecture-remote-local.html">Architecture</a><a href="/docs/ja/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

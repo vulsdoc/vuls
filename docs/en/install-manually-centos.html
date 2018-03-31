@@ -28,8 +28,8 @@
 </ul>
 <pre><code class="hljs css bash">$ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
-$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.8.3.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.10.1.linux-amd64.tar.gz
 $ mkdir <span class="hljs-variable">$HOME</span>/go
 </code></pre>
 <p>Add these lines into /etc/profile.d/goenv.sh</p>
@@ -57,6 +57,16 @@ $ make install
 It takes about 10 minutes (on AWS).</p>
 <pre><code class="hljs css bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
 $ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 2002 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetchnvd -years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
+... snip ...
+$ ls -alh cve.sqlite3
+-rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
+-rw-r--r--. 1 centos centos  32K Aug  6 08:10 cve.sqlite3-shm
+-rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
+</code></pre>
+<p>If you want results in Japanese, you also need to fetch the JVN data.
+It takes about 10 minutes (on AWS).</p>
+<pre><code class="hljs css bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
+$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 1998 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetchjvn -years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
 ... snip ...
 $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
