@@ -105,6 +105,7 @@ report:
         Don't report the unfixed CVEs
   -lang string
         [en|ja] (default "en")
+        In case of using ja, it is necessary to acquire JVN data beforehand.
   -log-dir string
         /path/to/log (default "/var/log/vuls")
   -ovaldb-path string

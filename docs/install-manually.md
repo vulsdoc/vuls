@@ -18,8 +18,8 @@ Vuls requires the following packages.
 ```bash
 $ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
 $ mkdir $HOME/go
 ```
 Add these lines into /etc/profile.d/goenv.sh
@@ -63,6 +63,21 @@ $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  32K Aug  6 08:10 cve.sqlite3-shm
 -rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
 ```
+
+
+If you want results in Japanese, you also need to fetch the JVN data.
+It takes about 10 minutes (on AWS).  
+
+```bash
+$ cd $HOME
+$ for i in `seq 1998 $(date +"%Y")`; do go-cve-dictionary fetchjvn -years $i; done
+... snip ...
+$ ls -alh cve.sqlite3
+-rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
+-rw-r--r--. 1 centos centos  32K Aug  6 08:10 cve.sqlite3-shm
+-rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
+```
+
 
 ## Deploy goval-dictionary
 
