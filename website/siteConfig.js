@@ -55,6 +55,12 @@ const users = [
     infoLink: 'https://www.velc.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'cgate',
+    image: '/img/icons/cgate.svg',
+    infoLink: 'https://www.cgate.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
