@@ -73,7 +73,7 @@ localhost       centos7.3.1611  31 updatable packages
 View one-line summary
 
 ```
-$ vuls report -format-one-line-text -cvedb-path=$PWD/cve.sqlite3 -ovaldb-path=$PWD/oval.sqlite3
+$ vuls report -format-one-line-text
 
 One Line Summary
 ================
