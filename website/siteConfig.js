@@ -75,10 +75,14 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
     { search: true },
     { languages: true },
-
     {
       href: "https://github.com/future-architect/vuls",
       label: "GitHub",
+      external: true
+    },
+    {
+      href: "https://github.com/vulsdoc/vuls",
+      label: "vulsdoc",
       external: true
     },
   ],
