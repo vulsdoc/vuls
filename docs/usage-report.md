@@ -24,9 +24,10 @@ report:
                 [-ignore-unfixed]
                 [-to-email]
                 [-to-slack]
-		[-to-stride]
+		        [-to-stride]
                 [-to-syslog]
                 [-to-hipchat]
+                [-to-chatwork]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
@@ -127,6 +128,8 @@ report:
         Send report via Email
   -to-hipchat
     	Send report via hipchat
+  -to-chatwork
+    	Send report via chatwork
   -to-localfile
         Write report to localfile
   -to-s3
@@ -258,6 +261,21 @@ $ vuls report \
 With this sample command, it will ..
 
 - Send scan results to Stride
+- Only Report CVEs that CVSS score is over 7
+
+
+```
+
+## Example: Send scan results to ChatWork
+```
+$ vuls report \
+      -to-chatwork \
+      -cvss-over=7 \
+      -cvedb-path=$PWD/cve.sqlite3
+```
+With this sample command, it will ..
+
+- Send scan results to ChatWork
 - Only Report CVEs that CVSS score is over 7
 
 
