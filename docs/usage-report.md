@@ -24,7 +24,7 @@ report:
                 [-ignore-unfixed]
                 [-to-email]
                 [-to-slack]
-		        [-to-stride]
+                [-to-stride]
                 [-to-syslog]
                 [-to-hipchat]
                 [-to-chatwork]
