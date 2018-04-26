@@ -172,4 +172,11 @@ hookURL  = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
+## ChatWork section
+
+```
+[chatwork]
+room = "xxxxxxxxxxx"
+apiToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
 
