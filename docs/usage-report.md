@@ -236,55 +236,58 @@ Confidence              100 / OvalMatch
 
 
 ## Example: Send scan results to HipChat
+
+Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
+
 ```
 $ vuls report \
       -to-hipchat \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 ```
+
 With this sample command, it will ..
 
 - Send scan results to HipChat
 - Only Report CVEs that CVSS score is over 7
 
 
-```
-
-
 ## Example: Send scan results to Stride
+
+Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.html#stride-section)
+
 ```
 $ vuls report \
       -to-stride \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 ```
+
 With this sample command, it will ..
 
 - Send scan results to Stride
 - Only Report CVEs that CVSS score is over 7
 
-
-```
-
 ## Example: Send scan results to ChatWork
+
+Define Charwork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
+
 ```
 $ vuls report \
       -to-chatwork \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 ```
+
 With this sample command, it will ..
 
 - Send scan results to ChatWork
 - Only Report CVEs that CVSS score is over 7
 
-
-```
-
-
-
-
 ## Example: Send scan results to Slack
+
+Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.html#slack-section)
+
 ```
 $ vuls report \
       -to-slack \
