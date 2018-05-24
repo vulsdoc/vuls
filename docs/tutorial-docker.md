@@ -86,7 +86,7 @@ $ docker run --rm -it \
     -v $PWD:/vuls \
     -v $PWD/vuls-log:/var/log/vuls \
     -v /etc/localtime:/etc/localtime:ro \
-    -v /etc/timezone:/etc/timezone:ro vuls/vuls \
+    -v /etc/timezone:/etc/timezone:ro \
     vuls/vuls scan \
     -config=./config.toml # path to config.toml in docker
 ```
