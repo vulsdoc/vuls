@@ -74,7 +74,7 @@ $ docker run --rm -it \
     -v $PWD:/vuls \
     -v $PWD/vuls-log:/var/log/vuls \
     -v /etc/localtime:/etc/localtime:ro \
-    -e "TZ=Asia/Tokyo" \
+    -v /etc/timezone:/etc/timezone:ro \
     vuls/vuls scan \
     -config=./config.toml # path to config.toml in docker
 ```
