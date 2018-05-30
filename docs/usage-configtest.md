@@ -80,7 +80,7 @@ In order to scan with deep scan mode, the following dependencies are required, s
 | FreeBSD      |                 10 | -            |
 | Raspbian     |     Wheezy, Jessie | -            |
 
-The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls without -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
+The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
 ```
 Defaults:vuls !requiretty
 ```
