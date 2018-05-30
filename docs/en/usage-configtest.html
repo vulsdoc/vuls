@@ -90,7 +90,7 @@ The configtest subcommand with --deep flag checks whether the packages are insta
 <tr><td style="text-align:left">Raspbian</td><td style="text-align:right">Wheezy, Jessie</td><td style="text-align:left">-</td></tr>
 </tbody>
 </table>
-<p>The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls without -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.</p>
+<p>The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.</p>
 <pre><code class="hljs"><span class="hljs-symbol">Defaults:</span>vuls !requiretty
 </code></pre>
 <p>For details, see <a href="/docs/en/usage-scan.html#ssh-native-insecure-option">-ssh-native-insecure option</a></p>
