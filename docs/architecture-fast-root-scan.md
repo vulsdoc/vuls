@@ -1,12 +1,10 @@
 ---
-id: architecture-fast-scan
-title: Fast Scan
-sidebar_label: Fast Scan
+id: architecture-fast-root-scan
+title: Fast-Root Scan
+sidebar_label: Fast-Root Scan
 ---
 
-Fast scan mode scans without root privilege, no dependencies almost no load on the scan target server. 
-
-![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)
+![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast-root.png)
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -16,15 +14,12 @@ Fast scan mode scans without root privilege, no dependencies almost no load on t
 | Oracle      |                                   Fast |　                No |  Supported |                                      Need |
 | Ubuntu      |                                   Fast |　                No |  Supported |                                      Need |
 | Debian      |                                   Fast |　                No |  Supported |                                      Need |
+| Raspbian    |    1st time: Slow, From 2nd time: Fast |                Need |         No |                                    Need |
 | FreeBSD     |                                   Fast |　                No |         No |                                    Need |
 | Amazon      |                                   Fast |　                No |         No |                                    Need |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
-Fast scan mode is not supported for Raspbian.
-
 ## With -offline option
-
-Scan with -offline option, vuls can scan no internet access
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -37,3 +32,15 @@ Scan with -offline option, vuls can scan no internet access
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
 Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
+
+## Runtime Inspection
+
+### Detect processes affected by next pacakge update 
+
+- RedHat, CentOS, OracleLinux and Amazon Linux
+It is possible to know processes affecting software update in advance using yum-ps.
+
+### Detect not-restarted-processes
+
+- Debian and Ubuntu
+Detect processes which updated before but not restarting yet using checkrestart of debian-goodies.

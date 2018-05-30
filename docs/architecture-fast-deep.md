@@ -4,5 +4,11 @@ title: Fast and Deep scan
 sidebar_label: Fast and Deep scan
 ---
 
-[Fast scan mode](architecture-fast-scan.md) scans without root privilege, no internet access(RedHat, CentOS, OracleLinux, Ubuntu, Debian), almost no load on the scan target server. [Deep scan mode](architecture-fast-scan.md) scans in more detail.
+## [fast-scan](architecture-fast-scan.md) 
+Fast scan mode scans without root privilege, no dependencies, no internet access, almost no load on the scan target server. 
 
+## [fast-root scan mode](architecture-fast-root-scan.md) 
+Fast scan mode scans with root privilege, almost no load on the scan target server. 
+
+## [Deep scan mode](architecture-fast-scan.md) 
+Deep scan mode scans with root privilege. Certain commands can lead to high load such as fetch chagnelogs of many updatable packages.

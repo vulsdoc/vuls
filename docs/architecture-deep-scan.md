@@ -4,7 +4,7 @@ title: Deep Scan
 sidebar_label: Deep Scan
 ---
 
-![Vuls-Scan-Flow](/img/docs/vuls-scan-flow.png)
+![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-deep.png)
 
 | Distribution|                        Scan Speed |  Need Root Privilege |      OVAL | Need Internet Access |
 |:------------|:---------------------------------:|:--------------------:|:---------:|:--------------------:|
@@ -34,6 +34,8 @@ Detect CVE IDs by using package manager.
 - On SUSE Enterprise Linux and Alpine Linux
 Same as fast scan mode for now.
 
+TODO
+
 ## Runtime Inspection
 
 ### Detect processes affected by next pacakge update 
@@ -41,7 +43,7 @@ Same as fast scan mode for now.
 - RedHat, CentOS, OracleLinux and Amazon Linux
 It is possible to know processes affecting software update in advance using yum-ps.
 
-### Detect not-retarted-processes
+### Detect not-restarted-processes
 
 - Debian and Ubuntu
 Detect processes which updated before but not restarting yet using checkrestart of debian-goodies.
