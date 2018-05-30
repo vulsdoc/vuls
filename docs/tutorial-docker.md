@@ -79,6 +79,18 @@ $ docker run --rm -it \
     -config=./config.toml # path to config.toml in docker
 ```
 
+If Docker Host is Debian or Ubuntu
+```console
+$ docker run --rm -it \
+    -v ~/.ssh:/root/.ssh:ro \
+    -v $PWD:/vuls \
+    -v $PWD/vuls-log:/var/log/vuls \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /etc/timezone:/etc/timezone:ro \
+    vuls/vuls scan \
+    -config=./config.toml # path to config.toml in docker
+```
+
 [Usage: Scan](usage-scan.md)
 
 ## Step5. Report

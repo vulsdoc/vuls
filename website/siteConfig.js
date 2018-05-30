@@ -55,6 +55,12 @@ const users = [
     infoLink: 'https://www.velc.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'cgate',
+    image: '/img/icons/cgate.svg',
+    infoLink: 'https://www.cgate.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
@@ -69,10 +75,14 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
     { search: true },
     { languages: true },
-
     {
       href: "https://github.com/future-architect/vuls",
       label: "GitHub",
+      external: true
+    },
+    {
+      href: "https://github.com/vulsdoc/vuls",
+      label: "vulsdoc",
       external: true
     },
   ],

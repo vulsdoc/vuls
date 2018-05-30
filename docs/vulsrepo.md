@@ -32,7 +32,6 @@ $ vuls report -format-json
 
 Output to a JSON files (/opt/vuls/results/)
 
-
 ### Step2. Installation
 
 From now on , executed by a user running the vuls scan.
@@ -82,22 +81,19 @@ $ ./vulsrepo-server
 
 - Copy startup file. Change the contents according to the environment.
 
-
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
-$ sudo vi /etc/systemd/system/vulsrepo.service
+$ sudo vi /etc/init.d/vulsrepo
 ```
 
 - Set to start automatically
-
 
 ```
 $ sudo chkconfig vulsrepo on
 ```
 
 - Start vulsrepo-server
-
 
 ```
 $ sudo /etc/init.d/vulsrepo start
@@ -110,14 +106,12 @@ $ sudo /etc/init.d/vulsrepo start
 ```
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
 $ sudo vi /lib/systemd/system/vulsrepo.service
-
 ```
 
 - Set to start automatically
 
 ```
 $ sudo systemctl enable vulsrepo
-
 ```
 
 - Check settings
@@ -137,14 +131,13 @@ $ sudo systemctl start vulsrepo
 
 Access the browser
 
-````
+```
 http://<server-address>:5111
-````
+```
 
 ## DigestAuth
 
 1. To perform digest authentication, create an authentication file.
-
 
 ```
 $ ./vulsrepo-server -h
@@ -164,37 +157,30 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
-
 ```
 
 2. Edit vulsrepo-config.toml.
-
 
 ```
 $ vi vulsrepo-config.toml
 [Auth]
 authFilePath = "/home/vuls-user/.htdigest"
 realm = "vulsrepo_local"
-
 ```
 
 3. Start vulsrepo-server
-
 
 ## Use SSL
 
 1. Create a self-signed certificate
 
-
 ```
 $ openssl genrsa -out key.pem 2048
 
 $ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650
-
 ```
 
 2. Edit vulsrepo-config.toml.
-
 
 ```
 $ vi vulsrepo-config.toml
@@ -203,7 +189,6 @@ $ vi vulsrepo-config.toml
 serverSSL = "yes"
 serverCert = "cert.pem"
 serverKey = "key.pem"
-
 ```
 
 3. Start vulsrepo-server
@@ -214,7 +199,6 @@ serverKey = "key.pem"
 - It is necessary to build by yourself except for Linux 64bit
 - Install golang beforehand.
 
-
 ```
 $ mkdir -p $GOPATH/src/github.com/usiusi360/
 $ cd $GOPATH/src/github.com/usiusi360/
@@ -223,7 +207,6 @@ $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
 $ go build -o vulsrepo-server
-
 ```
 
 ## Misc

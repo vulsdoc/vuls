@@ -23,9 +23,11 @@ report:
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
                 [-to-email]
-                [-to-slack]
+                [-to-slack]
+                [-to-stride]
                 [-to-syslog]
                 [-to-hipchat]
+                [-to-chatwork]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
@@ -106,6 +108,7 @@ report:
         Don't report the unfixed CVEs
   -lang string
         [en|ja] (default "en")
+        In case of using ja, it is necessary to acquire JVN data beforehand.
   -log-dir string
         /path/to/log (default "/var/log/vuls")
   -ovaldb-path string
@@ -126,16 +129,20 @@ report:
         Send report via Email
   -to-hipchat
     	Send report via hipchat
+  -to-chatwork
+    	Send report via chatwork
   -to-localfile
         Write report to localfile
   -to-s3
         Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
         Send report via Slack
+  -to-stride
+        Send report via Stride
+  -to-syslog
+        Send report via Syslog
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
-  -to-syslog
-        Send report via Syslog
 ```
 
 ## How to read a report
@@ -231,21 +238,58 @@ Confidence              100 / OvalMatch
 
 
 ## Example: Send scan results to HipChat
+
+Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
+
 ```
 $ vuls report \
       -to-hipchat \
       -cvss-over=7 \
       -cvedb-path=$PWD/cve.sqlite3
 ```
+
 With this sample command, it will ..
 
 - Send scan results to HipChat
 - Only Report CVEs that CVSS score is over 7
 
 
+## Example: Send scan results to Stride
+
+Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.html#stride-section)
+
+```
+$ vuls report \
+      -to-stride \
+      -cvss-over=7 \
+      -cvedb-path=$PWD/cve.sqlite3
 ```
 
+With this sample command, it will ..
+
+- Send scan results to Stride
+- Only Report CVEs that CVSS score is over 7
+
+## Example: Send scan results to ChatWork
+
+Define Charwork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
+
+```
+$ vuls report \
+      -to-chatwork \
+      -cvss-over=7 \
+      -cvedb-path=$PWD/cve.sqlite3
+```
+
+With this sample command, it will ..
+
+- Send scan results to ChatWork
+- Only Report CVEs that CVSS score is over 7
+
 ## Example: Send scan results to Slack
+
+Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.html#slack-section)
+
 ```
 $ vuls report \
       -to-slack \

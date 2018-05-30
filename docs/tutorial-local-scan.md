@@ -73,7 +73,7 @@ localhost       centos7.3.1611  31 updatable packages
 View one-line summary
 
 ```
-$ vuls report -format-one-line-text -cvedb-path=$PWD/cve.sqlite3 -ovaldb-path=$PWD/oval.sqlite3
+$ vuls report -format-one-line-text
 
 One Line Summary
 ================
@@ -133,6 +133,31 @@ Confidence              100 / OvalMatch
 ... snip ...
 ```
 
+View Japanese
+
+```
+$ vuls report -format-short-text -lang ja | less
+localhost (centos7.3.1611)
+==========================
+Total: 109 (High:35 Medium:55 Low:16 ?:3)       31 updatable packages
+
+CVE-2017-12188  7.6 IMPORTANT (redhat)
+                Linux Kernel  におけるパストラバーサルの脆弱性
+                Linux Kernel には、パストラバーサルの脆弱性が存在します。
+                ---
+                https://jvndb.jvn.jp/ja/contents/2017/JVNDB-2017-009311.html
+                https://access.redhat.com/security/cve/CVE-2017-12188 (RHEL-CVE)
+                6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C (nvd)
+                6.5/AV:A/AC:H/Au:S/C:C/I:C/A:C (redhat)
+                6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C (jvn)
+                https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2017-12188
+                7.6/CVSS:3.0/AV:A/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H (redhat)
+                https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2017-12188
+                Confidence: 100 / OvalMatch
+
+... snip ...
+```
+
 ## Step7. TUI
 
 Vuls has Terminal-Based User Interface to display the scan result.
@@ -146,5 +171,8 @@ $ vuls tui
 ## Step8. Web UI
 
 [VulsRepo](https://github.com/usiusi360/vulsrepo) is a awesome Web UI for Vuls.  
+<img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif" width="100%">
+
 Check it out the [Online Demo](http://usiusi360.github.io/vulsrepo/).
 
+Installation refer to [VulsRepo](vulsrepo.md)
