@@ -24,7 +24,7 @@ Fast scan mode is not supported for Raspbian.
 
 ## With -offline option
 
-Scan with -offline option, vuls can scan no internet access
+Scan with -offline option, vuls scans with no internet access.
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|

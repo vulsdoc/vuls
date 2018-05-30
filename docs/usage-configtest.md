@@ -4,7 +4,7 @@ title: configtest
 sidebar_label: configtest
 ---
 
-```
+```bash
 $ vuls configtest --help
 configtest:
         configtest
@@ -41,84 +41,88 @@ configtest:
 
 The configtest subcommand checks whether vuls is able to connect via SSH to servers/containers defined in the config.toml
 
-## Fast Scan Mode
+# Dependencies
+
+## fast scan mode
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
 | Alpine       |      3.2 and later | - |
-| Ubuntu       |          12, 14, 16| - |
-| Debian       |             7, 8, 9| reboot-notifier|
-| CentOS       |                6, 7| yum-utils |
-| Amazon       |                All | yum-utils |
-| RHEL         |            5, 6, 7 | yum-utils | 
-| Oracle Linux |            5, 6, 7 | yum-utils |
-| SUSE Enterprise|            11, 12 | - |
+| Ubuntu       |          14, 16, 18| - |
+| Debian       |             7, 8, 9| (reboot-notifier) |
+| CentOS       |                6, 7| - |
+| Amazon       |                All | - |
+| RHEL         |            5, 6, 7 | - |
+| Oracle Linux |            5, 6, 7 | - |
+| SUSE Enterprise|            11, 12| - |
 | FreeBSD      |             10, 11 | - |
 | Raspbian     |    Jessie, Stretch | - |
 
-## Deep Scan Mode
+## fast-root scan mode
 
-Some dependent packages are needed in Deep Scan Mode.
+The configtest subcommand with --fast-root checks whether the packages are installed on the scan target server and also check /etc/sudoers
+
+| Distribution |            Release | Requirements |
+|:-------------|-------------------:|:-------------|
+| Alpine       |      3.2 and later | - |
+| Ubuntu       |          14, 16, 18| - |
+| Debian       |                8, 9| (reboot-notifier) |
+| CentOS       |                6, 7| - |
+| Amazon       |                All | - |
+| RHEL         |            5, 6, 7 | - |
+| Oracle Linux |            5, 6, 7 | - |
+| SUSE Enterprise|           11, 12 | - |
+| FreeBSD      |             10, 11 | - |
+| Raspbian     |    Jessie, Stretch | - |
+
+## deep scan mode
+
 The configtest subcommand with --deep flag checks whether the packages are installed on the scan target server and also check /etc/sudoers
-
-### Dependencies and /etc/sudoers on Target Servers
-
 In order to scan with deep scan mode, the following dependencies are required, so you need to install them manually or with tools such as Ansible.
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
 | Alpine       |      3.2 and later | -            |
-| Ubuntu       |          12, 14, 16| debian-goodies |
+| Ubuntu       |          14, 16, 18| debian-goodies |
 | Debian       |             7, 8, 9| aptitude, reboot-notifier, debian-goodies |
-| CentOS       |                6, 7| yum-utils, yum-plugin-changelog, yum-plugin-ps |
-| Amazon       |                All | yum-utils, yum-plugin-changelog, yum-plugin-ps |
-| RHEL         |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
-| RHEL         |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
-| Oracle Linux |                  5 | yum-utils, yum-changelog, yum-security, yum-plugin-ps |
-| Oracle Linux |               6, 7 | yum-utils, yum-plugin-changelog, yum-plugin-ps |
+| CentOS       |                6, 7| yum-plugin-changelog, yum-plugin-ps |
+| Amazon       |                All | yum-plugin-changelog, yum-plugin-ps |
+| RHEL         |                  5 | yum-changelog, yum-security, yum-plugin-ps |
+| RHEL         |               6, 7 | yum-plugin-changelog, yum-plugin-ps |
+| Oracle Linux |                  5 | yum-changelog, yum-security, yum-plugin-ps |
+| Oracle Linux |               6, 7 | yum-plugin-changelog, yum-plugin-ps |
 | SUSE Enterprise|           11, 12 | -            |
 | FreeBSD      |                 10 | -            |
 | Raspbian     |     Wheezy, Jessie | -            |
 
-The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. And if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
+# /etc/sudoers on Target Servers
 
-```
+The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. 
+
+if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
+
+```bash
 Defaults:vuls !requiretty
 ```
 
 For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
-Example of /etc/sudoers on target servers
+## /etc/sudoers
 
-#### RHEL 5 / Oracle Linux 5
+| Distibution | fast |fast-root(offline) |fast-root           | deep         |
+|:------------------|:-------------------|:-------------|:-------------|:-------------|
+| Ubuntu 14, 16, 18| - |vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
+| Debian 8, 9 | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
+| CentOS 6, 7  | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |
+| Amazon Linux | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |
+| RHEL 6, 7    | - |                - |  vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery, /usr/bin/yum changelog all updates* |
+| Oracle Linux 6, 7 | - | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/yum changelog all updates*, /usr/bin/repoquery |
+| SUSE Enterprise 11, 12 | - | - | -            | - |
+| FreeBSD 10 | - | - | -            | - |
+| Raspbian | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
 
-```
-vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never list-security --security, /usr/bin/yum --color=never info-security, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *
+If your server is behind the proxy, also add the following.
+
+```bash
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
 ```
-
-#### RHEL 6, 7 / Oracle Linux 6, 7
-
-```
-vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never repolist, /usr/bin/yum --color=never --security updateinfo list updates, /usr/bin/yum --color=never --security updateinfo updates, /usr/bin/repoquery, /usr/bin/yum --color=never changelog all *, /usr/bin/yum --color=never -q ps all
-Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
-
-```
-
-#### Debian/Ubuntu/Raspbian
-
-```
-vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/sbin/checkrestart
-Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
-```
-
-- Amazon Linux, CentOS
-
-```
-vuls ALL=(ALL) NOPASSWD:/usr/bin/yum --color=never -q ps all
-Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"
-```
-
-#### On SUSE Enterprise, FreeBSD
-
-Scan without root privilege for now.

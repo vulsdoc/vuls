@@ -21,6 +21,8 @@ sidebar_label: Fast-Root Scan
 
 ## With -offline option
 
+Scan with -offline option, vuls scans with no internet access.
+
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
 | Alpine      |                                   Fast |　                No |  Supported |                                    No |
@@ -37,10 +39,8 @@ Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
 
 ### Detect processes affected by next pacakge update 
 
-- RedHat, CentOS, OracleLinux and Amazon Linux
-It is possible to know processes affecting software update in advance using yum-ps.
+It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, OracleLinux and Amazon Linux
 
 ### Detect not-restarted-processes
 
-- Debian and Ubuntu
-Detect processes which updated before but not restarting yet using checkrestart of debian-goodies.
+Detect processes which updated before but not restarting yet using checkrestart of debian-goodies on Debian and Ubuntu
