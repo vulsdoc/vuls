@@ -13,6 +13,7 @@ configtest:
                         [-log-dir=/path/to/log]
                         [-ask-key-password]
                         [-ssh-native-insecure]
+                        [-ssh-config]
                         [-containers-only]
                         [-timeout=300]
                         [-debug]
@@ -32,6 +33,8 @@ configtest:
         http://proxy-url:port (default: empty)
   -log-dir string
         /path/to/log (default "/var/log/vuls")
+  -ssh-config
+        Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int

@@ -27,6 +27,11 @@ Use job scheduler like Cron.
 Set NOPASSWORD option in /etc/sudoers on target servers.  
 Use SSH Key-Based Authentication with no passphrase or ssh-agent.
 
+## How to scan without SSH host key check
+
+scan with -ssh-config option.
+see [#417](https://github.com/future-architect/vuls/pull/417), [#660](660)
+
 ## How to cross compile
 
 ```bash
