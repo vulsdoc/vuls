@@ -4,7 +4,7 @@ title: Fast Scan
 sidebar_label: Fast Scan
 ---
 
-Fast scan mode scans without root privilege, no dependencies almost no load on the scan target server. 
+Fast scan mode scans without root privilege, no dependencies almost no load on the scan target server.
 
 ![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)
 

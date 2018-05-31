@@ -97,7 +97,7 @@ In order to scan with deep scan mode, the following dependencies are required, s
 
 # /etc/sudoers on Target Servers
 
-The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH. 
+The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH.
 
 if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
 
@@ -121,7 +121,7 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 | FreeBSD 10 | - | - | -            | - |
 | Raspbian | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
 
-If your server is behind the proxy, also add the following.
+If your server is behind a proxy, also add the following.
 
 ```bash
 Defaults:vuls env_keep="http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"

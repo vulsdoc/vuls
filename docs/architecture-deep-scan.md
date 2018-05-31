@@ -23,14 +23,14 @@ Deep scan mode scans with root privilege. Certain commands can lead to high load
 
 ## Ubuntu, Debian and Raspbian
 
-Vuls issues `apt-get changelog` for each upgradable packages and parse the changelog.  
-`apt-get changelog` is slow and resource usage is heavy when there are many updatable packages on target server.   
-Vuls stores these changelogs to KVS([boltdb](https://github.com/boltdb/bolt)).  
+Vuls issues `apt-get changelog` for each upgradable packages and parse the changelog.
+`apt-get changelog` is slow and resource usage is heavy when there are many updatable packages on target server.
+Vuls stores these changelogs to KVS([boltdb](https://github.com/boltdb/bolt)).
 From the second time on, the scan speed is fast by using the local cache.
 
 ## CentOS
 
-Vuls issues `yum changelog` to get changelogs of upgradable packages at once and parse the changelog.  
+Vuls issues `yum changelog` to get changelogs of upgradable packages at once and parse the changelog.
 
 ## RHEL, Oracle, Amazon and FreeBSD
 
@@ -42,7 +42,7 @@ Same as fast scan mode for now.
 
 # Runtime Inspection
 
-## Detect processes affected by next pacakge update 
+## Detect processes affected by next pacakge update
 
 It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, OracleLinux and Amazon Linux
 

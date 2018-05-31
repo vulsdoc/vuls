@@ -37,7 +37,7 @@ Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
 
 ## Runtime Inspection
 
-### Detect processes affected by next pacakge update 
+### Detect processes affected by next pacakge update
 
 It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, OracleLinux and Amazon Linux
 
