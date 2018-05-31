@@ -23,6 +23,7 @@ scan:
                 [-log-dir=/path/to/log]
                 [-cachedb-path=/path/to/cache.db]
                 [-ssh-native-insecure]
+                [-ssh-config]
                 [-containers-only]
                 [-skip-broken]
                 [-http-proxy=http://192.168.0.1:8080]
@@ -55,6 +56,8 @@ scan:
         /path/to/results
   -skip-broken
         [For CentOS] yum update changelog with --skip-broken option
+  -ssh-config
+        Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int

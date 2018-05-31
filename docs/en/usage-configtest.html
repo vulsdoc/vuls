@@ -22,6 +22,7 @@ configtes<span class="hljs-variable">t:</span>
                         [-<span class="hljs-built_in">log</span>-dir=/path/<span class="hljs-keyword">to</span>/<span class="hljs-built_in">log</span>]
                         [-ask-key-password]
                         [-ssh-native-insecure]
+                        [-ssh-config]
                         [-containers-<span class="hljs-keyword">only</span>]
                         [-timeout=<span class="hljs-number">300</span>]
                         [-<span class="hljs-keyword">debug</span>]
@@ -41,6 +42,8 @@ configtes<span class="hljs-variable">t:</span>
         http://proxy-ur<span class="hljs-variable">l:port</span> (defaul<span class="hljs-variable">t:</span> <span class="hljs-built_in">empty</span>)
   -<span class="hljs-built_in">log</span>-dir <span class="hljs-built_in">string</span>
         /path/<span class="hljs-keyword">to</span>/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
+  -ssh-config
+        Use SSH <span class="hljs-keyword">options</span> specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Defaul<span class="hljs-variable">t:</span> Use the external <span class="hljs-keyword">command</span>
   -timeout <span class="hljs-keyword">int</span>

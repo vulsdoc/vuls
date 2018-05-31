@@ -23,6 +23,7 @@
                 [-<span class="hljs-keyword">log</span>-dir=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/<span class="hljs-keyword">log</span>]
                 [-cachedb-<span class="hljs-keyword">path</span>=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/cache.db]
                 [-ssh-<span class="hljs-keyword">native</span>-insecure]
+                [-ssh-config]
                 [-containers-<span class="hljs-keyword">only</span>]
                 [-<span class="hljs-keyword">skip</span>-broken]
                 [-<span class="hljs-keyword">http</span>-proxy=<span class="hljs-keyword">http</span>://<span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8080</span>]
@@ -55,6 +56,8 @@
         /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results
   -<span class="hljs-keyword">skip</span>-broken
         [<span class="hljs-keyword">For</span> CentOS] yum <span class="hljs-keyword">update</span> changelog <span class="hljs-keyword">with</span> <span class="hljs-comment">--skip-broken option</span>
+  -ssh-config
+        <span class="hljs-keyword">Use</span> SSH options specified <span class="hljs-keyword">in</span> ssh_config preferentially
   -ssh-<span class="hljs-keyword">native</span>-insecure
         <span class="hljs-keyword">Use</span> <span class="hljs-keyword">Native</span> <span class="hljs-keyword">Go</span> implementation <span class="hljs-keyword">of</span> SSH. <span class="hljs-keyword">Default</span>: <span class="hljs-keyword">Use</span> the <span class="hljs-keyword">external</span> command
   -<span class="hljs-keyword">timeout</span> <span class="hljs-built_in">int</span>

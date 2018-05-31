@@ -22,6 +22,7 @@ configtest:
                         [-log-dir=/path/to/log]
                         [-ask-key-password]
                         [-ssh-native-insecure]
+                        [-ssh-config]
                         [-containers-only]
                         [-timeout=300]
                         [-debug]
@@ -43,6 +44,8 @@ Context | Request Context Default: Test both of hosts and containers
         http://proxy-url:port (default: empty)
   -log-dir string
         /path/to/log (default &quot;/var/log/vuls&quot;)
+  -ssh-config
+        Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int
@@ -90,7 +93,7 @@ Context | Request Context Default: Test both of hosts and containers
 <tr><td style="text-align:left">Raspbian</td><td style="text-align:right">Wheezy, Jessie</td><td style="text-align:left">-</td></tr>
 </tbody>
 </table>
-<p>また、Deep Scan Modeで利用するコマンドの中にはRoot権限が必要なものものある。configtestサブコマンドでは、スキャン対象サーバに対してそのコマンドがパスワードなしでSUDO可能な状態か確認する。 And if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.</p>
+<p>また、Deep Scan Modeで利用するコマンドの中にはRoot権限が必要なものものある。configtestサブコマンドでは、スキャン対象サーバに対してそのコマンドがパスワードなしでSUDO可能な状態か確認する。 また、-ssh-native-insecureオプションで実行する場合、requirettyを/etc/sudoersに定義されているかも確認する。</p>
 <pre><code class="hljs">Defaults:vuls !requiretty
 </code></pre>
 <p>For details, see <a href="/docs/ja/usage-scan.html#ssh-native-insecure-option">-ssh-native-insecure option</a></p>
