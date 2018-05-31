@@ -4,10 +4,13 @@ title: Scan
 sidebar_label: Scan
 ---
 
-```
+```bash
 $ vuls scan -help
 scan:
         scan
+                [-fast]
+                [-fast-root]
+                [-offline]
                 [-deep]
                 [-config=/path/to/config.toml]
                 [-results-dir=/path/to/results]
@@ -25,6 +28,14 @@ scan:
                 [-pipe]
 
                 [SERVER]...
+  -fast
+        Fast scan mode. no deps, no root privilege
+  -fast-root
+        Fast scan with root privilege
+  -offline
+        Offline scan mode. Unable to get information such as updatable packages version
+  -deep
+        Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
   -ask-key-password
         Ask ssh privatekey password before scanning
   -cachedb-path string
@@ -35,8 +46,6 @@ scan:
         Scan containers only. Default: Scan both of hosts and containers
   -debug
         debug mode
-  -deep
-        Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
   -http-proxy string
         http://proxy-url:port (default: empty)
   -log-dir string
@@ -57,31 +66,45 @@ scan:
         Number of second for scanning vulnerabilities for all servers (default 7200)
 ```
 
+## -fast option
+
+fast-root scan mode scans with no root-priviledge, no deps on scan target server.
+
+* [Architecture/fast](architecture-fast-scan.md)
+* [Configtest/fast scan](usage-configtest.md#fast-scan-mode)
+
+## -fast-root option
+
+fast-root scan mode scans with root-priviledge.
+You need to execute `vuls configtest --fast-root` to check the configuration of the target server before scanning with -fast-root flag.
+For details about deep scan mode, see below.
+
+* [Architecture/fast-root](architecture-fast-root-scan.md)
+* [Configtest/fast-root scan](usage-configtest.md#fast-root-scan-mode)
+
 ## -deep option
 
 You need to execute `vuls configtest --deep` to check the configuration of the target server before scanning with -deep flag.
+For details about deep scan mode, see below.
 
-For details about deep scan mode, see below.  
-
-* [Architecture/Deep Scan](architecture-deep-scan.md)
-* [Configtest/Deep Scan Mode](usage-configtest.md#deep-scan-mode)
+* [Architecture/deep](architecture-deep-scan.md)
+* [Configtest/deep scan](usage-configtest.md#deep-scan-mode)
 
 ## -ssh-native-insecure option
 
-Vuls supports different types of SSH.  
+Vuls supports different types of SSH.
 
 By Default, external SSH command will be used.
 This is useful If you want to use ProxyCommand or cipher algorithm of SSH that is not supported by native go implementation.  
 Don't forget to add below line to /etc/sudoers on the target servers. (username: vuls)
-```
+
+```bash
 Defaults:vuls !requiretty
 ```
 
 To use native Go implementation from crypto/ssh, specify this option.   
 This is useful in situations where you may not have access to traditional UNIX tools.
 But it is important to note that this mode does not check the host key.
-
-
 
 ## -ask-key-password option
 
@@ -91,30 +114,35 @@ But it is important to note that this mode does not check the host key.
 | with password    |           required | or use ssh-agent |
 
 ## Example: Scan all servers defined in config file
-```
+
+```bash
 $ vuls scan -ask-key-password
 ```
+
 With this sample command, it will ..
 
-- Ask SSH key password before scanning
-- Scan all servers defined in config file
+* Ask SSH key password before scanning
+* Scan all servers defined in config file
 
 ## Example: Scan specific servers
-```
+
+```bash
 $ vuls scan server1 server2
 ```
+
 With this sample command, it will ..
 
-- Use SSH Key-Based authentication with empty password (without -ask-key-password option)
-- Scan only 2 servers (server1, server2)
+* Use SSH Key-Based authentication with empty password (without -ask-key-password option)
+* Scan only 2 servers (server1, server2)
 
 ## Example: Scan via shell instead of SSH.
 
 Vuls scans localhost instead of SSH if the host address is `localhst or 127.0.0.1` and the port is `local` in config.
 For more details, see [Architecture section](architecture-local-scan.md)
 
-- config.toml
-  ```
+* config.toml
+
+  ```bash
   [servers]
 
   [servers.localhost]
@@ -124,20 +152,21 @@ For more details, see [Architecture section](architecture-local-scan.md)
 
 ## Example: Scan containers (Docker/LXD/LXC)
 
-It is common that keep containers running without SSHd daemon.  
+It is common that keep containers running without SSHd daemon.
 see [Docker Blog:Why you don't need to run SSHd in your Docker containers](https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/)
 
 ### Docker
 
-Vuls scans Docker containers via `docker exec` instead of SSH.  
+Vuls scans Docker containers via `docker exec` instead of SSH.
 For more details, see [Architecture section](architecture-remote-scan.html)
 
 If you don’t want to use root, create a Unix group called docker and add users to it
-For details, see https://docs.docker.com/install/linux/linux-postinstall/
+For details, see [docker manual](https://docs.docker.com/install/linux/linux-postinstall/)
 
-- To scan all of running containers  
+#### To scan all of running containers
+
   `"${running}"` needs to be set in the containers item.
-    ```
+    ```bash
     [servers]
 
     [servers.172-31-4-82]
@@ -149,7 +178,8 @@ For details, see https://docs.docker.com/install/linux/linux-postinstall/
     includes = ["${running}"]
     ```
 
-- To scan specific containers  
+#### To scan specific containers
+
   The container ID or container name needs to be set in the containers item.  
   In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
   Be sure to check these containers are running state before scanning.  
@@ -166,7 +196,8 @@ For details, see https://docs.docker.com/install/linux/linux-postinstall/
     includes = ["container_name_a", "4aa37a8b63b9"]
     ```
 
-- To scan except specific containers  
+#### To scan except specific containers
+
     ```
     [servers]
 
@@ -180,13 +211,15 @@ For details, see https://docs.docker.com/install/linux/linux-postinstall/
     excludes = ["container_name_a", "4aa37a8b63b9"]
     ```
 
-- To scan containers only
-  - --containers-only option is available.
+#### To scan containers only
+
+  --containers-only option is available.
 
 ### LXD
 
-Vuls scans lxd via `lxc exec` instead of SSH.  
-```
+Vuls scans lxd via `lxc exec` instead of SSH.
+
+```bash
 [servers]
 
 [servers.172-31-4-82]
@@ -201,8 +234,9 @@ includes = ["${running}"]
 
 ### LXC
 
-Vuls scans lxc via `lxc-attach` instead of SSH.  
-```
+Vuls scans lxc via `lxc-attach` instead of SSH.
+
+```bash
 [servers]
 
 [servers.172-31-4-82]
@@ -215,10 +249,9 @@ type = "lxc"
 includes = ["${running}"]
 ```
 
-LXC required root privilege.  
+LXC required root privilege.
 
 Example of /etc/sudoers on target servers
 
-```
+```bash
 vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
-```

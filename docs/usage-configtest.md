@@ -8,6 +8,9 @@ sidebar_label: configtest
 $ vuls configtest --help
 configtest:
         configtest
+                        [-fast]
+                        [-fast-root]
+                        [-offline]
                         [-deep]
                         [-config=/path/to/config.toml]
                         [-log-dir=/path/to/log]
@@ -19,6 +22,14 @@ configtest:
                         [-debug]
 
                         [SERVER]...
+  -fast
+        Config test for fast scan mode
+  -fast-root
+        Config test for fast-root scan mode
+  -offline
+        Config test for offline scan mode
+  -deep
+        Config test for deep scan mode
   -ask-key-password
         Ask ssh privatekey password before scanning
   -config string
@@ -27,8 +38,6 @@ configtest:
         Test containers only. Default: Test both of hosts and containers
   -debug
         debug mode
-  -deep
-        Config test for deep scan mode
   -http-proxy string
         http://proxy-url:port (default: empty)
   -log-dir string
