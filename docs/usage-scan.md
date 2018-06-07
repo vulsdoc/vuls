@@ -231,9 +231,8 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
     host         = "172.31.4.82"
     user        = "ec2-user"
     keyPath     = "/home/username/.ssh/id_rsa"
-
-    [servers.172-31-4-82.containers]
-    includes = ["${running}"]
+    containerType = "docker"
+    containersIncluded = ["${running}"]
     ```
 
 #### To scan specific containers
@@ -249,9 +248,8 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
     host         = "172.31.4.82"
     user        = "ec2-user"
     keyPath     = "/home/username/.ssh/id_rsa"
-
-    [servers.172-31-4-82.containers]
-    includes = ["container_name_a", "4aa37a8b63b9"]
+    containerType = "docker"
+    containersIncluded = ["container_name_a", "4aa37a8b63b9"]
     ```
 
 #### To scan except specific containers
@@ -263,10 +261,9 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
     host         = "172.31.4.82"
     user        = "ec2-user"
     keyPath     = "/home/username/.ssh/id_rsa"
-
-    [servers.172-31-4-82.containers]
-    includes = ["${running}"]
-    excludes = ["container_name_a", "4aa37a8b63b9"]
+    containerType = "docker"
+    containersIncluded = ["${running}"]
+    containersExcluded = ["container_name_a", "4aa37a8b63b9"]
     ```
 
 #### To scan containers only

@@ -14,7 +14,7 @@ discover:
 ## Example
 
 ```
-$ vuls discover 172.31.4.0/24
+$ vuls discover 192.168.11.0/24
 # Create config.toml using below and then ./vuls --config=/path/to/config.toml
 
 [slack]
@@ -40,36 +40,39 @@ subjectPrefix = "[vuls]"
 #port        = "22"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#Memo        = "DB Server" 
-#cpeNames = [
+#scanMode        = ["fast", "fast-root", "deep", "offline"]
+#cpeURIs = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
-#ignoreCves = ["CVE-2016-6313"]
-#[default.containers]
-#type = "lxd" # or "docker"
-#includes = ["${running}"]
-#excludes = ["container_name", "container_id"]
-#[default.optional]
-#key = "value"
+#owaspDCXMLPath = "/tmp/dependency-check-report.xml"
+#ignoreCves = ["CVE-2014-6271"]
+#containerType = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#ContainersExcluded= ["container_name_a"]
 
 [servers]
 
-[servers.172-31-4-82]
-host         = "172.31.4.82"
+[servers.192-168-11-6]
+host         = "192.168.11.6"
 #port        = "22"
 #user        = "root"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#type 		 = "pseudo"
-#cpeNames = [
-#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
-#]
-#ignoreCves = ["CVE-2016-6313"]
-#[servers.172-31-4-82.containers]
-#type = "lxd" # or "docker" or "lxc"
-#includes = ["${running}"]
-#excludes = ["container_name", "container_id"]
-#[servers.172-31-4-82.optional]
-#key = "value"
+#scanMode        = ["fast", "fast-root", "deep", "offline"]
+#type            = "pseudo"
+#memo        = "DB Server"
+#cpeURIs = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
+#ignoreCves = ["CVE-2014-0160"]
+#containerType = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#ContainersExcluded= ["container_name_a"]
+
+#[servers.192-168-11-6.containers.container_name_a]
+#cpeURIs = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
+
+#[servers.192-168-11-6.optional]
+#key = "value1"
 ```
 
 You can customize your configuration using this template.

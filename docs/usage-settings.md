@@ -102,7 +102,7 @@ verbose     = false
 #port        = "22"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#cpeNames = [
+#cpeURIs = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6313"]
@@ -123,7 +123,7 @@ host         = "172.31.4.82"
 #user        = "root"
 #keyPath     = "/home/username/.ssh/id_rsa"
 #type 		 = "pseudo"
-#cpeNames = [
+#cpeURIs = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6314"]
@@ -143,7 +143,7 @@ You can overwrite the default value specified in default section.
 - user: SSH username
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
-- cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
+- cpeURIs: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
 - optional: Add additional information to JSON report.
 - containers: see [Example: Scan containers (Docker/LXD)(usage-scan.md#example-scan-containers-docker-lxd-lxc)
