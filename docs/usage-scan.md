@@ -8,10 +8,6 @@ sidebar_label: Scan
 $ vuls scan -help
 scan:
         scan
-                [-fast]
-                [-fast-root]
-                [-offline]
-                [-deep]
                 [-config=/path/to/config.toml]
                 [-results-dir=/path/to/results]
                 [-log-dir=/path/to/log]
@@ -28,14 +24,6 @@ scan:
                 [-pipe]
 
                 [SERVER]...
-  -fast
-        Fast scan mode. no deps, no root privilege
-  -fast-root
-        Fast scan with root privilege
-  -offline
-        Offline scan mode. Unable to get information such as updatable packages version
-  -deep
-        Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
   -ask-key-password
         Ask ssh privatekey password before scanning
   -cachedb-path string
@@ -66,29 +54,99 @@ scan:
         Number of second for scanning vulnerabilities for all servers (default 7200)
 ```
 
-## -fast option
+## fast scan
 
-fast-root scan mode scans with no root-priviledge, no deps on scan target server.
+fast scan mode scans with no root-priviledge, no deps on scan target server.
+fast For details about fast scan mode, see below.
+You need to execute `vuls configtest` to check the configuration of the target server before scanning.
+For details about fast scan mode, see below.
 
 * [Architecture/fast](architecture-fast-scan.md)
 * [Configtest/fast scan](usage-configtest.md#fast-scan-mode)
 
-## -fast-root option
+### fast scan with internet access
+
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["fast"]
+```
+
+
+### fast scan without internet access
+
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["fast", "offline"]
+```
+
+## fast-root scan
 
 fast-root scan mode scans with root-priviledge.
-You need to execute `vuls configtest --fast-root` to check the configuration of the target server before scanning with -fast-root flag.
-For details about deep scan mode, see below.
+You need to execute `vuls configtest` to check the configuration of the target server before scanning.
+For details about fast-root scan mode, see below.
 
 * [Architecture/fast-root](architecture-fast-root-scan.md)
 * [Configtest/fast-root scan](usage-configtest.md#fast-root-scan-mode)
 
-## -deep option
+### fast-root scan with internet access
 
-You need to execute `vuls configtest --deep` to check the configuration of the target server before scanning with -deep flag.
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["fast-root"]
+```
+
+### fast-root scan without internet access
+
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["fast-root", "offline"]
+```
+
+## deep scan
+
+Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
+You need to execute `vuls configtest` to check the configuration of the target server before scanning.
 For details about deep scan mode, see below.
 
 * [Architecture/deep](architecture-deep-scan.md)
 * [Configtest/deep scan](usage-configtest.md#deep-scan-mode)
+
+### deep scan with internet access
+
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["deep"]
+```
 
 ## -ssh-native-insecure option
 
