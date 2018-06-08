@@ -391,6 +391,20 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
+## Example: IgnoreCves of a contianer
+
+- config.toml
+```toml
+[default]
+ignoreCves = ["CVE-2016-6313"]
+
+[servers.cent7]
+host     = "192.168.11.11"
+user     = "kanbe"
+
+[servers.cent7.containers.romantic_goldberg]
+ignoreCves = ["CVE-2016-6314"]
+```
 
 ## Example: Add optional key-value pairs to JSON
 
