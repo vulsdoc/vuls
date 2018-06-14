@@ -61,6 +61,12 @@ const users = [
     infoLink: 'https://www.cgate.jp/',
     pinned: true,
   },
+  {
+    caption: 'DMM.com',
+    image: '/img/icons/DMM.com_logo_RGB_small.png',
+    infoLink: 'https://dmm-corp.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
