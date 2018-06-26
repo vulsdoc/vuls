@@ -73,6 +73,12 @@ const users = [
     infoLink: 'https://www.lancers.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'mazrica',
+    image: '/img/icons/mazrica.svg',
+    infoLink: 'https://mazrica.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
