@@ -69,7 +69,7 @@ const users = [
   },
   {
     caption: 'lancers',
-    image: '/img/icons/lancers.png',
+    image: '/img/icons/lancers.svg',
     infoLink: 'https://www.lancers.co.jp/',
     pinned: true,
   },
