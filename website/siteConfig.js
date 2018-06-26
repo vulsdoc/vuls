@@ -68,6 +68,12 @@ const users = [
     pinned: true,
   },
   {
+    caption: 'lancers',
+    image: '/img/icons/lancers.svg',
+    infoLink: 'https://www.lancers.co.jp/',
+    pinned: true,
+  },
+  {
     caption: 'mazrica',
     image: '/img/icons/mazrica.svg',
     infoLink: 'https://mazrica.com/',
