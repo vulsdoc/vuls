@@ -67,6 +67,12 @@ const users = [
     infoLink: 'https://dmm-corp.com/',
     pinned: true,
   },
+  {
+    caption: 'lancers',
+    image: '/img/icons/lancers.png',
+    infoLink: 'https://www.lancers.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
