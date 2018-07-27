@@ -6,7 +6,7 @@
     "Tutorial": ["tutorial", "tutorial-local-scan", "tutorial-remote-scan", "tutorial-docker"],
     "Usage": ["usage-automatic-discovery", "usage-settings", "usage-configtest", "usage-scan", "usage-report", "usage-tui", "usage-scan-non-os-packages"],
     "Vulsrepo": ["vulsrepo"],
-    "Misc": ["cron", "misc-update-vuls", "go-cve-dictionary", "goval-dictionary", "related-projects", "tips", "how-to-contribute"]
+    "Misc": ["cron", "misc-update-vuls", "go-cve-dictionary", "goval-dictionary", "gost", "related-projects", "tips", "how-to-contribute"]
 
   },
   "docs-other": {

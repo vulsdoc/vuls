@@ -4,16 +4,23 @@ title: goval-dictionary
 sidebar_label: goval-dictionary
 ---
 
+For detail of goval-dictionary, see [kotakanbe/goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
+
 ## Usage: goval-dictionary on different server
 
 ```
 $ goval-dictionary server -bind=192.168.10.1 -port=1324
 ```
 
-Run Vuls with -ovaldb-url option.
+Sepcify URL of the goval-dict in config.toml
 
 ```
-$ vuls report -ovaldb-url=http://192.168.0.1:1323
+[ovalDict]
+url = "http://192.168.0.1:1324"
+```
+
+```
+$ vuls report 
 ```
 
 ## Usage: Update OVAL Data

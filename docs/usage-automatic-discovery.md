@@ -36,6 +36,33 @@ to            = ["to@address.com"]
 cc            = ["cc@address.com"]
 subjectPrefix = "[vuls]"
 
+[aws]
+profile = "default"
+region = "ap-northeast-1"
+s3Bucket = "vuls"
+s3ResultsDir = "/path/to/result"
+s3ServerSideEncryption = "AES256"
+
+[azure]
+accountName = "default"
+AccountKey = "xxxxxxxxxxxxxx"
+ContainerName = "vuls"
+
+[cveDict]
+type = "sqlite3"
+path = "/path/to/cve.sqlite3"
+# url = ""
+
+[ovalDict]
+type = "sqlite3"
+path = "/path/to/oval.sqlite3"
+# url = ""
+
+[gost]
+type = "sqlite3"
+path = "/path/to/gost.sqlite3"
+# url = ""
+
 [default]
 #port        = "22"
 #user        = "username"

@@ -29,7 +29,7 @@ This can be done in the following steps.
 
 ## Step2. Deploy Vuls
 
-Then [Deploy go-cve-dictionary, goval-dictionary and Vuls](install-manually.md).
+Then [Deploy go-cve-dictionary, goval-dictionary, gost and Vuls](install-manually.md).
 If the installation process stops halfway, try increasing the instance type of EC2. An out of memory error may have occurred.
 
 ## Step3. Configuration

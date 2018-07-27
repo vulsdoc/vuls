@@ -107,6 +107,30 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 - [Oracle Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
 - [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
 
+
+## Deploy gost
+
+[gost (go-security-tracker)](https://github.com/knqyf263/gost)
+
+```bash
+$ mkdir -p $GOPATH/src/github.com/knqyf263
+$ cd $GOPATH/src/github.com/knqyf263
+$ git clone https://github.com/knqyf263/gost.git
+$ cd gost
+$ make install
+```
+The binary was built under `$GOPATH/bin`
+
+ Then fetch security tracker for RedHat since the server to be scanned is CentOS. [README](https://github.com/knqyf263/gost#fetch-redhat)
+
+```bash
+$ gost fetch redhat -after 2016-01-01    
+```
+
+To detect old vulnerabilities, change `--after=2016-01-01`.
+
+To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/gost#fetch-debian)
+
 ## Deploy Vuls
 
 ```

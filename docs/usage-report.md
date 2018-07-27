@@ -12,23 +12,17 @@ report:
                 [-results-dir=/path/to/results]
                 [-log-dir=/path/to/log]
                 [-refresh-cve]
-                [-cvedb-type=sqlite3|mysql|postgres]
-                [-cvedb-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 DB connection string]
-                [-ovaldb-type=sqlite3|mysql]
-                [-ovaldb-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
                 [-cvss-over=7]
                 [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
                 [-to-email]
-                [-to-slack]
-                [-to-stride]
-                [-to-syslog]
+                [-to-http]
+                [-to-slack]
+                [-to-stride]
                 [-to-hipchat]
                 [-to-chatwork]
-                [-to-localfile]
+                [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
                 [-format-json]
@@ -38,111 +32,76 @@ report:
                 [-format-list]
                 [-format-full-text]
                 [-gzip]
-                [-aws-profile=default]
-                [-aws-region=us-west-2]
-                [-aws-s3-bucket=bucket_name]
-                [-aws-s3-results-dir=/bucket/path/to/results]
-                [-aws-s3-server-side-encryption=AES256]
-                [-azure-account=accout]
-                [-azure-key=key]
-                [-azure-container=container]
+                [-uuid]
                 [-http-proxy=http://192.168.0.1:8080]
                 [-debug]
                 [-debug-sql]
                 [-pipe]
-                [-uuid]
 
-		[RFC3339 datetime format under results dir]
-
-  -aws-profile string
-        AWS profile to use (default "default")
-  -aws-region string
-        AWS region to use (default "us-east-1")
-  -aws-s3-bucket string
-        S3 bucket name
-  -aws-s3-results-dir string
-        /bucket/path/to/results (option)
-  -aws-s3-server-side-encryption string
-        The Server-side encryption algorithm used when storing the reports in S3 (e.g., AES256, aws:kms).
-  -azure-account string
-        Azure account name to use. AZURE_STORAGE_ACCOUNT environment variable is used if not specified
-  -azure-container string
-        Azure storage container name
-  -azure-key string
-        Azure account key to use. AZURE_STORAGE_ACCESS_KEY environment variable is used if not specified
+                [RFC3339 datetime format under results dir]
   -config string
-        /path/to/toml
-  -cvedb-path string
-        /path/to/sqlite3 (For get cve detail from cve.sqlite3)
-  -cvedb-type string
-        DB type for fetching CVE dictionary (sqlite3, mysql or postgres) (default "sqlite3")
-  -cvedb-url string
-        http://cve-dictionary.com:8080 DB connection string
+        /path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvss-over float
         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
-  -diff
-        Difference between previous result and current result
   -debug
         debug mode
   -debug-sql
         SQL debug mode
+  -diff
+        Difference between previous result and current result
   -format-full-text
         Detail report in plain text
   -format-json
         JSON format
+  -format-list
+        Display as list format
   -format-one-email
         Send all the host report via only one EMail (Specify with -to-email)
   -format-one-line-text
         One line summary in plain text
-  -format-list
-        Display as list format
   -format-xml
         XML format
   -gzip
         gzip compression
   -http-proxy string
         http://proxy-url:port (default: empty)
-  -ignore-unscored-cves
-        Don't report the unscored CVEs
   -ignore-unfixed
         Don't report the unfixed CVEs
+  -ignore-unscored-cves
+        Don't report the unscored CVEs
   -lang string
         [en|ja] (default "en")
-        In case of using ja, it is necessary to acquire JVN data beforehand.
   -log-dir string
         /path/to/log (default "/var/log/vuls")
-  -ovaldb-path string
-        /path/to/sqlite3 (For get oval detail from oval.sqlite3) (default "/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3")
-  -ovaldb-type string
-        DB type for fetching OVAL dictionary (sqlite3 or mysql) (default "sqlite3")
-  -ovaldb-url string
-        http://goval-dictionary.com:1324 or mysql connection string
   -pipe
-        Use stdin via PIPE
+        Use args passed via PIPE
   -refresh-cve
         Refresh CVE information in JSON file under results dir
   -results-dir string
-        /path/to/results
+        /path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-azure-blob
         Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
+  -to-chatwork
+        Send report via chatwork
   -to-email
-        Send report via Email
-  -to-hipchat
-    	Send report via hipchat
-  -to-chatwork
-    	Send report via chatwork
+        Send report via Email
+  -to-hipchat
+        Send report via hipchat
+  -to-http
+        Send report via HTTP POST
   -to-localfile
         Write report to localfile
   -to-s3
-        Write report to S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/xml/txt)
+        Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-slack
         Send report via Slack
-  -to-stride
-        Send report via Stride
-  -to-syslog
+  -to-stride
+        Send report via Stride
+  -to-syslog
         Send report via Syslog
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
+
 ```
 
 ## Example of three format options 
@@ -283,6 +242,23 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
   | PkgAuditMatch          | 100                |                          FreeBSD |Detection using pkg audit|
   | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
 
+## Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost
+
+config.toml
+
+```
+[cveDict]
+type = "sqlite3"
+path = "/path/to/cve.sqlite3"
+
+[ovalDict]
+type = "sqlite3"
+path = "/path/to/oval.sqlite3"
+
+[gost]
+type = "sqlite3"
+path = "/path/to/gost.sqlite3"
+```
 
 ## Example: Send scan results to HipChat
 
@@ -291,8 +267,7 @@ Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.h
 ```
 $ vuls report \
       -to-hipchat \
-      -cvss-over=7 \
-      -cvedb-path=$PWD/cve.sqlite3
+      -cvss-over=7
 ```
 
 With this sample command, it will ..
@@ -308,8 +283,7 @@ Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.ht
 ```
 $ vuls report \
       -to-stride \
-      -cvss-over=7 \
-      -cvedb-path=$PWD/cve.sqlite3
+      -cvss-over=7
 ```
 
 With this sample command, it will ..
@@ -319,13 +293,12 @@ With this sample command, it will ..
 
 ## Example: Send scan results to ChatWork
 
-Define Charwork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
+Define ChatWork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
 
 ```
 $ vuls report \
       -to-chatwork \
-      -cvss-over=7 \
-      -cvedb-path=$PWD/cve.sqlite3
+      -cvss-over=7
 ```
 
 With this sample command, it will ..
@@ -340,8 +313,7 @@ Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.htm
 ```
 $ vuls report \
       -to-slack \
-      -cvss-over=7 \
-      -cvedb-path=$PWD/cve.sqlite3
+      -cvss-over=7
 ```
 With this sample command, it will ..
 
@@ -384,43 +356,65 @@ Example of IAM policy:
 }
 ```
 
+
+config.toml
+
+```
+[aws]
+profile = "default"
+region = "ap-northeast-1"
+s3Bucket = "vuls"
+s3ServerSideEncryption = "AES256"
+```
+
+reporting
+
 ```
 $ vuls report \
-      -cvedb-path=$PWD/cve.sqlite3 \
       -to-s3 \
-      -format-json \
-      -aws-region=ap-northeast-1 \
-      -aws-s3-bucket=vuls \
-      -aws-profile=default
+      -format-json
 ```
+
 With this sample command, it will ..
- 
-- Put scan result(JSON) in S3 bucket. The bucket name is "vuls" in ap-northeast-1 and profile is "default"
+
+Put scan result(JSON) in S3 bucket 
+- with AES256 
+- bucket name is "vuls" 
+- ap-northeast-1
+- profile is "default"
+- The Server-side encryption algorithm (e.g., AES256, aws:kms).
 
 ## Example: Put results in Azure Blob storage
 
 To put results in Azure Blob Storage, configure following settings in Azure before reporting.
 - Create a Azure Blob container
 
+config.toml
+
 ```
-$ vuls scan \
-      -cvedb-path=$PWD/cve.sqlite3 \
-      -report-azure-blob \
-      -azure-container=vuls \
-      -azure-account=test \
-      -azure-key=access-key-string
+[azure]
+accountName = "default"
+accountKey = "xxxxxxxxxxxxxx"
+containerName "vuls"
 ```
+
+```
+$ vuls report -to-azure-blob
+```
+
 With this sample command, it will ..
-- Put scan result(JSON) in Azure Blob Storage. The container name is "vuls", storage account is "test" and accesskey is "access-key-string"
+
+Put scan result(JSON) in Azure Blob Storage. 
+- container name is "vuls"
+- storage account is "test" 
+- accesskey is "access-key-string"
 
 account and access key can be defined in environment variables.
+
 ```
 $ export AZURE_STORAGE_ACCOUNT=test
 $ export AZURE_STORAGE_ACCESS_KEY=access-key-string
-$ vuls scan \
-      -cvedb-path=$PWD/cve.sqlite3 \
-      -report-azure-blob \
-      -azure-container=vuls
+$ vuls report -to-azure-blob
 ```
 
 ## Example: IgnoreCves
@@ -428,6 +422,7 @@ $ vuls scan \
 Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.
 
 - config.toml
+
 ```toml
 [default]
 ignoreCves = ["CVE-2016-6313"]
@@ -441,6 +436,7 @@ ignoreCves = ["CVE-2016-6314"]
 ## Example: IgnoreCves of a contianer
 
 - config.toml
+
 ```toml
 [default]
 ignoreCves = ["CVE-2016-6313"]
@@ -451,6 +447,20 @@ user     = "kanbe"
 
 [servers.cent7.containers.romantic_goldberg]
 ignoreCves = ["CVE-2016-6314"]
+```
+
+## Example: IgnorePkgsRegexp 
+
+Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp [google/re2](https://github.com/google/re2/wiki/Syntax).
+
+```
+[servers.c74]
+host     = "192.168.11.11"
+user     = "kanbe"
+ignorePkgsRegexp = ["^kernel", "^python"]
+
+[servers.c74.containers.romantic_goldberg]
+ignorePkgsRegexp = ["^vim"]
 ```
 
 ## Example: Add optional key-value pairs to JSON
@@ -494,25 +504,65 @@ user     = "kanbe"
 
 ## Example: Use MySQL as a DB storage back-end
 
+config.toml
 ```
-$ vuls report \
-      -cvedb-type=mysql \
-      -cvedb-url="user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+[cveDict]
+type = "mysql"
+url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+
+[ovalDict]
+type = "mysql"
+url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+
+[gost]
+type = "mysql"
+url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+```
+
+```
+$ vuls report
 ```
 
 ## Example: Use PostgreSQL as a DB storage back-end
 
+
+config.toml
 ```
-$ vuls report \
-      -cvedb-type=postgres \
-      -cvedb-url=""host=myhost user=user dbname=dbname sslmode=disable password=password""
+[cveDict]
+type = "postgres"
+url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
+
+[ovalDict]
+type = "postgres"
+url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
+
+[gost]
+type = "postgres"
+url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
+```
+
+```
+$ vuls report
 ```
 
 ## Example: Use Redis as a DB storage back-end
 
+config.toml
 ```
-$ vuls report \
-  -cvedb-type=redis -cvedb-url="redis://localhost/0" 
-  -ovaldb-type=redis  -ovaldb-url="redis://localhost/1"
+[cveDict]
+type = "redis"
+url = "redis://localhost/1"
+
+[ovalDict]
+type = "redis"
+url = "redis://localhost/1"
+
+[gost]
+type = "redis"
+url = "redis://localhost/1"
+```
+
+```
+$ vuls report
 ```
 

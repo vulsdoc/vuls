@@ -7,50 +7,35 @@ sidebar_label: TUI
 ## Display the latest scan results
 
 ```
+$ vuls tui -h
 tui:
         tui
                 [-refresh-cve]
-                [-cvedb-type=sqlite3|mysql|postgres]
-                [-cvedb-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 DB connection string]
-                [-ovaldb-type=sqlite3|mysql]
-                [-ovaldb-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
+                [-config=/path/to/config.toml]
                 [-cvss-over=7]
                 [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
-                [-refresh-cve]
                 [-results-dir=/path/to/results]
                 [-log-dir=/path/to/log]
                 [-debug]
                 [-debug-sql]
                 [-pipe]
 
-  -cvedb-path string
-        /path/to/sqlite3 (For get cve detail from cve.sqlite3) 
-  -cvedb-type string
-        DB type for fetching CVE dictionary (sqlite3, mysql or postgres) (default "sqlite3")
-  -cvedb-url string
-        http://cve-dictionary.com:8080 DB connection string
-  -ovaldb-path string
-        /path/to/sqlite3 (For get oval detail from oval.sqlite3) (default "/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3")
-  -ovaldb-type string
-        DB type for fetching OVAL dictionary (sqlite3 or mysql) (default "sqlite3")
-  -ovaldb-url string
-        http://goval-dictionary.com:1324 or mysql connection string
+  -config string
+        /path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvss-over float
         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
+  -debug
+        debug mode
+  -debug-sql
+        debug SQL
   -diff
         Difference between previous result and current result
   -ignore-unfixed
         Don't report the unfixed CVEs
   -ignore-unscored-cves
         Don't report the unscored CVEs
-  -debug
-        debug mode
-  -debug-sql
-        debug SQL
   -log-dir string
         /path/to/log (default "/var/log/vuls")
   -pipe
@@ -58,7 +43,8 @@ tui:
   -refresh-cve
         Refresh CVE information in JSON file under results dir
   -results-dir string
-        /path/to/results 
+        /path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
+
 ```
 
 Key binding is below.
