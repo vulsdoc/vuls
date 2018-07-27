@@ -35,7 +35,7 @@ report:
                 [-format-xml]
                 [-format-one-email]
                 [-format-one-line-text]
-                [-format-short-text]
+                [-format-list]
                 [-format-full-text]
                 [-gzip]
                 [-aws-profile=default]
@@ -94,8 +94,8 @@ report:
         Send all the host report via only one EMail (Specify with -to-email)
   -format-one-line-text
         One line summary in plain text
-  -format-short-text
-        Summary in plain text
+  -format-list
+        Display as list format
   -format-xml
         XML format
   -gzip
@@ -145,83 +145,130 @@ report:
         Auto generate of scan target servers and then write to config.toml and scan result
 ```
 
-## How to read a report
+## Example of three format options 
 
-### Example
+Vuls has three format options.
+- format-list(default)
+- format-one-line-text
+- format-full-text
+
+### format-list
+
+```
+$ vuls report
+
+c74 (centos7.4.1708)
+====================
+Total: 294 (High:65 Medium:198 Low:24 ?:7), 93/294 Fixed, 708 installed, 285 updatable
+
++------------------+------+----------+---------+---------------------------------------------------+
+|      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        |
++------------------+------+----------+---------+---------------------------------------------------+
+| CVE-2017-11176   | 10.0 |  Network |   Fixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11176   |
+| CVE-2017-12762   | 10.0 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-12762   |
+| CVE-2017-18017   | 10.0 |  Network |   Fixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18017   |
+| CVE-2017-1000158 |  9.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000158 |
+| CVE-2017-10684   |  9.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10684   |
+| CVE-2017-10685   |  9.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10685   |
+... snip ...
+```
+
+### format-one-line-text
+
+```
+$ vuls report -format-one-line-text
+
+One Line Summary
+================
+c74     Total: 294 (High:65 Medium:198 Low:24 ?:7)      93/294 Fixed    708 installed, 285 updatable
+deb8    Total: 490 (High:62 Medium:158 Low:22 ?:248)    11/490 Fixed    512 installed
+```
+
+### format-full-text
 
 ```
 $ vuls report -format-full-text
 
-172-31-4-82 (amazon 2015.09)
-============================
-Total: 94 (High:19 Medium:54 Low:7 ?:14)        103 updatable packages
+c74 (centos7.4.1708)
+====================
+Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 
-CVE-2016-5636
--------------
-Score           10.0 (High)
-Vector          (AV:N/AC:L/Au:N/C:C/I:C/A:C)
-Summary         Integer overflow in the get_data function in zipimport.c in CPython (aka Python)
-                before 2.7.12, 3.x before 3.4.5, and 3.5.x before 3.5.2 allows remote attackers
-                to have unspecified impact via a negative data size value, which triggers a
-                heap-based buffer overflow.
-CWE             https://cwe.mitre.org/data/definitions/190.html
-NVD             https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-5636
-MITRE           https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5636
-CVE Details     http://www.cvedetails.com/cve/CVE-2016-5636
-CVSS Calculator https://nvd.nist.gov/cvss/v2-calculator?name=CVE-2016-5636&vector=(AV:N/AC:L/...
-RHEL-CVE        https://access.redhat.com/security/cve/CVE-2016-5636
-ALAS-2016-724   https://alas.aws.amazon.com/ALAS-2016-724.html
-Package         python27-2.7.10-4.119.amzn1 -> python27-2.7.12-2.120.amzn1
-                python27-devel-2.7.10-4.119.amzn1 -> python27-devel-2.7.12-2.120.amzn1
-                python27-libs-2.7.10-4.119.amzn1 -> python27-libs-2.7.12-2.120.amzn1
-Confidence      100 / YumUpdateSecurityMatch
++---------------+----------------------------------------------------------------------------------+
+| CVE-2017-9233 |                                                                                  |
++---------------+----------------------------------------------------------------------------------+
+| Max Score     | 7.5 HIGH (nvd)                                                                   |
+| nvd           | 7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H HIGH                            |
+| redhat_api    | 6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H MODERATE                        |
+| nvd           | 5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P MEDIUM                                            |
+| Summary       | XML External Entity vulnerability in libexpat 2.2.0 and earlier (Expat XML       |
+|               | Parser Library) allows attackers to put the parser in an infinite loop using a   |
+|               | malformed external entity definition from an external DTD.                       |
+| Mitigation    |  Do not parse untrusted arbitrary XML data using the expat                       |
+|               | package.                                                                         |
+| CWE           | CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop') (redhat_api)     |
+| CWE           | [OWASP Top4] CWE-611: Improper Restriction of XML External Entity Reference      |
+|               | ('XXE') (nvd)                                                                    |
+| Affected PKG  | expat-2.1.0-10.el7_3 -> Will not fix                                             |
+| Confidence    | 100 / RedHatAPIMatch                                                             |
+| Source        | https://nvd.nist.gov/vuln/detail/CVE-2017-9233                                   |
+| CVSSv2 Calc   | https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2017-9233          |
+| CVSSv3 Calc   | https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2017-9233          |
+| RHEL-CVE      | https://access.redhat.com/security/cve/CVE-2017-9233                             |
+| CWE           | https://cwe.mitre.org/data/definitions/CWE-835.html                              |
+| CWE           | https://cwe.mitre.org/data/definitions/CWE-611.html                              |
+| OWASP Top10   | https://github.com/OWASP/Top10/blob/master/2017/en/0xa4-xxe.md                   |
++---------------+----------------------------------------------------------------------------------+
 
 ... snip ...
 ```
 
-### Summary part
-
 ```
-cent6 (centos6.6)
-=================
-Total: 145 (High:23 Medium:101 Low:21 ?:0)      83 updatable packages
+c74 (centos7.4.1708)
+====================
+Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 ```
 
-- `cent6` means that it is a scan report of `servers.cent6` defined in cocnfig.toml.
-- `(centos6.6)` means that the version of the OS is CentOS6.6.
-- `Total: 145 (High:23 Medium:101 Low:21 ?:0)` means that a total of 145 vulnerabilities exist, and the distribution of CVSS Severity is displayed.
-- `83 updatable packages` means that there are 83 updateable packages on the target server.
-
-### Detailed Part
+- `c74` means that it is a scan report of `servers.c74` defined in cocnfig.toml.
+- `(centos7.4.1708)` means that the version of the OS is CentOS 7.4.
+- `Total: 23 (High:22 Medium:1 Low:0)` means that a total of 23 vulnerabilities exist, and the distribution of CVSS Severity is displayed.
+- `9/23 Fixed`means` that a total of 23 vulnerabilities exist, and 9 is fixed, 14 is not fixed yet.
+- `285 updatable packages` means that there are 285 updateable packages on the target server.
 
 ```
-CVE-2016-0702
-----------------
-Max Score               2.6 IMPORTANT (redhat)
-nvd                     1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N
-redhat                  2.6/AV:L/AC:H/Au:N/C:P/I:P/A:N
-jvn                     1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N
-CVSSv2 Calc             https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2016-0702
-Summary                 The MOD_EXP_CTIME_COPY_FROM_PREBUF function in crypto/bn/bn_exp.c in OpenSSL
-                        1.0.1 before 1.0.1s and 1.0.2 before 1.0.2g does not properly consider
-                        cache-bank access times during modular exponentiation, which makes it easier for
-                        local users to discover RSA keys by running a crafted application on the same
-                        Intel Sandy Bridge CPU core as a victim and leveraging cache-bank conflicts, aka
-                        a "CacheBleed" attack.
-Source                  https://nvd.nist.gov/vuln/detail/CVE-2016-0702
-RHEL-CVE                https://access.redhat.com/security/cve/CVE-2016-0702
-CWE-200 (nvd)           https://cwe.mitre.org/data/definitions/200.html
-Package/CPE             openssl-1.0.1e-30.el6 - 1.0.1e-57.el6
-Confidence              100 / OvalMatch
++---------------+----------------------------------------------------------------------------------+
+| CVE-2017-9233 |                                                                                  |
++---------------+----------------------------------------------------------------------------------+
+| Max Score     | 7.5 HIGH (nvd)                                                                   |
+| nvd           | 7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H HIGH                            |
+| redhat_api    | 6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H MODERATE                        |
+| nvd           | 5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P MEDIUM                                            |
+| Summary       | XML External Entity vulnerability in libexpat 2.2.0 and earlier (Expat XML       |
+|               | Parser Library) allows attackers to put the parser in an infinite loop using a   |
+|               | malformed external entity definition from an external DTD.                       |
+| Mitigation    |  Do not parse untrusted arbitrary XML data using the expat                       |
+|               | package.                                                                         |
+| CWE           | CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop') (redhat_api)     |
+| CWE           | [OWASP Top4] CWE-611: Improper Restriction of XML External Entity Reference      |
+|               | ('XXE') (nvd)                                                                    |
+| Affected PKG  | expat-2.1.0-10.el7_3 -> Will not fix                                             |
+| Confidence    | 100 / RedHatAPIMatch                                                             |
+| Source        | https://nvd.nist.gov/vuln/detail/CVE-2017-9233                                   |
+| CVSSv2 Calc   | https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2017-9233          |
+| CVSSv3 Calc   | https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2017-9233          |
+| RHEL-CVE      | https://access.redhat.com/security/cve/CVE-2017-9233                             |
+| CWE           | https://cwe.mitre.org/data/definitions/CWE-835.html                              |
+| CWE           | https://cwe.mitre.org/data/definitions/CWE-611.html                              |
+| OWASP Top10   | https://github.com/OWASP/Top10/blob/master/2017/en/0xa4-xxe.md                   |
++---------------+----------------------------------------------------------------------------------+
 ```
 
-- `Max Score` means Max CVSS Score.
+- `Max` Score` means Max CVSS Score.
 - `nvd` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of  NVD
-- `redhat` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of RedHat OVAL
+- `redhat` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of RedHat
 - `jvn` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of JVN 
-- `Summary` means Summary of the CVE.
 - `CWE` means [CWE - Common Weakness Enumeration](https://nvd.nist.gov/cwe.cfm) of the CVE.
-- `Package` shows the package version information including this vulnerability.
+- `[OWASP Top4]` means the CWE is included in [OWASP TOP 10]( https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md)
+- `Affected PKG` shows the package version information including this vulnerability.
 - `Confidence` means the reliability of detection.
   - `100` is highly reliable
   - `YumUpdateSecurityMatch` is the method of detecting this vulnerability.
