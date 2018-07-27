@@ -4,18 +4,29 @@ title: Tutorial: Scan using Docker
 sidebar_label: Scan using Docker
 ---
 
+This tutorial will let you scan the vulnerabilities on the remote host via SSH with [Docker-Vuls](https://hub.docker.com/u/vuls/).   
+
 Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
 
+This can be done in the following steps.  
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
+1. fetch gost (vuls/gost)
 1. configuration (vuls/vuls)
 1. configtest (vuls/vuls)
 1. scan (vuls/vuls)
 1. vulsrepo (vuls/vulsrepo)
 
+## Step0. Prepare Log Dir
+
+```console
+$ cd /path/to/working/dir
+$ mkdir go-cve-dictionary-log goval-dictionary-log gost-log
+```
+
 ## Step1. Fetch NVD
 
-- [kotakanbe/go-cve-dictioanry:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
+[kotakanbe/go-cve-dictioanry:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
 ```console
 $ for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
@@ -25,7 +36,7 @@ $ for i in `seq 2002 $(date +"%Y")`; do \
   done
 ```
 
-- To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data)
+To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data)
 
 ## Step2. Fetch OVAL (e.g. redhat)
 
@@ -36,7 +47,20 @@ $ docker run --rm -it \
     vuls/goval-dictionary fetch-redhat 5 6 7
 ```
 
-- To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
+To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
+
+## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS and Debian)
+
+```console
+$ docker run --rm -i \
+	-v $PWD:/vuls \
+	-v $PWD/goval-log:/var/log/gost \
+	vuls/gost fetch redhat --after=2016-01-01
+```
+
+To detect old vulnerabilities, change `--after=2016-01-01`.
+
+To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/gost#fetch-debian)
 
 ## Step2. Configuration
 
@@ -45,7 +69,7 @@ Create config.toml referring to [this](usage-settings.md).
 ```toml
 [servers]
 
-[servers.amazon]
+[servers.c74]
 host         = "54.249.93.16"
 port        = "22"
 user        = "vuls-user"
@@ -104,6 +128,7 @@ $ docker run --rm -it \
     vuls/vuls report \
     -cvedb-path=/vuls/cve.sqlite3 \
     -ovaldb-path=/vuls/oval.sqlite3 \
+    -gostdb-path=/vuls/gost.sqlite3 \
     -format-short-text \
     -config=./config.toml # path to config.toml in docker
 ```
@@ -123,7 +148,9 @@ $docker run -dt \
 
 ## Tips
 
-Run containers as below if you want to use go-cve-dictionary or goval-dictionary as a server mode.
+Run containers as below if you want to use go-cve-dictionary, goval-dictionary and gost as a server mode.
+
+### go-cve
 
 ```console
 $ docker run -dt \
@@ -135,6 +162,8 @@ $ docker run -dt \
     vuls/go-cve-dictionary server --bind=0.0.0.0
 ```
 
+### goval
+
 ```console
 $ docker run -dt \
     --name goval-dictionary \
@@ -143,5 +172,31 @@ $ docker run -dt \
     --expose 1324 \
     -p 1324:1324 \
     vuls/goval-dictionary server --bind=0.0.0.0
+```
+
+### gost
+
+```console
+$ docker run -dt \
+    --name gost \
+    -v $PWD:/vuls \
+    -v $PWD/gost-log:/var/log/gost \
+    --expose 1325 \
+    -p 1325:1325 \
+    vuls/gost server --bind=0.0.0.0
+```
+
+### scan 
+
+```console
+$ docker run --rm -it \
+    -v ~/.ssh:/root/.ssh:ro \
+    -v $PWD:/vuls \
+    -v $PWD/vuls-log:/var/log/vuls \
+    vuls/vuls report  \
+    -cvedb-url=http://hostname:1323 \
+    -ovaldb-url=http://hostname:1324 \
+    -gostdb-url=http://hostname:1325 \
+    -config=./config.toml
 ```
 
