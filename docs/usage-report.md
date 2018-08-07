@@ -37,6 +37,17 @@ report:
                 [-debug]
                 [-debug-sql]
                 [-pipe]
+                [-cvedb-type=sqlite3|mysql|postgres|redis]
+                [-cvedb-path=/path/to/cve.sqlite3]
+                [-cvedb-url=http://127.0.0.1:1323 or DB connection string]
+                [-ovaldb-type=sqlite3|mysql|redis]
+                [-ovaldb-path=/path/to/oval.sqlite3]
+                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
+                [-gostdb-type=sqlite3|mysql|redis]
+                [-gostdb-path=/path/to/gost.sqlite3]
+                [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
+                [-http="http://vuls-report-server"]
+
 
                 [RFC3339 datetime format under results dir]
   -config string
@@ -101,6 +112,28 @@ report:
         Send report via Syslog
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
+  -cvedb-sqlite3-path string
+        /path/to/sqlite3
+  -cvedb-type string
+        DB type of go-cve-dictionary (sqlite3, mysql, postgres or redis) (default "sqlite3")
+  -cvedb-url string
+        http://go-cve-dictionary.com:1323 or DB connection string
+  -gostdb-sqlite3-path string
+        /path/to/sqlite3
+  -gostdb-type string
+        DB type of gost (sqlite3, mysql, postgres or redis)
+  -gostdb-url string
+        http://gost.com:1325 or DB connection string
+  -ovaldb-sqlite3-path string
+        /path/to/sqlite3
+  -ovaldb-type string
+        DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
+  -ovaldb-url string
+        http://goval-dictionary.com:1324 or DB connection string
+  -http string
+        -to-http http://vuls-report
+
+
 
 ```
 
