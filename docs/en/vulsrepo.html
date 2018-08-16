@@ -27,9 +27,11 @@ With VulsRepo you can analyze the scan results like Excel's pivot table.</p>
 <h2><a class="anchor" aria-hidden="true" name="installation"></a><a href="#installation" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
 <p><em>A home folder of vuls is explained as /opt/vuls.</em></p>
 <h3><a class="anchor" aria-hidden="true" name="step1-create-a-json-report-of-vuls"></a><a href="#step1-create-a-json-report-of-vuls" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. Create a json report of vuls</h3>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> /opt/vuls</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> <span class="hljs-built_in">cd</span> /opt/vuls</span>
 <span class="hljs-meta">$</span><span class="bash"> vuls scan </span>
 <span class="hljs-meta">$</span><span class="bash"> vuls report -format-json </span>
+
 </code></pre>
 <p>Output to a JSON files (/opt/vuls/results/)</p>
 <h3><a class="anchor" aria-hidden="true" name="step2-installation"></a><a href="#step2-installation" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step2. Installation</h3>
@@ -37,12 +39,15 @@ With VulsRepo you can analyze the scan results like Excel's pivot table.</p>
 <ul>
 <li>Git clone</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span></span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span></span>
 <span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/usiusi360/vulsrepo.git</span>
+
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" name="step3-change-the-setting-of-vulsrepo-server"></a><a href="#step3-change-the-setting-of-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. Change the setting of vulsrepo-server</h3>
 <p>Set Path according to your own environment.</p>
-<pre><code class="hljs">$ cd <span class="hljs-variable">$HOME</span>/vulsrepo<span class="hljs-built_in">/server
+<pre><code class="hljs">
+$ cd <span class="hljs-variable">$HOME</span>/vulsrepo<span class="hljs-built_in">/server
 </span>
 $ cp vulsrepo-config.toml.sample vulsrepo-config.toml
 
@@ -51,18 +56,21 @@ $ vi vulsrepo-config.toml
 rootPath = <span class="hljs-string">"/home/vuls-user/vulsrepo"</span>
 resultsPath  = <span class="hljs-string">"/opt/vuls/results"</span>
 serverPort  = <span class="hljs-string">"5111"</span>
+
 </code></pre>
 <ul>
 <li>Do not use the path of the symbolic link for resultsPath</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" name="step4-start-vulsrepo-server"></a><a href="#step4-start-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. Start vulsrepo-server</h3>
-<pre><code class="hljs">$ pwd
+<pre><code class="hljs">
+$ pwd
 $HOME<span class="hljs-regexp">/vulsrepo/</span>server
 
 $ ./vulsrepo-server 
 <span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">90</span>: <span class="hljs-string">INFO:</span> RootPath <span class="hljs-string">Load:</span>  <span class="hljs-regexp">/root/</span>work/vulsrepo
 <span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">97</span>: <span class="hljs-string">INFO:</span> ResultsPath <span class="hljs-string">Load:</span>  <span class="hljs-regexp">/opt/</span>vuls/results
 <span class="hljs-number">2017</span><span class="hljs-regexp">/08/</span><span class="hljs-number">28</span> <span class="hljs-number">11</span>:<span class="hljs-number">04</span>:<span class="hljs-number">00</span> main.<span class="hljs-string">go:</span><span class="hljs-number">66</span>: <span class="hljs-string">Start:</span> Listening <span class="hljs-string">port:</span> <span class="hljs-number">5111</span>
+
 </code></pre>
 <ul>
 <li>It is necessary to build by yourself except for Linux 64bit. Please look at the build section.</li>
@@ -72,52 +80,69 @@ $ ./vulsrepo-server
 <ul>
 <li>Copy startup file. Change the contents according to the environment.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> sudo cp <span class="hljs-variable">$HOME</span>/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> sudo cp <span class="hljs-variable">$HOME</span>/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo</span>
 <span class="hljs-meta">$</span><span class="bash"> sudo chmod 755 /etc/init.d/vulsrepo</span>
 <span class="hljs-meta">$</span><span class="bash"> sudo vi /etc/init.d/vulsrepo</span>
+
 </code></pre>
 <ul>
 <li>Set to start automatically</li>
 </ul>
-<pre><code class="hljs">$ sudo chkconfig vulsrepo <span class="hljs-keyword">on</span>
+<pre><code class="hljs">
+$ sudo chkconfig vulsrepo <span class="hljs-keyword">on</span>
+
 </code></pre>
 <ul>
 <li>Start vulsrepo-server</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> sudo /etc/init.d/vulsrepo start</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> sudo /etc/init.d/vulsrepo start</span>
+
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" name="case-systemd-systemctl"></a><a href="#case-systemd-systemctl" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case: systemd (systemctl)</h5>
 <ul>
 <li>Copy startup file. Change the contents according to the environment.</li>
 </ul>
-<pre><code class="hljs">$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">systemd</span>/<span class="hljs-title">system</span>/<span class="hljs-title">vulsrepo</span>.<span class="hljs-title">service</span></span>
+<pre><code class="hljs">
+$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">systemd</span>/<span class="hljs-title">system</span>/<span class="hljs-title">vulsrepo</span>.<span class="hljs-title">service</span></span>
 $ sudo vi /<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">systemd</span>/<span class="hljs-title">system</span>/<span class="hljs-title">vulsrepo</span>.<span class="hljs-title">service</span></span>
+
 </code></pre>
 <ul>
 <li>Set to start automatically</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> sudo systemctl <span class="hljs-built_in">enable</span> vulsrepo</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> sudo systemctl <span class="hljs-built_in">enable</span> vulsrepo</span>
+
 </code></pre>
 <ul>
 <li>Check settings</li>
 </ul>
-<pre><code class="hljs">$ <span class="hljs-string">sudo </span><span class="hljs-string">systemctl </span><span class="hljs-built_in">list-unit-files</span> <span class="hljs-built_in">--type=service</span> | <span class="hljs-string">grep </span><span class="hljs-string">vulsrepo
+<pre><code class="hljs">
+$ <span class="hljs-string">sudo </span><span class="hljs-string">systemctl </span><span class="hljs-built_in">list-unit-files</span> <span class="hljs-built_in">--type=service</span> | <span class="hljs-string">grep </span><span class="hljs-string">vulsrepo
 </span><span class="hljs-string">vulsrepo.</span><span class="hljs-string">service </span>                          <span class="hljs-string">enabled
-</span></code></pre>
+</span>
+</code></pre>
 <ul>
 <li>Start vulsrepo-server</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> sudo systemctl start vulsrepo</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> sudo systemctl start vulsrepo</span>
+
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="usage"></a><a href="#usage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
 <p>Access the browser</p>
-<pre><code class="hljs"><span class="hljs-symbol">http:</span><span class="hljs-comment">//&lt;server-address&gt;:5111</span>
+<pre><code class="hljs"><span class="hljs-symbol">
+http:</span><span class="hljs-comment">//&lt;server-address&gt;:5111</span>
+
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="digestauth"></a><a href="#digestauth" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DigestAuth</h2>
 <ol>
 <li>To perform digest authentication, create an authentication file.</li>
 </ol>
-<pre><code class="hljs">$ ./vulsrepo-server -h
+<pre><code class="hljs">
+$ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
   -c string
         AuthFile Path (default <span class="hljs-string">"/home/vuls-user/.htdigest"</span>)
@@ -134,14 +159,17 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login<span class="hljs-built_in"> user </span>     :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
+
 </code></pre>
 <ol start="2">
 <li>Edit vulsrepo-config.toml.</li>
 </ol>
-<pre><code class="hljs">$ vi vulsrepo-config.toml
+<pre><code class="hljs">
+$ vi vulsrepo-config.toml
 [Auth]
 authFilePath = <span class="hljs-string">"/home/vuls-user/.htdigest"</span>
 realm = <span class="hljs-string">"vulsrepo_local"</span>
+
 </code></pre>
 <ol start="3">
 <li>Start vulsrepo-server</li>
@@ -150,19 +178,23 @@ realm = <span class="hljs-string">"vulsrepo_local"</span>
 <ol>
 <li>Create a self-signed certificate</li>
 </ol>
-<pre><code class="hljs">$ openssl genrsa -out key<span class="hljs-selector-class">.pem</span> <span class="hljs-number">2048</span>
+<pre><code class="hljs">
+$ openssl genrsa -out key<span class="hljs-selector-class">.pem</span> <span class="hljs-number">2048</span>
 
 $ openssl req -new -x509 -sha256 -key key<span class="hljs-selector-class">.pem</span> -out cert<span class="hljs-selector-class">.pem</span> -days <span class="hljs-number">3650</span>
+
 </code></pre>
 <ol start="2">
 <li>Edit vulsrepo-config.toml.</li>
 </ol>
-<pre><code class="hljs">$ vi vulsrepo-config.toml
+<pre><code class="hljs">
+$ vi vulsrepo-config.toml
 [Server]
 
 serverSSL = <span class="hljs-string">"yes"</span>
 serverCert = <span class="hljs-string">"cert.pem"</span>
 serverKey = <span class="hljs-string">"key.pem"</span>
+
 </code></pre>
 <ol start="3">
 <li>Start vulsrepo-server</li>
@@ -172,13 +204,15 @@ serverKey = <span class="hljs-string">"key.pem"</span>
 <li>It is necessary to build by yourself except for Linux 64bit</li>
 <li>Install golang beforehand.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> mkdir -p <span class="hljs-variable">$GOPATH</span>/src/github.com/usiusi360/</span>
+<pre><code class="hljs"><span class="hljs-meta">
+$</span><span class="bash"> mkdir -p <span class="hljs-variable">$GOPATH</span>/src/github.com/usiusi360/</span>
 <span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</span>/src/github.com/usiusi360/</span>
 <span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/usiusi360/vulsrepo.git</span>
 <span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> vulsrepo/server</span>
 <span class="hljs-meta">$</span><span class="bash"> go get -u github.com/golang/dep/...</span>
 <span class="hljs-meta">$</span><span class="bash"> dep ensure</span>
 <span class="hljs-meta">$</span><span class="bash"> go build -o vulsrepo-server</span>
+
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name="misc"></a><a href="#misc" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc</h2>
 <h3><a class="anchor" aria-hidden="true" name="setting"></a><a href="#setting" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SETTING</h3>

@@ -26,7 +26,7 @@
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>インストール</h2>
 <p><em>Vulsのホームフォルダは「/opt/vuls」であることを前提にして記載</em></p>
 <h3><a class="anchor" aria-hidden="true" name="step1-vuls-json"></a><a href="#step1-vuls-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. VulsでJSON形式のファイルを出力</h3>
-<pre><code class="hljs">$ vuls scan 
+<pre><code class="hljs">&lt;br /&gt;$ vuls scan 
 $ vuls report -format-json 
 </code></pre>
 <p>「/opt/vuls/results/」にJSONファイルが出力される。</p>
@@ -34,12 +34,12 @@ $ vuls report -format-json
 <p>ここからは vuls scan を実行したユーザで実施する。</p>
 <ul>
 <li><p>GitHubからクローン</p>
-<p>$ cd $HOME
+<p><br />$ cd $HOME
 $ git clone <a href="https://github.com/usiusi360/vulsrepo.git">https://github.com/usiusi360/vulsrepo.git</a></p></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" name="step3-vulsrepo-server"></a><a href="#step3-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. vulsrepo-serverの設定を変更</h3>
 <p>環境に合わせてパスを設定する</p>
-<pre><code class="hljs">$ cd $HOME/vulsrepo/server
+<pre><code class="hljs">&lt;br /&gt;$ cd $HOME/vulsrepo/server
 
 $ cp vulsrepo-config.toml.sample vulsrepo-config.toml
 
@@ -53,7 +53,7 @@ serverPort  = &quot;5111&quot;
 <li>ResultsPath に対してシンボリック リンクのパスを設定してはいけない。</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" name="step4-vulsrepo-server"></a><a href="#step4-vulsrepo-server" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. vulsrepo-serverを起動</h3>
-<pre><code class="hljs">$ pwd
+<pre><code class="hljs">&lt;br /&gt;$ pwd
 $HOME/vulsrepo/server
 
 $ ./vulsrepo-server 
@@ -68,45 +68,45 @@ $ ./vulsrepo-server
 <h5><a class="anchor" aria-hidden="true" name="case-systemv-etc-initd"></a><a href="#case-systemv-etc-initd" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case: SystemV (/etc/init.d)</h5>
 <ul>
 <li><p>スタートアップ ファイルをコピーする。環境に合わせて内容を変更する。</p>
-<p>$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
+<p><br />$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
 $ sudo vi /etc/systemd/system/init.d/vulsrepo</p></li>
 </ul>
 <ul>
 <li><p>自動起動するよう設定する。</p>
-<p>$ sudo chkconfig vulsrepo on</p></li>
+<p><br />$ sudo chkconfig vulsrepo on</p></li>
 </ul>
 <ul>
 <li><p>vulsrepo-serverを起動する。</p>
-<p>$ sudo /etc/init.d/vulsrepo start</p></li>
+<p><br />$ sudo /etc/init.d/vulsrepo start</p></li>
 </ul>
 <h5><a class="anchor" aria-hidden="true" name="case-systemd-systemctl"></a><a href="#case-systemd-systemctl" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Case: systemd (systemctl)</h5>
 <ul>
 <li><p>スタートアップ ファイルをコピーする。環境に合わせて内容を変更する。</p>
-<p>$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
+<p><br />$ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
 $ sudo vi /lib/systemd/system/vulsrepo.service</p></li>
 </ul>
 <ul>
 <li><p>自動起動するよう設定する。</p>
-<p>$ sudo systemctl enable vulsrepo</p></li>
+<p><br />$ sudo systemctl enable vulsrepo</p></li>
 </ul>
 <ul>
 <li><p>設定が正しいかチェックする。</p>
-<p>$ sudo systemctl list-unit-files --type=service | grep vulsrepo
+<p><br />$ sudo systemctl list-unit-files --type=service | grep vulsrepo
 vulsrepo.service                           enabled</p></li>
 </ul>
 <ul>
 <li><p>vulsrepo-serverを起動する。</p>
-<p>$ sudo systemctl start vulsrepo</p></li>
+<p><br />$ sudo systemctl start vulsrepo</p></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使い方</h2>
 <p>ブラウザでアクセスする。</p>
-<pre><code class="hljs">http://&lt;server-address&gt;:5111
+<pre><code class="hljs">&lt;br /&gt;http://&lt;server-address&gt;:5111
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ダイジェスト認証</h2>
 <ol>
 <li><p>ダイジェスト認証を使う場合、認証ファイルを作成する。</p>
-<p>$ ./vulsrepo-server -h
+<p><br />$ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
 -c string
 AuthFile Path (default &quot;/home/vuls-user/.htdigest&quot;)
@@ -125,7 +125,7 @@ login user      :  vuls
 </ol>
 <ol>
 <li><p>vulsrepo-config.tomlを編集する。</p>
-<p>$ vi vulsrepo-config.toml
+<p><br />$ vi vulsrepo-config.toml
 [Auth]
 authFilePath = &quot;/home/vuls-user/.htdigest&quot;
 realm = &quot;vulsrepo_local&quot;</p></li>
@@ -136,12 +136,12 @@ realm = &quot;vulsrepo_local&quot;</p></li>
 <h2><a class="anchor" aria-hidden="true" name="ssl"></a><a href="#ssl" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SSL を使用</h2>
 <ol>
 <li><p>自己署名証明書を作成</p>
-<p>$ openssl genrsa -out key.pem 2048</p>
+<p><br />$ openssl genrsa -out key.pem 2048</p>
 <p>$ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650</p></li>
 </ol>
 <ol>
 <li><p>vulsrepo-config.tomlを編集する。</p>
-<p>$ vi vulsrepo-config.toml
+<p><br />$ vi vulsrepo-config.toml
 [Server]</p>
 <p>serverSSL = &quot;yes&quot;
 serverCert = &quot;cert.pem&quot;
@@ -154,7 +154,7 @@ serverKey = &quot;key.pem&quot;</p></li>
 <ul>
 <li><p>Linux（64bit）以外は自分でビルドする必要がある。</p></li>
 <li><p>事前にgolangをインストールしておくこと。</p>
-<p>$ mkdir -p $GOPATH/src/github.com/usiusi360/
+<p><br />$ mkdir -p $GOPATH/src/github.com/usiusi360/
 $ cd $GOPATH/src/github.com/usiusi360/
 $ git clone <a href="https://github.com/usiusi360/vulsrepo.git">https://github.com/usiusi360/vulsrepo.git</a>
 $ cd vulsrepo/server
