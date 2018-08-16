@@ -25,9 +25,11 @@ http://usiusi360.github.io/vulsrepo/
 ### Step1. Create a json report of vuls
 
 ```
+
 $ cd /opt/vuls
 $ vuls scan 
 $ vuls report -format-json 
+
 ```
 
 Output to a JSON files (/opt/vuls/results/)
@@ -39,8 +41,10 @@ From now on , executed by a user running the vuls scan.
 - Git clone
 
 ```
+
 $ cd $HOME
 $ git clone https://github.com/usiusi360/vulsrepo.git
+
 ```
 
 ### Step3. Change the setting of vulsrepo-server
@@ -48,6 +52,7 @@ $ git clone https://github.com/usiusi360/vulsrepo.git
 Set Path according to your own environment.
 
 ```
+
 $ cd $HOME/vulsrepo/server
 
 $ cp vulsrepo-config.toml.sample vulsrepo-config.toml
@@ -57,6 +62,7 @@ $ vi vulsrepo-config.toml
 rootPath = "/home/vuls-user/vulsrepo"
 resultsPath  = "/opt/vuls/results"
 serverPort  = "5111"
+
 ```
 
 - Do not use the path of the symbolic link for resultsPath
@@ -64,6 +70,7 @@ serverPort  = "5111"
 ### Step4. Start vulsrepo-server
 
 ```
+
 $ pwd
 $HOME/vulsrepo/server
 
@@ -71,6 +78,7 @@ $ ./vulsrepo-server
 2017/08/28 11:04:00 main.go:90: INFO: RootPath Load:  /root/work/vulsrepo
 2017/08/28 11:04:00 main.go:97: INFO: ResultsPath Load:  /opt/vuls/results
 2017/08/28 11:04:00 main.go:66: Start: Listening port: 5111
+
 ```
 
 - It is necessary to build by yourself except for Linux 64bit. Please look at the build section.
@@ -82,21 +90,27 @@ $ ./vulsrepo-server
 - Copy startup file. Change the contents according to the environment.
 
 ```
+
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.init /etc/init.d/vulsrepo
 $ sudo chmod 755 /etc/init.d/vulsrepo
 $ sudo vi /etc/init.d/vulsrepo
+
 ```
 
 - Set to start automatically
 
 ```
+
 $ sudo chkconfig vulsrepo on
+
 ```
 
 - Start vulsrepo-server
 
 ```
+
 $ sudo /etc/init.d/vulsrepo start
+
 ```
 
 ##### Case: systemd (systemctl)
@@ -104,27 +118,35 @@ $ sudo /etc/init.d/vulsrepo start
 - Copy startup file. Change the contents according to the environment.
 
 ```
+
 $ sudo cp $HOME/vulsrepo/server/scripts/vulsrepo.service /lib/systemd/system/vulsrepo.service
 $ sudo vi /lib/systemd/system/vulsrepo.service
+
 ```
 
 - Set to start automatically
 
 ```
+
 $ sudo systemctl enable vulsrepo
+
 ```
 
 - Check settings
 
 ```
+
 $ sudo systemctl list-unit-files --type=service | grep vulsrepo
 vulsrepo.service                           enabled
+
 ```
 
 - Start vulsrepo-server
 
 ```
+
 $ sudo systemctl start vulsrepo
+
 ```
 
 ## Usage ##
@@ -132,7 +154,9 @@ $ sudo systemctl start vulsrepo
 Access the browser
 
 ```
+
 http://<server-address>:5111
+
 ```
 
 ## DigestAuth
@@ -140,6 +164,7 @@ http://<server-address>:5111
 1. To perform digest authentication, create an authentication file.
 
 ```
+
 $ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
   -c string
@@ -157,15 +182,18 @@ AuthFile Path   :  /home/vuls-user/.htdigest
 realm           :  vulsrepo_local
 login user      :  vuls
 2017/08/28 19:11:59 main.go:96: Create Success
+
 ```
 
 2. Edit vulsrepo-config.toml.
 
 ```
+
 $ vi vulsrepo-config.toml
 [Auth]
 authFilePath = "/home/vuls-user/.htdigest"
 realm = "vulsrepo_local"
+
 ```
 
 3. Start vulsrepo-server
@@ -175,20 +203,24 @@ realm = "vulsrepo_local"
 1. Create a self-signed certificate
 
 ```
+
 $ openssl genrsa -out key.pem 2048
 
 $ openssl req -new -x509 -sha256 -key key.pem -out cert.pem -days 3650
+
 ```
 
 2. Edit vulsrepo-config.toml.
 
 ```
+
 $ vi vulsrepo-config.toml
 [Server]
 
 serverSSL = "yes"
 serverCert = "cert.pem"
 serverKey = "key.pem"
+
 ```
 
 3. Start vulsrepo-server
@@ -200,6 +232,7 @@ serverKey = "key.pem"
 - Install golang beforehand.
 
 ```
+
 $ mkdir -p $GOPATH/src/github.com/usiusi360/
 $ cd $GOPATH/src/github.com/usiusi360/
 $ git clone https://github.com/usiusi360/vulsrepo.git
@@ -207,6 +240,7 @@ $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
 $ go build -o vulsrepo-server
+
 ```
 
 ## Misc
