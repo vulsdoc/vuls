@@ -68,7 +68,7 @@ path = "/path/to/gost.sqlite3"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
 #scanMode        = ["fast", "fast-root", "deep", "offline"]
-#cpeURIs = [
+#cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #owaspDCXMLPath = "/tmp/dependency-check-report.xml"
@@ -87,7 +87,7 @@ host         = "192.168.11.6"
 #scanMode        = ["fast", "fast-root", "deep", "offline"]
 #type            = "pseudo"
 #memo        = "DB Server"
-#cpeURIs = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath = "/path/to/dependency-check-report.xml"
 #ignoreCves = ["CVE-2014-0160"]
 #containerType = "docker" #or "lxd" or "lxc" default: docker
@@ -95,7 +95,7 @@ host         = "192.168.11.6"
 #ContainersExcluded= ["container_name_a"]
 
 #[servers.192-168-11-6.containers.container_name_a]
-#cpeURIs = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath = "/path/to/dependency-check-report.xml"
 
 #[servers.192-168-11-6.optional]

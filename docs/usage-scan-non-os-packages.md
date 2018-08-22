@@ -20,7 +20,7 @@ You can search a CPE name by the application name incrementally.
 
 ### Host OS
 
-To detect the vulnerability of Ruby on Rails v4.2.1, cpeURIs needs to be set in the servers section.
+To detect the vulnerability of Ruby on Rails v4.2.1 and PostgreSQL9.6.2, cpeNames needs to be set in the servers section.
 
 ```bash
 [servers]
@@ -29,15 +29,16 @@ To detect the vulnerability of Ruby on Rails v4.2.1, cpeURIs needs to be set in 
 host         = "172.31.4.82"
 user        = "ec2-user"
 keyPath     = "/home/username/.ssh/id_rsa"
-cpeURIs = [
+cpeNames = [
     "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+    "cpe:2.3:a:postgresql:postgresql:9.6.2:*:*:*:*:*:*:*",
 ]
 ```
 
 ### Container
 
-To detect the vulnerability of Ruby on Rails v4.2.1 on specific container, cpeURIs needs to be set in the servers>containers section.
-The following is an example of running Ruby on Rails v4.2.1 on dockerA.
+To detect the vulnerability of Ruby on Rails v4.2.1 on specific container, cpeNames needs to be set in the servers>containers section.
+The following is an example of running Ruby on Rails v4.2.1 and PostgreSQL9.6.2 on dockerA.
 
 ```bash
 [servers]
@@ -50,8 +51,9 @@ containerType = "docker"
 containersIncluded = ["${running}"]
 
 [servers.172-31-4-82.containers.dockerA]
-cpeURIs = [
+cpeNames = [
     "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+    "cpe:2.3:a:postgresql:postgresql:9.6.2:*:*:*:*:*:*:*",
 ]
 
 ```
@@ -65,10 +67,10 @@ Search for NVD at report time and detect vulnerability of software specified as 
 ```bash
 [servers]
 
-[servers.172-31-4-82]
+[servers.forti]
 type = "pseudo"
-cpeURIs = [
-    "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+cpeNames = [
+    "cpe:/o:fortinet:fortios:4.3.0",
 ]
 ```
 

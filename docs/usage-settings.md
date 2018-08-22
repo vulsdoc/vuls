@@ -98,7 +98,7 @@ path = "/path/to/gost.sqlite3"
 #user               = "username"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
-#cpeURIs = [
+#cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
@@ -118,7 +118,7 @@ host                = "127.0.0.1"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
 #type               = "pseudo"
 #memo               = "DB Server"
-#cpeURIs            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
@@ -126,7 +126,7 @@ host                = "127.0.0.1"
 #containersExcluded = ["container_name_a"]
 
 #[servers.127-0-0-1.containers.container_name_a]
-#cpeURIs        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath = "/path/to/dependency-check-report.xml"
 #ignoreCves     = ["CVE-2014-0160"]
 
@@ -233,7 +233,7 @@ verbose     = false
 #port        = "22"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#cpeURIs = [
+#cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6313"]
@@ -254,7 +254,7 @@ host         = "172.31.4.82"
 #user        = "root"
 #keyPath     = "/home/username/.ssh/id_rsa"
 #type 		 = "pseudo"
-#cpeURIs = [
+#cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves = ["CVE-2016-6314"]
@@ -274,7 +274,7 @@ You can overwrite the default value specified in default section.
 - user: SSH username
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
-- cpeURIs: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
+- cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
 - optional: Add additional information to JSON report.
 - containers: see [Example: Scan containers (Docker/LXD)](usage-scan.md#example-scan-containers-docker-lxd-lxc)
