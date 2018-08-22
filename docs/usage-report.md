@@ -556,6 +556,14 @@ url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 $ vuls report
 ```
 
+If you get below error message while fetching, define `sql_mode`.
+
+```
+Error 1292: Incorrect datetime value: '0000-00-00' for column 'issued' at row 1
+```
+
+For details, see TODO
+
 ## Example: Use PostgreSQL as a DB storage back-end
 
 

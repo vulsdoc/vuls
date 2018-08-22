@@ -227,3 +227,66 @@ $ docker run --rm -it \
     -config=./config.toml
 ```
 
+# Use MySQL 5.7 or later
+
+If you get below error message while fetching, define `sql_mode`.
+
+```
+Error 1292: Incorrect datetime value: '0000-00-00' for column 'issued' at row 1
+```
+
+see https://github.com/kotakanbe/goval-dictionary/issues/45
+
+```
+$ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chHUIDCUAUaidfhasuadasuda  -d mysql:8 --sql-mode="" --default-authentication-plugin=mysql_native_password
+4e4440bbbcb556cf949c2ffcda15afe6ee7139752c08de8b1e4def47adde24ea
+
+$ docker exec -it mysql bash               
+root@4e4440bbbcb5:/# mysql -uroot -h127.0.0.1 -pchHUIDCUAUaidfhasuadasuda
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.12 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select @@GLOBAL.sql_mode;
++-------------------+
+| @@GLOBAL.sql_mode |
++-------------------+
+|                   |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> create database oval;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> exit
+Bye
+root@4e4440bbbcb5:/# exit
+exit
+
+bash-3.2$ go build && ./goval-dictionary fetch-ubuntu -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 18
+INFO[08-21|21:41:58] Fetching...                              URL=https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml
+
+
+INFO[08-21|21:47:56] Fetched...                               URL=https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml
+INFO[08-21|21:47:56] Finished fetching OVAL definitions
+INFO[08-21|21:47:56] Fetched                                  URL=https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml OVAL definitions=6319
+INFO[08-21|21:47:56] Refreshing...                            Family=ubuntu Version=18
+
+
+bash-3.2$ go build && ./goval-dictionary fetch-debian -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 9
+INFO[08-21|21:49:43] Fetching...                              URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml
+INFO[08-21|21:50:14] Fetched...                               URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml
+INFO[08-21|21:50:14] Finished fetching OVAL definitions
+INFO[08-21|21:50:16] Fetched                                  URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml OVAL definitions=17946
+INFO[08-21|21:50:16] Refreshing...                            Family=debian Version=9
+```
+
