@@ -8,7 +8,8 @@ sidebar_label: Update Vuls to the latest version
 
 - Update go-cve-dictionary  
 
-If the DB schema was changed, re-create DB.
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
 
 ```
 $ cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary
@@ -19,7 +20,8 @@ $ make install
 
 - Update goval-dictionary  
 
-If the DB schema was changed, re-create DB.
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
 
 ```
 $ cd $GOPATH/src/github.com/kotakanbe/goval-dictionary
@@ -30,7 +32,8 @@ $ make install
 
 - Update gost
 
-If the DB schema was changed, re-create DB.
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
 
 ```
 $ cd $GOPATH/src/github.com/knqyf263/gost
