@@ -15,7 +15,7 @@ sidebar_label: Main Features
 - Fast scan and Deep scan
     - Fast Scan
         - Scan without root privilege
-        - Scan with No internet access. (RedHat, CentOS, OracleLinux, Ubuntu, Debian)
+        - Scan with No internet access. (Red Hat, CentOS, OracleLinux, Ubuntu, Debian)
         - Almost no load on the scan target server
     - Deep Scan
         - Scan with root privilege
