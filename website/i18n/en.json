@@ -65,6 +65,8 @@
     "Scan non-OS packages": "Scan non-OS packages",
     "usage-scan": "Scan",
     "Scan": "Scan",
+    "usage-server": "Server",
+    "Server": "Server",
     "usage-settings": "Settings",
     "Settings": "Settings",
     "usage-tui": "TUI(Terminal Based Viewer)",
