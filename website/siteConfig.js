@@ -61,6 +61,24 @@ const users = [
     infoLink: 'https://www.cgate.jp/',
     pinned: true,
   },
+  {
+    caption: 'DMM.com',
+    image: '/img/icons/DMM.com_logo_RGB_small.png',
+    infoLink: 'https://dmm-corp.com/',
+    pinned: true,
+  },
+  {
+    caption: 'lancers',
+    image: '/img/icons/lancers.svg',
+    infoLink: 'https://www.lancers.co.jp/',
+    pinned: true,
+  },
+  {
+    caption: 'mazrica',
+    image: '/img/icons/mazrica.svg',
+    infoLink: 'https://mazrica.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
