@@ -6,9 +6,9 @@ sidebar_label: Supported OS
 
 | Distribution |            Release |
 |:-------------|-------------------:|
-| Alpine       |    3.2 and later |
-| Ubuntu       |              14, 16|
-| Debian       |             7, 8, 9|
+| Alpine       |      3.3 and later |
+| Ubuntu       |          14, 16, 18|
+| Debian       |                8, 9|
 | RHEL         |             5, 6, 7|
 | Oracle Linux |             5, 6, 7|
 | CentOS       |                6, 7|
