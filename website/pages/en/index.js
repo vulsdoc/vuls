@@ -118,7 +118,7 @@ class Index extends React.Component {
                 },
                 {
                   content:
-                    `Vuls uses multiple vulnerability databases NVD, JVN, OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog. Vuls now possible to detect vulnerabilities that patches have not been published from distributors.`,
+                    `Vuls uses multiple vulnerability databases NVD, JVN, OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog. <b>Vuls v0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors</b>.`,
 		  image: `${siteConfig.baseUrl}img/hq.png`,
                   imageAlign: "top",
                   title: "High Quality Scan"
@@ -148,7 +148,7 @@ class Index extends React.Component {
                 },
                 {
                   content:
-                    `It is possible to acquire the state of the server executing some commands. Vuls warns not-restarting-processes which updated before but not restarting yet. And detect processes affecting software update in advance.`,
+                    `It is possible to acquire the state of the server executing some commands. <b>Vuls v0.5.0 warns not-restarting-processes which updated before but not restarting yet. And detect processes affecting software update in advance</b>.`,
 		  image: `${siteConfig.baseUrl}img/dynamic.png`,
                   imageAlign: "top",
                   title: "Dynamic Analysis"

@@ -14,13 +14,17 @@ sidebar_label: Main Features
         - Changelog
 - Fast scan and Deep scan
     - Fast Scan
-        - Scan without root privilege
-        - Scan with No internet access. (RedHat, CentOS, OracleLinux, Ubuntu, Debian)
+        - Scan without root privilege, no dependencies
         - Almost no load on the scan target server
-    - Deep Scan
+        - Offline mode scan with no internet access. (RedHat, CentOS, OracleLinux, Ubuntu, Debian)
+    - Fast Root Scan
         - Scan with root privilege
+        - Almost no load on the scan target server
         - Detect processes affected by update using yum-ps (RedHat, CentOS, Oracle Linux and Amazon Linux)
         - Detect processes which updated before but not restarting yet using checkrestart of debian-goodies (Debian and Ubuntu)
+        - Offline mode scan with no internet access. (RedHat, CentOS, OracleLinux, Ubuntu, Debian)
+    - Deep Scan
+        - Scan with root privilege
         - Parses the Changelog  
             Changelog has a history of version changes. When a security issue is fixed, the relevant CVE ID is listed.
             By parsing the changelog and analysing the updates between the installed version of software on the server and the newest version of that software
@@ -33,7 +37,7 @@ sidebar_label: Main Features
         - If you don't want the central Vuls server to connect to each server by SSH, you can use Vuls in the Local Scan mode.
 - **Dynamic** Analysis
     - It is possible to acquire the state of the server by connecting via SSH and executing the command
-        - Vuls warns when the scan target server was updated the kernel etc. but not restarting it.
+    - Vuls warns not-restarting-processes which updated before but not restarting yet and detects processes affecting software update in advance.
 - Scan middleware that are not included in OS package management
     - Scan middleware, programming language libraries and framework for vulnerability
     - Support software registered in CPE
