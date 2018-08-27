@@ -1,88 +1,189 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Scan · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Scan · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="```"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/en/abstract.html" target="_self">Docs</a></li><li><a href="/docs/en/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/ja">日本語</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Scan · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="```bash"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Scan · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="```bash"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-112589928-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/docs/vuls_icon.png" alt="Vuls"/><h2 class="headerTitleWithLogo">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/abstract.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><li class=""><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/ja/usage-scan.html">日本語</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
-        languagesMenuItem.addEventListener("click", function(){
-          if(languagesDropDown.className == "hide") {
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
             languagesDropDown.className = "visible";
           } else {
             languagesDropDown.className = "hide";
           }
         });
-      </script></span><li><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li><li><a href="https://github.com/vulsdoc/vuls" target="_blank">vulsdoc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/docs/en/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/docs/en/supported-os.html">Supported OS</a></li></ul></div><div class="navGroup navGroupActive"><h3>Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-local.html">Remote and Local scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-deep.html">Fast and Deep scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-scan.html">Fast Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup navGroupActive"><h3>Installation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-package.html">Install with Package</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-ansible.html">Install with Ansible</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-awless.html">Install with awless</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-docker.html">Scan using Docker</a></li></ul></div><div class="navGroup navGroupActive"><h3>Usage</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-configtest.html">configtest</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/en/usage-scan.html">Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-report.html">Report</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup navGroupActive"><h3>Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/vulsrepo.html">VulsRepo</a></li></ul></div><div class="navGroup navGroupActive"><h3>Misc</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/docs/en/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/docs/en/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/docs/en/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
-          var toggler = document.getElementById('navToggler');
-          var nav = document.getElementById('docsNav');
-          toggler.onclick = function() {
-            nav.classList.toggle('docsSliderActive');
-          };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-scan.md" target="_blank">Edit</a><h1>Scan</h1></header><article><div><span><pre><code class="hljs">$ vuls scan -<span class="hljs-keyword">help</span>
-<span class="hljs-keyword">scan</span>:
-        <span class="hljs-keyword">scan</span>
-                [-deep]
-                [-config=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/config.toml]
-                [-results-dir=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results]
-                [-<span class="hljs-keyword">log</span>-dir=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/<span class="hljs-keyword">log</span>]
-                [-cachedb-<span class="hljs-keyword">path</span>=/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/cache.db]
-                [-ssh-<span class="hljs-keyword">native</span>-insecure]
-                [-ssh-config]
-                [-containers-<span class="hljs-keyword">only</span>]
-                [-<span class="hljs-keyword">skip</span>-broken]
-                [-<span class="hljs-keyword">http</span>-proxy=<span class="hljs-keyword">http</span>://<span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8080</span>]
-                [-ask-<span class="hljs-keyword">key</span>-<span class="hljs-keyword">password</span>]
-                [-<span class="hljs-keyword">timeout</span>=<span class="hljs-number">300</span>]
-                [-<span class="hljs-keyword">timeout</span>-<span class="hljs-keyword">scan</span>=<span class="hljs-number">7200</span>]
-                [-debug]
-                [-<span class="hljs-keyword">pipe</span>]
+      </script></span><li class=""><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li><li class=""><a href="https://github.com/vulsdoc/vuls" target="_blank">vulsdoc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/docs/en/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/docs/en/supported-os.html">Supported OS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-local.html">Remote and Local scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-deep.html">Fast and Deep scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-scan.html">Fast Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-root-scan.html">Fast-Root Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-package.html">Install with Package</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-ansible.html">Install with Ansible</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-awless.html">Install with awless</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-docker.html">Scan using Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Usage</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-configtest.html">configtest</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/usage-scan.html">Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-report.html">Report</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-server.html">Server</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/vulsrepo.html">VulsRepo</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Misc</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/docs/en/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/docs/en/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gost.html">gost</a></li><li class="navListItem"><a class="navItem" href="/docs/en/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/docs/en/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
 
-                [<span class="hljs-keyword">SERVER</span>]...
-  -ask-<span class="hljs-keyword">key</span>-<span class="hljs-keyword">password</span>
-        Ask ssh privatekey <span class="hljs-keyword">password</span> <span class="hljs-keyword">before</span> scanning
-  -cachedb-<span class="hljs-keyword">path</span> <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/cache.db (<span class="hljs-keyword">local</span> <span class="hljs-keyword">cache</span> <span class="hljs-keyword">of</span> changelog <span class="hljs-keyword">for</span> Ubuntu/Debian)
-  -config <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/toml
-  -containers-<span class="hljs-keyword">only</span>
-        <span class="hljs-keyword">Scan</span> containers only. <span class="hljs-keyword">Default</span>: <span class="hljs-keyword">Scan</span> <span class="hljs-keyword">both</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">hosts</span> <span class="hljs-keyword">and</span> containers
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-scan.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Scan</h1></header><article><div><span><pre><code class="hljs css language-bash">$ vuls scan -<span class="hljs-built_in">help</span>
+scan:
+        scan
+                [-config=/path/to/config.toml]
+                [-results-dir=/path/to/results]
+                [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
+                [-cachedb-path=/path/to/cache.db]
+                [-ssh-native-insecure]
+                [-ssh-config]
+                [-containers-only]
+                [-skip-broken]
+                [-http-proxy=http://192.168.0.1:8080]
+                [-ask-key-password]
+                [-timeout=300]
+                [-timeout-scan=7200]
+                [-debug]
+                [-pipe]
+
+                [SERVER]...
+  -ask-key-password
+        Ask ssh privatekey password before scanning
+  -cachedb-path string
+        /path/to/cache.db (<span class="hljs-built_in">local</span> cache of changelog <span class="hljs-keyword">for</span> Ubuntu/Debian)
+  -config string
+        /path/to/toml
+  -containers-only
+        Scan containers only. Default: Scan both of hosts and containers
   -debug
-        debug <span class="hljs-keyword">mode</span>
-  -deep
-        Deep <span class="hljs-keyword">scan</span> mode. <span class="hljs-keyword">Scan</span> accuracy improves <span class="hljs-keyword">and</span> information becomes richer. Since analysis <span class="hljs-keyword">of</span> changelog, issue commands requiring sudo, but it may be slower <span class="hljs-keyword">and</span> <span class="hljs-keyword">high</span> <span class="hljs-keyword">load</span> <span class="hljs-keyword">on</span> the <span class="hljs-keyword">scan</span> tareget server.
-  -<span class="hljs-keyword">http</span>-proxy <span class="hljs-keyword">string</span>
-        <span class="hljs-keyword">http</span>://proxy-<span class="hljs-keyword">url</span>:port (<span class="hljs-keyword">default</span>: <span class="hljs-keyword">empty</span>)
-  -<span class="hljs-keyword">log</span>-dir <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/<span class="hljs-keyword">log</span> (<span class="hljs-keyword">default</span> <span class="hljs-string">"/var/log/vuls"</span>)
-  -<span class="hljs-keyword">pipe</span>
-        <span class="hljs-keyword">Use</span> stdin via <span class="hljs-keyword">PIPE</span>
-  -results-dir <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results
-  -<span class="hljs-keyword">skip</span>-broken
-        [<span class="hljs-keyword">For</span> CentOS] yum <span class="hljs-keyword">update</span> changelog <span class="hljs-keyword">with</span> <span class="hljs-comment">--skip-broken option</span>
+        debug mode
+  -http-proxy string
+        http://proxy-url:port (default: empty)
+  -<span class="hljs-built_in">log</span>-dir string
+        /path/to/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
+  -pipe
+        Use stdin via PIPE
+  -results-dir string
+        /path/to/results
+  -skip-broken
+        [For CentOS] yum update changelog with --skip-broken option
   -ssh-config
-        <span class="hljs-keyword">Use</span> SSH options specified <span class="hljs-keyword">in</span> ssh_config preferentially
-  -ssh-<span class="hljs-keyword">native</span>-insecure
-        <span class="hljs-keyword">Use</span> <span class="hljs-keyword">Native</span> <span class="hljs-keyword">Go</span> implementation <span class="hljs-keyword">of</span> SSH. <span class="hljs-keyword">Default</span>: <span class="hljs-keyword">Use</span> the <span class="hljs-keyword">external</span> command
-  -<span class="hljs-keyword">timeout</span> <span class="hljs-built_in">int</span>
-        <span class="hljs-built_in">Number</span> <span class="hljs-keyword">of</span> seconds <span class="hljs-keyword">for</span> processing other <span class="hljs-keyword">than</span> <span class="hljs-keyword">scan</span> (<span class="hljs-keyword">default</span> <span class="hljs-number">300</span>)
-  -<span class="hljs-keyword">timeout</span>-<span class="hljs-keyword">scan</span> <span class="hljs-built_in">int</span>
-        <span class="hljs-built_in">Number</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">second</span> <span class="hljs-keyword">for</span> scanning vulnerabilities <span class="hljs-keyword">for</span> all servers (<span class="hljs-keyword">default</span> <span class="hljs-number">7200</span>)
+        Use SSH options specified <span class="hljs-keyword">in</span> ssh_config preferentially
+  -ssh-native-insecure
+        Use Native Go implementation of SSH. Default: Use the external <span class="hljs-built_in">command</span>
+  -timeout int
+        Number of seconds <span class="hljs-keyword">for</span> processing other than scan (default 300)
+  -timeout-scan int
+        Number of second <span class="hljs-keyword">for</span> scanning vulnerabilities <span class="hljs-keyword">for</span> all servers (default 7200)
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="deep-option"></a><a href="#deep-option" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-deep option</h2>
-<p>You need to execute <code>vuls configtest --deep</code> to check the configuration of the target server before scanning with -deep flag.</p>
-<p>For details about deep scan mode, see below.</p>
+<h2><a class="anchor" aria-hidden="true" id="fast-scan"></a><a href="#fast-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast scan</h2>
+<p>fast scan mode scans with no root-priviledge, no deps on scan target server.
+fast For details about fast scan mode, see below.
+You need to execute <code>vuls configtest</code> to check the configuration of the target server before scanning.
+For details about fast scan mode, see below.</p>
 <ul>
-<li><a href="/docs/en/architecture-deep-scan.html">Architecture/Deep Scan</a></li>
-<li><a href="/docs/en/usage-configtest.html#deep-scan-mode">Configtest/Deep Scan Mode</a></li>
+<li><a href="/docs/en/architecture-fast-scan.html">Architecture/fast</a></li>
+<li><a href="/docs/en/usage-configtest.html#fast-scan-mode">Configtest/fast scan</a></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="ssh-native-insecure-option"></a><a href="#ssh-native-insecure-option" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ssh-native-insecure option</h2>
+<h3><a class="anchor" aria-hidden="true" id="fast-scan-with-internet-access"></a><a href="#fast-scan-with-internet-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast scan with internet access</h3>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.localhost]
+host         = <span class="hljs-string">"192.168.100.111"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"22"</span>
+scanMode     = [<span class="hljs-string">"fast"</span>]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="fast-scan-without-internet-access"></a><a href="#fast-scan-without-internet-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast scan without internet access</h3>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.localhost]
+host         = <span class="hljs-string">"192.168.100.111"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"22"</span>
+scanMode     = [<span class="hljs-string">"fast"</span>, <span class="hljs-string">"offline"</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="fast-root-scan"></a><a href="#fast-root-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast-root scan</h2>
+<p>fast-root scan mode scans with root-priviledge.
+You need to execute <code>vuls configtest</code> to check the configuration of the target server before scanning.
+For details about fast-root scan mode, see below.</p>
+<ul>
+<li><a href="/docs/en/architecture-fast-root-scan.html">Architecture/fast-root</a></li>
+<li><a href="/docs/en/usage-configtest.html#fast-root-scan-mode">Configtest/fast-root scan</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="fast-root-scan-with-internet-access"></a><a href="#fast-root-scan-with-internet-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast-root scan with internet access</h3>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.localhost]
+host         = <span class="hljs-string">"192.168.100.111"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"22"</span>
+scanMode     = [<span class="hljs-string">"fast-root"</span>]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="fast-root-scan-without-internet-access"></a><a href="#fast-root-scan-without-internet-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast-root scan without internet access</h3>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.localhost]
+host         = <span class="hljs-string">"192.168.100.111"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"22"</span>
+scanMode     = [<span class="hljs-string">"fast-root"</span>, <span class="hljs-string">"offline"</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="deep-scan"></a><a href="#deep-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>deep scan</h2>
+<p>Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
+You need to execute <code>vuls configtest</code> to check the configuration of the target server before scanning.
+For details about deep scan mode, see below.</p>
+<ul>
+<li><a href="/docs/en/architecture-deep-scan.html">Architecture/deep</a></li>
+<li><a href="/docs/en/usage-configtest.html#deep-scan-mode">Configtest/deep scan</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="deep-scan-with-internet-access"></a><a href="#deep-scan-with-internet-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>deep scan with internet access</h3>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.localhost]
+host         = <span class="hljs-string">"192.168.100.111"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"22"</span>
+scanMode     = [<span class="hljs-string">"deep"</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="ssh-native-insecure-option"></a><a href="#ssh-native-insecure-option" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ssh-native-insecure option</h2>
 <p>Vuls supports different types of SSH.</p>
 <p>By Default, external SSH command will be used.
 This is useful If you want to use ProxyCommand or cipher algorithm of SSH that is not supported by native go implementation.<br>
 Don't forget to add below line to /etc/sudoers on the target servers. (username: vuls)</p>
-<pre><code class="hljs"><span class="hljs-symbol">Defaults:</span>vuls !requiretty
+<pre><code class="hljs css language-bash">Defaults:vuls !requiretty
 </code></pre>
 <p>To use native Go implementation from crypto/ssh, specify this option.<br>
 This is useful in situations where you may not have access to traditional UNIX tools.
 But it is important to note that this mode does not check the host key.</p>
-<h2><a class="anchor" aria-hidden="true" name="ask-key-password-option"></a><a href="#ask-key-password-option" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ask-key-password option</h2>
+<h2><a class="anchor" aria-hidden="true" id="ask-key-password-option"></a><a href="#ask-key-password-option" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ask-key-password option</h2>
 <table>
 <thead>
 <tr><th style="text-align:left">SSH key password</th><th style="text-align:left">-ask-key-password</th><th style="text-align:left"></th></tr>
@@ -92,127 +193,116 @@ But it is important to note that this mode does not check the host key.</p>
 <tr><td style="text-align:left">with password</td><td style="text-align:left">required</td><td style="text-align:left">or use ssh-agent</td></tr>
 </tbody>
 </table>
-<h2><a class="anchor" aria-hidden="true" name="example-scan-all-servers-defined-in-config-file"></a><a href="#example-scan-all-servers-defined-in-config-file" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan all servers defined in config file</h2>
-<pre><code class="hljs">$ vuls <span class="hljs-built_in">scan</span> -ask-<span class="hljs-built_in">key</span>-password
+<h2><a class="anchor" aria-hidden="true" id="example-scan-all-servers-defined-in-config-file"></a><a href="#example-scan-all-servers-defined-in-config-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan all servers defined in config file</h2>
+<pre><code class="hljs css language-bash">$ vuls scan -ask-key-password
 </code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Ask SSH key password before scanning</li>
 <li>Scan all servers defined in config file</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-scan-specific-servers"></a><a href="#example-scan-specific-servers" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan specific servers</h2>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls scan server1 server2</span>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-specific-servers"></a><a href="#example-scan-specific-servers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan specific servers</h2>
+<pre><code class="hljs css language-bash">$ vuls scan server1 server2
 </code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Use SSH Key-Based authentication with empty password (without -ask-key-password option)</li>
 <li>Scan only 2 servers (server1, server2)</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-scan-via-shell-instead-of-ssh"></a><a href="#example-scan-via-shell-instead-of-ssh" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan via shell instead of SSH.</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-via-shell-instead-of-ssh"></a><a href="#example-scan-via-shell-instead-of-ssh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan via shell instead of SSH.</h2>
 <p>Vuls scans localhost instead of SSH if the host address is <code>localhst or 127.0.0.1</code> and the port is <code>local</code> in config.
 For more details, see <a href="/docs/en/architecture-local-scan.html">Architecture section</a></p>
 <ul>
-<li>config.toml
-<pre><code class="hljs">[servers]
+<li><p>config.toml</p>
+<pre><code class="hljs css language-bash">[servers]
 
 [servers.localhost]
-host         = <span class="hljs-string">"localhost"</span> # <span class="hljs-keyword">or</span> <span class="hljs-string">"127.0.0.1"</span><span class="hljs-built_in">
-port </span>        = <span class="hljs-string">"local"</span>
+host         = <span class="hljs-string">"localhost"</span> <span class="hljs-comment"># or "127.0.0.1"</span>
+port         = <span class="hljs-string">"local"</span>
 </code></pre></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-scan-containers-docker-lxd-lxc"></a><a href="#example-scan-containers-docker-lxd-lxc" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan containers (Docker/LXD/LXC)</h2>
-<p>It is common that keep containers running without SSHd daemon.<br>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-containers-docker-lxd-lxc"></a><a href="#example-scan-containers-docker-lxd-lxc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan containers (Docker/LXD/LXC)</h2>
+<p>It is common that keep containers running without SSHd daemon.
 see <a href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/">Docker Blog:Why you don't need to run SSHd in your Docker containers</a></p>
-<h3><a class="anchor" aria-hidden="true" name="docker"></a><a href="#docker" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker</h3>
-<p>Vuls scans Docker containers via <code>docker exec</code> instead of SSH.<br>
+<h3><a class="anchor" aria-hidden="true" id="docker"></a><a href="#docker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker</h3>
+<p>Vuls scans Docker containers via <code>docker exec</code> instead of SSH.
 For more details, see <a href="architecture-remote-scan.html">Architecture section</a></p>
 <p>If you don’t want to use root, create a Unix group called docker and add users to it
-For details, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">https://docs.docker.com/install/linux/linux-postinstall/</a></p>
-<ul>
-<li><p>To scan all of running containers<br>
-<code>&quot;${running}&quot;</code> needs to be set in the containers item.</p>
-<pre><code class="hljs"><span class="hljs-section">[servers]</span>
-<span class="hljs-section">
-[servers.172-31-4-82]</span>
-<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
-<span class="hljs-attr">user</span>        = <span class="hljs-string">"ec2-user"</span>
-<span class="hljs-attr">keyPath</span>     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-<span class="hljs-section">
-[servers.172-31-4-82.containers]</span>
-<span class="hljs-attr">includes</span> = [<span class="hljs-string">"${running}"</span>]
-</code></pre></li>
-<li><p>To scan specific containers<br>
-The container ID or container name needs to be set in the containers item.<br>
+For details, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">docker manual</a></p>
+<h4><a class="anchor" aria-hidden="true" id="to-scan-all-of-running-containers"></a><a href="#to-scan-all-of-running-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan all of running containers</h4>
+<p><code>&quot;${running}&quot;</code> needs to be set in the containers item.
+```bash
+[servers]</p>
+<pre><code class="hljs">[servers.172-31-4-82]
+host         = &quot;172.31.4.82&quot;
+user        = &quot;ec2-user&quot;
+keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+containerType = &quot;docker&quot;
+containersIncluded = [&quot;${running}&quot;]
+```
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="to-scan-specific-containers"></a><a href="#to-scan-specific-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan specific containers</h4>
+<p>The container ID or container name needs to be set in the containers item.<br>
 In the following example, only <code>container_name_a</code> and <code>4aa37a8b63b9</code> will be scanned.<br>
 Be sure to check these containers are running state before scanning.<br>
-If specified containers are not running, Vuls gives up scanning with printing error message.</p>
-<pre><code class="hljs"><span class="hljs-section">[servers]</span>
-<span class="hljs-section">
-[servers.172-31-4-82]</span>
-<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
-<span class="hljs-attr">user</span>        = <span class="hljs-string">"ec2-user"</span>
-<span class="hljs-attr">keyPath</span>     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-<span class="hljs-section">
-[servers.172-31-4-82.containers]</span>
-<span class="hljs-attr">includes</span> = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
-</code></pre></li>
-<li><p>To scan except specific containers</p>
-<pre><code class="hljs"><span class="hljs-section">[servers]</span>
-<span class="hljs-section">
-[servers.172-31-4-82]</span>
-<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
-<span class="hljs-attr">user</span>        = <span class="hljs-string">"ec2-user"</span>
-<span class="hljs-attr">keyPath</span>     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-<span class="hljs-section">
-[servers.172-31-4-82.containers]</span>
-<span class="hljs-attr">includes</span> = [<span class="hljs-string">"${running}"</span>]
-<span class="hljs-attr">excludes</span> = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
-</code></pre></li>
-<li><p>To scan containers only</p>
-<ul>
-<li>--containers-only option is available.</li>
-</ul></li>
-</ul>
-<h3><a class="anchor" aria-hidden="true" name="lxd"></a><a href="#lxd" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXD</h3>
-<p>Vuls scans lxd via <code>lxc exec</code> instead of SSH.</p>
-<pre><code class="hljs">[servers]
+If specified containers are not running, Vuls gives up scanning with printing error message.
+```
+[servers]</p>
+<pre><code class="hljs">[servers.172-31-4-82]
+host         = &quot;172.31.4.82&quot;
+user        = &quot;ec2-user&quot;
+keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+containerType = &quot;docker&quot;
+containersIncluded = [&quot;container_name_a&quot;, &quot;4aa37a8b63b9&quot;]
+```
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="to-scan-except-specific-containers"></a><a href="#to-scan-except-specific-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan except specific containers</h4>
+<pre><code class="hljs">```
+[servers]
 
 [servers.172-31-4-82]
-host         = <span class="hljs-string">"172.31.4.82"</span><span class="hljs-built_in">
-user </span>       = <span class="hljs-string">"ec2-user"</span>
+host         = &quot;172.31.4.82&quot;
+user        = &quot;ec2-user&quot;
+keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+containerType = &quot;docker&quot;
+containersIncluded = [&quot;${running}&quot;]
+containersExcluded = [&quot;container_name_a&quot;, &quot;4aa37a8b63b9&quot;]
+```
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="to-scan-containers-only"></a><a href="#to-scan-containers-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan containers only</h4>
+<p>--containers-only option is available.</p>
+<h3><a class="anchor" aria-hidden="true" id="lxd"></a><a href="#lxd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXD</h3>
+<p>Vuls scans lxd via <code>lxc exec</code> instead of SSH.</p>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.172-31-4-82]
+host         = <span class="hljs-string">"172.31.4.82"</span>
+user        = <span class="hljs-string">"ec2-user"</span>
 keyPath     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
 
-[servers.172-31-4-82.containers]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"lxd"</span>
+[servers.172-31-4-82.containers]
+<span class="hljs-built_in">type</span> = <span class="hljs-string">"lxd"</span>
 includes = [<span class="hljs-string">"<span class="hljs-variable">${running}</span>"</span>]
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" name="lxc"></a><a href="#lxc" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXC</h3>
+<h3><a class="anchor" aria-hidden="true" id="lxc"></a><a href="#lxc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXC</h3>
 <p>Vuls scans lxc via <code>lxc-attach</code> instead of SSH.</p>
-<pre><code class="hljs">[servers]
+<pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
-host         = <span class="hljs-string">"172.31.4.82"</span><span class="hljs-built_in">
-user </span>       = <span class="hljs-string">"ec2-user"</span>
+host         = <span class="hljs-string">"172.31.4.82"</span>
+user        = <span class="hljs-string">"ec2-user"</span>
 keyPath     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
 
-[servers.172-31-4-82.containers]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"lxc"</span>
+[servers.172-31-4-82.containers]
+<span class="hljs-built_in">type</span> = <span class="hljs-string">"lxc"</span>
 includes = [<span class="hljs-string">"<span class="hljs-variable">${running}</span>"</span>]
 </code></pre>
 <p>LXC required root privilege.</p>
 <p>Example of /etc/sudoers on target servers</p>
-<pre><code class="hljs">vuls ALL=(ALL) <span class="hljs-string">NOPASSWD:</span><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/lxc-attach -n *, /</span>usr<span class="hljs-regexp">/bin/</span>lxc-ls *
-</code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="usage-configtest.html">← configtest</a><a class="docs-next button" href="usage-report.html">Report →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-              ga('create', 'UA-112589928-1', 'auto');
-              ga('send', 'pageview');
-            </script><script>
+<pre><code class="hljs css language-bash">vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/usage-configtest.html">← configtest</a><a class="docs-next button" href="/docs/en/usage-report.html">Report →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
+                
                 apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
                 indexName: 'vulsdoc',
                 inputSelector: '#search_input_react'

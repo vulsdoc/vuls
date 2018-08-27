@@ -1,225 +1,296 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Report · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Report · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="```"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docs/vuls_icon.png"/><h2 class="headerTitle">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/en/abstract.html" target="_self">Docs</a></li><li><a href="/docs/en/community.html" target="_self">Community</a></li><li><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/ja">日本語</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Report · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="```"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Report · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="```"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-112589928-1', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/docs/vuls_icon.png" alt="Vuls"/><h2 class="headerTitleWithLogo">Vuls</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/abstract.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/community.html" target="_self">Community</a></li><li class=""><a href="/blog" target="_self">Blog</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/ja/usage-report.html">日本語</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
-        languagesMenuItem.addEventListener("click", function(){
-          if(languagesDropDown.className == "hide") {
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
             languagesDropDown.className = "visible";
           } else {
             languagesDropDown.className = "hide";
           }
         });
-      </script></span><li><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li><li><a href="https://github.com/vulsdoc/vuls" target="_blank">vulsdoc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/docs/en/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/docs/en/supported-os.html">Supported OS</a></li></ul></div><div class="navGroup navGroupActive"><h3>Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-local.html">Remote and Local scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-deep.html">Fast and Deep scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-scan.html">Fast Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup navGroupActive"><h3>Installation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-package.html">Install with Package</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-ansible.html">Install with Ansible</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-awless.html">Install with awless</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-docker.html">Scan using Docker</a></li></ul></div><div class="navGroup navGroupActive"><h3>Usage</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-configtest.html">configtest</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan.html">Scan</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/en/usage-report.html">Report</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup navGroupActive"><h3>Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/vulsrepo.html">VulsRepo</a></li></ul></div><div class="navGroup navGroupActive"><h3>Misc</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/docs/en/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/docs/en/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/docs/en/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
-          var toggler = document.getElementById('navToggler');
-          var nav = document.getElementById('docsNav');
-          toggler.onclick = function() {
-            nav.classList.toggle('docsSliderActive');
-          };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-report.md" target="_blank">Edit</a><h1>Report</h1></header><article><div><span><pre><code class="hljs">report:
-        report
+      </script></span><li class=""><a href="https://github.com/future-architect/vuls" target="_blank">GitHub</a></li><li class=""><a href="https://github.com/vulsdoc/vuls" target="_blank">vulsdoc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Usage</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/abstract.html">Abstract</a></li><li class="navListItem"><a class="navItem" href="/docs/en/main-features.html">Main Features</a></li><li class="navListItem"><a class="navItem" href="/docs/en/supported-os.html">Supported OS</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-local.html">Remote and Local scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-deep.html">Fast and Deep scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-scan.html">Fast Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-fast-root-scan.html">Fast-Root Scan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/architecture-deep-scan.html">Deep Scan</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/install-manually-centos.html">Install Manually on CentOS</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-docker.html">Install with Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-package.html">Install with Package</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-ansible.html">Install with Ansible</a></li><li class="navListItem"><a class="navItem" href="/docs/en/install-with-awless.html">Install with awless</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/tutorial.html">Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-local-scan.html">Local Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-remote-scan.html">Remote Scan Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-docker.html">Scan using Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Usage</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/usage-automatic-discovery.html">Automatic Discovery</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-settings.html">Settings</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-configtest.html">configtest</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan.html">Scan</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/usage-report.html">Report</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-tui.html">TUI</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-server.html">Server</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usage-scan-non-os-packages.html">Scan non-OS packages</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Vulsrepo</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/vulsrepo.html">VulsRepo</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Misc</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/cron.html">Cron</a></li><li class="navListItem"><a class="navItem" href="/docs/en/misc-update-vuls.html">Update Vuls to the latest version</a></li><li class="navListItem"><a class="navItem" href="/docs/en/go-cve-dictionary.html">go-cve-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/goval-dictionary.html">goval-dictionary</a></li><li class="navListItem"><a class="navItem" href="/docs/en/gost.html">gost</a></li><li class="navListItem"><a class="navItem" href="/docs/en/related-projects.html">Releted Projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tips.html">Tips</a></li><li class="navListItem"><a class="navItem" href="/docs/en/how-to-contribute.html">Contribute</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-report.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Report</h1></header><article><div><span><pre><code class="hljs"><span class="hljs-keyword">report</span>:
+        <span class="hljs-keyword">report</span>
                 [-lang=en|ja]
-                [-config=/path/to/config.toml]
-                [-results-dir=/path/to/results]
-                [-log-dir=/path/to/log]
+                [-config=/path/<span class="hljs-keyword">to</span>/config.toml]
+                [-results-dir=/path/<span class="hljs-keyword">to</span>/results]
+                [-log-dir=/path/<span class="hljs-keyword">to</span>/log]
                 [-refresh-cve]
-                [-cvedb-type=sqlite3|mysql|postgres]
-                [-cvedb-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 DB connection string]
-                [-ovaldb-type=sqlite3|mysql]
-                [-ovaldb-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-                [-cvss-over=7]
+                [-cvss-over=<span class="hljs-number">7</span>]
                 [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
-                [-to-email]
-                [-to-slack]
-                [-to-stride]
-                [-to-syslog]
-                [-to-hipchat]
-                [-to-chatwork]
-                [-to-localfile]
-                [-to-s3]
-                [-to-azure-blob]
+                [-<span class="hljs-keyword">to</span>-email]
+                [-<span class="hljs-keyword">to</span>-http]
+                [-<span class="hljs-keyword">to</span>-slack]
+                [-<span class="hljs-keyword">to</span>-stride]
+                [-<span class="hljs-keyword">to</span>-hipchat]
+                [-<span class="hljs-keyword">to</span>-chatwork]
+                [-<span class="hljs-keyword">to</span>-localfile]
+                [-<span class="hljs-keyword">to</span>-s3]
+                [-<span class="hljs-keyword">to</span>-azure-blob]
                 [-format-json]
                 [-format-xml]
                 [-format-one-email]
-                [-format-one-line-text]
-                [-format-short-text]
-                [-format-full-text]
+                [-format-one-<span class="hljs-literal">line</span>-<span class="hljs-literal">text</span>]
+                [-format-list]
+                [-format-full-<span class="hljs-literal">text</span>]
                 [-gzip]
-                [-aws-profile=default]
-                [-aws-region=us-west-2]
-                [-aws-s3-bucket=bucket_name]
-                [-aws-s3-results-dir=/bucket/path/to/results]
-                [-aws-s3-server-side-encryption=AES256]
-                [-azure-account=accout]
-                [-azure-key=key]
-                [-azure-container=container]
-                [-http-proxy=http://192.168.0.1:8080]
+                [-uuid]
+                [-http-proxy=http://<span class="hljs-number">192.168</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8080</span>]
                 [-debug]
                 [-debug-sql]
                 [-pipe]
+                [-cvedb-<span class="hljs-keyword">type</span>=sqlite3|mysql|postgres|redis]
+                [-cvedb-path=/path/<span class="hljs-keyword">to</span>/cve.sqlite3]
+                [-cvedb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1323</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>]
+                [-ovaldb-<span class="hljs-keyword">type</span>=sqlite3|mysql|redis]
+                [-ovaldb-path=/path/<span class="hljs-keyword">to</span>/oval.sqlite3]
+                [-ovaldb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>]
+                [-gostdb-<span class="hljs-keyword">type</span>=sqlite3|mysql|redis]
+                [-gostdb-path=/path/<span class="hljs-keyword">to</span>/gost.sqlite3]
+                [-gostdb-url=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1325</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>]
+                [-http=<span class="hljs-string">"http://vuls-report-server"</span>]
 
-        [RFC3339 datetime format under results dir]
 
-  -aws-profile string
-        AWS profile to <span class="hljs-keyword">use</span> (<span class="hljs-keyword">default</span> <span class="hljs-string">"default"</span>)
-  -aws-region <span class="hljs-keyword">string</span>
-        AWS region <span class="hljs-keyword">to</span> <span class="hljs-keyword">use</span> (<span class="hljs-keyword">default</span> <span class="hljs-string">"us-east-1"</span>)
-  -aws-s3-bucket <span class="hljs-keyword">string</span>
-        S3 bucket <span class="hljs-keyword">name</span>
-  -aws-s3-results-dir <span class="hljs-keyword">string</span>
-        /bucket/<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results (<span class="hljs-keyword">option</span>)
-  -aws-s3-<span class="hljs-keyword">server</span>-side-encryption <span class="hljs-keyword">string</span>
-        The <span class="hljs-keyword">Server</span>-side encryption algorithm used <span class="hljs-keyword">when</span> storing the reports <span class="hljs-keyword">in</span> S3 (e.g., AES256, aws:kms).
-  -azure-<span class="hljs-keyword">account</span> <span class="hljs-keyword">string</span>
-        Azure <span class="hljs-keyword">account</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">to</span> use. AZURE_STORAGE_ACCOUNT environment <span class="hljs-keyword">variable</span> <span class="hljs-keyword">is</span> used <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> specified
-  -azure-<span class="hljs-keyword">container</span> <span class="hljs-keyword">string</span>
-        Azure <span class="hljs-keyword">storage</span> <span class="hljs-keyword">container</span> <span class="hljs-keyword">name</span>
-  -azure-<span class="hljs-keyword">key</span> <span class="hljs-keyword">string</span>
-        Azure <span class="hljs-keyword">account</span> <span class="hljs-keyword">key</span> <span class="hljs-keyword">to</span> use. AZURE_STORAGE_ACCESS_KEY environment <span class="hljs-keyword">variable</span> <span class="hljs-keyword">is</span> used <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> specified
-  -config <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/toml
-  -cvedb-<span class="hljs-keyword">path</span> <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/sqlite3 (<span class="hljs-keyword">For</span> <span class="hljs-keyword">get</span> cve detail <span class="hljs-keyword">from</span> cve.sqlite3)
-  -cvedb-<span class="hljs-keyword">type</span> <span class="hljs-keyword">string</span>
-        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">for</span> fetching CVE dictionary (sqlite3, mysql <span class="hljs-keyword">or</span> postgres) (<span class="hljs-keyword">default</span> <span class="hljs-string">"sqlite3"</span>)
-  -cvedb-<span class="hljs-keyword">url</span> <span class="hljs-keyword">string</span>
-        <span class="hljs-keyword">http</span>://cve-dictionary.com:<span class="hljs-number">8080</span> DB <span class="hljs-keyword">connection</span> <span class="hljs-keyword">string</span>
-  -cvss-<span class="hljs-keyword">over</span> <span class="hljs-built_in">float</span>
-        -cvss-<span class="hljs-keyword">over</span>=<span class="hljs-number">6.5</span> means reporting CVSS Score <span class="hljs-number">6.5</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">over</span> (<span class="hljs-keyword">default</span>: <span class="hljs-number">0</span> (means report all))
-  -diff
-        <span class="hljs-keyword">Difference</span> <span class="hljs-keyword">between</span> previous <span class="hljs-keyword">result</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">current</span> <span class="hljs-keyword">result</span>
+                [RFC3339 datetime format under results dir]
+  -config <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/toml (<span class="hljs-keyword">default</span> <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
+  -cvss-over float
+        -cvss-over=<span class="hljs-number">6.5</span> means reporting CVSS Score <span class="hljs-number">6.5</span> <span class="hljs-keyword">and</span> over (<span class="hljs-keyword">default</span>: <span class="hljs-number">0</span> (means <span class="hljs-keyword">report</span> <span class="hljs-keyword">all</span>))
   -debug
-        debug <span class="hljs-keyword">mode</span>
-  -debug-<span class="hljs-keyword">sql</span>
-        <span class="hljs-keyword">SQL</span> debug <span class="hljs-keyword">mode</span>
-  -<span class="hljs-keyword">format</span>-<span class="hljs-keyword">full</span>-<span class="hljs-built_in">text</span>
-        Detail report <span class="hljs-keyword">in</span> plain <span class="hljs-built_in">text</span>
-  -<span class="hljs-keyword">format</span>-<span class="hljs-keyword">json</span>
-        <span class="hljs-keyword">JSON</span> <span class="hljs-keyword">format</span>
-  -<span class="hljs-keyword">format</span>-one-email
-        Send all the host report via <span class="hljs-keyword">only</span> one EMail (Specify <span class="hljs-keyword">with</span> -<span class="hljs-keyword">to</span>-email)
-  -<span class="hljs-keyword">format</span>-one-line-<span class="hljs-built_in">text</span>
-        One line summary <span class="hljs-keyword">in</span> plain <span class="hljs-built_in">text</span>
-  -<span class="hljs-keyword">format</span>-<span class="hljs-keyword">short</span>-<span class="hljs-built_in">text</span>
-        Summary <span class="hljs-keyword">in</span> plain <span class="hljs-built_in">text</span>
-  -<span class="hljs-keyword">format</span>-<span class="hljs-keyword">xml</span>
-        <span class="hljs-keyword">XML</span> <span class="hljs-keyword">format</span>
+        debug mode
+  -debug-sql
+        SQL debug mode
+  -diff
+        Difference between previous result <span class="hljs-keyword">and</span> current result
+  -format-full-<span class="hljs-literal">text</span>
+        Detail <span class="hljs-keyword">report</span> <span class="hljs-keyword">in</span> plain <span class="hljs-literal">text</span>
+  -format-json
+        JSON format
+  -format-list
+        Display as list format
+  -format-one-email
+        Send <span class="hljs-keyword">all</span> the host <span class="hljs-keyword">report</span> via only one EMail (Specify <span class="hljs-keyword">with</span> -<span class="hljs-keyword">to</span>-email)
+  -format-one-<span class="hljs-literal">line</span>-<span class="hljs-literal">text</span>
+        One <span class="hljs-literal">line</span> summary <span class="hljs-keyword">in</span> plain <span class="hljs-literal">text</span>
+  -format-xml
+        XML format
   -gzip
         gzip compression
-  -<span class="hljs-keyword">http</span>-proxy <span class="hljs-keyword">string</span>
-        <span class="hljs-keyword">http</span>://proxy-<span class="hljs-keyword">url</span>:port (<span class="hljs-keyword">default</span>: <span class="hljs-keyword">empty</span>)
-  -<span class="hljs-keyword">ignore</span>-unscored-cves
-        Don<span class="hljs-string">'t report the unscored CVEs
+  -http-proxy <span class="hljs-built_in">string</span>
+        http://proxy-url:<span class="hljs-keyword">port</span> (<span class="hljs-keyword">default</span>: empty)
   -ignore-unfixed
-        Don'</span>t report the unfixed CVEs
-  -lang <span class="hljs-keyword">string</span>
+        Don<span class="hljs-symbol">'t</span> <span class="hljs-keyword">report</span> the unfixed CVEs
+  -ignore-unscored-cves
+        Don<span class="hljs-symbol">'t</span> <span class="hljs-keyword">report</span> the unscored CVEs
+  -lang <span class="hljs-built_in">string</span>
         [en|ja] (<span class="hljs-keyword">default</span> <span class="hljs-string">"en"</span>)
-        <span class="hljs-keyword">In</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">using</span> ja, it <span class="hljs-keyword">is</span> necessary <span class="hljs-keyword">to</span> acquire JVN <span class="hljs-keyword">data</span> beforehand.
-  -<span class="hljs-keyword">log</span>-dir <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/<span class="hljs-keyword">log</span> (<span class="hljs-keyword">default</span> <span class="hljs-string">"/var/log/vuls"</span>)
-  -ovaldb-<span class="hljs-keyword">path</span> <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/sqlite3 (<span class="hljs-keyword">For</span> <span class="hljs-keyword">get</span> oval detail <span class="hljs-keyword">from</span> oval.sqlite3) (<span class="hljs-keyword">default</span> <span class="hljs-string">"/Users/kotakanbe/go/src/github.com/future-architect/vuls/oval.sqlite3"</span>)
-  -ovaldb-<span class="hljs-keyword">type</span> <span class="hljs-keyword">string</span>
-        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">for</span> fetching OVAL dictionary (sqlite3 <span class="hljs-keyword">or</span> mysql) (<span class="hljs-keyword">default</span> <span class="hljs-string">"sqlite3"</span>)
-  -ovaldb-<span class="hljs-keyword">url</span> <span class="hljs-keyword">string</span>
-        <span class="hljs-keyword">http</span>://goval-dictionary.com:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> mysql <span class="hljs-keyword">connection</span> <span class="hljs-keyword">string</span>
-  -<span class="hljs-keyword">pipe</span>
-        <span class="hljs-keyword">Use</span> stdin via <span class="hljs-keyword">PIPE</span>
-  -<span class="hljs-keyword">refresh</span>-cve
-        <span class="hljs-keyword">Refresh</span> CVE information <span class="hljs-keyword">in</span> <span class="hljs-keyword">JSON</span> <span class="hljs-keyword">file</span> <span class="hljs-keyword">under</span> results dir
-  -results-dir <span class="hljs-keyword">string</span>
-        /<span class="hljs-keyword">path</span>/<span class="hljs-keyword">to</span>/results
-  -<span class="hljs-keyword">to</span>-azure-<span class="hljs-built_in">blob</span>
-        Write report <span class="hljs-keyword">to</span> Azure <span class="hljs-keyword">Storage</span> <span class="hljs-built_in">blob</span> (<span class="hljs-keyword">container</span>/yyyyMMdd_HHmm/servername.json/<span class="hljs-keyword">xml</span>/txt)
-  -<span class="hljs-keyword">to</span>-email
-        Send report via Email
-  -<span class="hljs-keyword">to</span>-hipchat
-        Send report via hipchat
+  -log-dir <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/log (<span class="hljs-keyword">default</span> <span class="hljs-string">"/var/log/vuls"</span>)
+  -pipe
+        <span class="hljs-keyword">Use</span> args passed via PIPE
+  -refresh-cve
+        Refresh CVE information <span class="hljs-keyword">in</span> JSON <span class="hljs-keyword">file</span> under results dir
+  -results-dir <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/results (<span class="hljs-keyword">default</span> <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/results"</span>)
+  -<span class="hljs-keyword">to</span>-azure-blob
+        Write <span class="hljs-keyword">report</span> <span class="hljs-keyword">to</span> Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -<span class="hljs-keyword">to</span>-chatwork
-        Send report via chatwork
+        Send <span class="hljs-keyword">report</span> via chatwork
+  -<span class="hljs-keyword">to</span>-email
+        Send <span class="hljs-keyword">report</span> via Email
+  -<span class="hljs-keyword">to</span>-hipchat
+        Send <span class="hljs-keyword">report</span> via hipchat
+  -<span class="hljs-keyword">to</span>-http
+        Send <span class="hljs-keyword">report</span> via HTTP POST
   -<span class="hljs-keyword">to</span>-localfile
-        Write report <span class="hljs-keyword">to</span> localfile
+        Write <span class="hljs-keyword">report</span> <span class="hljs-keyword">to</span> localfile
   -<span class="hljs-keyword">to</span>-s3
-        Write report <span class="hljs-keyword">to</span> S3 (bucket/dir/yyyyMMdd_HHmm/servername.json/<span class="hljs-keyword">xml</span>/txt)
+        Write <span class="hljs-keyword">report</span> <span class="hljs-keyword">to</span> S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
   -<span class="hljs-keyword">to</span>-slack
-        Send report via Slack
+        Send <span class="hljs-keyword">report</span> via Slack
   -<span class="hljs-keyword">to</span>-stride
-        Send report via Stride
+        Send <span class="hljs-keyword">report</span> via Stride
   -<span class="hljs-keyword">to</span>-syslog
-        Send report via Syslog
+        Send <span class="hljs-keyword">report</span> via Syslog
+  -uuid
+        Auto <span class="hljs-keyword">generate</span> <span class="hljs-keyword">of</span> scan target servers <span class="hljs-keyword">and</span> <span class="hljs-keyword">then</span> write <span class="hljs-keyword">to</span> config.toml <span class="hljs-keyword">and</span> scan result
+  -cvedb-sqlite3-path <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/sqlite3
+  -cvedb-<span class="hljs-keyword">type</span> <span class="hljs-built_in">string</span>
+        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">of</span> go-cve-dictionary (sqlite3, mysql, postgres <span class="hljs-keyword">or</span> redis) (<span class="hljs-keyword">default</span> <span class="hljs-string">"sqlite3"</span>)
+  -cvedb-url <span class="hljs-built_in">string</span>
+        http://go-cve-dictionary.com:<span class="hljs-number">1323</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>
+  -gostdb-sqlite3-path <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/sqlite3
+  -gostdb-<span class="hljs-keyword">type</span> <span class="hljs-built_in">string</span>
+        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">of</span> gost (sqlite3, mysql, postgres <span class="hljs-keyword">or</span> redis)
+  -gostdb-url <span class="hljs-built_in">string</span>
+        http://gost.com:<span class="hljs-number">1325</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>
+  -ovaldb-sqlite3-path <span class="hljs-built_in">string</span>
+        /path/<span class="hljs-keyword">to</span>/sqlite3
+  -ovaldb-<span class="hljs-keyword">type</span> <span class="hljs-built_in">string</span>
+        DB <span class="hljs-keyword">type</span> <span class="hljs-keyword">of</span> goval-dictionary (sqlite3, mysql, postgres <span class="hljs-keyword">or</span> redis)
+  -ovaldb-url <span class="hljs-built_in">string</span>
+        http://goval-dictionary.com:<span class="hljs-number">1324</span> <span class="hljs-keyword">or</span> DB connection <span class="hljs-built_in">string</span>
+  -http <span class="hljs-built_in">string</span>
+        -<span class="hljs-keyword">to</span>-http http://vuls-<span class="hljs-keyword">report</span>
+
+
 
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="how-to-read-a-report"></a><a href="#how-to-read-a-report" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to read a report</h2>
-<h3><a class="anchor" aria-hidden="true" name="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
-<pre><code class="hljs">$ vuls re<span class="hljs-keyword">port</span> -format-full-text
+<h2><a class="anchor" aria-hidden="true" id="example-of-three-format-options"></a><a href="#example-of-three-format-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example of three format options</h2>
+<p>Vuls has three format options.</p>
+<ul>
+<li>format-list(default)</li>
+<li>format-one-line-text</li>
+<li>format-full-text</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="format-list"></a><a href="#format-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>format-list</h3>
+<p><img src="/img/docs/report-format-list.png" alt="report-list"></p>
+<pre><code class="hljs">$ vuls report
 
-172-31-4-82 (amazon 2015.09)
-============================
-Total: 94 (<span class="hljs-type">High</span>:19 <span class="hljs-type">Medium</span>:54 <span class="hljs-type">Low</span>:7 ?:14)        103 updatable packages
+c74 (centos7.4.1708)
+====================
+Total: 294 (High:65 Medium:198 Low:24 ?:7), 93/294 Fixed, 708 installed, 285 updatable
 
-CVE-2016-5636
-<span class="hljs-comment">-------------</span>
-Score           10.0 (<span class="hljs-type">High</span>)
-Vector          (<span class="hljs-type">AV</span>:<span class="hljs-type">N</span>/<span class="hljs-type">AC</span>:<span class="hljs-type">L</span>/<span class="hljs-type">Au</span>:<span class="hljs-type">N</span>/<span class="hljs-type">C</span>:<span class="hljs-type">C</span>/<span class="hljs-type">I</span>:<span class="hljs-type">C</span>/<span class="hljs-type">A</span>:<span class="hljs-type">C</span>)
-Summary         Integer overflow in the get_data function in zipimport.c in CPython (aka <span class="hljs-type">Python</span>)
-                before 2.7.12, 3.x before 3.4.5, and 3.5.x before 3.5.2 allows remote attackers
-                to have unspecified impact via a negative data size value, which triggers a
-                heap-based buffer overflow.
-CWE             https://cwe.mitre.org/data/definitions/190.html
-NVD             https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2016-5636
-MITRE           https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5636
-CVE Details     http://www.cvedetails.com/cve/CVE-2016-5636
-CVSS Calculator https://nvd.nist.gov/cvss/v2-calculator?name=CVE-2016-5636&amp;vector=(<span class="hljs-type">AV</span>:<span class="hljs-type">N</span>/<span class="hljs-type">AC</span>:<span class="hljs-type">L</span>/...
-<span class="hljs-type">RHEL</span>-<span class="hljs-type">CVE</span>        https://access.redhat.com/security/cve/<span class="hljs-type">CVE</span>-2016-5636
-<span class="hljs-type">ALAS</span>-2016-724   https://alas.aws.amazon.com/<span class="hljs-type">ALAS</span>-2016-724.html
-<span class="hljs-type">Package</span>         python27-2.7.10-4.119.amzn1 -&gt; python27-2.7.12-2.120.amzn1
-                python27-devel-2.7.10-4.119.amzn1 -&gt; python27-devel-2.7.12-2.120.amzn1
-                python27-libs-2.7.10-4.119.amzn1 -&gt; python27-libs-2.7.12-2.120.amzn1
-<span class="hljs-type">Confidence</span>      100 / <span class="hljs-type">YumUpdateSecurityMatch</span>
++------------------+------+----------+---------+---------------------------------------------------+
+|<span class="hljs-string">      CVE-ID      </span>|<span class="hljs-string"> CVSS </span>|<span class="hljs-string">  ATTACK  </span>|<span class="hljs-string">  FIXED  </span>|<span class="hljs-string">                        NVD                        </span>|
++------------------+------+----------+---------+---------------------------------------------------+
+|<span class="hljs-string"> CVE-2017-11176   </span>|<span class="hljs-string"> 10.0 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string">   Fixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-11176   </span>|
+|<span class="hljs-string"> CVE-2017-12762   </span>|<span class="hljs-string"> 10.0 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string"> Unfixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-12762   </span>|
+|<span class="hljs-string"> CVE-2017-18017   </span>|<span class="hljs-string"> 10.0 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string">   Fixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-18017   </span>|
+|<span class="hljs-string"> CVE-2017-1000158 </span>|<span class="hljs-string">  9.8 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string"> Unfixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-1000158 </span>|
+|<span class="hljs-string"> CVE-2017-10684   </span>|<span class="hljs-string">  9.8 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string"> Unfixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-10684   </span>|
+|<span class="hljs-string"> CVE-2017-10685   </span>|<span class="hljs-string">  9.8 </span>|<span class="hljs-string">  Network </span>|<span class="hljs-string"> Unfixed </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-10685   </span>|
+... snip ...
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="format-one-line-text"></a><a href="#format-one-line-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>format-one-line-text</h3>
+<pre><code class="hljs">$ vuls report -format-one-line-text
+
+<span class="hljs-section">One Line Summary
+================</span>
+c74     Total: 294 (High:65 Medium:198 Low:24 ?:7)      93/294 Fixed    708 installed, 285 updatable
+deb8    Total: 490 (High:62 Medium:158 Low:22 ?:248)    11/490 Fixed    512 installed
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="format-full-text"></a><a href="#format-full-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>format-full-text</h3>
+<p><img src="/img/docs/report-full-text.png" alt="report-list"></p>
+<pre><code class="hljs">$ vuls report -format-full-text
+
+c74 (centos7.4.1708)
+====================
+Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
+
++---------------+----------------------------------------------------------------------------------+
+|<span class="hljs-string"> CVE-2017-9233 </span>|<span class="hljs-string">                                                                                  </span>|
++---------------+----------------------------------------------------------------------------------+
+|<span class="hljs-string"> Max Score     </span>|<span class="hljs-string"> 7.5 HIGH (nvd)                                                                   </span>|
+|<span class="hljs-string"> nvd           </span>|<span class="hljs-string"> 7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H HIGH                            </span>|
+|<span class="hljs-string"> redhat_api    </span>|<span class="hljs-string"> 6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H MODERATE                        </span>|
+|<span class="hljs-string"> nvd           </span>|<span class="hljs-string"> 5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P MEDIUM                                            </span>|
+|<span class="hljs-string"> Summary       </span>|<span class="hljs-string"> XML External Entity vulnerability in libexpat 2.2.0 and earlier (Expat XML       </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> Parser Library) allows attackers to put the parser in an infinite loop using a   </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> malformed external entity definition from an external DTD.                       </span>|
+|<span class="hljs-string"> Mitigation    </span>|<span class="hljs-string">  Do not parse untrusted arbitrary XML data using the expat                       </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> package.                                                                         </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop') (redhat_api)     </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> [OWASP Top4] CWE-611: Improper Restriction of XML External Entity Reference      </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> ('XXE') (nvd)                                                                    </span>|
+|<span class="hljs-string"> Affected PKG  </span>|<span class="hljs-string"> expat-2.1.0-10.el7_3 -&gt; Will not fix                                             </span>|
+|<span class="hljs-string"> Confidence    </span>|<span class="hljs-string"> 100 / RedHatAPIMatch                                                             </span>|
+|<span class="hljs-string"> Source        </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-9233                                   </span>|
+|<span class="hljs-string"> CVSSv2 Calc   </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2017-9233          </span>|
+|<span class="hljs-string"> CVSSv3 Calc   </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2017-9233          </span>|
+|<span class="hljs-string"> RHEL-CVE      </span>|<span class="hljs-string"> https://access.redhat.com/security/cve/CVE-2017-9233                             </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> https://cwe.mitre.org/data/definitions/CWE-835.html                              </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> https://cwe.mitre.org/data/definitions/CWE-611.html                              </span>|
+|<span class="hljs-string"> OWASP Top10   </span>|<span class="hljs-string"> https://github.com/OWASP/Top10/blob/master/2017/en/0xa4-xxe.md                   </span>|
++---------------+----------------------------------------------------------------------------------+
 
 ... snip ...
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" name="summary-part"></a><a href="#summary-part" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary part</h3>
-<pre><code class="hljs"><span class="hljs-section">cent6 (centos6.6)
-=================</span>
-Total: 145 (High:23 Medium:101 Low:21 ?:0)      83 updatable packages
+<pre><code class="hljs"><span class="hljs-section">c74 (centos7.4.1708)
+====================</span>
+Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 </code></pre>
 <ul>
-<li><code>cent6</code> means that it is a scan report of <code>servers.cent6</code> defined in cocnfig.toml.</li>
-<li><code>(centos6.6)</code> means that the version of the OS is CentOS6.6.</li>
-<li><code>Total: 145 (High:23 Medium:101 Low:21 ?:0)</code> means that a total of 145 vulnerabilities exist, and the distribution of CVSS Severity is displayed.</li>
-<li><code>83 updatable packages</code> means that there are 83 updateable packages on the target server.</li>
+<li><code>c74</code> means that it is a scan report of <code>servers.c74</code> defined in cocnfig.toml.</li>
+<li><code>(centos7.4.1708)</code> means that the version of the OS is CentOS 7.4.</li>
+<li><code>Total: 23 (High:22 Medium:1 Low:0)</code> means that a total of 23 vulnerabilities exist, and the distribution of CVSS Severity is displayed.</li>
+<li><code>9/23 Fixed</code>means` that a total of 23 vulnerabilities exist, and 9 is fixed, 14 is not fixed yet.</li>
+<li><code>285 updatable packages</code> means that there are 285 updateable packages on the target server.</li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" name="detailed-part"></a><a href="#detailed-part" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Detailed Part</h3>
-<pre><code class="hljs">CVE<span class="hljs-number">-2016</span><span class="hljs-number">-0702</span>
-----------------
-Max Score               <span class="hljs-number">2.6</span> IMPORTANT (redhat)
-nvd                     <span class="hljs-number">1.9</span><span class="hljs-regexp">/AV:L/</span><span class="hljs-string">AC:</span>M<span class="hljs-regexp">/Au:N/</span><span class="hljs-string">C:</span>P<span class="hljs-regexp">/I:N/</span><span class="hljs-string">A:</span>N
-redhat                  <span class="hljs-number">2.6</span><span class="hljs-regexp">/AV:L/</span><span class="hljs-string">AC:</span>H<span class="hljs-regexp">/Au:N/</span><span class="hljs-string">C:</span>P<span class="hljs-regexp">/I:P/</span><span class="hljs-string">A:</span>N
-jvn                     <span class="hljs-number">1.9</span><span class="hljs-regexp">/AV:L/</span><span class="hljs-string">AC:</span>M<span class="hljs-regexp">/Au:N/</span><span class="hljs-string">C:</span>P<span class="hljs-regexp">/I:N/</span><span class="hljs-string">A:</span>N
-CVSSv2 Calc             <span class="hljs-string">https:</span><span class="hljs-comment">//nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2016-0702</span>
-Summary                 The MOD_EXP_CTIME_COPY_FROM_PREBUF function <span class="hljs-keyword">in</span> crypto<span class="hljs-regexp">/bn/</span>bn_exp.c <span class="hljs-keyword">in</span> OpenSSL
-                        <span class="hljs-number">1.0</span><span class="hljs-number">.1</span> before <span class="hljs-number">1.0</span><span class="hljs-number">.1</span>s and <span class="hljs-number">1.0</span><span class="hljs-number">.2</span> before <span class="hljs-number">1.0</span><span class="hljs-number">.2</span>g does not properly consider
-                        cache-bank access times during modular exponentiation, which makes it easier <span class="hljs-keyword">for</span>
-                        local users to discover RSA keys by running a crafted application on the same
-                        Intel Sandy Bridge CPU core <span class="hljs-keyword">as</span> a victim and leveraging cache-bank conflicts, aka
-                        a <span class="hljs-string">"CacheBleed"</span> attack.
-Source                  <span class="hljs-string">https:</span><span class="hljs-comment">//nvd.nist.gov/vuln/detail/CVE-2016-0702</span>
-RHEL-CVE                <span class="hljs-string">https:</span><span class="hljs-comment">//access.redhat.com/security/cve/CVE-2016-0702</span>
-CWE<span class="hljs-number">-200</span> (nvd)           <span class="hljs-string">https:</span><span class="hljs-comment">//cwe.mitre.org/data/definitions/200.html</span>
-Package/CPE             openssl<span class="hljs-number">-1.0</span><span class="hljs-number">.1e-30</span>.el6 - <span class="hljs-number">1.0</span><span class="hljs-number">.1e-57</span>.el6
-Confidence              <span class="hljs-number">100</span> / OvalMatch
+<pre><code class="hljs">+---------------+----------------------------------------------------------------------------------+
+|<span class="hljs-string"> CVE-2017-9233 </span>|<span class="hljs-string">                                                                                  </span>|
++---------------+----------------------------------------------------------------------------------+
+|<span class="hljs-string"> Max Score     </span>|<span class="hljs-string"> 7.5 HIGH (nvd)                                                                   </span>|
+|<span class="hljs-string"> nvd           </span>|<span class="hljs-string"> 7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H HIGH                            </span>|
+|<span class="hljs-string"> redhat_api    </span>|<span class="hljs-string"> 6.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H MODERATE                        </span>|
+|<span class="hljs-string"> nvd           </span>|<span class="hljs-string"> 5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P MEDIUM                                            </span>|
+|<span class="hljs-string"> Summary       </span>|<span class="hljs-string"> XML External Entity vulnerability in libexpat 2.2.0 and earlier (Expat XML       </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> Parser Library) allows attackers to put the parser in an infinite loop using a   </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> malformed external entity definition from an external DTD.                       </span>|
+|<span class="hljs-string"> Mitigation    </span>|<span class="hljs-string">  Do not parse untrusted arbitrary XML data using the expat                       </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> package.                                                                         </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop') (redhat_api)     </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> [OWASP Top4] CWE-611: Improper Restriction of XML External Entity Reference      </span>|
+|<span class="hljs-string">               </span>|<span class="hljs-string"> ('XXE') (nvd)                                                                    </span>|
+|<span class="hljs-string"> Affected PKG  </span>|<span class="hljs-string"> expat-2.1.0-10.el7_3 -&gt; Will not fix                                             </span>|
+|<span class="hljs-string"> Confidence    </span>|<span class="hljs-string"> 100 / RedHatAPIMatch                                                             </span>|
+|<span class="hljs-string"> Source        </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln/detail/CVE-2017-9233                                   </span>|
+|<span class="hljs-string"> CVSSv2 Calc   </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln-metrics/cvss/v2-calculator?name=CVE-2017-9233          </span>|
+|<span class="hljs-string"> CVSSv3 Calc   </span>|<span class="hljs-string"> https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2017-9233          </span>|
+|<span class="hljs-string"> RHEL-CVE      </span>|<span class="hljs-string"> https://access.redhat.com/security/cve/CVE-2017-9233                             </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> https://cwe.mitre.org/data/definitions/CWE-835.html                              </span>|
+|<span class="hljs-string"> CWE           </span>|<span class="hljs-string"> https://cwe.mitre.org/data/definitions/CWE-611.html                              </span>|
+|<span class="hljs-string"> OWASP Top10   </span>|<span class="hljs-string"> https://github.com/OWASP/Top10/blob/master/2017/en/0xa4-xxe.md                   </span>|
++---------------+----------------------------------------------------------------------------------+
 </code></pre>
 <ul>
-<li><p><code>Max Score</code> means Max CVSS Score.</p></li>
+<li><p><code>Max</code> Score` means Max CVSS Score.</p></li>
 <li><p><code>nvd</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of  NVD</p></li>
 <li><p><code>redhat</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of Red Hat OVAL</p></li>
 <li><p><code>jvn</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of JVN</p></li>
-<li><p><code>Summary</code> means Summary of the CVE.</p></li>
 <li><p><code>CWE</code> means <a href="https://nvd.nist.gov/cwe.cfm">CWE - Common Weakness Enumeration</a> of the CVE.</p></li>
-<li><p><code>Package</code> shows the package version information including this vulnerability.</p></li>
+<li><p><code>[OWASP Top4]</code> means the CWE is included in <a href="https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md">OWASP TOP 10</a></p></li>
+<li><p><code>Affected PKG</code> shows the package version information including this vulnerability.</p></li>
 <li><p><code>Confidence</code> means the reliability of detection.</p>
 <ul>
 <li><code>100</code> is highly reliable</li>
@@ -241,55 +312,65 @@ Confidence              <span class="hljs-number">100</span> / OvalMatch
 </table>
 </li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-hipchat"></a><a href="#example-send-scan-results-to-hipchat" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to HipChat</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost"></a><a href="#example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost</h2>
+<p>config.toml</p>
+<pre><code class="hljs">[cveDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"sqlite3"</span>
+path = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
+
+[ovalDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"sqlite3"</span>
+path = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
+
+[gost]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"sqlite3"</span>
+path = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-hipchat"></a><a href="#example-send-scan-results-to-hipchat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to HipChat</h2>
 <p>Define HipChat section in <a href="https://vuls.io/docs/en/usage-settings.html#hipchat-section">config.toml</a></p>
 <pre><code class="hljs">$ vuls report \
       -<span class="ruby">to-hipchat \
-</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span> \
-</span>      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3
+</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span>
 </span></code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Send scan results to HipChat</li>
 <li>Only Report CVEs that CVSS score is over 7</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-stride"></a><a href="#example-send-scan-results-to-stride" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Stride</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-stride"></a><a href="#example-send-scan-results-to-stride" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Stride</h2>
 <p>Define stride Section in <a href="https://vuls.io/docs/en/usage-settings.html#stride-section">config.toml</a></p>
 <pre><code class="hljs">$ vuls report \
       -<span class="ruby">to-stride \
-</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span> \
-</span>      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3
+</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span>
 </span></code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Send scan results to Stride</li>
 <li>Only Report CVEs that CVSS score is over 7</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-chatwork"></a><a href="#example-send-scan-results-to-chatwork" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to ChatWork</h2>
-<p>Define Charwork section in <a href="https://vuls.io/docs/en/usage-settings.html#chatwork-section">config.toml</a></p>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-chatwork"></a><a href="#example-send-scan-results-to-chatwork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to ChatWork</h2>
+<p>Define ChatWork section in <a href="https://vuls.io/docs/en/usage-settings.html#chatwork-section">config.toml</a></p>
 <pre><code class="hljs">$ vuls report \
       -<span class="ruby">to-chatwork \
-</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span> \
-</span>      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3
+</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span>
 </span></code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Send scan results to ChatWork</li>
 <li>Only Report CVEs that CVSS score is over 7</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-send-scan-results-to-slack"></a><a href="#example-send-scan-results-to-slack" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Slack</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-slack"></a><a href="#example-send-scan-results-to-slack" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Slack</h2>
 <p>Define Slack section in <a href="https://vuls.io/docs/en/usage-settings.html#slack-section">config.toml</a></p>
 <pre><code class="hljs">$ vuls report \
       -<span class="ruby">to-slack \
-</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span> \
-</span>      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3
+</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span>
 </span></code></pre>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Send scan results to slack</li>
 <li>Only Report CVEs that CVSS score is over 7</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
 <p>To put results in S3 bucket, configure following settings in AWS before reporting.</p>
 <ul>
 <li>Create S3 bucket. See <a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html">Creating a Bucket</a></li>
@@ -322,48 +403,58 @@ Confidence              <span class="hljs-number">100</span> / OvalMatch
     ]
 }
 </code></pre>
+<p>config.toml</p>
+<pre><code class="hljs">[aws]<span class="hljs-built_in">
+profile </span>= <span class="hljs-string">"default"</span>
+region = <span class="hljs-string">"ap-northeast-1"</span>
+s3Bucket = <span class="hljs-string">"vuls"</span>
+s3ServerSideEncryption = <span class="hljs-string">"AES256"</span>
+</code></pre>
+<p>reporting</p>
 <pre><code class="hljs">$ vuls report \
-      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3 \
-</span>      -<span class="ruby">to-s3 \
-</span>      -<span class="ruby">format-json \
-</span>      -<span class="ruby">aws-region=ap-northeast-<span class="hljs-number">1</span> \
-</span>      -<span class="ruby">aws-s3-bucket=vuls \
-</span>      -<span class="ruby">aws-profile=default
+      -<span class="ruby">to-s3 \
+</span>      -<span class="ruby">format-json
 </span></code></pre>
 <p>With this sample command, it will ..</p>
+<p>Put scan result(JSON) in S3 bucket</p>
 <ul>
-<li>Put scan result(JSON) in S3 bucket. The bucket name is &quot;vuls&quot; in ap-northeast-1 and profile is &quot;default&quot;</li>
+<li>with AES256</li>
+<li>bucket name is &quot;vuls&quot;</li>
+<li>ap-northeast-1</li>
+<li>profile is &quot;default&quot;</li>
+<li>The Server-side encryption algorithm (e.g., AES256, aws:kms).</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" name="example-put-results-in-azure-blob-storage"></a><a href="#example-put-results-in-azure-blob-storage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in Azure Blob storage</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-put-results-in-azure-blob-storage"></a><a href="#example-put-results-in-azure-blob-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in Azure Blob storage</h2>
 <p>To put results in Azure Blob Storage, configure following settings in Azure before reporting.</p>
 <ul>
 <li>Create a Azure Blob container</li>
 </ul>
-<pre><code class="hljs">$ vuls scan \
-      -<span class="ruby">cvedb-path=$PWD/cve.sqlite3 \
-</span>      -<span class="ruby">report-azure-blob \
-</span>      -<span class="ruby">azure-container=vuls \
-</span>      -<span class="ruby">azure-account=test \
-</span>      -<span class="ruby">azure-key=access-key-string
-</span></code></pre>
+<p>config.toml</p>
+<pre><code class="hljs">[azure]
+accountName = <span class="hljs-string">"default"</span>
+accountKey = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
+containerName <span class="hljs-string">"vuls"</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls report -to-azure-blob</span>
+</code></pre>
 <p>With this sample command, it will ..</p>
+<p>Put scan result(JSON) in Azure Blob Storage.</p>
 <ul>
-<li>Put scan result(JSON) in Azure Blob Storage. The container name is &quot;vuls&quot;, storage account is &quot;test&quot; and accesskey is &quot;access-key-string&quot;</li>
+<li>container name is &quot;vuls&quot;</li>
+<li>storage account is &quot;test&quot;</li>
+<li>accesskey is &quot;access-key-string&quot;</li>
 </ul>
 <p>account and access key can be defined in environment variables.</p>
-<pre><code class="hljs">$ <span class="hljs-builtin-name">export</span> <span class="hljs-attribute">AZURE_STORAGE_ACCOUNT</span>=test
-$ <span class="hljs-builtin-name">export</span> <span class="hljs-attribute">AZURE_STORAGE_ACCESS_KEY</span>=access-key-string
-$ vuls scan \
-      <span class="hljs-attribute">-cvedb-path</span>=<span class="hljs-variable">$PWD</span>/cve.sqlite3 \
-      -report-azure-blob \
-      <span class="hljs-attribute">-azure-container</span>=vuls
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">export</span> AZURE_STORAGE_ACCOUNT=<span class="hljs-built_in">test</span></span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">export</span> AZURE_STORAGE_ACCESS_KEY=access-key-string</span>
+<span class="hljs-meta">$</span><span class="bash"> vuls report -to-azure-blob</span>
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-ignorecves"></a><a href="#example-ignorecves" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-ignorecves"></a><a href="#example-ignorecves" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves</h2>
 <p>Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.</p>
 <ul>
 <li>config.toml</li>
 </ul>
-<pre><code class="hljs css toml"><span class="hljs-section">[default]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[default]</span>
 <span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6313"</span>]
 <span class="hljs-section">
 [servers.bsd]</span>
@@ -371,69 +462,122 @@ $ vuls scan \
 <span class="hljs-attr">user</span>     = <span class="hljs-string">"kanbe"</span>
 <span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6314"</span>]
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-add-optional-key-value-pairs-to-json"></a><a href="#example-add-optional-key-value-pairs-to-json" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Add optional key-value pairs to JSON</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-ignorecves-of-a-contianer"></a><a href="#example-ignorecves-of-a-contianer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves of a contianer</h2>
+<ul>
+<li>config.toml</li>
+</ul>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[default]</span>
+<span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6313"</span>]
+<span class="hljs-section">
+[servers.cent7]</span>
+<span class="hljs-attr">host</span>     = <span class="hljs-string">"192.168.11.11"</span>
+<span class="hljs-attr">user</span>     = <span class="hljs-string">"kanbe"</span>
+<span class="hljs-section">
+[servers.cent7.containers.romantic_goldberg]</span>
+<span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6314"</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-ignorepkgsregexp"></a><a href="#example-ignorepkgsregexp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnorePkgsRegexp</h2>
+<p>Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp <a href="https://github.com/google/re2/wiki/Syntax">google/re2</a>.</p>
+<pre><code class="hljs"><span class="hljs-section">[servers.c74]</span>
+<span class="hljs-attr">host</span>     = <span class="hljs-string">"192.168.11.11"</span>
+<span class="hljs-attr">user</span>     = <span class="hljs-string">"kanbe"</span>
+<span class="hljs-attr">ignorePkgsRegexp</span> = [<span class="hljs-string">"^kernel"</span>, <span class="hljs-string">"^python"</span>]
+<span class="hljs-section">
+[servers.c74.containers.romantic_goldberg]</span>
+<span class="hljs-attr">ignorePkgsRegexp</span> = [<span class="hljs-string">"^vim"</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-add-optional-key-value-pairs-to-json"></a><a href="#example-add-optional-key-value-pairs-to-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Add optional key-value pairs to JSON</h2>
 <p>Optional key-value can be outputted to JSON.<br>
 The key-value in the default section will be overwritten by servers section's key-value.<br>
 For instance, you can use this field for Azure ResourceGroup name, Azure VM Name and so on.</p>
 <ul>
 <li>config.toml</li>
 </ul>
-<pre><code class="hljs css toml">[default]
-optional = [
-    ["key1", "default_value"],
-    ["key3", "val3"],
-]
+<pre><code class="hljs css language-toml">[default]
+[default.optional]
+    key1 = "default_value"
+    key3 = val3
+
 
 [servers.bsd]
 host     = "192.168.11.11"
 user     = "kanbe"
-optional = [
-    ["key1", "val1"],
-    ["key2", "val2"],
-]
+[servers.bsd.optional]
+    key1 = "val1"
+    key2 = "val2"
 </code></pre>
 <ul>
 <li>bsd.json</li>
 </ul>
-<pre><code class="hljs css json">[
+<pre><code class="hljs css language-json">[
   {
     "ServerName": "bsd",
     "Family": "FreeBSD",
     "Release": "10.3-RELEASE",
     .... snip ...
-    "Optional": [
-      [  "key1", "val1" ],
-      [  "key2", "val2" ],
-      [  "key3", "val3" ]
-    ]
+    "Optional": {
+        "key1": "val1" ,
+        "key2": "val2" ,
+        "key3": "val3" 
+    }
   }
 ]
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-use-mysql-as-a-db-storage-back-end"></a><a href="#example-use-mysql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use MySQL as a DB storage back-end</h2>
-<pre><code class="hljs">$ vuls report \
-      -<span class="ruby">cvedb-type=mysql \
-</span>      -<span class="ruby">cvedb-url=<span class="hljs-string">"user:pass@tcp(localhost:3306)/dbname?parseTime=true"</span>
-</span></code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-use-postgresql-as-a-db-storage-back-end"></a><a href="#example-use-postgresql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use PostgreSQL as a DB storage back-end</h2>
-<pre><code class="hljs">$ vuls report \
-      <span class="hljs-attribute">-cvedb-type</span>=postgres \
-      <span class="hljs-attribute">-cvedb-url</span>=<span class="hljs-string">""</span>host=myhost <span class="hljs-attribute">user</span>=user <span class="hljs-attribute">dbname</span>=dbname <span class="hljs-attribute">sslmode</span>=disable <span class="hljs-attribute">password</span>=password""
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" name="example-use-redis-as-a-db-storage-back-end"></a><a href="#example-use-redis-as-a-db-storage-back-end" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use Redis as a DB storage back-end</h2>
-<pre><code class="hljs">$ vuls report \
-  <span class="hljs-attribute">-cvedb-type</span>=redis <span class="hljs-attribute">-cvedb-url</span>=<span class="hljs-string">"redis://localhost/0"</span> 
-  <span class="hljs-attribute">-ovaldb-type</span>=redis  <span class="hljs-attribute">-ovaldb-url</span>=<span class="hljs-string">"redis://localhost/1"</span>
-</code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="usage-scan.html">← Scan</a><a class="docs-next button" href="usage-tui.html">TUI(Terminal Based Viewer) →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<h2><a class="anchor" aria-hidden="true" id="example-use-mysql-as-a-db-storage-back-end"></a><a href="#example-use-mysql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use MySQL as a DB storage back-end</h2>
+<p>config.toml</p>
+<pre><code class="hljs">[cveDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"mysql"</span>
+url = <span class="hljs-string">"user:pass@tcp(localhost:3306)/dbname?parseTime=true"</span>
 
-              ga('create', 'UA-112589928-1', 'auto');
-              ga('send', 'pageview');
-            </script><script>
+[ovalDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"mysql"</span>
+url = <span class="hljs-string">"user:pass@tcp(localhost:3306)/dbname?parseTime=true"</span>
+
+[gost]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"mysql"</span>
+url = <span class="hljs-string">"user:pass@tcp(localhost:3306)/dbname?parseTime=true"</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls report</span>
+</code></pre>
+<p>If you get below error message while fetching, define <code>sql_mode</code>.</p>
+<pre><code class="hljs"><span class="hljs-keyword">Error </span>1292: Incorrect datetime value: '0000<span class="hljs-string">-00</span><span class="hljs-string">-00</span>' for column 'issued' at row 1
+</code></pre>
+<p>For details, see TODO</p>
+<h2><a class="anchor" aria-hidden="true" id="example-use-postgresql-as-a-db-storage-back-end"></a><a href="#example-use-postgresql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use PostgreSQL as a DB storage back-end</h2>
+<p>config.toml</p>
+<pre><code class="hljs">[cveDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"postgres"</span>
+url = <span class="hljs-string">"host=myhost user=user dbname=dbname sslmode=disable password=password"</span>
+
+[ovalDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"postgres"</span>
+url = <span class="hljs-string">"host=myhost user=user dbname=dbname sslmode=disable password=password"</span>
+
+[gost]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"postgres"</span>
+url = <span class="hljs-string">"host=myhost user=user dbname=dbname sslmode=disable password=password"</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls report</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-use-redis-as-a-db-storage-back-end"></a><a href="#example-use-redis-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use Redis as a DB storage back-end</h2>
+<p>config.toml</p>
+<pre><code class="hljs">[cveDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"redis"</span>
+url = <span class="hljs-string">"redis://localhost/1"</span>
+
+[ovalDict]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"redis"</span>
+url = <span class="hljs-string">"redis://localhost/1"</span>
+
+[gost]<span class="hljs-built_in">
+type </span>= <span class="hljs-string">"redis"</span>
+url = <span class="hljs-string">"redis://localhost/1"</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls report</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/usage-scan.html">← Scan</a><a class="docs-next button" href="/docs/en/usage-tui.html">TUI(Terminal Based Viewer) →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
+                
                 apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
                 indexName: 'vulsdoc',
                 inputSelector: '#search_input_react'
