@@ -4,7 +4,7 @@ title: Automatic Discovery
 sidebar_label: Automatic Discovery
 ---
 
-Discovery subcommand discovers active servers specified in CIDR range, then display the template of config file(TOML format) to terminal.  
+Discovery subcommand discovers active servers specified in CIDR range, then display the template of config file (TOML format) to terminal.  
 ```
 $ vuls discover -help
 discover:
