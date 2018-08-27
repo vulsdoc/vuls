@@ -18,7 +18,7 @@ sidebar_label: Main Features
     - [Fast Scan](architecture-fast-scan.md)
         - Scan without root privilege, no dependencies
         - Almost no load on the scan target server
-        - Offline mode scan with no internet access. (RedHat, CentOS, OracleLinux, Ubuntu, Debian)
+        - Offline mode scan with no internet access. (Red Hat, CentOS, OracleLinux, Ubuntu, Debian)
     - [Fast Root Scan](architecture-fast-root-scan.md)
         - Scan with root privilege
         - Almost no load on the scan target server
