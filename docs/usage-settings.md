@@ -4,6 +4,137 @@ title: Settings
 sidebar_label: Settings
 ---
 
+
+Generate a tempalte of cofig.toml
+```
+$ vuls discover 127.0.0.1/32
+```
+
+```
+# Create config.toml using below and then ./vuls -config=/path/to/config.toml
+
+[cveDict]
+type = "sqlite3"
+path = "/path/to/cve.sqlite3"
+#url = ""
+
+[ovalDict]
+type = "sqlite3"
+path = "/path/to/oval.sqlite3"
+#url = ""
+
+[gost]
+type = "sqlite3"
+path = "/path/to/gost.sqlite3"
+#url = ""
+
+# https://vuls.io/docs/en/usage-settings.html#slack-section
+#[slack]
+#hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"
+##legacyToken = "xoxp-11111111111-222222222222-3333333333"
+#channel      = "#channel-name"
+##channel     = "${servername}"
+#iconEmoji    = ":ghost:"
+#authUser     = "username"
+#notifyUsers  = ["@username"]
+
+# https://vuls.io/docs/en/usage-settings.html#email-section
+#[email]
+#smtpAddr      = "smtp.example.com"
+#smtpPort      = "587"
+#user          = "username"
+#password      = "password"
+#from          = "from@example.com"
+#to            = ["to@example.com"]
+#cc            = ["cc@example.com"]
+#subjectPrefix = "[vuls]"
+
+# https://vuls.io/docs/en/usage-settings.html#http-section
+#[http]
+#url = "http://localhost:11234"
+
+# https://vuls.io/docs/en/usage-settings.html#syslog-section
+#[syslog]
+#protocol    = "tcp"
+#host        = "localhost"
+#port        = "514"
+#tag         = "vuls"
+#facility    = "local0"
+#severity    = "alert"
+#verbose     = false
+
+# https://vuls.io/docs/en/usage-report.html#example-put-results-in-s3-bucket
+#[aws]
+#profile                = "default"
+#region                 = "ap-northeast-1"
+#s3Bucket               = "vuls"
+#s3ResultsDir           = "/path/to/result"
+#s3ServerSideEncryption = "AES256"
+
+# https://vuls.io/docs/en/usage-report.html#example-put-results-in-azure-blob-storage<Paste>
+#[azure]
+#accountName   = "default"
+#accountKey    = "xxxxxxxxxxxxxx"
+#containerName = "vuls"
+
+# https://vuls.io/docs/en/usage-settings.html#stride-section
+#[stride]
+#hookURL   = "xxxxxxxxxxxxxxx"
+#authToken = "xxxxxxxxxxxxxx"
+
+# https://vuls.io/docs/en/usage-settings.html#hipchat-section
+#[hipchat]
+#room      = "vuls"
+#authToken = "xxxxxxxxxxxxxx"
+
+# https://vuls.io/docs/en/usage-settings.html#chatwork-section
+#[chatwork]
+#room     = "xxxxxxxxxxx"
+#apiToken = "xxxxxxxxxxxxxxxxxx"
+
+# https://vuls.io/docs/en/usage-settings.html#default-section
+[default]
+#port               = "22"
+#user               = "username"
+#keyPath            = "/home/username/.ssh/id_rsa"
+#scanMode           = ["fast", "fast-root", "deep", "offline"]
+#cpeNames = [
+#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+#]
+#owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
+#ignoreCves         = ["CVE-2014-6271"]
+#containerType      = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#containersExcluded = ["container_name_a"]
+
+# https://vuls.io/docs/en/usage-settings.html#servers-section
+[servers]
+
+[servers.127-0-0-1]
+host                = "127.0.0.1"
+#port               = "22"
+#user               = "root"
+#keyPath            = "/home/username/.ssh/id_rsa"
+#scanMode           = ["fast", "fast-root", "deep", "offline"]
+#type               = "pseudo"
+#memo               = "DB Server"
+#cpeNames            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
+#ignoreCves         = ["CVE-2014-0160"]
+#containerType      = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#containersExcluded = ["container_name_a"]
+
+#[servers.127-0-0-1.containers.container_name_a]
+#cpeNames        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
+#ignoreCves     = ["CVE-2014-0160"]
+
+#[servers.127-0-0-1.optional]
+#key = "value1"
+
+```
+
 ## Slack section
 
 ```
@@ -146,7 +277,7 @@ You can overwrite the default value specified in default section.
 - cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
 - optional: Add additional information to JSON report.
-- containers: see [Example: Scan containers (Docker/LXD)(usage-scan.md#example-scan-containers-docker-lxd-lxc)
+- containers: see [Example: Scan containers (Docker/LXD)](usage-scan.md#example-scan-containers-docker-lxd-lxc)
 
 Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
@@ -161,15 +292,15 @@ Password authentication is not supported.
 ```
 [hipchat]
 room = "vuls"
-authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+authToken = "xxxxxxxxxxxxxx"
 ```
 
 ## Stride section
 
 ```
 [stride]
-hookURL  = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+hookURL  = "xxxxxxxxxxxxxxx"
+authToken = "xxxxxxxxxxxxxx"
 ```
 
 ## ChatWork section
@@ -177,6 +308,6 @@ authToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 [chatwork]
 room = "xxxxxxxxxxx"
-apiToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+apiToken = "xxxxxxxxxxxxxxx"
 ```
 

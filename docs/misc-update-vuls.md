@@ -7,7 +7,10 @@ sidebar_label: Update Vuls to the latest version
 ## Update manually
 
 - Update go-cve-dictionary  
-If the DB schema was changed, please specify new SQLite3, MySQL, PostgreSQL or Redis DB file.
+
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
+
 ```
 $ cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary
 $ git pull
@@ -16,7 +19,10 @@ $ make install
 ```
 
 - Update goval-dictionary  
-If the DB schema was changed, please specify new SQLite3, MySQL, PostgreSQL or Redis DB file.
+
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
+
 ```
 $ cd $GOPATH/src/github.com/kotakanbe/goval-dictionary
 $ git pull
@@ -24,7 +30,20 @@ $ rm -r vendor
 $ make install
 ```
 
+- Update gost
+
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
+
+```
+$ cd $GOPATH/src/github.com/knqyf263/gost
+$ git pull
+$ rm -r vendor
+$ make install
+```
+
 - Update vuls
+
 ```
 $ cd $GOPATH/src/github.com/future-architect/vuls
 $ git pull
@@ -38,7 +57,7 @@ $ make install
 
 ## Update using docker
 
-If you set up on docker, first delete images and then pull images. For details, see [Docker setup](install-with-docker.md)
+If you set up on docker, see [Docker setup](install-with-docker.md)
 
 
 ## Update using package

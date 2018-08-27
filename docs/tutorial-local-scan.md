@@ -4,8 +4,8 @@ title: Tutorial: Local Scan Mode
 sidebar_label: Local Scan Mode
 ---
 
-This tutorial will let you scan the vulnerabilities on the localhost with Vuls.   
-This can be done in the following steps.  
+This tutorial will let you scan the vulnerabilities on the localhost with Vuls.
+This can be done in the following steps.
 
 1. Launch CentOS
 1. Deploy Vuls
@@ -20,17 +20,16 @@ This can be done in the following steps.
 
 - We are using the old AMI for this example
 - Add the following to the cloud-init, to avoid auto-update at the first launch.
+  - [Q: How do I disable the automatic installation of critical and important security updates on initial launch?](https://aws.amazon.com/amazon-linux-ami/faqs/?nc1=h_ls)
 
-    ```
+    ```bash
     #cloud-config
     repo_upgrade: none
     ```
 
-    - [Q: How do I disable the automatic installation of critical and important security updates on initial launch?](https://aws.amazon.com/amazon-linux-ami/faqs/?nc1=h_ls)
-
 ## Step2. Deploy Vuls
 
-Then [Deploy go-cve-dictionary, goval-dictionary and Vuls](install-manually.md).
+Then [Deploy go-cve-dictionary, goval-dictionary, gost and Vuls](install-manually.md).
 If the installation process stops halfway, try increasing the instance type of EC2. An out of memory error may have occurred.
 
 ## Step3. Configuration
@@ -46,10 +45,9 @@ host = "localhost"
 port = "local"
 ```
 
-
 ## Step4. Check config.toml and settings on the server before scanning
 
-```
+```bash
 $ vuls configtest
 ```
 
@@ -57,7 +55,7 @@ see [Usage: configtest](#usage-configtest)
 
 ## Step5. Start Scanning
 
-```
+```bash
 $ vuls scan
 
 ... snip ...
@@ -72,7 +70,7 @@ localhost       centos7.3.1611  31 updatable packages
 
 View one-line summary
 
-```
+```bash
 $ vuls report -format-one-line-text
 
 One Line Summary
@@ -83,7 +81,7 @@ localhost       Total: 109 (High:35 Medium:55 Low:16 ?:3)       31 updatable pac
 
 View short summary
 
-```
+```bash
 $ vuls report -format-short-text
 
 localhost (centos7.3.1611)
@@ -108,7 +106,7 @@ CVE-2015-2806           10.0 HIGH (nvd)
 
 View full report.
 
-```
+```bash
 $ vuls report -format-full-text | less
 localhost (centos7.3.1611)
 ==========================
@@ -135,7 +133,7 @@ Confidence              100 / OvalMatch
 
 View Japanese
 
-```
+```bash
 $ vuls report -format-short-text -lang ja | less
 localhost (centos7.3.1611)
 ==========================
@@ -162,7 +160,7 @@ CVE-2017-12188  7.6 IMPORTANT (redhat)
 
 Vuls has Terminal-Based User Interface to display the scan result.
 
-```
+```bash
 $ vuls tui
 ```
 

@@ -118,26 +118,11 @@ class Index extends React.Component {
                 },
                 {
                   content:
-                    `Vuls uses Multiple vulnerability databases OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog.`,
+                    `Vuls uses multiple vulnerability databases NVD, JVN, OVAL, RHSA/ALAS/ELSA/FreeBSD-SA and Changelog. <b>Vuls v0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors</b>.`,
 		  image: `${siteConfig.baseUrl}img/hq.png`,
                   imageAlign: "top",
                   title: "High Quality Scan"
                 },
-                {
-                  content:
-                    `It is possible to acquire the state of the server executing some commands. Vuls warns when the scan target server was updated the kernel etc. but not restarting it.`,
-		  image: `${siteConfig.baseUrl}img/dynamic.png`,
-                  imageAlign: "top",
-                  title: "Dynamic Analysis"
-                },
-              ]}
-              layout="threeColumn"
-            />
-            <br />
-            <br />
-            <GridBlock
-              align="center"
-              contents={[
                 {
                   content:
                     `Remote scan mode is required to only setup one machine that is connected to other scan target servers via SSH. If you don't want the central Vuls server to connect to each server by SSH, you can use Vuls in the Local Scan mode.`,
@@ -146,6 +131,13 @@ class Index extends React.Component {
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-remote-local.html`,
                   title: "Remote and Local Scan"
                 },
+              ]}
+              layout="threeColumn"
+            />
+            <br />
+            <GridBlock
+              align="center"
+              contents={[
                 {
                   content:
                     `Fast scan mode scans without root privilege, no internet access, almost no load on the scan target server. Deep scan mode scans in more detail.`,
@@ -153,6 +145,13 @@ class Index extends React.Component {
                   imageAlign: "top",
                   imageLink: `${siteConfig.baseUrl}docs/${this.props.language}/architecture-fast-deep.html`,
                   title: "Fast and Deep Scan"
+                },
+                {
+                  content:
+                    `It is possible to acquire the state of the server executing some commands. <b>Vuls v0.5.0 warns not-restarting-processes which updated before but not restarting yet. And detect processes affecting software update in advance</b>.`,
+		  image: `${siteConfig.baseUrl}img/dynamic.png`,
+                  imageAlign: "top",
+                  title: "Dynamic Analysis"
                 },
                 {
                   content:

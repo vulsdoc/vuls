@@ -14,7 +14,7 @@ discover:
 ## Example
 
 ```
-$ vuls discover 172.31.4.0/24
+$ vuls discover 192.168.11.0/24
 # Create config.toml using below and then ./vuls --config=/path/to/config.toml
 
 [slack]
@@ -36,37 +36,70 @@ to            = ["to@address.com"]
 cc            = ["cc@address.com"]
 subjectPrefix = "[vuls]"
 
+[aws]
+profile = "default"
+region = "ap-northeast-1"
+s3Bucket = "vuls"
+s3ResultsDir = "/path/to/result"
+s3ServerSideEncryption = "AES256"
+
+[azure]
+accountName = "default"
+AccountKey = "xxxxxxxxxxxxxx"
+ContainerName = "vuls"
+
+[cveDict]
+type = "sqlite3"
+path = "/path/to/cve.sqlite3"
+# url = ""
+
+[ovalDict]
+type = "sqlite3"
+path = "/path/to/oval.sqlite3"
+# url = ""
+
+[gost]
+type = "sqlite3"
+path = "/path/to/gost.sqlite3"
+# url = ""
+
 [default]
 #port        = "22"
 #user        = "username"
 #keyPath     = "/home/username/.ssh/id_rsa"
+#scanMode        = ["fast", "fast-root", "deep", "offline"]
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
-#ignoreCves = ["CVE-2016-6313"]
-#optional = [
-#    ["key", "value"],
-#]
+#owaspDCXMLPath = "/tmp/dependency-check-report.xml"
+#ignoreCves = ["CVE-2014-6271"]
+#containerType = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#ContainersExcluded= ["container_name_a"]
 
 [servers]
 
-[servers.172-31-4-82]
-host         = "172.31.4.82"
+[servers.192-168-11-6]
+host         = "192.168.11.6"
 #port        = "22"
 #user        = "root"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#type 		 = "pseudo"
-#cpeNames = [
-#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
-#]
-#ignoreCves = ["CVE-2016-6313"]
-#optional = [
-#    ["key", "value"],
-#]
-#[servers.172-31-4-82.containers]
-#type = "lxd" # or "docker" or "lxc"
-#includes = ["${running}"]
-#excludes = ["container_name", "container_id"]
+#scanMode        = ["fast", "fast-root", "deep", "offline"]
+#type            = "pseudo"
+#memo        = "DB Server"
+#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
+#ignoreCves = ["CVE-2014-0160"]
+#containerType = "docker" #or "lxd" or "lxc" default: docker
+#containersIncluded = ["${running}"]
+#ContainersExcluded= ["container_name_a"]
+
+#[servers.192-168-11-6.containers.container_name_a]
+#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
+
+#[servers.192-168-11-6.optional]
+#key = "value1"
 ```
 
 You can customize your configuration using this template.
