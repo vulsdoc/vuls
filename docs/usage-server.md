@@ -89,9 +89,15 @@ Server:
         Write report to localfile
 ```
 
+## Endpoint
+- `/vuls`
+  - For vulnerability detection
+- `/health`
+  - For health check
+
 ## Support Content-Type
-- application/json
-- text/plain.
+- `application/json`
+- `text/plain`
 
 ### text/plain
 
