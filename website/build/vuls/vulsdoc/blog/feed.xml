@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Vuls Blog</title>
+        <link>https://github.com/future-architect/vuls/blog</link>
+        <description>The best place to stay up-to-date with the latest Vuls news and events.</description>
+        <lastBuildDate>Wed, 17 Jan 2018 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Vuls Blog</title>
+            <url>https://github.com/future-architect/vuls/img/docs/vuls_icon.png</url>
+            <link>https://github.com/future-architect/vuls/blog</link>
+        </image>
+        <copyright>Copyright © 2018kotakanbe</copyright>
+        <item>
+            <title><![CDATA[Document Site Mostly Completed]]></title>
+            <link>https://github.com/future-architect/vuls/blog/2018/01/17/vulsdoc.html</link>
+            <guid>https://github.com/future-architect/vuls/blog/2018/01/17/vulsdoc.html</guid>
+            <pubDate>Wed, 17 Jan 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>It was a hard work, but finally this document site was mostly completed. If you have any difficult to understand expressions please send us an edit request.</p> <p>Vulsdoc a translated document into Japnese. <a href="https://crowdin.com/project/vuls/ja">https://crowdin.com/project/vuls/ja</a> These fine pe...</p>]]></description>
+        </item>
+    </channel>
+</rss>
