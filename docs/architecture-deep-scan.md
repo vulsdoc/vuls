@@ -40,6 +40,12 @@ Detect CVE IDs by using package manager.
 
 Same as fast scan mode for now.
 
+## Dependencies and /etc/sudoers
+
+For details, see
+- Dependencies: [usage-configtest](usage-configtest.md#deep-scan-mode)
+- /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
+
 # Runtime Inspection
 
 ## Detect processes affected by next pacakge update

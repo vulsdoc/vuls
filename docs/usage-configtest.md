@@ -72,24 +72,24 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 
 ## fast-root scan mode
 
-The configtest subcommand with --fast-root checks whether the packages are installed on the scan target server and also check /etc/sudoers
+The configtest subcommand with `--fast-root` checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
 | Alpine       |      3.2 and later | - |
-| Ubuntu       |          14, 16, 18| - |
-| Debian       |                8, 9| (reboot-notifier) |
-| CentOS       |                6, 7| - |
-| Amazon       |                All | - |
-| RHEL         |            5, 6, 7 | - |
-| Oracle Linux |            5, 6, 7 | - |
+| Ubuntu       |          14, 16, 18| debian-goodies |
+| Debian       |                8, 9| debian-goodies, reboot-notifier |
+| CentOS       |                6, 7| yum-plugin-ps |
+| Amazon       |                All | yum-plugin-ps |
+| RHEL         |            5, 6, 7 | yum-plugin-ps |
+| Oracle Linux |            5, 6, 7 | yum-plugin-ps |
 | SUSE Enterprise|           11, 12 | - |
 | FreeBSD      |             10, 11 | - |
 | Raspbian     |    Jessie, Stretch | - |
 
 ## deep scan mode
 
-The configtest subcommand with --deep flag checks whether the packages are installed on the scan target server and also check /etc/sudoers
+The configtest subcommand with `--deep` flag checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 In order to scan with deep scan mode, the following dependencies are required, so you need to install them manually or with tools such as Ansible.
 
 | Distribution |            Release | Requirements |
@@ -111,7 +111,7 @@ In order to scan with deep scan mode, the following dependencies are required, s
 
 The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH.
 
-if you run Vuls with -ssh-native-insecure option, requiretty must be defined in /etc/sudoers.
+if you run Vuls with `-ssh-native-insecure` option, requiretty must be defined in /etc/sudoers.
 
 ```bash
 Defaults:vuls !requiretty

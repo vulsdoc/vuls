@@ -35,6 +35,12 @@ Scan with -offline option, vuls scans with no internet access.
 
 Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
 
+## Dependencies and /etc/sudoers
+
+For details, see
+- Dependencies: [usage-configtest](usage-configtest.md#fast-root-scan-mode)
+- /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
+
 ## Runtime Inspection
 
 ### Detect processes affected by next pacakge update

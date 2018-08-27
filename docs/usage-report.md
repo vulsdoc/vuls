@@ -146,6 +146,8 @@ Vuls has three format options.
 
 ### format-list
 
+![report-list](/img/docs/report-format-list.png)
+
 ```
 $ vuls report
 
@@ -177,6 +179,8 @@ deb8    Total: 490 (High:62 Medium:158 Low:22 ?:248)    11/490 Fixed    512 inst
 ```
 
 ### format-full-text
+
+![report-list](/img/docs/report-full-text.png)
 
 ```
 $ vuls report -format-full-text

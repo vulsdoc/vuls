@@ -77,6 +77,8 @@ tui:
 
 ```
 
+![report-list](/img/docs/hello-vuls-tui.png)
+
 Key binding is below.
 
 | key | |
