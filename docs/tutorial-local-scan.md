@@ -1,6 +1,6 @@
 ---
 id: tutorial-local-scan
-title: Tutorial: Local Scan Mode
+title: Tutorial - Local Scan Mode
 sidebar_label: Local Scan Mode
 ---
 

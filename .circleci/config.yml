@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/vuls
     docker:
       # - image: circleci/node:9
-      - image: circleci/node:8.11.1
+      - image: circleci/node:8
     steps:
       - checkout
       - restore_cache:
@@ -32,13 +32,14 @@ jobs:
                   git config --global user.name "kotakanbe"
                   echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
                   # install Docusaurus and generate file of English strings
-                  cd website && npm install && npm run write-translations && cd ..
+                  #cd website && npm install && npm run write-translations && cd ..
+                  yarn && cd website && yarn run write-translations && cd ..
                   sudo apt-get install default-jre
                   wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb
                   sudo dpkg -i crowdin.deb
                   crowdin --config crowdin.yaml upload sources --auto-update -b master
                   crowdin --config crowdin.yaml download -b master
-                  cd website && npm install && GIT_USER=kotakanbe npm run publish-gh-pages
+                  cd website && yarn install && GIT_USER=kotakanbe yarn run publish-gh-pages
 
 workflows:
   version: 2

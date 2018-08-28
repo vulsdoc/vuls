@@ -1,6 +1,6 @@
 ---
 id: tutorial-docker
-title: Tutorial: Scan using Docker
+title: Tutorial - Scan using Docker
 sidebar_label: Scan using Docker
 ---
 

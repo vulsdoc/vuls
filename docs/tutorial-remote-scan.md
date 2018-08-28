@@ -1,6 +1,6 @@
 ---
 id: tutorial-remote-scan
-title: Tutorial: Remote Scan Mode
+title: Tutorial - Remote Scan Mode
 sidebar_label: Remote Scan Mode
 ---
 
