@@ -79,6 +79,12 @@ const users = [
     infoLink: 'https://mazrica.com/',
     pinned: true,
   },
+  {
+    caption: 'livesense',
+    image: '/img/icons/livesense.jpg',
+    infoLink: 'https://en.livesense.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
