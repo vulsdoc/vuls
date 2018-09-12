@@ -113,6 +113,10 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 [gost (go-security-tracker)](https://github.com/knqyf263/gost)
 
 ```bash
+$ sudo mkdir /var/log/gost
+$ sudo chown centos /var/log/gost
+$ sudo chmod 700 /var/log/gost
+$
 $ mkdir -p $GOPATH/src/github.com/knqyf263
 $ cd $GOPATH/src/github.com/knqyf263
 $ git clone https://github.com/knqyf263/gost.git
