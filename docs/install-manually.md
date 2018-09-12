@@ -124,7 +124,7 @@ The binary was built under `$GOPATH/bin`
  Then fetch security tracker for RedHat since the server to be scanned is CentOS. [README](https://github.com/knqyf263/gost#fetch-redhat)
 
 ```bash
-$ gost fetch redhat -after 2016-01-01    
+$ gost fetch redhat --after 2016-01-01    
 ```
 
 To detect old vulnerabilities, change `--after=2016-01-01`.
