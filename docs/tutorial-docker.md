@@ -9,6 +9,7 @@ This tutorial will let you scan the vulnerabilities on the remote host via SSH w
 Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
 
 This can be done in the following steps.  
+
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
 1. fetch gost (vuls/gost)

@@ -25,6 +25,8 @@ goval-dictionary v0.1.xxx xxxx
 
 ## install/update gost
 
+> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named [gost](https://github.com/knqyf263/gost).
+
 ```console
 $ docker pull vuls/gost
 $ docker run  --rm  vuls/gost  -v

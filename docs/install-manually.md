@@ -111,6 +111,8 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 ## Deploy gost
 
 [gost (go-security-tracker)](https://github.com/knqyf263/gost)
+> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named gost.
+
 
 ```bash
 $ sudo mkdir /var/log/gost
