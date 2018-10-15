@@ -85,6 +85,12 @@ const users = [
     infoLink: 'https://en.livesense.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'raksul',
+    image: '/img/icons/raksul.jpg',
+    infoLink: 'https://corp.raksul.com/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
