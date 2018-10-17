@@ -85,6 +85,12 @@ const users = [
     infoLink: 'https://en.livesense.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'recruit-tech',
+    image: '/img/icons/recruit-tech.png',
+    infoLink: 'https://recruit-tech.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
