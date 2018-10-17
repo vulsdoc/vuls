@@ -86,6 +86,12 @@ const users = [
     pinned: true,
   },
   {
+    caption: 'raksul',
+    image: '/img/icons/raksul.jpg',
+    infoLink: 'https://corp.raksul.com/',
+    pinned: true,
+  },
+  {
     caption: 'recruit-tech',
     image: '/img/icons/recruit-tech.png',
     infoLink: 'https://recruit-tech.co.jp/',
