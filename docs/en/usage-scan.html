@@ -230,44 +230,40 @@ For more details, see <a href="architecture-remote-scan.html">Architecture secti
 <p>If you don’t want to use root, create a Unix group called docker and add users to it
 For details, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">docker manual</a></p>
 <h4><a class="anchor" aria-hidden="true" id="to-scan-all-of-running-containers"></a><a href="#to-scan-all-of-running-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan all of running containers</h4>
-<p><code>&quot;${running}&quot;</code> needs to be set in the containers item.
-```bash
-[servers]</p>
-<pre><code class="hljs">[servers.172-31-4-82]
-host         = &quot;172.31.4.82&quot;
-user        = &quot;ec2-user&quot;
-keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
-containerType = &quot;docker&quot;
-containersIncluded = [&quot;${running}&quot;]
-```
+<p><code>&quot;${running}&quot;</code> needs to be set in the containers item.</p>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.172-31-4-82]
+host         = <span class="hljs-string">"172.31.4.82"</span>
+user        = <span class="hljs-string">"ec2-user"</span>
+keyPath     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
+containerType = <span class="hljs-string">"docker"</span>
+containersIncluded = [<span class="hljs-string">"<span class="hljs-variable">${running}</span>"</span>]
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="to-scan-specific-containers"></a><a href="#to-scan-specific-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan specific containers</h4>
 <p>The container ID or container name needs to be set in the containers item.<br>
 In the following example, only <code>container_name_a</code> and <code>4aa37a8b63b9</code> will be scanned.<br>
 Be sure to check these containers are running state before scanning.<br>
-If specified containers are not running, Vuls gives up scanning with printing error message.
-```
-[servers]</p>
-<pre><code class="hljs">[servers.172-31-4-82]
-host         = &quot;172.31.4.82&quot;
-user        = &quot;ec2-user&quot;
-keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
-containerType = &quot;docker&quot;
-containersIncluded = [&quot;container_name_a&quot;, &quot;4aa37a8b63b9&quot;]
-```
+If specified containers are not running, Vuls gives up scanning with printing error message.</p>
+<pre><code class="hljs"><span class="hljs-section">[servers]</span>
+<span class="hljs-section">
+[servers.172-31-4-82]</span>
+<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
+<span class="hljs-attr">user</span>        = <span class="hljs-string">"ec2-user"</span>
+<span class="hljs-attr">keyPath</span>     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
+<span class="hljs-attr">containerType</span> = <span class="hljs-string">"docker"</span>
+<span class="hljs-attr">containersIncluded</span> = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="to-scan-except-specific-containers"></a><a href="#to-scan-except-specific-containers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan except specific containers</h4>
-<pre><code class="hljs">```
-[servers]
-
-[servers.172-31-4-82]
-host         = &quot;172.31.4.82&quot;
-user        = &quot;ec2-user&quot;
-keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
-containerType = &quot;docker&quot;
-containersIncluded = [&quot;${running}&quot;]
-containersExcluded = [&quot;container_name_a&quot;, &quot;4aa37a8b63b9&quot;]
-```
+<pre><code class="hljs"><span class="hljs-section">[servers]</span>
+<span class="hljs-section">
+[servers.172-31-4-82]</span>
+<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
+<span class="hljs-attr">user</span>        = <span class="hljs-string">"ec2-user"</span>
+<span class="hljs-attr">keyPath</span>     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
+<span class="hljs-attr">containerType</span> = <span class="hljs-string">"docker"</span>
+<span class="hljs-attr">containersIncluded</span> = [<span class="hljs-string">"${running}"</span>]
+<span class="hljs-attr">containersExcluded</span> = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="to-scan-containers-only"></a><a href="#to-scan-containers-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To scan containers only</h4>
 <p>--containers-only option is available.</p>

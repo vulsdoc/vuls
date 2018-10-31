@@ -276,12 +276,12 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 +---------------+----------------------------------------------------------------------------------+</p></li>
 </ul>
 <ul>
-<li><p><code>Max</code> Score` means Max CVSS Score.</p></li>
+<li><p><code>Max Score</code> means Max CVSS Score.</p></li>
 <li><p><code>nvd</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of NVD</p></li>
 <li><p><code>redhat</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of Red Hat OVAL</p></li>
 <li><p><code>jvn</code> shows <a href="https://nvd.nist.gov/CVSS/Vector-v2.aspx">CVSS Vector</a> of JVN</p></li>
 <li><p><code>CWE</code> means <a href="https://nvd.nist.gov/cwe.cfm">CWE - Common Weakness Enumeration</a> of the CVE.</p></li>
-<li><p><code>[OWASP Top4]</code> means the CWE is included in <a href="https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md">OWASP TOP 10</a></p></li>
+<li><p><code>[OWASP Top10]</code> means the CWE is included in <a href="https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md">OWASP TOP 10</a></p></li>
 <li><p><code>Affected PKG</code> shows the package version information including this vulnerability.</p></li>
 <li><p><code>Confidence</code> means the reliability of detection.</p>
 <ul>
@@ -471,18 +471,18 @@ For instance, you can use this field for Azure ResourceGroup name, Azure VM Name
 <ul>
 <li>config.toml</li>
 </ul>
-<pre><code class="hljs css language-toml">[default]
-[default.optional]
-  key1 = "default_value"
-  key3 = val3
+<pre><code class="hljs css language-toml"><span class="hljs-section">[default]</span>
+<span class="hljs-section">[default.optional]</span>
+<span class="hljs-attr">key1</span> = <span class="hljs-string">"default_value"</span>
+<span class="hljs-attr">key3</span> = val3
+<span class="hljs-section">
 
-
-[servers.bsd]
-host     = "192.168.11.11"
-user     = "kanbe"
-[servers.bsd.optional]
-  key1 = "val1"
-  key2 = "val2"
+[servers.bsd]</span>
+<span class="hljs-attr">host</span>     = <span class="hljs-string">"192.168.11.11"</span>
+<span class="hljs-attr">user</span>     = <span class="hljs-string">"kanbe"</span>
+<span class="hljs-section">[servers.bsd.optional]</span>
+<span class="hljs-attr">key1</span> = <span class="hljs-string">"val1"</span>
+<span class="hljs-attr">key2</span> = <span class="hljs-string">"val2"</span>
 </code></pre>
 <ul>
 <li>bsd.json</li>
