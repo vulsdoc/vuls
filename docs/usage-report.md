@@ -258,12 +258,12 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 +---------------+----------------------------------------------------------------------------------+
 ```
 
-- `Max` Score` means Max CVSS Score.
+- `Max Score` means Max CVSS Score.
 - `nvd` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of  NVD
 - `redhat` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of Red Hat OVAL
 - `jvn` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of JVN 
 - `CWE` means [CWE - Common Weakness Enumeration](https://nvd.nist.gov/cwe.cfm) of the CVE.
-- `[OWASP Top4]` means the CWE is included in [OWASP TOP 10]( https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md)
+- `[OWASP Top10]` means the CWE is included in [OWASP TOP 10]( https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md)
 - `Affected PKG` shows the package version information including this vulnerability.
 - `Confidence` means the reliability of detection.
   - `100` is highly reliable
@@ -510,16 +510,16 @@ For instance, you can use this field for Azure ResourceGroup name, Azure VM Name
 ```toml
 [default]
 [default.optional]
-	key1 = "default_value"
-	key3 = val3
+key1 = "default_value"
+key3 = val3
 
 
 [servers.bsd]
 host     = "192.168.11.11"
 user     = "kanbe"
 [servers.bsd.optional]
-	key1 = "val1"
-	key2 = "val2"
+key1 = "val1"
+key2 = "val2"
 ```
 
 - bsd.json

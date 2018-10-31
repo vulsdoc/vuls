@@ -224,16 +224,17 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
 #### To scan all of running containers
 
   `"${running}"` needs to be set in the containers item.
-    ```bash
-    [servers]
+    
+  ```bash
+  [servers]
 
-    [servers.172-31-4-82]
-    host         = "172.31.4.82"
-    user        = "ec2-user"
-    keyPath     = "/home/username/.ssh/id_rsa"
-    containerType = "docker"
-    containersIncluded = ["${running}"]
-    ```
+  [servers.172-31-4-82]
+  host         = "172.31.4.82"
+  user        = "ec2-user"
+  keyPath     = "/home/username/.ssh/id_rsa"
+  containerType = "docker"
+  containersIncluded = ["${running}"]
+  ```
 
 #### To scan specific containers
 
@@ -241,30 +242,31 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
   In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
   Be sure to check these containers are running state before scanning.  
   If specified containers are not running, Vuls gives up scanning with printing error message.
-    ```
-    [servers]
+    
+  ```
+  [servers]
 
-    [servers.172-31-4-82]
-    host         = "172.31.4.82"
-    user        = "ec2-user"
-    keyPath     = "/home/username/.ssh/id_rsa"
-    containerType = "docker"
-    containersIncluded = ["container_name_a", "4aa37a8b63b9"]
-    ```
+  [servers.172-31-4-82]
+  host         = "172.31.4.82"
+  user        = "ec2-user"
+  keyPath     = "/home/username/.ssh/id_rsa"
+  containerType = "docker"
+  containersIncluded = ["container_name_a", "4aa37a8b63b9"]
+  ```
 
 #### To scan except specific containers
 
-    ```
-    [servers]
+```
+[servers]
 
-    [servers.172-31-4-82]
-    host         = "172.31.4.82"
-    user        = "ec2-user"
-    keyPath     = "/home/username/.ssh/id_rsa"
-    containerType = "docker"
-    containersIncluded = ["${running}"]
-    containersExcluded = ["container_name_a", "4aa37a8b63b9"]
-    ```
+[servers.172-31-4-82]
+host         = "172.31.4.82"
+user        = "ec2-user"
+keyPath     = "/home/username/.ssh/id_rsa"
+containerType = "docker"
+containersIncluded = ["${running}"]
+containersExcluded = ["container_name_a", "4aa37a8b63b9"]
+```
 
 #### To scan containers only
 

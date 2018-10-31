@@ -42,7 +42,6 @@ $ source /etc/profile.d/goenv.sh
 $ sudo mkdir /var/log/vuls
 $ sudo chown centos /var/log/vuls
 $ sudo chmod 700 /var/log/vuls
-$
 $ mkdir -p $GOPATH/src/github.com/kotakanbe
 $ cd $GOPATH/src/github.com/kotakanbe
 $ git clone https://github.com/kotakanbe/go-cve-dictionary.git
