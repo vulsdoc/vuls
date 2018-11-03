@@ -97,6 +97,12 @@ const users = [
     infoLink: 'https://recruit-tech.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'ierae security',
+    image: '/img/icons/ierae.png',
+    infoLink: 'https://ierae.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
