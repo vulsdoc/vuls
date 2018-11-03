@@ -30,6 +30,9 @@ tui:
                 [-gostdb-type=sqlite3|mysql|redis]
                 [-gostdb-path=/path/to/gost.sqlite3]
                 [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
+                [-exploitdb-type=sqlite3|mysql|redis]
+                [-exploitdb-path=/path/to/exploitdb.sqlite3]
+                [-exploitdb-url=http://127.0.0.1:1325 or DB connection string]
                 [-http="http://vuls-report-server"]
 
   -config string
@@ -72,6 +75,12 @@ tui:
         DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
   -ovaldb-url string
         http://goval-dictionary.com:1324 or DB connection string
+  -exploitdb-sqlite3-path string
+        /path/to/sqlite3
+  -exploitdb-type string
+        DB type of go-exploitdb (sqlite3, mysql, postgres or redis)
+  -exploitdb-url string
+        http://go-exploitdb.com:1326 or DB connection string
   -http string
         -to-http http://vuls-report
 

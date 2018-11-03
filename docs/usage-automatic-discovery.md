@@ -63,6 +63,11 @@ type = "sqlite3"
 path = "/path/to/gost.sqlite3"
 # url = ""
 
+[exploit]
+type = "sqlite3"
+path = "/path/to/go-exploitdb.sqlite3"
+# url = ""
+
 [default]
 #port        = "22"
 #user        = "username"

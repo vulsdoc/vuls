@@ -34,6 +34,13 @@ $ docker run  --rm  vuls/gost  -v
 gost  v0.1.xxx xxxx
 ```
 
+## install/update go-exploitdb
+
+[go-exploitdb](https://github.com/mozqnet/go-exploitdb)
+> New version Vuls 0.6.0 now possible to display exploit codes have been published at [Exploit DB.com](https://www.exploit-db.com/). If you don't need to know about exploit code for detected CVEs, skip this section.
+
+go-exploitdb has no Dockerfile TODO.
+
 ## install/update Vuls
 
 ```console

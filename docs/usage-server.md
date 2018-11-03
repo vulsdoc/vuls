@@ -83,6 +83,12 @@ Server:
         DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
   -ovaldb-url string
         http://goval-dictionary.com:1324 or DB connection string
+  -exploitdb-sqlite3-path string
+        /path/to/sqlite3
+  -exploitdb-type string
+        DB type of go-exploitdb (sqlite3, mysql, postgres or redis)
+  -exploitdb-url string
+        http://go-exploitdb.com:1324 or DB connection string
   -results-dir string
         /path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-localfile
