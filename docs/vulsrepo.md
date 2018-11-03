@@ -36,7 +36,7 @@ Output to a JSON files (/opt/vuls/results/)
 
 ### Step2. Installation
 
-From now on , executed by a user running the vuls scan.
+From now on, executed by a user running the vuls scan.
 
 - Git clone
 
@@ -54,9 +54,7 @@ Set Path according to your own environment.
 ```
 
 $ cd $HOME/vulsrepo/server
-
 $ cp vulsrepo-config.toml.sample vulsrepo-config.toml
-
 $ vi vulsrepo-config.toml
 [Server]
 rootPath = "/home/vuls-user/vulsrepo"
