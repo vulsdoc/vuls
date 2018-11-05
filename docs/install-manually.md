@@ -110,7 +110,7 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 ## Deploy gost
 
 [gost (go-security-tracker)](https://github.com/knqyf263/gost)
-> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named gost.
+> version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named gost.
 
 
 ```bash
@@ -135,6 +135,32 @@ $ gost fetch redhat --after 2016-01-01
 To detect old vulnerabilities, change `--after=2016-01-01`.
 
 To fetch Debian security tracker, See [gost README](https://github.com/knqyf263/gost#fetch-debian)
+
+## Deploy go-exploitdb
+
+[go-exploitdb](https://github.com/mozqnet/go-exploitdb)
+> New version Vuls 0.6.0 now possible to display exploit codes have been published at [Exploit DB.com](https://www.exploit-db.com/). If you don't need to know about exploit code for detected CVEs, skip this section.
+
+```bash
+$ sudo mkdir /var/log/go-exploitdb
+$ sudo chown centos /var/log/go-exploitdb
+$ sudo chmod 700 /var/log/go-exploitdb
+$
+$ mkdir -p $GOPATH/src/github.com/mozqnet
+$ cd $GOPATH/src/github.com/mozqnet
+$ git clone https://github.com/mozqnet/go-exploitdb.git
+$ cd go-exploitdb
+$ make install
+```
+The binary was built under `$GOPATH/bin`
+
+Then fetch exploit-db information. [README](https://github.com/mozqnet/go-exploitdb#usage-fetch-and-insert-exploit)
+
+```bash
+$ go-exploitdb fetch
+```
+
+Fetch with --deep option, Many exploits information will be obtained. But fetch time is too long...
 
 ## Deploy Vuls
 

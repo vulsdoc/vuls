@@ -46,6 +46,9 @@ report:
                 [-gostdb-type=sqlite3|mysql|redis]
                 [-gostdb-path=/path/to/gost.sqlite3]
                 [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
+                [-exploitdb-type=sqlite3|mysql|redis]
+                [-exploitdb-path=/path/to/go-exploitdb.sqlite3]
+                [-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
                 [-http="http://vuls-report-server"]
 
 
@@ -130,6 +133,12 @@ report:
         DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
   -ovaldb-url string
         http://goval-dictionary.com:1324 or DB connection string
+  -exploitdb-sqlite3-path string
+        /path/to/sqlite3
+  -exploitdb-type string
+        DB type of go-exploitdb (sqlite3, mysql, postgres or redis)
+  -exploitdb-url string
+        http://go-exploitdb.com:1324 or DB connection string
   -http string
         -to-http http://vuls-report
 
@@ -295,6 +304,10 @@ path = "/path/to/oval.sqlite3"
 [gost]
 type = "sqlite3"
 path = "/path/to/gost.sqlite3"
+
+[exploit]
+type = "sqlite3"
+path = "/path/to/go-exploitdb.sqlite3"
 ```
 
 ## Example: Send scan results to HipChat
@@ -554,6 +567,10 @@ url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 [gost]
 type = "mysql"
 url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+
+[exploit]
+type = "mysql"
+url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 ```
 
 ```
@@ -584,6 +601,10 @@ url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 [gost]
 type = "postgres"
 url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
+
+[exploit]
+type = "postgres"
+url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 ```
 
 ```
@@ -603,6 +624,10 @@ type = "redis"
 url = "redis://localhost/1"
 
 [gost]
+type = "redis"
+url = "redis://localhost/1"
+
+[exploit]
 type = "redis"
 url = "redis://localhost/1"
 ```

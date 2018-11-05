@@ -42,6 +42,18 @@ $ rm -r vendor
 $ make install
 ```
 
+- Update go-exploitdb
+
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
+
+```
+$ cd $GOPATH/src/github.com/mozqnet/go-exploitdb
+$ git pull
+$ rm -r vendor
+$ make install
+```
+
 - Update vuls
 
 ```

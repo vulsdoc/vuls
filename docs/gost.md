@@ -9,7 +9,7 @@ For detail of gost, see [knqyf263/gost](https://github.com/knqyf263/gost)
 ## Usage: gost  on different server
 
 ```
-$ gost server -bind=192.168.10.1 -port=1324
+$ gost server -bind=192.168.10.1 -port=1325
 ```
 
 Sepcify URL of the gost in config.toml

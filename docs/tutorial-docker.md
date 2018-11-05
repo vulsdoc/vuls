@@ -13,6 +13,7 @@ This can be done in the following steps.
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
 1. fetch gost (vuls/gost)
+1. fetch go-exploitdb(vuls/exploitdb)
 1. configuration (vuls/vuls)
 1. configtest (vuls/vuls)
 1. scan (vuls/vuls)
@@ -68,6 +69,10 @@ $ docker run --rm -i \
 To detect old vulnerabilities, change `--after=2016-01-01`.
 
 To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/gost#fetch-debian)
+
+## Step3.5. Fetch go-exploitdb
+
+TODO
 
 ## Step4. Configuration
 
