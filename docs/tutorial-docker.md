@@ -136,15 +136,19 @@ config.toml
 ```
 [cveDict]
 type = "sqlite3"
-path = "/path/to/cve.sqlite3"
+SQLite3Path = "/path/to/cve.sqlite3"
 
 [ovalDict]
 type = "sqlite3"
-path = "/path/to/oval.sqlite3"
+SQLite3Path = "/path/to/oval.sqlite3"
 
 [gost]
 type = "sqlite3"
-path = "/path/to/gost.sqlite3"
+SQLite3Path = "/path/to/gost.sqlite3"
+
+[exploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 ```
 
 ```console
@@ -215,13 +219,20 @@ $ docker run -dt \
 
 ```
 [cveDict]
+type = "http"
 url = "http://hostname:1323"
 
 [ovalDict]
+type = "http"
 url = "http://hostname:1324"
 
 [gost]
+type = "http"
 url = "http://hostname:1325"
+
+[exploit]
+type = "http"
+url = "http://hostname:1326"
 ```
 
 ```console

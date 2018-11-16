@@ -50,22 +50,22 @@ ContainerName = "vuls"
 
 [cveDict]
 type = "sqlite3"
-path = "/path/to/cve.sqlite3"
+SQLite3Path = "/path/to/cve.sqlite3"
 # url = ""
 
 [ovalDict]
 type = "sqlite3"
-path = "/path/to/oval.sqlite3"
+SQLite3Path = "/path/to/oval.sqlite3"
 # url = ""
 
 [gost]
 type = "sqlite3"
-path = "/path/to/gost.sqlite3"
+SQLite3Path = "/path/to/gost.sqlite3"
 # url = ""
 
 [exploit]
 type = "sqlite3"
-path = "/path/to/go-exploitdb.sqlite3"
+SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 # url = ""
 
 [default]

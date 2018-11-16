@@ -37,17 +37,17 @@ report:
                 [-debug]
                 [-debug-sql]
                 [-pipe]
-                [-cvedb-type=sqlite3|mysql|postgres|redis]
-                [-cvedb-path=/path/to/cve.sqlite3]
+                [-cvedb-type=sqlite3|mysql|postgres|redis|http]
+                [-cvedb-sqlite3-path=/path/to/cve.sqlite3]
                 [-cvedb-url=http://127.0.0.1:1323 or DB connection string]
-                [-ovaldb-type=sqlite3|mysql|redis]
-                [-ovaldb-path=/path/to/oval.sqlite3]
+                [-ovaldb-type=sqlite3|mysql|postgres|redis|http]
+                [-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
                 [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-                [-gostdb-type=sqlite3|mysql|redis]
-                [-gostdb-path=/path/to/gost.sqlite3]
+                [-gostdb-type=sqlite3|mysql|postgres|redis|http]
+                [-gostdb-sqlite3-path=/path/to/gost.sqlite3]
                 [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
-                [-exploitdb-type=sqlite3|mysql|redis]
-                [-exploitdb-path=/path/to/go-exploitdb.sqlite3]
+                [-exploitdb-type=sqlite3|mysql|postgres|redis|http]
+                [-exploitdb-sqlite3-path=/path/to/go-exploitdb.sqlite3]
                 [-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
                 [-http="http://vuls-report-server"]
 
@@ -55,6 +55,12 @@ report:
                 [RFC3339 datetime format under results dir]
   -config string
         /path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+  -cvedb-sqlite3-path string
+        /path/to/sqlite3
+  -cvedb-type string
+        DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
+  -cvedb-url string
+        http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -63,6 +69,12 @@ report:
         SQL debug mode
   -diff
         Difference between previous result and current result
+  -exploitdb-sqlite3-path string
+        /path/to/sqlite3
+  -exploitdb-type string
+        DB type of exploit (sqlite3, mysql, postgres, redis or http)
+  -exploitdb-url string
+        http://exploit.com:1326 or DB connection string
   -format-full-text
         Detail report in plain text
   -format-json
@@ -75,8 +87,16 @@ report:
         One line summary in plain text
   -format-xml
         XML format
+  -gostdb-sqlite3-path string
+        /path/to/sqlite3
+  -gostdb-type string
+        DB type of gost (sqlite3, mysql, postgres, redis or http)
+  -gostdb-url string
+        http://gost.com:1325 or DB connection string
   -gzip
         gzip compression
+  -http string
+        -to-http http://vuls-report
   -http-proxy string
         http://proxy-url:port (default: empty)
   -ignore-unfixed
@@ -87,6 +107,12 @@ report:
         [en|ja] (default "en")
   -log-dir string
         /path/to/log (default "/var/log/vuls")
+  -ovaldb-sqlite3-path string
+        /path/to/sqlite3
+  -ovaldb-type string
+        DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
+  -ovaldb-url string
+        http://goval-dictionary.com:1324 or DB connection string
   -pipe
         Use args passed via PIPE
   -refresh-cve
@@ -107,6 +133,8 @@ report:
         Write report to localfile
   -to-s3
         Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
+  -to-saas
+        Upload report to Future Vuls(https://vuls.biz/) before report
   -to-slack
         Send report via Slack
   -to-stride
@@ -115,34 +143,6 @@ report:
         Send report via Syslog
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
-  -cvedb-sqlite3-path string
-        /path/to/sqlite3
-  -cvedb-type string
-        DB type of go-cve-dictionary (sqlite3, mysql, postgres or redis) (default "sqlite3")
-  -cvedb-url string
-        http://go-cve-dictionary.com:1323 or DB connection string
-  -gostdb-sqlite3-path string
-        /path/to/sqlite3
-  -gostdb-type string
-        DB type of gost (sqlite3, mysql, postgres or redis)
-  -gostdb-url string
-        http://gost.com:1325 or DB connection string
-  -ovaldb-sqlite3-path string
-        /path/to/sqlite3
-  -ovaldb-type string
-        DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
-  -ovaldb-url string
-        http://goval-dictionary.com:1324 or DB connection string
-  -exploitdb-sqlite3-path string
-        /path/to/sqlite3
-  -exploitdb-type string
-        DB type of go-exploitdb (sqlite3, mysql, postgres or redis)
-  -exploitdb-url string
-        http://go-exploitdb.com:1324 or DB connection string
-  -http string
-        -to-http http://vuls-report
-
-
 
 ```
 
@@ -295,19 +295,19 @@ config.toml
 ```
 [cveDict]
 type = "sqlite3"
-path = "/path/to/cve.sqlite3"
+SQLite3Path = "/path/to/cve.sqlite3"
 
 [ovalDict]
 type = "sqlite3"
-path = "/path/to/oval.sqlite3"
+SQLite3Path = "/path/to/oval.sqlite3"
 
 [gost]
 type = "sqlite3"
-path = "/path/to/gost.sqlite3"
+SQLite3Path = "/path/to/gost.sqlite3"
 
 [exploit]
 type = "sqlite3"
-path = "/path/to/go-exploitdb.sqlite3"
+SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 ```
 
 ## Example: Send scan results to HipChat
@@ -636,3 +636,27 @@ url = "redis://localhost/1"
 $ vuls report
 ```
 
+## Example: Use HTTP to access to vulnerability dictionarys
+
+config.toml
+```
+[cveDict]
+type = "http"
+url = "http://localhost:1323"
+
+[ovalDict]
+type = "http"
+url = "http://localhost:1324"
+
+[gost]
+type = "http"
+url = "http://localhost:1325"
+
+[exploit]
+type = "http"
+url = "http://localhost:1326"
+```
+
+```
+$ vuls report
+```
