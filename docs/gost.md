@@ -16,6 +16,7 @@ Sepcify URL of the gost in config.toml
 
 ```
 [gost]
+type = "http"
 url = "http://192.168.0.1:1325"
 ```
 

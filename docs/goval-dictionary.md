@@ -16,6 +16,7 @@ Sepcify URL of the goval-dict in config.toml
 
 ```
 [ovalDict]
+type = "http"
 url = "http://192.168.0.1:1324"
 ```
 
