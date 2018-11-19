@@ -4,8 +4,7 @@ title: Settings
 sidebar_label: Settings
 ---
 
-
-Generate a tempalte of cofig.toml
+Generate a tempalte of the `config.toml` settings file
 ```
 $ vuls discover 127.0.0.1/32
 ```
@@ -13,24 +12,29 @@ $ vuls discover 127.0.0.1/32
 ```
 # Create config.toml using below and then ./vuls -config=/path/to/config.toml
 
+# https://vuls.io/docs/en/usage-settings.html#database-section
 [cveDict]
 type = "sqlite3"
 SQLite3Path = "/path/to/cve.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
 #url = ""
 
 [ovalDict]
 type = "sqlite3"
 SQLite3Path = "/path/to/oval.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
 #url = ""
 
 [gost]
 type = "sqlite3"
 SQLite3Path = "/path/to/gost.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
 #url = ""
 
 [exploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
 #url = ""
 
 # https://vuls.io/docs/en/usage-settings.html#slack-section
@@ -139,6 +143,39 @@ host                = "127.0.0.1"
 #key = "value1"
 
 ```
+
+## Database Section
+```
+[cveDict]
+type = "sqlite3"
+SQLite3Path = "/path/to/cve.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
+#url = ""
+
+[ovalDict]
+type = "sqlite3"
+SQLite3Path = "/path/to/oval.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
+#url = ""
+
+[gost]
+type = "sqlite3"
+SQLite3Path = "/path/to/gost.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
+#url = ""
+
+[exploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-exploitdb.sqlite3"
+#type = ["mysql", "postgres", "redis", "http" ]
+#url = ""
+```
+
+- type : the method of access for the database
+
+- SQLite3Path : Should only be set when using "sqlite" otherwise unused.
+
+- url : specifies the url to access the database.
 
 ## Slack section
 
