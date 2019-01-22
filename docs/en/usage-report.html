@@ -62,6 +62,7 @@
                 [-<span class="hljs-keyword">to</span>-stride]
                 [-<span class="hljs-keyword">to</span>-hipchat]
                 [-<span class="hljs-keyword">to</span>-chatwork]
+                [-<span class="hljs-keyword">to</span>-telegram]
                 [-<span class="hljs-keyword">to</span>-localfile]
                 [-<span class="hljs-keyword">to</span>-s3]
                 [-<span class="hljs-keyword">to</span>-azure-blob]
@@ -181,6 +182,8 @@
         Send <span class="hljs-keyword">report</span> via Stride
   -<span class="hljs-keyword">to</span>-syslog
         Send <span class="hljs-keyword">report</span> via Syslog
+  -<span class="hljs-keyword">to</span>-telegram
+        Send <span class="hljs-keyword">report</span> via Telegram
   -uuid
         Auto <span class="hljs-keyword">generate</span> <span class="hljs-keyword">of</span> scan target servers <span class="hljs-keyword">and</span> <span class="hljs-keyword">then</span> write <span class="hljs-keyword">to</span> config.toml <span class="hljs-keyword">and</span> scan result
 
@@ -381,6 +384,17 @@ SQLite3Path = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
 <p>With this sample command, it will ..</p>
 <ul>
 <li>Send scan results to slack</li>
+<li>Only Report CVEs that CVSS score is over 7</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-telegram"></a><a href="#example-send-scan-results-to-telegram" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Telegram</h2>
+<p>Define Telegram section in <a href="https://vuls.io/docs/en/usage-settings.html#telegram-section">config.toml</a></p>
+<pre><code class="hljs">$ vuls report \
+      -<span class="ruby">to-telegram \
+</span>      -<span class="ruby">cvss-over=<span class="hljs-number">7</span>
+</span></code></pre>
+<p>With this sample command, it will ..</p>
+<ul>
+<li>Send scan results to Telegram</li>
 <li>Only Report CVEs that CVSS score is over 7</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
@@ -620,7 +634,7 @@ url = <span class="hljs-string">"http://localhost:1326"</span>
 </code></pre>
 <pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> vuls report</span>
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/usage-scan.html">← Scan</a><a class="docs-next button" href="/docs/en/usage-tui.html">TUI(Terminal Based Viewer) →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2018 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/usage-scan.html">← Scan</a><a class="docs-next button" href="/docs/en/usage-tui.html">TUI(Terminal Based Viewer) →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/abstract.html">Introduction</a><a href="/docs/en/architecture-remote-local.html">Architecture</a><a href="/docs/en/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2019 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
                 
                 apiKey: '2a8985a4307332f9c90d32a8f7c278a2',
