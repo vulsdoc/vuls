@@ -103,7 +103,7 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 
 # https://vuls.io/docs/en/usage-settings.html#telegram-section
 #[telegram]
-#channel = "xxxxxxxxxxx"
+#chatID = "xxxxxxxxxxx"
 #token   = "xxxxxxxxxxxxxxxxxx"
 
 # https://vuls.io/docs/en/usage-settings.html#default-section
@@ -360,9 +360,19 @@ apiToken = "xxxxxxxxxxxxxxx"
 
 ## Telegram section
 
+Posting to a user: [here is how to find user's chatID](https://stackoverflow.com/questions/31078710/how-to-obtain-telegram-chat-id-for-a-specific-user)
+
 ```
 [telegram]
-channel = "xxxxxxxxxxx"
+chatID = "xxxxxxxxxxx"
+token = "xxxxxxxxxxxxxxx"
+```
+
+Posting to a channel:
+
+```
+[telegram]
+chatID = "@xxxxxxxxxx"
 token = "xxxxxxxxxxxxxxx"
 ```
 
