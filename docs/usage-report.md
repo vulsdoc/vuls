@@ -22,6 +22,7 @@ report:
                 [-to-stride]
                 [-to-hipchat]
                 [-to-chatwork]
+                [-to-telegram]
                 [-to-localfile]
                 [-to-s3]
                 [-to-azure-blob]
@@ -141,6 +142,8 @@ report:
         Send report via Stride
   -to-syslog
         Send report via Syslog
+  -to-telegram
+        Send report via Telegram
   -uuid
         Auto generate of scan target servers and then write to config.toml and scan result
 
@@ -368,6 +371,21 @@ $ vuls report \
 With this sample command, it will ..
 
 - Send scan results to slack
+- Only Report CVEs that CVSS score is over 7
+
+## Example: Send scan results to Telegram
+
+Define Telegram section in [config.toml](https://vuls.io/docs/en/usage-settings.html#telegram-section)
+
+```
+$ vuls report \
+      -to-telegram \
+      -cvss-over=7
+```
+
+With this sample command, it will ..
+
+- Send scan results to Telegram
 - Only Report CVEs that CVSS score is over 7
 
 
