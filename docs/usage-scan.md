@@ -312,3 +312,22 @@ Example of /etc/sudoers on target servers
 
 ```bash
 vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
+```
+
+## Example: scan wordpress (core, plugin, theme)
+
+You can scan wordpress by setting wpPath and wpToken.
+To set wpToken you need to register a user and get the API token from your profile page On this [website](https://wpvulndb.com/).
+
+* config.toml
+
+```bash
+[servers]
+
+[servers.localhost]
+host         = "192.168.100.111" # or "127.0.0.1"
+port         = "22"
+scanMode     = ["deep"]
+wpPath = "/var/www/html/wordpress"
+wpToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
