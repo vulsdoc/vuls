@@ -317,7 +317,7 @@ vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 ## Example: scan wordpress (core, plugin, theme)
 
 You can scan wordpress by setting wpPath and wpToken.Please set the path of wordpress root directory in wpPath.
-To set wpToken you need to register a user and get the API token from your profile page On this [website](https://wpvulndb.com/).Please install [wp command](https://wp-cli.org/) in the server you want to scan
+To set wpToken you need to register a user and get the API token from your profile page On this [website](https://wpvulndb.com/).Please install [wp command](https://wp-cli.org/) and curl command in the server you want to scan
 
 * config.toml
 
