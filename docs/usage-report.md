@@ -4,7 +4,7 @@ title: Report
 sidebar_label: Report
 ---
 
-```
+```bash
 report:
         report
                 [-lang=en|ja]
@@ -16,6 +16,7 @@ report:
                 [-diff]
                 [-ignore-unscored-cves]
                 [-ignore-unfixed]
+                [-ignore-github-dismissed]
                 [-to-email]
                 [-to-http]
                 [-to-slack]
@@ -100,6 +101,8 @@ report:
         -to-http http://vuls-report
   -http-proxy string
         http://proxy-url:port (default: empty)
+  -ignore-github-dismissed
+        Don't report the dismissed CVEs on GitHub Security Alerts
   -ignore-unfixed
         Don't report the unfixed CVEs
   -ignore-unscored-cves
@@ -149,9 +152,10 @@ report:
 
 ```
 
-## Example of three format options 
+## Example of three format options
 
 Vuls has three format options.
+
 - format-list(default)
 - format-one-line-text
 - format-full-text
@@ -160,7 +164,7 @@ Vuls has three format options.
 
 ![report-list](/img/docs/report-format-list.png)
 
-```
+```bash
 $ vuls report
 
 c74 (centos7.4.1708)
@@ -181,7 +185,7 @@ Total: 294 (High:65 Medium:198 Low:24 ?:7), 93/294 Fixed, 708 installed, 285 upd
 
 ### format-one-line-text
 
-```
+```bash
 $ vuls report -format-one-line-text
 
 One Line Summary
@@ -194,7 +198,7 @@ deb8    Total: 490 (High:62 Medium:158 Low:22 ?:248)    11/490 Fixed    512 inst
 
 ![report-list](/img/docs/report-full-text.png)
 
-```
+```bash
 $ vuls report -format-full-text
 
 c74 (centos7.4.1708)
@@ -230,7 +234,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 ... snip ...
 ```
 
-```
+```bash
 c74 (centos7.4.1708)
 ====================
 Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
@@ -242,7 +246,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 - `9/23 Fixed`means` that a total of 23 vulnerabilities exist, and 9 is fixed, 14 is not fixed yet.
 - `285 updatable packages` means that there are 285 updateable packages on the target server.
 
-```
+```bash
 +---------------+----------------------------------------------------------------------------------+
 | CVE-2017-9233 |                                                                                  |
 +---------------+----------------------------------------------------------------------------------+
@@ -273,7 +277,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 - `Max Score` means Max CVSS Score.
 - `nvd` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of  NVD
 - `redhat` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of Red Hat OVAL
-- `jvn` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of JVN 
+- `jvn` shows [CVSS Vector](https://nvd.nist.gov/CVSS/Vector-v2.aspx) of JVN
 - `CWE` means [CWE - Common Weakness Enumeration](https://nvd.nist.gov/cwe.cfm) of the CVE.
 - `[OWASP Top10]` means the CWE is included in [OWASP TOP 10]( https://github.com/OWASP/Top10/blob/master/2017/en/0x05-introduction.md)
 - `Affected PKG` shows the package version information including this vulnerability.
@@ -287,7 +291,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
   | OvalMatch              | 100                | CentOS, RHEL, Oracle, Ubuntu, Debian, SUSE |Detection using OVAL |
   | YumUpdateSecurityMatch | 100                |               RHEL, Amazon, Oracle |Detection using yum-plugin-security|
   | ChangelogExactMatch    | 95                 | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version|
-  | ChangelogLenientMatch  | 50                 |         Ubuntu, Debian, Raspbian |Lenient version match between changelog and package version| 
+  | ChangelogLenientMatch  | 50                 |         Ubuntu, Debian, Raspbian |Lenient version match between changelog and package version|
   | PkgAuditMatch          | 100                |                          FreeBSD |Detection using pkg audit|
   | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
 
@@ -295,7 +299,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 
 config.toml
 
-```
+```toml
 [cveDict]
 type = "sqlite3"
 SQLite3Path = "/path/to/cve.sqlite3"
@@ -317,7 +321,7 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 
 Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
 
-```
+```bash
 $ vuls report \
       -to-hipchat \
       -cvss-over=7
@@ -328,12 +332,11 @@ With this sample command, it will ..
 - Send scan results to HipChat
 - Only Report CVEs that CVSS score is over 7
 
-
 ## Example: Send scan results to Stride
 
 Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.html#stride-section)
 
-```
+```bash
 $ vuls report \
       -to-stride \
       -cvss-over=7
@@ -348,7 +351,7 @@ With this sample command, it will ..
 
 Define ChatWork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
 
-```
+```bash
 $ vuls report \
       -to-chatwork \
       -cvss-over=7
@@ -363,11 +366,12 @@ With this sample command, it will ..
 
 Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.html#slack-section)
 
-```
+```bash
 $ vuls report \
       -to-slack \
       -cvss-over=7
 ```
+
 With this sample command, it will ..
 
 - Send scan results to slack
@@ -377,7 +381,7 @@ With this sample command, it will ..
 
 Define Telegram section in [config.toml](https://vuls.io/docs/en/usage-settings.html#telegram-section)
 
-```
+```bash
 $ vuls report \
       -to-telegram \
       -cvss-over=7
@@ -388,21 +392,20 @@ With this sample command, it will ..
 - Send scan results to Telegram
 - Only Report CVEs that CVSS score is over 7
 
-
 ## Example: Put results in S3 bucket
+
 To put results in S3 bucket, configure following settings in AWS before reporting.
 
-- Create S3 bucket. See [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html)  
+- Create S3 bucket. See [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html)
 - Configure access to S3 resources. You can do this in several ways:
   - Configure the environment variables. See [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
   - Configure the security credentials. See [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
   - Create an IAM role for the service and attach it to the service (EC2, AWS Lambda). [Creating a Role to Delegate Permissions to an AWS Service](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)
 - To configure environment variables, security credentials, create an access key. See [Managing Access Keys for IAM Users](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
 
-
 Example of IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -424,10 +427,9 @@ Example of IAM policy:
 }
 ```
 
-
 config.toml
 
-```
+```bash
 [aws]
 profile = "default"
 region = "ap-northeast-1"
@@ -437,7 +439,7 @@ s3ServerSideEncryption = "AES256"
 
 reporting
 
-```
+```bash
 $ vuls report \
       -to-s3 \
       -format-json
@@ -445,9 +447,10 @@ $ vuls report \
 
 With this sample command, it will ..
 
-Put scan result(JSON) in S3 bucket 
-- with AES256 
-- bucket name is "vuls" 
+Put scan result(JSON) in S3 bucket
+
+- with AES256
+- bucket name is "vuls"
 - ap-northeast-1
 - profile is "default"
 - The Server-side encryption algorithm (e.g., AES256, aws:kms).
@@ -455,31 +458,34 @@ Put scan result(JSON) in S3 bucket
 ## Example: Put results in Azure Blob storage
 
 To put results in Azure Blob Storage, configure following settings in Azure before reporting.
+
 - Create a Azure Blob container
 
 config.toml
 
-```
+```bash
 [azure]
 accountName = "default"
 accountKey = "xxxxxxxxxxxxxx"
 containerName "vuls"
 ```
 
-```
+```bash
 $ vuls report -to-azure-blob
+...
 ```
 
 With this sample command, it will ..
 
-Put scan result(JSON) in Azure Blob Storage. 
+Put scan result(JSON) in Azure Blob Storage.
+
 - container name is "vuls"
-- storage account is "test" 
+- storage account is "test"
 - accesskey is "access-key-string"
 
 account and access key can be defined in environment variables.
 
-```
+```bash
 $ export AZURE_STORAGE_ACCOUNT=test
 $ export AZURE_STORAGE_ACCESS_KEY=access-key-string
 $ vuls report -to-azure-blob
@@ -517,7 +523,7 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
-## Example: IgnorePkgsRegexp 
+## Example: IgnorePkgsRegexp
 
 Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp [google/re2](https://github.com/google/re2/wiki/Syntax).
 
@@ -531,13 +537,18 @@ ignorePkgsRegexp = ["^kernel", "^python"]
 ignorePkgsRegexp = ["^vim"]
 ```
 
+## Exapmle: GitHub Security Alerts Integration
+
+
+
 ## Example: Add optional key-value pairs to JSON
 
-Optional key-value can be outputted to JSON.  
-The key-value in the default section will be overwritten by servers section's key-value.  
+Optional key-value can be outputted to JSON.
+The key-value in the default section will be overwritten by servers section's key-value.
 For instance, you can use this field for Azure ResourceGroup name, Azure VM Name and so on.
 
 - config.toml
+
 ```toml
 [default]
 [default.optional]
@@ -554,6 +565,7 @@ key2 = "val2"
 ```
 
 - bsd.json
+
 ```json
 [
   {
@@ -564,7 +576,7 @@ key2 = "val2"
     "Optional": {
         "key1": "val1" ,
         "key2": "val2" ,
-        "key3": "val3" 
+        "key3": "val3"
     }
   }
 ]
@@ -573,7 +585,8 @@ key2 = "val2"
 ## Example: Use MySQL as a DB storage back-end
 
 config.toml
-```
+
+```toml
 [cveDict]
 type = "mysql"
 url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
@@ -591,13 +604,14 @@ type = "mysql"
 url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 ```
 
-```
+```bash
 $ vuls report
+...
 ```
 
 If you get below error message while fetching, define `sql_mode`.
 
-```
+```bash
 Error 1292: Incorrect datetime value: '0000-00-00' for column 'issued' at row 1
 ```
 
@@ -605,9 +619,9 @@ For details, see TODO
 
 ## Example: Use PostgreSQL as a DB storage back-end
 
-
 config.toml
-```
+
+```toml
 [cveDict]
 type = "postgres"
 url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
@@ -625,14 +639,16 @@ type = "postgres"
 url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 ```
 
-```
+```bash
 $ vuls report
+...
 ```
 
 ## Example: Use Redis as a DB storage back-end
 
 config.toml
-```
+
+```toml
 [cveDict]
 type = "redis"
 url = "redis://localhost/1"
@@ -650,14 +666,16 @@ type = "redis"
 url = "redis://localhost/1"
 ```
 
-```
+```bash
 $ vuls report
+...
 ```
 
 ## Example: Use HTTP to access to vulnerability dictionarys
 
 config.toml
-```
+
+```toml
 [cveDict]
 type = "http"
 url = "http://localhost:1323"
@@ -675,6 +693,7 @@ type = "http"
 url = "http://localhost:1326"
 ```
 
-```
+```bash
 $ vuls report
+...
 ```

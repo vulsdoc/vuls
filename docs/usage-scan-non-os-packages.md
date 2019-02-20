@@ -8,7 +8,7 @@ It is possible to detect vulnerabilities in non-OS packages, such as something y
 
 ##  How to search CPE name by software name
 
-[NVD: Search Common Platform Enumerations (CPE)](https://web.nvd.nist.gov/view/cpe/search)  
+[NVD: Search Common Platform Enumerations (CPE)](https://web.nvd.nist.gov/view/cpe/search)
 You need **Check CPE Naming Format: 2.2**
 
 [go-cpe-dictionary](https://github.com/kotakanbe/go-cpe-dictionary) is a good choice for geeks.
@@ -74,7 +74,39 @@ cpeNames = [
 ]
 ```
 
-## Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
+# Usage: Integrate with GitHub Security Alerts
+
+GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
+It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
+
+```toml
+[servers.serverA]
+user = "root"
+host = "10.0.0.1"
+port = "22"
+keyPath = "/Users/kanbe/.ssh/id_rsa"
+scanMode = ["fast-root"]
+
+[servers.serverA.githubs."owner/repo"]
+token   = "xxxxYourTokenxxx"
+```
+
+To ignore vulnerabilities dismissed on GitHub, Report has the `-ignore-github-dismissed` option.
+
+```bash
+$ ./vuls report -h
+report:
+        report
+               ...
+                [-ignore-github-dismissed]
+               ...
+
+  -ignore-github-dismissed
+        Don't report the dismissed CVEs on GitHub Security Alerts
+  ...
+```
+
+# Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
 
 [OWASP Dependency check](https://www.owasp.org/index.php/OWASP_Dependency_Check) is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.
 

@@ -43,6 +43,7 @@ Same as fast scan mode for now.
 ## Dependencies and /etc/sudoers
 
 For details, see
+
 - Dependencies: [usage-configtest](usage-configtest.md#deep-scan-mode)
 - /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
 
