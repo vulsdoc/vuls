@@ -4,7 +4,7 @@ title: Settings
 sidebar_label: Settings
 ---
 
-Generate a tempalte of the `config.toml` settings file
+Generate a template of the `config.toml` settings file
 ```
 $ vuls discover 127.0.0.1/32
 ```
