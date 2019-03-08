@@ -107,7 +107,7 @@ Server:
   - Kernel release of your target server  (e.g. 2.6.32-696.6.3.el6.x86_64)
   - Collect by a command such as `uname -r`
 - X-Vuls-Kernel-Release (optional)
-  - Requred when Debian (e.g. 3.16.51-2)
+  - Required when Debian (e.g. 3.16.51-2)
   - Collect by a command sushch as `uname -a | awk '{print $7}'`
 - X-Vuls-Server-Name (optional)
   - Required when using `-to-localfile` option)
