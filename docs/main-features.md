@@ -25,6 +25,7 @@ Vuls uses Multiple vulnerability databases
 - [Alpine-secdb](https://git.alpinelinux.org/cgit/alpine-secdb/)
 - [Red Hat Security Advisories](https://access.redhat.com/security/security-updates/)
 - [Debian Security Bug Tracker](https://security-tracker.debian.org/tracker/)
+- [WPVulnDB](https://wpvulndb.com/api)
 - Commands(yum, zypper, pkg-audit)
 	- RHSA/ALAS/ELSA/FreeBSD-SA
 - Changelog
@@ -69,6 +70,11 @@ Vuls uses Multiple vulnerability databases
 - Scan middleware, programming language libraries and framework for vulnerability
 - Support software registered in CPE
 
+## Integration
+
+- [GitHub Security Alerts](usage-scan-non-os-packages.html#usage-integrate-with-github-security-alerts.md)
+- [OWASP Dependency Check](usage-scan-non-os-packages.html#usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental.md)
+- [WordPress](usage-scan-wordpress.md)
 
 ## MISC
 
