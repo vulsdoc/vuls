@@ -106,7 +106,7 @@ Server:
 - X-Vuls-Kernel-Release (required)
   - Kernel release of your target server  (e.g. 2.6.32-696.6.3.el6.x86_64)
   - Collect by a command such as `uname -r`
-- X-Vuls-Kernel-Release (optional)
+- X-Vuls-Kernel-Version (optional)
   - Required when Debian (e.g. 3.16.51-2)
   - Collect by a command sushch as `uname -a | awk '{print $7}'`
 - X-Vuls-Server-Name (optional)
@@ -192,7 +192,7 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print 
 ```
 
 ### Debian
-`X-Vuls-Kernel-Release` header is also required.
+`X-Vuls-Kernel-Version` header is also required.
 
 ```
 $ export VULS_SERVER=[Your Vuls Server]
