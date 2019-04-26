@@ -103,6 +103,12 @@ const users = [
     infoLink: 'https://ierae.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'Wedding Park',
+    image: '/img/icons/weddingpark.png',
+    infoLink: 'https://www.weddingpark.co.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
