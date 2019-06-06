@@ -109,6 +109,12 @@ const users = [
     infoLink: 'https://www.weddingpark.co.jp/',
     pinned: true,
   },
+  {
+    caption: 'Nihon University',
+    image: '/img/icons/nichidai.svg',
+    infoLink: 'https://www.nihon-u.ac.jp/',
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
