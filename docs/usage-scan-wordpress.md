@@ -19,7 +19,7 @@ A sample configuration is below.
 
 * config.toml
 
-```
+```toml
   [servers.kusanagi]
     user = "root"
     host = "10.10.10.10"
@@ -72,3 +72,30 @@ Vuls detects vulnerabilities via accessing [WPVulnDB.com](https://wpvulndb.com/a
 
 ![](https://user-images.githubusercontent.com/534611/55536870-da3e4100-56f5-11e9-9874-863ba7346966.png)
 
+## Tips	
+
+- If you have some virtual WordPres sites in a server.
+- If you want a report of only WordPress without OS packages.
+Let's use `ignorePkgsRegexp = [".*"]`. This is not *ECO*, but works fine :-)
+
+* The point of config.toml
+
+```toml
+# for server administrator
+[servers.wordpress]
+host = "wordpress"
+
+# for WordPress site FOO
+[servers.foo]
+host = "wordpress"
+ignorePkgsRegexp = [".*"]
+[servers.foo.wordpress]
+docRoot = "/home/foo/wordpress/"
+
+# for WordPress site BAR
+[servers.bar]
+host = "wordpress"
+ignorePkgsRegexp = [".*"]
+[servers.bar.wordpress]
+docRoot = "/home/bar/wordpress/"
+```
