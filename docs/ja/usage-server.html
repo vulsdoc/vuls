@@ -45,34 +45,33 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-server.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Server</h1></header><article><div><span><pre><code class="hljs">Server:
-        Server
-          [-lang=en|ja]
-                [-config=/path/to/config.toml]
-                [-log-dir=/path/to/log]
-                [-cvss-over=7]
-                [-ignore-unscored-cves]
-                [-ignore-unfixed]
-                [-to-localfile]
-                [-format-json]
-                [-http-proxy=http://192.168.0.1:8080]
-                [-debug]
-                [-debug-sql]
-                [-listen=localhost:5515]
-                [-cvedb-type=sqlite3|mysql|postgres|redis|http]
-                [-cvedb-sqlite3-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 or DB connection string]
-                [-ovaldb-type=sqlite3|mysql|redis|http]
-                [-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-                [-gostdb-type=sqlite3|mysql|redis|http]
-                [-gostdb-sqlite3-path=/path/to/gost.sqlite3]
-                [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
-                [-exploitdb-type=sqlite3|mysql|redis|http]
-                [-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
-                [-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
-
-                [RFC3339 datetime format under results dir]
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-server.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Server</h1></header><article><div><span><p>Server:
+Server
+[-lang=en|ja]
+[-config=/path/to/config.toml]
+[-log-dir=/path/to/log]
+[-cvss-over=7]
+[-ignore-unscored-cves]
+[-ignore-unfixed]
+[-to-localfile]
+[-format-json]
+[-http-proxy=http://192.168.0.1:8080]
+[-debug]
+[-debug-sql]
+[-listen=localhost:5515]
+[-cvedb-type=sqlite3|mysql|postgres|redis|http]
+[-cvedb-sqlite3-path=/path/to/cve.sqlite3]
+[-cvedb-url=http://127.0.0.1:1323 or DB connection string]
+[-ovaldb-type=sqlite3|mysql|redis|http]
+[-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
+[-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
+[-gostdb-type=sqlite3|mysql|redis|http]
+[-gostdb-sqlite3-path=/path/to/gost.sqlite3]
+[-gostdb-url=http://127.0.0.1:1325 or DB connection string]
+[-exploitdb-type=sqlite3|mysql|redis|http]
+[-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
+[-exploitdb-url=http://127.0.0.1:1326 or DB connection string]</p>
+<pre><code class="hljs">                [RFC3339 datetime format under results dir]
   -config string
         /path/to/toml (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml&quot;)
   -cvedb-sqlite3-path string
