@@ -76,9 +76,10 @@ Vuls detects vulnerabilities via accessing [WPVulnDB.com](https://wpvulndb.com/a
 
 - If you have some virtual WordPres sites in a server.
 - If you want a report of only WordPress without OS packages.
+
 Let's use `ignorePkgsRegexp = [".*"]`. This is not *ECO*, but works fine :-)
 
-* The point of config.toml
+    - The point of config.toml
 
 ```toml
 # for server administrator
