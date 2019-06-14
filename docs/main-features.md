@@ -32,6 +32,11 @@ Vuls uses Multiple vulnerability databases
 - [US-CERT](https://www.us-cert.gov/ncas/alerts)
 - [JPCERT](http://www.jpcert.or.jp/at/2019.html)
 - [WPVulnDB](https://wpvulndb.com/api)
+- [Node.js Security Working Group](https://github.com/nodejs/security-wg)
+- [Ruby Advisory Database](https://github.com/rubysec/ruby-advisory-db)
+- [Safety DB(Python)](https://github.com/pyupio/safety-db)
+- [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories)
+- [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
 - Changelog
 
 ## Fast scan and Deep scan
@@ -75,6 +80,11 @@ Vuls uses Multiple vulnerability databases
 
 - It is possible to acquire the state of the server by connecting via SSH and executing the command
 - Vuls warns not-restarting-processes which updated before but not restarting yet and detects processes affecting software update in advance.
+
+## **Static** Container Analysis
+
+- Vuls can scan container images such as Docker Image on ECR, GCR and local.
+- TODO Link
 
 ## [Scan middleware that are not included in OS package management](usage-scan-non-os-packages.md)
 
