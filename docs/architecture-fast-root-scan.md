@@ -16,7 +16,7 @@ sidebar_label: Fast-Root Scan
 | Debian      |                                   Fast |　              Need |  Supported |                                    Need |
 | Raspbian    |    1st time: Slow, From 2nd time: Fast |                Need |         No |                                    Need |
 | FreeBSD     |                                   Fast |　                No |         No |                                    Need |
-| Amazon      |                                   Fast |　              Need |         No |                                    Need |
+| Amazon      |                                   Fast |　              Need |  Supported |                                    Need |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                    Need |
 
 ## With -offline option
@@ -31,9 +31,10 @@ Scan with -offline option, vuls scans with no internet access.
 | Oracle      |                                   Fast |　              Need |  Supported |                                    No |
 | Ubuntu      |                                   Fast |　              Need |  Supported |                                    No |
 | Debian      |                                   Fast |　              Need |  Supported |                                    No |
+| Amazon      |                                   Fast |　              Need |  Supported |                                    No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                    No |
 
-Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
+Offline scan mode is not supported FreeBSD, Raspbian.
 
 ## Dependencies and /etc/sudoers
 

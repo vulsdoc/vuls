@@ -52,12 +52,7 @@ Vuls uses Multiple vulnerability databases
 
 [Deep Scan](architecture-deep-scan.md)
 
-- Scan with root privilege
-- Parses the Changelog
-    Changelog has a history of version changes. When a security issue is fixed, the relevant CVE ID is listed.
-    By parsing the changelog and analysing the updates between the installed version of software on the server and the newest version of that software
-    it's possible to create a list of all vulnerabilities that need to be fixed.
-- Sometimes load on the scan target server
+- same as first-root scan mode for now.
 
 ## [Remote scan mode, Local scan mode, Server mode](architecture-remote-local.md)
 

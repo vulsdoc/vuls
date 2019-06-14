@@ -128,25 +128,7 @@ scanMode     = ["fast-root", "offline"]
 
 ## deep scan
 
-Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
-You need to execute `vuls configtest` to check the configuration of the target server before scanning.
-For details about deep scan mode, see below.
-
-* [Architecture/deep](architecture-deep-scan.md)
-* [Configtest/deep scan](usage-configtest.md#deep-scan-mode)
-
-### deep scan with internet access
-
-* config.toml
-
-```bash
-[servers]
-
-[servers.localhost]
-host         = "192.168.100.111" # or "127.0.0.1"
-port         = "22"
-scanMode     = ["deep"]
-```
+- same as fast-root scan mode for now.
 
 ## -ssh-native-insecure option
 
