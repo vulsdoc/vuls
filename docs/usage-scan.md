@@ -128,25 +128,7 @@ scanMode     = ["fast-root", "offline"]
 
 ## deep scan
 
-Deep scan mode. Scan accuracy improves and information becomes richer. Since analysis of changelog, issue commands requiring sudo, but it may be slower and high load on the scan tareget server.
-You need to execute `vuls configtest` to check the configuration of the target server before scanning.
-For details about deep scan mode, see below.
-
-* [Architecture/deep](architecture-deep-scan.md)
-* [Configtest/deep scan](usage-configtest.md#deep-scan-mode)
-
-### deep scan with internet access
-
-* config.toml
-
-```bash
-[servers]
-
-[servers.localhost]
-host         = "192.168.100.111" # or "127.0.0.1"
-port         = "22"
-scanMode     = ["deep"]
-```
+* same as fast-root scan mode for now.
 
 ## -ssh-native-insecure option
 
@@ -160,7 +142,7 @@ Don't forget to add below line to /etc/sudoers on the target servers. (username:
 Defaults:vuls !requiretty
 ```
 
-To use native Go implementation from crypto/ssh, specify this option.   
+To use native Go implementation from crypto/ssh, specify this option.  
 This is useful in situations where you may not have access to traditional UNIX tools.
 But it is important to note that this mode does not check the host key.
 
@@ -208,14 +190,14 @@ For more details, see [Architecture section](architecture-local-scan.md)
   port         = "local"
   ```
 
-## Example: Scan containers (Docker/LXD/LXC)
+## Example: Scan `Running` containers (Docker/LXD/LXC)
 
 It is common that keep containers running without SSHd daemon.
 see [Docker Blog:Why you don't need to run SSHd in your Docker containers](https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/)
 
 ### Docker
 
-Vuls scans Docker containers via `docker exec` instead of SSH.
+Vuls scans `running` Docker containers via `docker exec` instead of SSH.
 For more details, see [Architecture section](architecture-remote-scan.html)
 
 If you don’t want to use root, create a Unix group called docker and add users to it
@@ -236,7 +218,7 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
   containersIncluded = ["${running}"]
   ```
 
-#### To scan specific containers
+#### To scan specific running containers
 
   The container ID or container name needs to be set in the containers item.  
   In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
@@ -254,9 +236,9 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
   containersIncluded = ["container_name_a", "4aa37a8b63b9"]
   ```
 
-#### To scan except specific containers
+#### To scan except specific running containers
 
-```
+```toml
 [servers]
 
 [servers.172-31-4-82]
@@ -268,7 +250,7 @@ containersIncluded = ["${running}"]
 containersExcluded = ["container_name_a", "4aa37a8b63b9"]
 ```
 
-#### To scan containers only
+#### To scan containers only (Docker Host will not be scanned)
 
   --containers-only option is available.
 
@@ -283,10 +265,9 @@ Vuls scans lxd via `lxc exec` instead of SSH.
 host         = "172.31.4.82"
 user        = "ec2-user"
 keyPath     = "/home/username/.ssh/id_rsa"
-
-[servers.172-31-4-82.containers]
-type = "lxd"
-includes = ["${running}"]
+containertype = "lxd"
+containersIncluded = ["${running}"]
+containersExcluded = ["container_name_a", "4aa37a8b63b9"]
 ```
 
 ### LXC
@@ -300,10 +281,10 @@ Vuls scans lxc via `lxc-attach` instead of SSH.
 host         = "172.31.4.82"
 user        = "ec2-user"
 keyPath     = "/home/username/.ssh/id_rsa"
+containertype = "lxc"
+containersIncluded = ["${running}"]
+containersExcluded = ["container_name_a", "4aa37a8b63b9"]
 
-[servers.172-31-4-82.containers]
-type = "lxc"
-includes = ["${running}"]
 ```
 
 LXC required root privilege.

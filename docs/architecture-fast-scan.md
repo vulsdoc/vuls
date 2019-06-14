@@ -10,15 +10,15 @@ Fast scan mode scans without root privilege, no dependencies almost no load on t
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
-| Alpine      |                                   Fast |　                No |  Supported |                                    Need |
-| CentOS      |                                   Fast |　                No |  Supported |                                      Need |
-| RHEL        |                                   Fast |　                No |  Supported |                                      Need |
-| Oracle      |                                   Fast |　                No |  Supported |                                      Need |
-| Ubuntu      |                                   Fast |　                No |  Supported |                                      Need |
-| Debian      |                                   Fast |　                No |  Supported |                                      Need |
-| FreeBSD     |                                   Fast |　                No |         No |                                    Need |
-| Amazon      |                                   Fast |　                No |         No |                                    Need |
-| SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
+| Alpine      |                                   Fast |　                No |  Supported |                                     Need |
+| CentOS      |                                   Fast |　                No |  Supported |                                     Need |
+| RHEL        |                                   Fast |　                No |  Supported |                                     Need |
+| Oracle      |                                   Fast |　                No |  Supported |                                     Need |
+| Ubuntu      |                                   Fast |　                No |  Supported |                                     Need |
+| Debian      |                                   Fast |　                No |  Supported |                                     Need |
+| FreeBSD     |                                   Fast |　                No |         No |                                     Need |
+| Amazon      |                                   Fast |　                No |  Supported |                                     Need |
+| SUSE Enterprise |                               Fast |　                No |  Supported |                                       No |
 
 Fast scan mode is not supported for Raspbian.
 
@@ -34,9 +34,10 @@ Scan with -offline option, vuls scans with no internet access.
 | Oracle      |                                   Fast |　                No |  Supported |                                      No |
 | Ubuntu      |                                   Fast |　                No |  Supported |                                      No |
 | Debian      |                                   Fast |　                No |  Supported |                                      No |
+| Amazo       |                                   Fast |　                No |  Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
-Offline scan mode is not supported for Amazon Linux, FreeBSD, Raspbian.
+Offline scan mode is not supported for FreeBSD, Raspbian.
 
 ## Dependencies and /etc/sudoers
 

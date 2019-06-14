@@ -32,6 +32,11 @@ Vuls uses Multiple vulnerability databases
 - [US-CERT](https://www.us-cert.gov/ncas/alerts)
 - [JPCERT](http://www.jpcert.or.jp/at/2019.html)
 - [WPVulnDB](https://wpvulndb.com/api)
+- [Node.js Security Working Group](https://github.com/nodejs/security-wg)
+- [Ruby Advisory Database](https://github.com/rubysec/ruby-advisory-db)
+- [Safety DB(Python)](https://github.com/pyupio/safety-db)
+- [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories)
+- [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
 - Changelog
 
 ## Fast scan and Deep scan
@@ -52,12 +57,7 @@ Vuls uses Multiple vulnerability databases
 
 [Deep Scan](architecture-deep-scan.md)
 
-- Scan with root privilege
-- Parses the Changelog
-    Changelog has a history of version changes. When a security issue is fixed, the relevant CVE ID is listed.
-    By parsing the changelog and analysing the updates between the installed version of software on the server and the newest version of that software
-    it's possible to create a list of all vulnerabilities that need to be fixed.
-- Sometimes load on the scan target server
+- same as first-root scan mode for now.
 
 ## [Remote scan mode, Local scan mode, Server mode](architecture-remote-local.md)
 
@@ -81,6 +81,11 @@ Vuls uses Multiple vulnerability databases
 - It is possible to acquire the state of the server by connecting via SSH and executing the command
 - Vuls warns not-restarting-processes which updated before but not restarting yet and detects processes affecting software update in advance.
 
+## **Static** Container Analysis
+
+- Vuls can scan container images such as Docker Image on ECR, GCR and local.
+- TODO Link
+
 ## [Scan middleware that are not included in OS package management](usage-scan-non-os-packages.md)
 
 - Scan middleware, programming language libraries and framework for vulnerability
@@ -100,4 +105,4 @@ Vuls uses Multiple vulnerability databases
 - [Auto generation of configuration file template](usage-automatic-discovery.md)
   - Auto detection of servers set using CIDR, generate configuration file template
 - Email and Slack notification is possible (supports Japanese language)
-- Scan result is viewable on accessory software, [TUI Viewer on terminal](usage-tui.md) or Web UI ([VulsRepo](https://github.com/usiusi360/vulsrepo)).
+- Scan result is viewable on accessory software, [TUI Viewer on terminal](usage-tui.md) or Web UI ([VulsRepo](https://github.com/future-architect/vulsrepo)).

@@ -4,6 +4,82 @@ title: Scan vulnerabilites of non-OS packages
 sidebar_label: Scan non-OS packages
 ---
 
+## Options
+
+To scan vulnerabilities of `non-OS-packages`, there are some options.
+
+- Specify lock files (Library)
+- GitHub Integration (Library)
+- Define a list of CPE in config.toml (NW Devices, Library)
+- OWASP Dependency check (Library)
+
+## Library Vulns Scan
+
+Vuls over v0.8.0 can scan libraries using [knqyf263/trivy](https://github.com/knqyf263/trivy).
+Trivy detects lock files listed below.
+
+- Gemfile.lock
+- Pipfile.lock
+- poetry.lock
+- composer.lock
+- package-lock.json
+- yarn.lock
+- Cargo.lock
+
+A sample of config.toml is blow.  
+specify the path of locckfiles, Vuls can detect vulns of libs without defining CPEs.
+
+```bash
+[servers]
+
+[servers.abuntu]
+host         = "xxx.xxx.xxx"
+port        = "22"
+user        = "tamachi"
+keyPath     = "/Users/amachi/.ssh/id_dsa"
+findLock = true # auto detect lockfile
+lockfiles = [
+  "/home/tamachi/lockfiles/package-lock.json"
+  "/home/tamachi/lockfiles/yarn.lock"
+]
+```
+
+# Usage: Integrate with GitHub Security Alerts
+
+GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
+It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
+
+```toml
+[servers.serverA]
+user = "root"
+host = "10.0.0.1"
+port = "22"
+keyPath = "/Users/kanbe/.ssh/id_rsa"
+scanMode = ["fast-root"]
+
+[servers.serverA.githubs."owner/repo"]
+token   = "xxxxYourTokenxxx"
+```
+
+To ignore vulnerabilities dismissed on GitHub, Report has the `-ignore-github-dismissed` option.
+
+```bash
+$ ./vuls report -h
+report:
+        report
+               ...
+                [-ignore-github-dismissed]
+               ...
+
+  -ignore-github-dismissed
+        Don't report the dismissed CVEs on GitHub Security Alerts
+  ...
+```
+
+
+
+## CPE Scan
+
 It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm).
 
 ##  How to search CPE name by software name
@@ -72,38 +148,6 @@ type = "pseudo"
 cpeNames = [
     "cpe:/o:fortinet:fortios:4.3.0",
 ]
-```
-
-# Usage: Integrate with GitHub Security Alerts
-
-GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
-It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
-
-```toml
-[servers.serverA]
-user = "root"
-host = "10.0.0.1"
-port = "22"
-keyPath = "/Users/kanbe/.ssh/id_rsa"
-scanMode = ["fast-root"]
-
-[servers.serverA.githubs."owner/repo"]
-token   = "xxxxYourTokenxxx"
-```
-
-To ignore vulnerabilities dismissed on GitHub, Report has the `-ignore-github-dismissed` option.
-
-```bash
-$ ./vuls report -h
-report:
-        report
-               ...
-                [-ignore-github-dismissed]
-               ...
-
-  -ignore-github-dismissed
-        Don't report the dismissed CVEs on GitHub Security Alerts
-  ...
 ```
 
 # Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)

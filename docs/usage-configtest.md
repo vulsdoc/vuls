@@ -64,7 +64,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | Debian       |             7, 8, 9| (reboot-notifier) |
 | CentOS       |                6, 7| - |
 | Amazon       |                All | - |
-| RHEL         |            5, 6, 7 | - |
+| RHEL         |         5, 6, 7, 8 | - |
 | Oracle Linux |            5, 6, 7 | - |
 | SUSE Enterprise|            11, 12| - |
 | FreeBSD      |             10, 11 | - |
@@ -81,7 +81,7 @@ The configtest subcommand with `--fast-root` checks whether the packages are ins
 | Debian       |                8, 9| debian-goodies, reboot-notifier |
 | CentOS       |                6, 7| yum-plugin-ps |
 | Amazon       |                All | yum-plugin-ps |
-| RHEL         |            5, 6, 7 | yum-plugin-ps |
+| RHEL         |         5, 6, 7, 8 | yum-plugin-ps |
 | Oracle Linux |            5, 6, 7 | yum-plugin-ps |
 | SUSE Enterprise|           11, 12 | - |
 | FreeBSD      |             10, 11 | - |
@@ -89,23 +89,7 @@ The configtest subcommand with `--fast-root` checks whether the packages are ins
 
 ## deep scan mode
 
-The configtest subcommand with `--deep` flag checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
-In order to scan with deep scan mode, the following dependencies are required, so you need to install them manually or with tools such as Ansible.
-
-| Distribution |            Release | Requirements |
-|:-------------|-------------------:|:-------------|
-| Alpine       |      3.2 and later | -            |
-| Ubuntu       |          14, 16, 18| debian-goodies |
-| Debian       |             7, 8, 9| aptitude, reboot-notifier, debian-goodies |
-| CentOS       |                6, 7| yum-plugin-changelog, yum-plugin-ps |
-| Amazon       |                All | yum-plugin-changelog, yum-plugin-ps |
-| RHEL         |                  5 | yum-changelog, yum-security, yum-plugin-ps |
-| RHEL         |               6, 7 | yum-plugin-changelog, yum-plugin-ps |
-| Oracle Linux |                  5 | yum-changelog, yum-security, yum-plugin-ps |
-| Oracle Linux |               6, 7 | yum-plugin-changelog, yum-plugin-ps |
-| SUSE Enterprise|           11, 12 | -            |
-| FreeBSD      |                 10 | -            |
-| Raspbian     |     Wheezy, Jessie | -            |
+same as `fast-root` scan mode
 
 # /etc/sudoers on Target Servers
 
@@ -123,15 +107,15 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 
 | Distibution | fast |fast-root(offline) |fast-root           | deep         |
 |:------------------|:-------------------|:-------------|:-------------|:-------------|
-| Ubuntu 14, 16, 18| - |vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
-| Debian 8, 9 | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
-| CentOS 6, 7  | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |
-| Amazon Linux | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |
-| RHEL 6, 7    | - |                - |  vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery, /usr/bin/yum makecache  | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery, /usr/bin/yum changelog all updates*, /usr/bin/yum makecache  |
-| Oracle Linux 6, 7 | - | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/repoquery, /usr/bin/yum makecache | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/yum repolist --color=never, /usr/bin/yum updateinfo list updates --security --color=never, /usr/bin/yum updateinfo updates --security --color=never, /usr/bin/yum changelog all updates*, /usr/bin/repoquery, /usr/bin/yum makecache |
+| Ubuntu 14, 16, 18| - |vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | same as `fast-root` |
+| Debian 8, 9 | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat *, /usr/sbin/checkrestart| vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | same as `fast-root`|
+| CentOS 6, 7  | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |same as `fast-root` |
+| Amazon Linux | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which |same as `fast-root` |
+| RHEL 6, 7, 8    | - |                - |  vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache  |same as `fast-root` |
+| Oracle Linux 6, 7 | - | - | vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, , /usr/bin/repoquery, /usr/bin/yum makecache |same as `fast-root` |
 | SUSE Enterprise 11, 12 | - | - | -            | - |
 | FreeBSD 10 | - | - | -            | - |
-| Raspbian | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart |
+| Raspbian | - | n/a | vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart | same as `fast-root`|
 
 If your server is behind a proxy, also add the following.
 

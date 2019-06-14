@@ -1,14 +1,59 @@
 {
   "docs": {
-    "Introduction": ["abstract", "main-features","supported-os"],
-    "Architecture": ["architecture-remote-local", "architecture-remote-scan", "architecture-one-liner-scan", "architecture-local-scan", "architecture-fast-deep", "architecture-fast-scan", "architecture-fast-root-scan", "architecture-deep-scan"],
-    "Installation": ["install-manually-centos", "install-with-docker", "install-with-package", "install-with-ansible", "install-with-awless"],
-    "Tutorial": ["tutorial", "tutorial-local-scan", "tutorial-remote-scan", "tutorial-docker", "usage-scan-non-os-packages", "usage-scan-wordpress"],
-    "Usage": ["usage-automatic-discovery", "usage-settings", "usage-configtest", "usage-scan", "usage-report", "usage-tui", "usage-server"],
-    "Vulsrepo": ["vulsrepo"],
-    "Misc": ["cron", "misc-update-vuls", "go-cve-dictionary", "goval-dictionary", "gost", "go-exploitdb", "related-projects", "tips", "how-to-contribute"]
-
+    "Introduction": [
+      "abstract",
+      "main-features",
+      "supported-os"
+    ],
+    "Architecture": [
+      "architecture-remote-local",
+      "architecture-remote-scan",
+      "architecture-one-liner-scan",
+      "architecture-local-scan",
+      "architecture-fast-deep",
+      "architecture-fast-scan",
+      "architecture-fast-root-scan",
+      "architecture-deep-scan"
+    ],
+    "Installation": [
+      "install-manually-centos",
+      "install-with-docker",
+      "install-with-package",
+      "install-with-ansible",
+      "install-with-awless"
+    ],
+    "Tutorial": [
+      "tutorial",
+      "tutorial-local-scan",
+      "tutorial-remote-scan",
+      "tutorial-docker",
+      "tutorial-scan-docker-image",
+      "usage-scan-non-os-packages",
+      "usage-scan-wordpress"
+    ],
+    "Usage": [
+      "usage-automatic-discovery",
+      "usage-settings",
+      "usage-configtest",
+      "usage-scan",
+      "usage-report",
+      "usage-tui",
+      "usage-server"
+    ],
+    "Vulsrepo": [
+      "vulsrepo"
+    ],
+    "Misc": [
+      "cron",
+      "misc-update-vuls",
+      "go-cve-dictionary",
+      "goval-dictionary",
+      "gost",
+      "go-exploitdb",
+      "related-projects",
+      "tips",
+      "how-to-contribute"
+    ]
   },
-  "docs-other": {
-  }
+  "docs-other": {}
 }

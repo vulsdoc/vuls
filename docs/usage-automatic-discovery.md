@@ -5,7 +5,8 @@ sidebar_label: Automatic Discovery
 ---
 
 Discovery subcommand discovers active servers specified in CIDR range, then display the template of config file (TOML format) to terminal.  
-```
+
+```bash
 $ vuls discover -help
 discover:
         discover 192.168.0.0/24
@@ -13,7 +14,7 @@ discover:
 
 ## Example
 
-```
+```bash
 $ vuls discover 192.168.11.0/24
 # Create config.toml using below and then ./vuls --config=/path/to/config.toml
 
