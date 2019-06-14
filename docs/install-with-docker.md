@@ -97,4 +97,3 @@ vuls v0.0.xxx xxxx
 - [vuls/vulsrepo](https://hub.docker.com/r/vuls/vulsrepo/) 
 
 This image version is same as the github repository version.
-

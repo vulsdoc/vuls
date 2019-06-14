@@ -4,7 +4,7 @@ title: VulsRepo
 sidebar_label: VulsRepo
 ---
 
-[VulsRepo](https://github.com/usiusi360/vulsrepo) is awesome OSS Web UI for Vuls.
+[VulsRepo](https://github.com/future-architect/vulsrepo) is awesome OSS Web UI for Vuls.
 With VulsRepo you can analyze the scan results like Excel's pivot table.
 
 <img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif" width="100%">
@@ -43,7 +43,7 @@ From now on, executed by a user running the vuls scan.
 ```
 
 $ cd $HOME
-$ git clone https://github.com/usiusi360/vulsrepo.git
+$ git clone https://github.com/future-architect/vulsrepo.git
 
 ```
 
@@ -231,9 +231,9 @@ serverKey = "key.pem"
 
 ```
 
-$ mkdir -p $GOPATH/src/github.com/usiusi360/
-$ cd $GOPATH/src/github.com/usiusi360/
-$ git clone https://github.com/usiusi360/vulsrepo.git
+$ mkdir -p $GOPATH/src/github.com/future-architect/
+$ cd $GOPATH/src/github.com/future-architct/
+$ git clone https://github.com/future-architect/vulsrepo.git
 $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
@@ -245,7 +245,7 @@ $ go build -o vulsrepo-server
 
 ### SETTING
 
-<img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image006.png" width="80%">
+<img src="https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image006.png" width="80%">
 
 - Pivot Table
 
@@ -258,7 +258,7 @@ $ go build -o vulsrepo-server
 
 - How to share pivot settings with others
 
-<img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image007.png" width="80%">
+<img src="https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image007.png" width="80%">
 
 1. Click the link display button on the upper right.
 2. Click the copy button to clickboard.
@@ -277,9 +277,8 @@ If more than one package is associated with one CveID, Total will increase more 
 
 ## Gallery
 
-![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image001.png)
-![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image002.png)
-![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image003.png)
-![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image004.png)
-![image](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/image005.png)
-
+![image](https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image001.png)
+![image](https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image002.png)
+![image](https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image003.png)
+![image](https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image004.png)
+![image](https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/image005.png)
