@@ -14,7 +14,7 @@ This can be done in the following steps.
 1. Scan
 1. Reporting
 1. TUI(Terminal-Based User Interface)
-1. Web UI ([VulsRepo](https://github.com/future-architect/vulsrepo))
+1. Web UI ([VulsRepo](https://github.com/usiusi360/vulsrepo))
 
 ## Step1. Launch CentOS7
 
@@ -168,8 +168,8 @@ $ vuls tui
 
 ## Step8. Web UI
 
-[VulsRepo](https://github.com/future-architect/vulsrepo) is a awesome Web UI for Vuls.  
-<img src="https://raw.githubusercontent.com/future-architect/vulsrepo/master/gallery/demo.gif" width="100%">
+[VulsRepo](https://github.com/usiusi360/vulsrepo) is a awesome Web UI for Vuls.  
+<img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif" width="100%">
 
 Check it out the [Online Demo](http://usiusi360.github.io/vulsrepo/).
 
