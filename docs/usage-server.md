@@ -100,7 +100,7 @@ Server:
 
 #### Headers
 - X-Vuls-OS-Family (required)
-  - OS Family of your target server (rhel, centos, ubuntu and debian)
+  - OS Family of your target server (rhel, centos, amazon, ubuntu and debian)
 - X-Vuls-OS-Release (required)
   - OS Family of your target server  (e.g. 6.9, 16.04, etc.)
 - X-Vuls-Kernel-Release (required)
@@ -161,8 +161,9 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 ## Support OS
 - RHEL
 - CentOS
+- Amazon Linux
 - Debian
-- CentOS
+- Ubuntu
 
 
 ## Example: One liner scan
@@ -189,6 +190,13 @@ CentOS 6
 ```
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+```
+
+### Amazon Linux
+```
+$ export VULS_SERVER=[Your Vuls Server]
+$ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Debian
@@ -282,6 +290,36 @@ $ cat centos6.json
 
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://${VULS_SERVER}:5515/vuls
+```
+
+### Amazon Linux
+You need release got by a command such as below.
+```
+# e.g. "2 (Karoo)"
+RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
+```
+
+```
+$ cat amazon2.json
+{
+  "family": "amazon",
+  "release": "2 (Karoo)",
+  "runningKernel": {
+    "release": "4.9.125-linuxkit",
+    "rersion": ""
+  },
+  "packages": {
+    "system-release": {
+      "name": "system-release",
+      "version": "1:2",
+      "release": "10.amzn2",
+      "arch": "x86_64"
+    }
+  }
+}
+
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: application/json" -d @amazon2.json http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Debian
