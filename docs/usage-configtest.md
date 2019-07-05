@@ -83,7 +83,7 @@ The configtest subcommand with `--fast-root` checks whether the packages are ins
 | Amazon       |                All | - |
 | RHEL         |                  6 | - |
 | RHEL         |                  7 | - |
-| RHEL         |                  8 | - |
+| RHEL         |                  8 | lsof |
 | Oracle Linux |            5, 6, 7 | - |
 | SUSE Enterprise|           11, 12 | - |
 | FreeBSD      |             10, 11 | - |
@@ -114,7 +114,7 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 | CentOS 6, 7  | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`  |same as `fast-root` |
 | Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
 | Amazon Linux 2| - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
-| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`     |same as `fast-root` |
+| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P, /usr/sbin/lsof -i -P`     |same as `fast-root` |
 | Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache` |same as `fast-root` |
 | SUSE Enterprise 11, 12 |  - | -            | - |
 | FreeBSD 10 | -  | -            | - |
