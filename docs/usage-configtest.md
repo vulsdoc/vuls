@@ -111,9 +111,10 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 |:------------------|:-------------|:-------------|:-------------|
 | Ubuntu 14, 16, 18| - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P` | same as `fast-root` |
 | Debian 8, 9 | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`  | same as `fast-root`|
-| CentOS 6, 7  | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`  |same as `fast-root` |
-| Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`     |same as `fast-root` |
-| RHEL 6, 7, 8 | - |    `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`     |same as `fast-root` |
+| CentOS 6, 7  | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`  |same as `fast-root` |
+| Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
+| Amazon Linux 2| - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
+| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`     |same as `fast-root` |
 | Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache` |same as `fast-root` |
 | SUSE Enterprise 11, 12 |  - | -            | - |
 | FreeBSD 10 | -  | -            | - |
