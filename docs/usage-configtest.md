@@ -78,7 +78,7 @@ The configtest subcommand with `--fast-root` checks whether the packages are ins
 |:-------------|-------------------:|:-------------|
 | Alpine       |      3.2 and later | - |
 | Ubuntu       |          14, 16, 18| debian-goodies |
-| Debian       |                8, 9| debian-goodies, reboot-notifier |
+| Debian       |            8, 9, 10| debian-goodies, reboot-notifier |
 | CentOS       |                6, 7| - |
 | Amazon       |                All | - |
 | RHEL         |                  6 | - |
@@ -110,7 +110,7 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 | Distibution | fast | fast-root           | deep         |
 |:------------------|:-------------|:-------------|:-------------|
 | Ubuntu 14, 16, 18| - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P` | same as `fast-root` |
-| Debian 8, 9 | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`  | same as `fast-root`|
+| Debian 8, 9, 10 | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P`  | same as `fast-root`|
 | CentOS 6, 7  | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`  |same as `fast-root` |
 | Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
 | Amazon Linux 2| - | `vuls ALL=(ALL) NOPASSWD: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P`     |same as `fast-root` |
