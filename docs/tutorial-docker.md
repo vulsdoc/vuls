@@ -63,10 +63,8 @@ To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#
 $ docker run --rm -i \
 	-v $PWD:/vuls \
 	-v $PWD/goval-log:/var/log/gost \
-	vuls/gost fetch redhat --after=2016-01-01
+	vuls/gost fetch redhat
 ```
-
-To detect old vulnerabilities, change `--after=2016-01-01`.
 
 To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/gost#fetch-debian)
 
