@@ -49,7 +49,7 @@ Run with --debug, --sql-debug option.
 
 ## Adjusting Open File Limit  
 
-[Riak docs](http://docs.basho.com/riak/latest/ops/tuning/open-files-limit/) is awesome.
+[Riak docs](https://github.com/basho/basho_docs/blob/master/content/riak/kv/2.0.6/using/performance/open-files-limit.md#changing-the-limit) is awesome.
 
 ## Does Vuls accept SSH connections with fish-shell or old zsh as the login shell?  
 
