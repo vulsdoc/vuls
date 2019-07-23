@@ -18,8 +18,8 @@ Vuls requires the following packages.
 ```bash
 $ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go$LATEST-VERSION.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go$LATEST-VERSIONlinux-amd64.tar.gz
 $ mkdir $HOME/go
 ```
 Add these lines into /etc/profile.d/goenv.sh
@@ -88,6 +88,7 @@ $ cd $GOPATH/src/github.com/kotakanbe
 $ git clone https://github.com/kotakanbe/goval-dictionary.git
 $ cd goval-dictionary
 $ make install
+$ ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3
 ```
 The binary was built under `$GOPATH/bin`
 
@@ -123,6 +124,7 @@ $ cd $GOPATH/src/github.com/knqyf263
 $ git clone https://github.com/knqyf263/gost.git
 $ cd gost
 $ make install
+$ ln -s $GOPATH/src/github.com/knqyf263/gost/gost.sqlite3 $HOME/gost.sqlite3
 ```
 The binary was built under `$GOPATH/bin`
 
@@ -149,6 +151,7 @@ $ cd $GOPATH/src/github.com/mozqnet
 $ git clone https://github.com/mozqnet/go-exploitdb.git
 $ cd go-exploitdb
 $ make install
+$ ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3
 ```
 The binary was built under `$GOPATH/bin`
 
