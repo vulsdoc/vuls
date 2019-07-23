@@ -18,8 +18,8 @@ Vuls requires the following packages.
 ```bash
 $ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go$LATEST-VERSION.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go$LATEST-VERSIONlinux-amd64.tar.gz
 $ mkdir $HOME/go
 ```
 Add these lines into /etc/profile.d/goenv.sh
