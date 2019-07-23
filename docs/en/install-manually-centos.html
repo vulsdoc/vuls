@@ -59,8 +59,8 @@
 </ul>
 <pre><code class="hljs css language-bash">$ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.10.1.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go<span class="hljs-variable">$LATEST</span>-VERSION.linux-amd64.tar.gz
+$ sudo tar -C /usr/<span class="hljs-built_in">local</span> -xzf go<span class="hljs-variable">$LATEST</span>-VERSIONlinux-amd64.tar.gz
 $ mkdir <span class="hljs-variable">$HOME</span>/go
 </code></pre>
 <p>Add these lines into /etc/profile.d/goenv.sh</p>
@@ -110,6 +110,7 @@ $ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</spa
 $ git <span class="hljs-built_in">clone</span> https://github.com/kotakanbe/goval-dictionary.git
 $ <span class="hljs-built_in">cd</span> goval-dictionary
 $ make install
+$ ln -s <span class="hljs-variable">$GOPATH</span>/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 <span class="hljs-variable">$HOME</span>/oval.sqlite3
 </code></pre>
 <p>The binary was built under <code>$GOPATH/bin</code></p>
 <p>Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
@@ -138,6 +139,7 @@ $ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</spa
 $ git <span class="hljs-built_in">clone</span> https://github.com/knqyf263/gost.git
 $ <span class="hljs-built_in">cd</span> gost
 $ make install
+$ ln -s <span class="hljs-variable">$GOPATH</span>/src/github.com/knqyf263/gost/gost.sqlite3 <span class="hljs-variable">$HOME</span>/gost.sqlite3
 </code></pre>
 <p>The binary was built under <code>$GOPATH/bin</code></p>
 <p>Then fetch security tracker for RedHat since the server to be scanned is CentOS. <a href="https://github.com/knqyf263/gost#fetch-redhat">README</a></p>
@@ -158,6 +160,7 @@ $ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</spa
 $ git <span class="hljs-built_in">clone</span> https://github.com/mozqnet/go-exploitdb.git
 $ <span class="hljs-built_in">cd</span> go-exploitdb
 $ make install
+$ ln -s <span class="hljs-variable">$GOPATH</span>/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 <span class="hljs-variable">$HOME</span>/go-exploitdb.sqlite3
 </code></pre>
 <p>The binary was built under <code>$GOPATH/bin</code></p>
 <p>Then fetch exploit-db information. <a href="https://github.com/mozqnet/go-exploitdb#usage-fetch-and-insert-exploit">README</a></p>
