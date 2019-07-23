@@ -39,7 +39,7 @@ user        = "tamachi"
 keyPath     = "/Users/amachi/.ssh/id_dsa"
 findLock = true # auto detect lockfile
 lockfiles = [
-  "/home/tamachi/lockfiles/package-lock.json"
+  "/home/tamachi/lockfiles/package-lock.json",
   "/home/tamachi/lockfiles/yarn.lock"
 ]
 ```
