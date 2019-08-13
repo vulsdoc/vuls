@@ -16,6 +16,6 @@ This tutorial consists of three steps.
       - Scan this Ubuntu from the Vuls you set up earlier
 1. Tutorial: [Scan using Docker](tutorial-docker.md)
 1. Tutorial: [Scan Docker Image](tutorial-scan-docker-image.md)
-1. Tutorial: [Scan NW Deivces and Libraries](usage-scan-non-os-packages.md)
+1. Tutorial: [Scan NW Devices and Libraries](usage-scan-non-os-packages.md)
 1. Tutorial: [Scan WordPress](usage-scan-wordpress.md)
 
