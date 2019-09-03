@@ -62,7 +62,7 @@ To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#
 ```console
 $ docker run --rm -i \
 	-v $PWD:/vuls \
-	-v $PWD/goval-log:/var/log/gost \
+	-v $PWD/gost-log:/var/log/gost \
 	vuls/gost fetch redhat
 ```
 
