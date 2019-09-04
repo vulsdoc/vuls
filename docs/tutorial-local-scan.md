@@ -82,7 +82,7 @@ localhost       Total: 109 (High:35 Medium:55 Low:16 ?:3)       31 updatable pac
 View short summary
 
 ```bash
-$ vuls report -format-short-text
+$ vuls report -format-list
 
 localhost (centos7.3.1611)
 ==========================
@@ -134,7 +134,7 @@ Confidence              100 / OvalMatch
 View Japanese
 
 ```bash
-$ vuls report -format-short-text -lang ja | less
+$ vuls report -format-list -lang ja | less
 localhost (centos7.3.1611)
 ==========================
 Total: 109 (High:35 Medium:55 Low:16 ?:3)       31 updatable packages
