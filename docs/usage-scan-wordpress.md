@@ -33,8 +33,8 @@ A sample configuration is below.
     ignoreInactive = false
 ```
 
-- cmdPath :  A 0ath of `` on the wordpress server
-- osUser : A OS user of `` on the wordpress server
+- cmdPath :  A path of `wp` on the wordpress server
+- osUser : A OS user of `wp` on the wordpress server
 - docRoot : A path of document root onthe wordpress server
 - wpVulnDBToken :  A token of [WPVULNDB API](https://wpvulndb.com/api)
 - ignoreInactive : Ignore plugins or themes which are inactive state 
