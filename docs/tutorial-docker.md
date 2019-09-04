@@ -156,7 +156,7 @@ $ docker run --rm -it \
     -v $PWD/vuls-log:/var/log/vuls \
     -v /etc/localtime:/etc/localtime:ro \
     vuls/vuls report \
-    -format-short-text \
+    -format-list \
     -config=./config.toml # path to config.toml in docker
 ```
 
