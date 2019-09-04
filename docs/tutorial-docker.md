@@ -162,6 +162,19 @@ $ docker run --rm -it \
 
 [Usage: Report](usage-report.md)
 
+Use TUI(Terminal-Based User Interface) to display the scan result.
+
+```console
+$ docker run --rm -it \
+    -v ~/.ssh:/root/.ssh:ro \
+    -v $PWD:/vuls \
+    -v $PWD/vuls-log:/var/log/vuls \
+    -v /etc/localtime:/etc/localtime:ro \
+    vuls/vuls tui \
+    -config=./config.toml # path to config.toml in docker
+```
+![Vuls-TUI](https://vuls.io/img/docs/hello-vuls-tui.png)
+
 ## Step8. vulsrepo
 
 ```console
