@@ -8,7 +8,7 @@ sidebar_label: Scan Docker Image
 
 Vuls v0.8.0 can scan Docker images using [knqyf263/trivy](https://github.com/knqyf263/trivy).
 
-Following Registry supported.
+The following registries are supported:
 
 - ECR
 - GCR
@@ -36,7 +36,7 @@ type="pseudo"
 
 ## Library scan
 
-Trivy detects lock files listed below automatically.
+Trivy automatically detects the following lock files:
 
 - Gemfile.lock
 - Pipfile.lock
@@ -46,4 +46,4 @@ Trivy detects lock files listed below automatically.
 - yarn.lock
 - Cargo.lock
 
-By integrated with Trivy, Vuls can detect libraly vulnerabilities inside of Docker image automatically.
+By integrating with Trivy, Vuls can automatically detect library vulnerabilities inside of Docker images.
