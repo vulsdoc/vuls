@@ -12,7 +12,7 @@ Vuls requires the following packages.
 - git
 - gcc
 - GNU Make
-- go v1.12 or later (The latest version is recommended)
+- go v1.13 or later (The latest version is recommended)
     - https://golang.org/doc/install
 
 ```bash
