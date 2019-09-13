@@ -14,5 +14,5 @@ Fast scan mode scans with root privilege, almost no load on the scan target serv
 
 ## [Offline scan mode](architecture-fast-scan.md)
 
-`-fast` and `-fast-root` have `-offline` scan mode. Vuls scans with no internet access with `-offline`.
-For details, see [-fast -offline](usage-scan.md#fast-scan-without-internet-access) and [-fast-root -offline](usage-scan.md#fast-root-scan-without-internet-access)
+`fast` and `fast-root` have `offline` scan mode. Vuls scans with no internet access with `offline`.
+For details, see [fast offline](usage-scan.md#fast-scan-without-internet-access) and [fast-root offline](usage-scan.md#fast-root-scan-without-internet-access)

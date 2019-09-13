@@ -8,10 +8,6 @@ sidebar_label: configtest
 $ vuls configtest --help
 configtest:
         configtest
-                        [-fast]
-                        [-fast-root]
-                        [-offline]
-                        [-deep]
                         [-config=/path/to/config.toml]
                         [-log-dir=/path/to/log]
                         [-ask-key-password]
@@ -22,14 +18,6 @@ configtest:
                         [-debug]
 
                         [SERVER]...
-  -fast
-        Config test for fast scan mode
-  -fast-root
-        Config test for fast-root scan mode
-  -offline
-        Config test for offline scan mode
-  -deep
-        Config test for deep scan mode
   -ask-key-password
         Ask ssh privatekey password before scanning
   -config string
@@ -72,7 +60,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 
 ## fast-root scan mode
 
-The configtest subcommand with `--fast-root` checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
+The configtest subcommand with `fast-root` mode checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
