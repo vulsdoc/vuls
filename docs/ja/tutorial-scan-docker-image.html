@@ -46,32 +46,57 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/tutorial-scan-docker-image.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Scan Docker Image</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="container-image-scanning"></a><a href="#container-image-scanning" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container Image Scanning</h2>
-<p>Vuls v0.8.0 can scan Docker images using <a href="https://github.com/knqyf263/trivy">knqyf263/trivy</a>.</p>
+<p>Vuls v0.8.0 can scan Docker images using <a href="https://github.com/aquasecurity/fanal">aquasecurity/fanal</a>.</p>
 <p>The following registries are supported:</p>
 <ul>
-<li>ECR</li>
-<li>GCR</li>
+<li>Docker Hub</li>
+<li>Amazon ECR (Elastic Container Registry)</li>
+<li>GCR (Google Container Registry)</li>
 <li>Local Image</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="configtoml"></a><a href="#configtoml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Config.toml</h2>
 <pre><code class="hljs css language-toml">[servers]
 [servers.image]
 type="pseudo"
+    # Public GCR
     [servers.image.images.hyperkube]
     name="gcr.io/google-containers/hyperkube"
     tag="v1.11.10"
+
+    # Docker Hub
     [servers.image.images.web-dvwa]
     name="vulnerables/web-dvwa"
     tag="latest"
-    [servers.image.images.gcr]
-    name="asia.gcr.io/bizshift-stg/api"
-    tag="latest"
-        [servers.image.images.gcr.dockerOption]
-        gcpCredPath="/Users/amachi/Downloads/key.json"
 
+    # Each image can have credential information
+    # If there is no information, use default credential information. (default credential path, default aws cli credential etc)
+
+    # Private ECR
+    [servers.image.images.privateecr]
+    name="xxxxx.dkr.ecr.us-west-1.amazonaws.com/imagename"
+    tag="targetTag"
+        [servers.image.images.privateecr.dockerOption]
+        awsAccessKey="accesskey"
+        awsSecretKey="secret"
+        awsRegion="us-west-1"
+
+    # Private GCR
+    [servers.image.images.privategcr]
+    name="asia.gcr.io/projectname/reponame"
+    tag="latest"
+        [servers.image.images.privategcr.dockerOption]
+        gcpCredPath="/path/to/key.json"
+
+    # Private Docker Hub
+    [servers.image.images.privatehub]
+    name="privateimage"
+    tag="targetTag"
+        [servers.image.images.privatehub.dockerOption]
+        userName="user"
+        password="password"
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="library-scan"></a><a href="#library-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Library scan</h2>
-<p>Trivy automatically detects the following lock files:</p>
+<p>Vuls v0.8.0 can scan library using <a href="https://github.com/aquasecurity/trivy">aquasecurity/trivy</a>. Trivy automatically detects the following lock files:</p>
 <ul>
 <li>Gemfile.lock</li>
 <li>Pipfile.lock</li>
