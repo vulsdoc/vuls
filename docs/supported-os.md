@@ -8,7 +8,7 @@ sidebar_label: Supported OS
 |:-------------|-------------------:|
 | Alpine       |      3.3 and later |
 | Ubuntu       |          14, 16, 18|
-| Debian       |                8, 9|
+| Debian       |            8, 9, 10|
 | RHEL         |          5, 6, 7, 8|
 | Oracle Linux |             5, 6, 7|
 | CentOS       |                6, 7|
