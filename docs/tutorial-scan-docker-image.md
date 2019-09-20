@@ -6,12 +6,13 @@ sidebar_label: Scan Docker Image
 
 ## Container Image Scanning
 
-Vuls v0.8.0 can scan Docker images using [knqyf263/trivy](https://github.com/knqyf263/trivy).
+Vuls v0.8.0 can scan Docker images using [aquasecurity/fanal](https://github.com/aquasecurity/fanal).
 
 The following registries are supported:
 
-- ECR
-- GCR
+- Docker Hub
+- Amazon ECR (Elastic Container Registry)
+- GCR (Google Container Registry)
 - Local Image
 
 ## Config.toml
@@ -20,22 +21,47 @@ The following registries are supported:
 [servers]
 [servers.image]
 type="pseudo"
+    # Public GCR
     [servers.image.images.hyperkube]
     name="gcr.io/google-containers/hyperkube"
     tag="v1.11.10"
+    
+    # Docker Hub
     [servers.image.images.web-dvwa]
     name="vulnerables/web-dvwa"
     tag="latest"
-    [servers.image.images.gcr]
-    name="asia.gcr.io/bizshift-stg/api"
-    tag="latest"
-        [servers.image.images.gcr.dockerOption]
-        gcpCredPath="/Users/amachi/Downloads/key.json"
+    
+    # Each image can have credential information
+    # If there is no information, use default credential information. (default credential path, default aws cli credential etc)
+    
+    # Private ECR
+    [servers.image.images.privateecr]
+    name="xxxxx.dkr.ecr.us-west-1.amazonaws.com/imagename"
+    tag="targetTag"
+        [servers.image.images.privateecr.dockerOption]
+        awsAccessKey="accesskey"
+        awsSecretKey="secret"
+        awsRegion="us-west-1"
 
+    # Private GCR
+    [servers.image.images.privategcr]
+    name="asia.gcr.io/projectname/reponame"
+    tag="latest"
+        [servers.image.images.privategcr.dockerOption]
+        gcpCredPath="/path/to/key.json"
+
+    # Private Docker Hub
+    [servers.image.images.privatehub]
+    name="privateimage"
+    tag="targetTag"
+        [servers.image.images.privatehub.dockerOption]
+        userName="user"
+        password="password"
 ```
 
 ## Library scan
 
+Vuls v0.8.0 can scan library using [aquasecurity/trivy](https://github.com/aquasecurity/trivy).
 Trivy automatically detects the following lock files:
 
 - Gemfile.lock
