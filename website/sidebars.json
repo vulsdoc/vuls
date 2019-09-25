@@ -16,6 +16,7 @@
       "architecture-deep-scan"
     ],
     "Installation": [
+      "install-with-vulsctl",
       "install-manually-centos",
       "install-with-docker",
       "install-with-package",
