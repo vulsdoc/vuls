@@ -60,7 +60,7 @@
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="step0-prepare-log-dir"></a><a href="#step0-prepare-log-dir" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step0. Prepare Log Dir</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> /path/to/working/dir</span>
-<span class="hljs-meta">$</span><span class="bash"> mkdir go-cve-dictionary-log goval-dictionary-log gost-log</span>
+<span class="hljs-meta">$</span><span class="bash"> mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="step1-fetch-nvd"></a><a href="#step1-fetch-nvd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. Fetch NVD</h2>
 <p><a href="https://github.com/kotakanbe/go-cve-dictionary">go-cve-dictionary</a></p>
@@ -90,7 +90,12 @@
 </code></pre>
 <p>To fetch Debian security tracker, See <a href="https://github.com/knqyf263/gost#fetch-debian">Gost README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step35-fetch-go-exploitdb"></a><a href="#step35-fetch-go-exploitdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.5. Fetch go-exploitdb</h2>
-<p>TODO</p>
+<pre><code class="hljs css language-console">docker run --rm -i \
+    -v $PWD:/vuls \
+    -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
+    vuls/go-exploitdb fetch exploitdb
+</code></pre>
+<p>To fetch deep go-exploitdb, See <a href="https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit">this</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step4-configuration"></a><a href="#step4-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. Configuration</h2>
 <p>Create config.toml referring to <a href="/docs/en/usage-settings.html">this</a>.</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[servers]</span>
