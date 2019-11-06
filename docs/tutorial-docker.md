@@ -23,7 +23,7 @@ This can be done in the following steps.
 
 ```console
 $ cd /path/to/working/dir
-$ mkdir go-cve-dictionary-log goval-dictionary-log gost-log
+$ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log
 ```
 
 ## Step1. Fetch NVD
@@ -70,7 +70,13 @@ To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/
 
 ## Step3.5. Fetch go-exploitdb
 
-TODO
+```console
+docker run --rm -i \
+    -v $PWD:/vuls \
+    -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
+    vuls/go-exploitdb fetch exploitdb
+```
+To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit)
 
 ## Step4. Configuration
 
