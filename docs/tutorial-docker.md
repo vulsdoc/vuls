@@ -71,7 +71,7 @@ To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/
 ## Step3.5. Fetch go-exploitdb
 
 ```console
-docker run --rm -i \
+$ docker run --rm -i \
     -v $PWD:/vuls \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
