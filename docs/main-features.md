@@ -57,7 +57,7 @@ Vuls uses Multiple vulnerability databases
 
 [Deep Scan](architecture-deep-scan.md)
 
-- same as first-root scan mode for now.
+- same as fast-root scan mode for now.
 
 ## [Remote scan mode, Local scan mode, Server mode](architecture-remote-local.md)
 
