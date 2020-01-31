@@ -72,7 +72,8 @@ user        = &quot;centos&quot;
 # keypath in the Vuls docker container
 keyPath     = &quot;/root/.ssh/id_rsa&quot;
 </code></pre>
-<p>スキャンの前に1回SSHをして、Dockerのホスト側の $HOME/.ssh/known_hosts にフィンガープリントを保存しておきます。</p>
+<p><img src="https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg" alt=""></p>
+<p>SSH before scanning to add fingerprint to $HOME/.ssh/known_hosts on the Docker host.</p>
 <pre><code class="hljs">$ ssh centos@52.100.100.100 -i ~/.ssh/id_rsa.pem
 
 
@@ -80,7 +81,7 @@ $ ./scan.sh
 $ ./report.sh
 $ ./tui.sh
 </code></pre>
-<p>詳細については以下を参照。</p>
+<p>For details, see</p>
 <ul>
 <li><a href="https://github.com/vulsio/vulsctl/blob/master/scan.sh">scan.sh</a></li>
 <li><a href="https://github.com/vulsio/vulsctl/blob/master/report.sh">report.sh</a></li>
