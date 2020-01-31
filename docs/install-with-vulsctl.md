@@ -45,6 +45,8 @@ user        = "centos"
 keyPath     = "/root/.ssh/id_rsa"
 ```
 
+![](https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg)
+
 SSH before scanning to add fingerprint to $HOME/.ssh/known_hosts on the Docker host.
 ```
 $ ssh centos@52.100.100.100 -i ~/.ssh/id_rsa.pem
