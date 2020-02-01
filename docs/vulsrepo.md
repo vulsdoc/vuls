@@ -4,6 +4,10 @@ title: VulsRepo
 sidebar_label: VulsRepo
 ---
 
+**Caution**
+https://github.com/usiusi360/vulsrepo is NOT maintained anymore.  
+You should use maintained repository: https://github.com/ishiDACo/vulsrepo
+
 [VulsRepo](https://github.com/usiusi360/vulsrepo) is awesome OSS Web UI for Vuls.
 With VulsRepo you can analyze the scan results like Excel's pivot table.
 
@@ -231,9 +235,9 @@ serverKey = "key.pem"
 
 ```
 
-$ mkdir -p $GOPATH/src/github.com/usiusi360/
-$ cd $GOPATH/src/github.com/usiusi360/
-$ git clone https://github.com/usiusi360/vulsrepo.git
+$ mkdir -p $GOPATH/src/github.com/ishiDACo/
+$ cd $GOPATH/src/github.com/ishiDACo/
+$ git clone https://github.com/ishiDACo/vulsrepo.git
 $ cd vulsrepo/server
 $ go get -u github.com/golang/dep/...
 $ dep ensure
