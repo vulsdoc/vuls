@@ -15,7 +15,7 @@ With VulsRepo you can analyze the scan results like Excel's pivot table.
 
 ## Online Demo
 
-http://usiusi360.github.io/vulsrepo/
+https://monocosel.jp/vulsrepo/
 
 ## Requirements
 
