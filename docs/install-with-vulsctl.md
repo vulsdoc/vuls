@@ -62,3 +62,14 @@ For details, see
 - [scan.sh](https://github.com/vulsio/vulsctl/blob/master/scan.sh)
 - [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
 - [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
+
+## Vulsrepo
+
+```
+$ ./vulsrepo.sh
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+39c8830dbeac        ishidaco/vulsrepo   "vulsrepo-server"   3 seconds ago       Up 1 second         0.0.0.0:5111->5111/tcp   focused_wu
+```
+
+Vulsrepo is running on http://host-ip:5111 .
