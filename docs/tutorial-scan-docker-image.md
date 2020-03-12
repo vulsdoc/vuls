@@ -57,6 +57,18 @@ type="pseudo"
         [servers.image.images.privatehub.dockerOption]
         userName="user"
         password="password"
+
+    # You can use an image's digest instead of its tag.
+
+    # Docker Hub
+    [servers.image.images.withdanger]
+    name="meteogroup/concourse-version-resource"
+    digest="sha256:4213898e8aaa12d0f71875190fb123690ae9df18b30e5d959b36a4071738bc89"
+
+    # Private ECR
+    [servers.image.images.privateecr]
+    name="xxxxx.dkr.ecr.us-west-1.amazonaws.com/imagename"
+    digest="sha256:0123456789012345678901234567890123456789012345678901234567890123"
 ```
 
 ## Library scan
