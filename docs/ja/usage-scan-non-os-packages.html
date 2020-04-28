@@ -81,17 +81,16 @@ lockfiles = [
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="使い方-github-security-alertsとの連携"></a><a href="#使い方-github-security-alertsとの連携" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使い方: GitHub Security Alertsとの連携</h1>
 <p>GitHubは、リポジトリの依存先の報告された脆弱性を追跡し、影響があるリポジトリにセキュリティアラートを提供します。 <a href="https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/">GitHub Security Alerts</a>. GitHubにより検知された脆弱性はGitHubのAPIを使用してインポートできます。</p>
-<pre><code class="hljs css language-toml"><span class="hljs-section">[servers.serverA]</span>
-<span class="hljs-attr">user</span> = <span class="hljs-string">"root"</span>
-<span class="hljs-attr">host</span> = <span class="hljs-string">"10.0.0.1"</span>
-<span class="hljs-attr">port</span> = <span class="hljs-string">"22"</span>
-<span class="hljs-attr">keyPath</span> = <span class="hljs-string">"/Users/kanbe/.ssh/id_rsa"</span>
-<span class="hljs-attr">scanMode</span> = [<span class="hljs-string">"fast-root"</span>]
+<p>First, enable GitHub security alerts on your repo. <a href="https://help.github.com/en/github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization">see</a></p>
+<p>Second, Issue a token. <a href="https://github.com/settings/tokens">see</a></p>
+<p>3rd, config.toml</p>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[servers.ghsa]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"pseudo"</span>
 <span class="hljs-section">
-[servers.serverA.githubs."owner/repo"]</span>
+[servers.ghsa.githubs."owner/repo"]</span>
 <span class="hljs-attr">token</span>   = <span class="hljs-string">"xxxxYourTokenxxx"</span>
 </code></pre>
-<p>GitHub上で無視した脆弱性を無視するために、 <code>-ignore-github-dismissed</code>オプションが用意されています。</p>
+<p>To ignore vulnerabilities dismissed on GitHub, Report has the <code>-ignore-github-dismissed</code> option.</p>
 <pre><code class="hljs css language-bash">$ ./vuls report -h
 report:
         report
@@ -104,14 +103,14 @@ report:
   ...
 </span></code></pre>
 <h2><a class="anchor" aria-hidden="true" id="cpeのスキャン"></a><a href="#cpeのスキャン" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CPEのスキャン</h2>
-<p>自分でコンパイルしたパッケージや、言語のライブラリ、フレームワークなど、<a href="https://nvd.nist.gov/cpe.cfm">CPE</a>に登録されたnon-OS パッケージの脆弱性を検知することもできます。</p>
+<p>It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="ソフトウェアの名前からcpeを検索する方法"></a><a href="#ソフトウェアの名前からcpeを検索する方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ソフトウェアの名前からCPEを検索する方法</h2>
-<p><a href="https://web.nvd.nist.gov/view/cpe/search">NVD: Search Common Platform Enumerations (CPE)</a> <strong>Check CPE Naming Format: 2.2</strong>が必要です。</p>
-<p>詳しい人は<a href="https://github.com/kotakanbe/go-cpe-dictionary">go-cpe-dictionary</a>を使用すると良いでしょう。 <a href="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0"><img src="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png" alt="asciicast"></a></p>
-<p>CPEをアプリケーションの名前でインクリメンタルに検索できます。</p>
+<p><a href="https://web.nvd.nist.gov/view/cpe/search">NVD: Search Common Platform Enumerations (CPE)</a> You need <strong>Check CPE Naming Format: 2.2</strong></p>
+<p><a href="https://github.com/kotakanbe/go-cpe-dictionary">go-cpe-dictionary</a> is a good choice for geeks. <a href="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0"><img src="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png" alt="asciicast"></a></p>
+<p>You can search a CPE name by the application name incrementally.</p>
 <h2><a class="anchor" aria-hidden="true" id="設定"></a><a href="#設定" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>設定</h2>
 <h3><a class="anchor" aria-hidden="true" id="ホストos"></a><a href="#ホストos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ホストOS</h3>
-<p>Ruby on Rails v4.2.1とPostgreSQL9.6.2の脆弱性を検知するためには、cpeNamesをサーバのセクションに設定する必要があります。</p>
+<p>To detect the vulnerability of Ruby on Rails v4.2.1 and PostgreSQL9.6.2, cpeNames needs to be set in the servers section.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
@@ -124,7 +123,7 @@ cpeNames = [
 ]
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="コンテナ"></a><a href="#コンテナ" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>コンテナ</h3>
-<p>特定のコンテナの中のRuby on Rails v4.2.1の脆弱性を検知するためには、サーバの中のコンテナのセクションにcpeNamesを設定する必要があります。 以下はdockerAの中のRuby on Rails v4.2.1とPostgreSQL9.6.2の脆弱性を検知する例です。</p>
+<p>To detect the vulnerability of Ruby on Rails v4.2.1 on specific container, cpeNames needs to be set in the servers&gt;containers section. The following is an example of running Ruby on Rails v4.2.1 and PostgreSQL9.6.2 on dockerA.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
@@ -142,7 +141,7 @@ cpeNames = [
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="type-pseudo"></a><a href="#type-pseudo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>type=&quot;pseudo&quot;</h3>
-<p>CPEを指定してSSH接続無しで脆弱性を検知するためには、これを指定します。 スキャンの時には、pseudo typeは何もしません。 レポートのタイミングでNVDを検索し、指定されたCPEのソフトウェアの脆弱性を検知します。</p>
+<p>Specify this when you want to detect vulnerability by specifying cpename without SSH connection. The pseudo type does not do anything when scanning. Search for NVD at report time and detect vulnerability of software specified as cpenamae.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.forti]
@@ -152,8 +151,8 @@ cpeNames = [
 ]
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="使い方-ライブラリがアップデートされたときに自動でアップデートするために-owasp-dependency-checkと連携-実験中"></a><a href="#使い方-ライブラリがアップデートされたときに自動でアップデートするために-owasp-dependency-checkと連携-実験中" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使い方: ライブラリがアップデートされたときに自動でアップデートするために、OWASP Dependency Checkと連携（実験中）</h1>
-<p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a>は、そのプロジェクトの依存を特定して、既知の公開済みの脆弱性があるかをチェックするツールです。</p>
-<p>VulsとOWASP Dependency Checkを連携する利点は以下の通りです。</p>
+<p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a> is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.</p>
+<p>Benefit of integrating Vuls And OWASP Dependency Check is below.</p>
 <ul>
 <li>ライブラリがアップデートされたときに、Vulsのコンフィグを自動で更新する。</li>
 <li>Vulsの機能を用いてEmailやSlackで通知する。</li>
@@ -162,7 +161,7 @@ cpeNames = [
 <li>OWASP Dependency Checkは英語しか対応していません。</li>
 </ul></li>
 </ul>
-<p>VulsとOWASP Dependency Checkを連携させる方法は以下の通りです。</p>
+<p>How to integrate Vuls with OWASP Dependency Check</p>
 <ul>
 <li><p>OWASP Dependency Checkを、--format=XMLをつけて実行する</p></li>
 <li><p>そのXMLをconfig.toml内で以下のように定義する</p>
@@ -177,7 +176,7 @@ owaspDCXMLPath = &quot;/tmp/dependency-check-report.xml&quot;
 ```
 </code></pre></li>
 </ul>
-<p>以下に、あるコンテナに対するOWASP Dependency CheckのXMLを指定する方法を示します。</p>
+<p>The following is an example of how to specify a XML of OWASP DC to the specific container.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
