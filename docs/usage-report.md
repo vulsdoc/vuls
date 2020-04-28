@@ -539,7 +539,7 @@ ignorePkgsRegexp = ["^vim"]
 
 ## Exapmle: GitHub Security Alerts Integration
 
-
+- [Usage: Integrate with GitHub Security Alerts](https://vuls.io/docs/en/usage-scan-non-os-packages.html#usage-integrate-with-github-security-alerts)
 
 ## Example: Add optional key-value pairs to JSON
 

@@ -49,15 +49,17 @@ lockfiles = [
 GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
 It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
 
-```toml
-[servers.serverA]
-user = "root"
-host = "10.0.0.1"
-port = "22"
-keyPath = "/Users/kanbe/.ssh/id_rsa"
-scanMode = ["fast-root"]
+First, enable GitHub security alerts on your repo. [see](https://help.github.com/en/github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization)
 
-[servers.serverA.githubs."owner/repo"]
+Second, Issue a token. [see](https://github.com/settings/tokens)
+
+3rd, config.toml
+
+```toml
+[servers.ghsa]
+type = "pseudo"
+
+[servers.ghsa.githubs."owner/repo"]
 token   = "xxxxYourTokenxxx"
 ```
 
