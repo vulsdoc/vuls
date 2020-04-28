@@ -3,8 +3,8 @@ jobs:
   deploy-website:
     working_directory: ~/vuls
     docker:
-      # - image: circleci/node:9
-      - image: circleci/node:8
+      - image: circleci/node:9.9.0
+         #- image: circleci/node:8
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Install apt packages
           command: |
-            sudo apt install rsync git
+            sudo apt-get update && sudo apt install rsync git
       - save_cache:
           key: website-node-modules-{{ checksum "website/yarn.lock" }}
           paths:
