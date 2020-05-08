@@ -81,11 +81,6 @@ Vuls uses Multiple vulnerability databases
 - It is possible to acquire the state of the server by connecting via SSH and executing the command
 - Vuls warns not-restarting-processes which updated before but not restarting yet and detects processes affecting software update in advance.
 
-## **Static** Container Analysis
-
-- Vuls can scan container images such as Docker Image on ECR, GCR and local.
-- TODO Link
-
 ## [Scan middleware that are not included in OS package management](usage-scan-non-os-packages.md)
 
 - Scan middleware, programming language libraries and framework for vulnerability
