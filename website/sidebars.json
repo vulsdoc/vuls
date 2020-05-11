@@ -17,7 +17,7 @@
     ],
     "Installation": [
       "install-with-vulsctl",
-      "install-manually-centos",
+      "install-manually",
       "install-with-docker",
       "install-with-package",
       "install-with-ansible",
