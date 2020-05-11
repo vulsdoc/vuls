@@ -1,28 +1,36 @@
 ---
-id: install-manually-centos
-title: Install Manually on CentOS
-sidebar_label: Install Manually on CentOS
+id: install-manually
+title: Install Manually
+sidebar_label: Install Manually
 ---
 
-## Install requirements
+## Install Requirements
 
+### Linux Distributions
+The following example should work on Fedora based Linux distributions,
+which include: CentOS, RedHat, Amazon Linux etc (tested on CentOS and
+Amazon Linux).
+
+### Packages
 Vuls requires the following packages.
 
 - SQLite3, MySQL, PostgreSQL, Redis
 - git
 - gcc
 - GNU Make
-- go v1.13 or later (The latest version is recommended)
+- Greater than or equal to Go v1.13 (The latest version is recommended)
     - https://golang.org/doc/install
 
 ```bash
-$ ssh centos@52.100.100.100  -i ~/.ssh/private.pem
+$ ssh <user>@<IP> -i ~/.ssh/private.pem
+$ export latest_version=1.14.2 # Latest Go release as of writing
 $ sudo yum -y install sqlite git gcc make wget
-$ wget https://dl.google.com/go/go$LATEST-VERSION.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go$LATEST-VERSIONlinux-amd64.tar.gz
+$ wget https://dl.google.com/go/go$latest_version.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go$latest_version.linux-amd64.tar.gz
 $ mkdir $HOME/go
 ```
 Add these lines into /etc/profile.d/goenv.sh
+(you'll need sudo access)
 
 ```bash
 export GOROOT=/usr/local/go
@@ -40,7 +48,7 @@ $ source /etc/profile.d/goenv.sh
 
 ```bash
 $ sudo mkdir /var/log/vuls
-$ sudo chown centos /var/log/vuls
+$ sudo chown <user> /var/log/vuls
 $ sudo chmod 700 /var/log/vuls
 $ mkdir -p $GOPATH/src/github.com/kotakanbe
 $ cd $GOPATH/src/github.com/kotakanbe
@@ -50,8 +58,8 @@ $ make install
 ```
 The binary was built under `$GOPATH/bin`
 
-Then Fetch vulnerability data from NVD.  
-It takes about 10 minutes (on AWS).  
+Then Fetch vulnerability data from NVD.
+It takes about 10 minutes (on AWS).
 
 ```bash
 $ cd $HOME
@@ -65,7 +73,7 @@ $ ls -alh cve.sqlite3
 
 
 If you want results in Japanese, you also need to fetch the JVN data.
-It takes about 10 minutes (on AWS).  
+It takes about 10 minutes (on AWS).
 
 ```bash
 $ cd $HOME
@@ -98,7 +106,7 @@ The binary was built under `$GOPATH/bin`
 $ goval-dictionary fetch-redhat 7
 ```
 
-If you want to scan other than CentOS 7, fetch OVAL data according to the OS type and version of scan target server in advance.
+If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.
 
 - [Alpine](https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
 - [Red Hat, CentOS](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
@@ -116,9 +124,8 @@ If you want to scan other than CentOS 7, fetch OVAL data according to the OS typ
 
 ```bash
 $ sudo mkdir /var/log/gost
-$ sudo chown centos /var/log/gost
+$ sudo chown <user> /var/log/gost
 $ sudo chmod 700 /var/log/gost
-$
 $ mkdir -p $GOPATH/src/github.com/knqyf263
 $ cd $GOPATH/src/github.com/knqyf263
 $ git clone https://github.com/knqyf263/gost.git
@@ -143,9 +150,8 @@ To fetch Debian security tracker, See [gost README](https://github.com/knqyf263/
 
 ```bash
 $ sudo mkdir /var/log/go-exploitdb
-$ sudo chown centos /var/log/go-exploitdb
+$ sudo chown <user> /var/log/go-exploitdb
 $ sudo chmod 700 /var/log/go-exploitdb
-$
 $ mkdir -p $GOPATH/src/github.com/mozqnet
 $ cd $GOPATH/src/github.com/mozqnet
 $ git clone https://github.com/mozqnet/go-exploitdb.git
@@ -158,7 +164,7 @@ The binary was built under `$GOPATH/bin`
 Then fetch exploit-db information. [README](https://github.com/mozqnet/go-exploitdb#usage-fetch-and-insert-exploit)
 
 ```bash
-$ go-exploitdb fetch
+$ go-exploitdb fetch exploitdb
 ```
 
 Fetch with --deep option, Many exploits information will be obtained. But fetch time is too long...
@@ -184,3 +190,6 @@ $ make install
 
 The binary was built under `$GOPATH/bin`
 
+## Test Installation
+
+[Local Scan Mode: From Configuration to Reporting](https://github.com/vulsdoc/vuls/blob/master/docs/tutorial-local-scan.md#step3-configuration)
