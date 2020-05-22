@@ -11,7 +11,7 @@ sidebar_label: Supported OS
 | Debian       |            8, 9, 10|
 | RHEL         |          5, 6, 7, 8|
 | Oracle Linux |             5, 6, 7|
-| CentOS       |                6, 7|
+| CentOS       |             6, 7, 8|
 | Amazon Linux |                 All|
 | FreeBSD      |              10, 11|
 | SUSE Enterprise |           11, 12|
