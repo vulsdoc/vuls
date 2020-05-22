@@ -243,6 +243,12 @@ to            = ["to@address.com"]
 cc            = ["cc@address.com"]
 subjectPrefix = "[vuls]"
 ```
+### Gmail account setting
+If you can't send vuls report via Email, please check your Gmail account setting. 
+
+1. Access Manage your Google Account -> "Security" tab
+2. Check Signing in to Google -> "Use your phone to sign in" and "2-Step Verification" is **OFF**
+3. Check "Less secure app access" is **On**
 
 ## Syslog section
 
