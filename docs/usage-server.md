@@ -167,7 +167,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 
 
 ## Example: One liner scan
-Change [Your Vuls Server] to your host name or IP address of the Vuls server.
+Change `[Your Vuls Server]` to your host name or IP address of the Vuls server.
 
 ### Prepare Vuls server
 Vuls server responds the scan result.
@@ -192,6 +192,13 @@ $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
+CentOS 7
+
+```
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+```
+
 ### Amazon Linux
 ```
 $ export VULS_SERVER=[Your Vuls Server]
@@ -213,11 +220,11 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: debian" -H "X
 
 ```
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: ubuntu" -H "X-Vuls-OS-Release: 16.04" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `lsb_release -si | awk '{print tolower($1)}'`" -H "X-Vuls-OS-Release: `lsb_release -sr | awk '{print $1}'`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls > $LOCAL_REPORT
 ```
 
 ## Example: Save scan results to Vuls server
-Change [Your Vuls Server] to your host name or IP address of the Vuls server.
+Change `[Your Vuls Server]` to your host name or IP address of the Vuls server.
 
 ### Vuls server
 Vuls server saves the sent scan results to local.
@@ -233,7 +240,10 @@ Log in your target server and execute only one command.
 ```
 $ export VULS_SERVER=[Your Vuls Server]
 $ export SERVER_NAME=$(hostname)
+# For RedHat/CentOS 6
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+# For RedHat/CentOS 7
+curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ## Example: Collect the scan results from Vuls agent
