@@ -1,7 +1,7 @@
 ---
 id: related-projects
 title: Related Projects
-sidebar_label: Releted Projects
+sidebar_label: Related Projects
 ---
 
 ## [ohsawa0515/serverless-vuls](https://github.com/ohsawa0515/serverless-vuls)
