@@ -238,7 +238,7 @@ $ curl -X POST -H &quot;Content-Type: application/json&quot; -d @centos6.json ht
 <li>Ubuntu</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="例-一行でスキャン"></a><a href="#例-一行でスキャン" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: 一行でスキャン</h2>
-<p>Change [Your Vuls Server] to your host name or IP address of the Vuls server.</p>
+<p>Change <code>[Your Vuls Server]</code> to your host name or IP address of the Vuls server.</p>
 <h3><a class="anchor" aria-hidden="true" id="vulsサーバの用意"></a><a href="#vulsサーバの用意" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vulsサーバの用意</h3>
 <p>Vulsサーバはスキャン結果を応答します。</p>
 <pre><code class="hljs">$ vuls server -listen 0.0.0.0:5515
@@ -255,6 +255,10 @@ INFO[08-25|18:10:49] Migrating DB.                            db=sqlite3
 <pre><code class="hljs">$ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`&quot; -H &quot;X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; --data-binary &quot;`rpm -qa --queryformat &quot;%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n&quot;`&quot; http://${VULS_SERVER}:5515/vuls
 </code></pre>
+<p>CentOS 7</p>
+<pre><code class="hljs">$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`&quot; -H &quot;X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; --data-binary &quot;`rpm -qa --queryformat &quot;%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n&quot;`&quot; http://${VULS_SERVER}:5515/vuls
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="amazon-linux"></a><a href="#amazon-linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Amazon Linux</h3>
 <pre><code class="hljs">$ export VULS_SERVER=[Your Vuls Server]
 $ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) printf(&quot;%s %s&quot;,$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i&lt;=NF; i++) printf(&quot;%s &quot;, $i); else if (NF==5) print $5}' /etc/system-release)
@@ -269,10 +273,10 @@ $ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="ubuntu"></a><a href="#ubuntu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ubuntu</h3>
 <pre><code class="hljs">$ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family: ubuntu&quot; -H &quot;X-Vuls-OS-Release: 16.04&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; --data-binary &quot;$(dpkg-query -W -f=&quot;\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n&quot;)&quot; http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family: `lsb_release -si | awk '{print tolower($1)}'`&quot; -H &quot;X-Vuls-OS-Release: `lsb_release -sr | awk '{print $1}'`&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; -H &quot;X-Vuls-Server-Name: `hostname`&quot; --data-binary &quot;$(dpkg-query -W -f=&quot;\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n&quot;)&quot; http://${VULS_SERVER}:5515/vuls &gt; $LOCAL_REPORT
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="例-スキャン結果をvulsサーバに保存する。"></a><a href="#例-スキャン結果をvulsサーバに保存する。" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果をVulsサーバに保存する。</h2>
-<p>Change [Your Vuls Server] to your host name or IP address of the Vuls server.</p>
+<p>Change <code>[Your Vuls Server]</code> to your host name or IP address of the Vuls server.</p>
 <h3><a class="anchor" aria-hidden="true" id="vuls-server"></a><a href="#vuls-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vuls server</h3>
 <p>Vuls server saves the sent scan results to local.</p>
 <pre><code class="hljs">$ vuls server -listen 0.0.0.0:5515 -to-localfile -format-json 
@@ -282,7 +286,12 @@ $ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-OS-Family
 <code>X-Vuls-Server-Name</code> header is also required.</p>
 <pre><code class="hljs">$ export VULS_SERVER=[Your Vuls Server]
 $ export SERVER_NAME=$(hostname)
+
+# For RedHat/CentOS 6
 $ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-Server-Name: ${SERVER_NAME}&quot; -H &quot;X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`&quot; -H &quot;X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; --data-binary &quot;`rpm -qa --queryformat &quot;%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n&quot;`&quot; http://${VULS_SERVER}:5515/vuls
+
+# For RedHat/CentOS 7
+$ curl -X POST -H &quot;Content-Type: text/plain&quot; -H &quot;X-Vuls-Server-Name: ${SERVER_NAME}&quot; -H &quot;X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`&quot; -H &quot;X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`&quot; -H &quot;X-Vuls-Kernel-Release: `uname -r`&quot; --data-binary &quot;`rpm -qa --queryformat &quot;%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n&quot;`&quot; http://${VULS_SERVER}:5515/vuls
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="例-vulsエージェントからスキャン結果を集める"></a><a href="#例-vulsエージェントからスキャン結果を集める" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: Vulsエージェントからスキャン結果を集める</h2>
 <p>Vuls agent scans the target servers and sent the scan results to Vuls server.</p>

@@ -356,6 +356,16 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 </table>
 </li>
 </ul>
+<h2><a class="anchor" aria-hidden="true" id="example-generate-all-client-scan-reports"></a><a href="#example-generate-all-client-scan-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Generate all client scan reports</h2>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Show scan history</span>
+$ vuls <span class="hljs-built_in">history</span>
+
+<span class="hljs-comment"># Generate reports for all scan history</span>
+$ <span class="hljs-keyword">for</span> REPORT_DATE <span class="hljs-keyword">in</span> $(vuls <span class="hljs-built_in">history</span> | awk <span class="hljs-string">'{ print $1 }'</span>) ; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$REPORT_DATE</span>"</span> | vuls report -format-one-line-text -pipe ; <span class="hljs-keyword">done</span>
+
+<span class="hljs-comment"># Generate reports for a specific date</span>
+vuls <span class="hljs-built_in">history</span> | grep <span class="hljs-string">"DATE"</span> | vuls report -format-one-line-text -pipe
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost"></a><a href="#example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>

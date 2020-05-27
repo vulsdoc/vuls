@@ -356,7 +356,17 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 </table>
 </li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-go-cve-dcitionaryとgoval-dictionary、gost-のパスの指定"></a><a href="#例-go-cve-dcitionaryとgoval-dictionary、gost-のパスの指定" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: go-cve-dcitionaryとgoval-dictionary、gost のパスの指定</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-generate-all-client-scan-reports"></a><a href="#example-generate-all-client-scan-reports" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Generate all client scan reports</h2>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Show scan history</span>
+$ vuls <span class="hljs-built_in">history</span>
+
+<span class="hljs-comment"># Generate reports for all scan history</span>
+$ <span class="hljs-keyword">for</span> REPORT_DATE <span class="hljs-keyword">in</span> $(vuls <span class="hljs-built_in">history</span> | awk <span class="hljs-string">'{ print $1 }'</span>) ; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$REPORT_DATE</span>"</span> | vuls report -format-one-line-text -pipe ; <span class="hljs-keyword">done</span>
+
+<span class="hljs-comment"># Generate reports for a specific date</span>
+vuls <span class="hljs-built_in">history</span> | grep <span class="hljs-string">"DATE"</span> | vuls report -format-one-line-text -pipe
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost"></a><a href="#example-specify-the-path-of-go-cve-dcitionary-goval-dictionary-and-gost" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
@@ -374,7 +384,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
 <span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果のhipchatへの送信"></a><a href="#例-スキャン結果のhipchatへの送信" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果のHipChatへの送信</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-hipchat"></a><a href="#example-send-scan-results-to-hipchat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to HipChat</h2>
 <p>HipChatについては <a href="https://vuls.io/docs/en/usage-settings.html#hipchat-section">config.toml</a>で指定します。</p>
 <pre><code class="hljs css language-bash">$ vuls report \
       -to-hipchat \
@@ -385,7 +395,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li>HipChatにスキャン結果を送信します。</li>
 <li>CVSSスコアが7以上のCVEのみをレポートします。</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果のstrideへの送信"></a><a href="#例-スキャン結果のstrideへの送信" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果のStrideへの送信</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-stride"></a><a href="#example-send-scan-results-to-stride" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Stride</h2>
 <p>Strideについては <a href="https://vuls.io/docs/en/usage-settings.html#stride-section">config.toml</a>で指定します。</p>
 <pre><code class="hljs css language-bash">$ vuls report \
       -to-stride \
@@ -396,7 +406,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li>Strideにスキャン結果を送信します。</li>
 <li>CVSSスコアが7以上のCVEのみをレポートします。</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果のchatworkへの送信"></a><a href="#例-スキャン結果のchatworkへの送信" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果のChatWorkへの送信</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-chatwork"></a><a href="#example-send-scan-results-to-chatwork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to ChatWork</h2>
 <p>ChatWorkについては<a href="https://vuls.io/docs/en/usage-settings.html#chatwork-section">config.toml</a>で指定します。</p>
 <pre><code class="hljs css language-bash">$ vuls report \
       -to-chatwork \
@@ -407,7 +417,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li>ChatWorkにスキャン結果を送信します。</li>
 <li>CVSSスコアが7以上のCVEのみをレポートします。</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果のslackへの送信"></a><a href="#例-スキャン結果のslackへの送信" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果のSlackへの送信</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-slack"></a><a href="#example-send-scan-results-to-slack" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Slack</h2>
 <p>Slackについては <a href="https://vuls.io/docs/en/usage-settings.html#slack-section">config.toml</a>で指定します。</p>
 <pre><code class="hljs css language-bash">$ vuls report \
       -to-slack \
@@ -418,7 +428,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li>Slackにスキャン結果を送信します。</li>
 <li>CVSSスコアが7以上のCVEのみをレポートします。</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果のtelegramへの送信"></a><a href="#例-スキャン結果のtelegramへの送信" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果のTelegramへの送信</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-send-scan-results-to-telegram"></a><a href="#example-send-scan-results-to-telegram" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Send scan results to Telegram</h2>
 <p>Telegram については <a href="https://vuls.io/docs/en/usage-settings.html#telegram-section">config.toml</a>で指定します。</p>
 <pre><code class="hljs css language-bash">$ vuls report \
       -to-telegram \
@@ -429,7 +439,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li>Telegramにスキャン結果を送信します。</li>
 <li>CVSSスコアが7以上のCVEのみをレポートします。</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果をs3のバケットに置く"></a><a href="#例-スキャン結果をs3のバケットに置く" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果をS3のバケットに置く</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-put-results-in-s3-bucket"></a><a href="#example-put-results-in-s3-bucket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in S3 bucket</h2>
 <p>スキャン結果をS3のバケットに置くためには、事前にAWSに以下の設定をします。</p>
 <ul>
 <li>S3バケットを作る。<a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/CreatingaBucket.html">Creating a Bucket</a>を参照。</li>
@@ -483,7 +493,7 @@ s3ServerSideEncryption = <span class="hljs-string">"AES256"</span>
 <li>プロファイルは「default」</li>
 <li>サーバサイドの暗号化アルゴリズム。（例: AES256、aws:kms）</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-スキャン結果をazure-blob-storageに置く"></a><a href="#例-スキャン結果をazure-blob-storageに置く" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: スキャン結果をAzure Blob storageに置く</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-put-results-in-azure-blob-storage"></a><a href="#example-put-results-in-azure-blob-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Put results in Azure Blob storage</h2>
 <p>Azure Blob Storageにスキャン結果を置くには、事前にAzureに以下の設定をします。</p>
 <ul>
 <li>Azure Blob Containerを作る</li>
@@ -509,7 +519,7 @@ containerName <span class="hljs-string">"vuls"</span>
 $ <span class="hljs-built_in">export</span> AZURE_STORAGE_ACCESS_KEY=access-key-string
 $ vuls report -to-azure-blob
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-ignorecves"></a><a href="#例-ignorecves" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: IgnoreCves</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-ignorecves"></a><a href="#example-ignorecves" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnoreCves</h2>
 <p>もし特定のCVE IDをレポート(Slack, EMail, Text...) したくなければ、コンフィグにignoreCvesを設定します。</p>
 <ul>
 <li>config.toml</li>
@@ -536,7 +546,7 @@ $ vuls report -to-azure-blob
 <span class="hljs-section">[servers.cent7.containers.romantic_goldberg]</span>
 <span class="hljs-attr">ignoreCves</span> = [<span class="hljs-string">"CVE-2016-6314"</span>]
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-ignorepkgsregexp"></a><a href="#例-ignorepkgsregexp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: IgnorePkgsRegexp</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-ignorepkgsregexp"></a><a href="#example-ignorepkgsregexp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: IgnorePkgsRegexp</h2>
 <p>特定の正規表現 <a href="https://github.com/google/re2/wiki/Syntax">google/re2</a> にマッチしたパッケージをレポート(Slack, EMail, Text...) したくなれば、コンフィグにignorePkgsRegexpを設定します。</p>
 <pre><code class="hljs">[servers.c74]
 host     = &quot;192.168.11.11&quot;
@@ -546,11 +556,11 @@ ignorePkgsRegexp = [&quot;^kernel&quot;, &quot;^python&quot;]
 [servers.c74.containers.romantic_goldberg]
 ignorePkgsRegexp = [&quot;^vim&quot;]
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-github-security-alertsとの統合"></a><a href="#例-github-security-alertsとの統合" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: GitHub Security Alertsとの統合</h2>
+<h2><a class="anchor" aria-hidden="true" id="exapmle-github-security-alerts-integration"></a><a href="#exapmle-github-security-alerts-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exapmle: GitHub Security Alerts Integration</h2>
 <ul>
 <li><a href="https://vuls.io/docs/en/usage-scan-non-os-packages.html#usage-integrate-with-github-security-alerts">Usage: Integrate with GitHub Security Alerts</a></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-jsonに任意のkey-valueペアを追加する。"></a><a href="#例-jsonに任意のkey-valueペアを追加する。" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: JSONに任意のkey-valueペアを追加する。</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-add-optional-key-value-pairs-to-json"></a><a href="#example-add-optional-key-value-pairs-to-json" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Add optional key-value pairs to JSON</h2>
 <p>任意のkey-valueをJSONに出力できます。 defaultセクションのkey-valueは各サーバセクションのkey-valueで上書きされます。 具体的には、このkey-valueをAzure ResourceGroupの名前や、Azure VM Nameなどに使えます。</p>
 <ul>
 <li>config.toml</li>
@@ -585,7 +595,7 @@ ignorePkgsRegexp = [&quot;^vim&quot;]
   }
 ]
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-mysqlをバックエンドのデータベースとして使用する"></a><a href="#例-mysqlをバックエンドのデータベースとして使用する" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: MySQLをバックエンドのデータベースとして使用する</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-use-mysql-as-a-db-storage-back-end"></a><a href="#example-use-mysql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use MySQL as a DB storage back-end</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"mysql"</span>
@@ -610,7 +620,7 @@ ignorePkgsRegexp = [&quot;^vim&quot;]
 <pre><code class="hljs css language-bash">Error 1292: Incorrect datetime value: <span class="hljs-string">'0000-00-00'</span> <span class="hljs-keyword">for</span> column <span class="hljs-string">'issued'</span> at row 1
 </code></pre>
 <p>詳細は準備中です。</p>
-<h2><a class="anchor" aria-hidden="true" id="例-postgresqlをバックエンドのデータベースとして使用する"></a><a href="#例-postgresqlをバックエンドのデータベースとして使用する" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: PostgreSQLをバックエンドのデータベースとして使用する</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-use-postgresql-as-a-db-storage-back-end"></a><a href="#example-use-postgresql-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use PostgreSQL as a DB storage back-end</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"postgres"</span>
@@ -631,7 +641,7 @@ ignorePkgsRegexp = [&quot;^vim&quot;]
 <pre><code class="hljs css language-bash">$ vuls report
 ...
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-redisをバックエンドのデータベースとして使用する"></a><a href="#例-redisをバックエンドのデータベースとして使用する" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: Redisをバックエンドのデータベースとして使用する</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-use-redis-as-a-db-storage-back-end"></a><a href="#example-use-redis-as-a-db-storage-back-end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use Redis as a DB storage back-end</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"redis"</span>
@@ -652,7 +662,7 @@ ignorePkgsRegexp = [&quot;^vim&quot;]
 <pre><code class="hljs css language-bash">$ vuls report
 ...
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-脆弱性辞書にhttpでアクセスする"></a><a href="#例-脆弱性辞書にhttpでアクセスする" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: 脆弱性辞書にHTTPでアクセスする</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-use-http-to-access-to-vulnerability-dictionarys"></a><a href="#example-use-http-to-access-to-vulnerability-dictionarys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Use HTTP to access to vulnerability dictionarys</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"http"</span>
