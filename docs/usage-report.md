@@ -294,6 +294,19 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
   | ChangelogLenientMatch  | 50                 |         Ubuntu, Debian, Raspbian |Lenient version match between changelog and package version|
   | PkgAuditMatch          | 100                |                          FreeBSD |Detection using pkg audit|
   | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
+  
+## Example: Generate all client scan reports
+
+```bash
+# Show scan history
+$ vuls history
+
+# Generate reports for all scan history
+$ for REPORT_DATE in $(vuls history | awk '{ print $1 }') ; do echo "$REPORT_DATE" | vuls report -format-one-line-text -pipe ; done
+
+# Generate reports for a specific date
+vuls history | grep "DATE" | vuls report -format-one-line-text -pipe
+```
 
 ## Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost
 
@@ -507,7 +520,7 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
-## Example: IgnoreCves of a contianer
+## Example: IgnoreCves of a container
 
 - config.toml
 
