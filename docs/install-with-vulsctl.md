@@ -74,6 +74,16 @@ For details, see
 - [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
 - [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
 
+## Deploy `vuls` on the host
+
+You can deploy `vuls` on your host easily while using the [install-host.sh](https://github.com/vulsio/vulsctl/blob/5efed5284bf97e9915563644d90411490bcf47ce/install-host.sh) script.
+
+```bash
+$ sudo bash install-host.sh
+```
+
+> The support for RHEL and CentOS 6.x / 7.x is in [pull requests](https://github.com/vulsio/vulsctl/pulls).
+
 ## Vulsrepo
 
 ```
