@@ -1,16 +1,22 @@
 ---
 id: install-with-vulsctl
-title: Install wth vulsctl on CentOS
-sidebar_label: Easiest way to setup Vuls - Vulsctl
+title: Install with vulsctl
+sidebar_label: Vulsctl - Quickest Vuls setup
 ---
 
 ## Vulsctl
 
-[Vulsctl](https://github.com/vulsio/vulsctl) was created to ease setup. Each shell script is a wrapper for docker command.
+### Linux Distributions
+The following example should work on Fedora based Linux distributions,
+which include: CentOS, RedHat, Amazon Linux etc (tested on CentOS and
+Red Hat 7).
 
-## setup Docker
+[Vulsctl](https://github.com/vulsio/vulsctl) was created to ease setup. Each
+shell script is a wrapper around Docker commands.
 
-- Install [Docker](https://docs.docker.com/install/linux/docker-ce/centos/)
+## Setup Docker
+
+- Install [Docker](https://docs.docker.com/engine/install/)
 - [Manage Docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/)
 
 ```bash
@@ -24,18 +30,20 @@ $ git clone https://github.com/vulsio/vulsctl.git
 $ cd vulsctl
 ```
 
-## Fetch Vulnerability Database
+## Fetch Vulnerability Databases
+
+This will take some time ...
 
 ```
 $ ./update-all.sh
 ```
 
-## Scan and Report
+## Config, Scan, Report
 
-Prepare config.toml in the same directory.
+Prepare the **config.toml** in the **vulsctl** install directory similar to
+the configuration below.
 
 ```
-$ cat $HOME/vulsctl/config.toml 
 [servers]
 [servers.hostos]
 host        = "52.10.10.10"
@@ -44,16 +52,19 @@ user        = "centos"
 # keypath in the Vuls docker container
 keyPath     = "/root/.ssh/id_rsa"
 ```
+The **scan.sh** will mount **$HOME/.ssh** from the host operating system into
+the Docker container, however you will need to SSH into the target server
+beforehand which will add your fingerprint to $HOME/.ssh/known_hosts.
 
+`
 ![](https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg)
 
-SSH before scanning to add fingerprint to $HOME/.ssh/known_hosts on the Docker host.
 ```
 $ ssh centos@52.100.100.100 -i ~/.ssh/id_rsa.pem
 ```
 
 ```
-$ ./scan.sh 
+$ ./scan.sh
 $ ./report.sh
 $ ./tui.sh
 ```
