@@ -507,7 +507,7 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
-## Example: IgnoreCves of a contianer
+## Example: IgnoreCves of a container
 
 - config.toml
 
