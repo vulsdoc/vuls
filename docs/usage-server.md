@@ -265,7 +265,8 @@ Scan normally and sent the scan results to Vuls server by `-to-http` option.
 ```
 $ vuls scan
 $ export VULS_SERVER=[Your Vuls Server]
-$ vuls report -to-http http://${VULS_SERVER}:5515/vuls
+$ export VULS_HTTP_URL=http://${VULS_SERVER}:5515/vuls
+$ vuls report -to-http
 ```
 
 ## Example: Send the server information to the server in the form of JSON
