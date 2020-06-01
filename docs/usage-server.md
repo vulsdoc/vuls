@@ -245,7 +245,7 @@ $ export SERVER_NAME=$(hostname)
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 
 # For RedHat/CentOS 7
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk -F: '{print $3}' /etc/system-release-cpe`" -H "X-Vuls-OS-Release: `awk -F: '{print $5}' /etc/system-release-cpe`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ## Example: Collect the scan results from Vuls agent
