@@ -314,19 +314,19 @@ severity    = &quot;alert&quot;
 verbose     = false
 </code></pre>
 <ul>
-<li>protocol : 使うプロトコル (default: empty)</li>
-<li><code>tcp</code> か <code>udp</code> か 空<br>
-もし空の時は、Vulsはローカルのsyslogサーバに接続します。</li>
-<li>host : syslogサーバのホスト</li>
-<li>ドメイン名かIPアドレス</li>
-<li>port : syslogサーバのポート (default: 514)</li>
-<li>tag : syslogのタグ</li>
-<li>facility : syslogのfacility (default: <code>auth</code>)</li>
-<li>kern, user, mail, daemon, など</li>
-<li>severity : syslogの深刻度 (default: <code>info</code>)</li>
-<li>emerg, alert, crit, など</li>
+<li>protocol : transfer protocol (default: empty)</li>
+<li><code>tcp</code> or <code>udp</code> or empty<br>
+If protocol is empty, vuls will connect to the local syslog server.</li>
+<li>host : syslog target host</li>
+<li>domain name or IP address</li>
+<li>port : syslog target port (default: 514)</li>
+<li>tag : syslog tag</li>
+<li>facility : syslog facility (default: <code>auth</code>)</li>
+<li>kern, user, mail, daemon, etc.</li>
+<li>severity : syslog severity (default: <code>info</code>)</li>
+<li>emerg, alert, crit, etc.</li>
 <li>verbose : verbose mode (default: false)</li>
-<li>CVE detail, など</li>
+<li>CVE detail, etc.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="default-section"></a><a href="#default-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default section</h2>
 <pre><code class="hljs">[default]
@@ -365,15 +365,15 @@ host         = &quot;172.31.4.82&quot;
 </code></pre>
 <p>You can overwrite the default value specified in default section.</p>
 <ul>
-<li>host:スキャン対象サーバのIPアドレスかホスト名</li>
-<li>port: SSHのポート番号</li>
-<li>user: SSHのユーザ名</li>
-<li>keyPath: SSHの秘密鍵へのパス</li>
-<li>type: &quot;pseudo&quot; のときはSSHを利用しない。<a href="https://github.com/future-architect/vuls/pull/531">#531</a>を参照。</li>
-<li>cpeNames:<a href="/docs/ja/usage-scan-non-os-packages.html">Usage: Scan vulnerability of non-OS package</a>を参照。</li>
-<li>ignoreCves: 無視するCVE IDの指定。ただし、JSON形式のレポートファイルには出力される。</li>
-<li>optional: JSON形式のレポートに追加したい情報。</li>
-<li>containers: <a href="/docs/ja/usage-scan.html#example-scan-containers-docker-lxd-lxc">Example: Scan containers (Docker/LXD)</a>を参照。</li>
+<li>host: IP address or hostname of target server</li>
+<li>port: SSH Port number</li>
+<li>user: SSH username</li>
+<li>keyPath: SSH private key path</li>
+<li>type: &quot;pseudo&quot; for non-ssh scanning. see <a href="https://github.com/future-architect/vuls/pull/531">#531</a></li>
+<li>cpeNames: see <a href="/docs/ja/usage-scan-non-os-packages.html">Usage: Scan vulnerability of non-OS package</a></li>
+<li>ignoreCves: CVE IDs that will not be reported. But output to JSON file.</li>
+<li>optional: Add additional information to JSON report.</li>
+<li>containers: see <a href="/docs/ja/usage-scan.html#example-scan-containers-docker-lxd-lxc">Example: Scan containers (Docker/LXD)</a></li>
 </ul>
 <p>Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see <a href="/docs/ja/usage-scan.html#ssh-native-insecure-option">-ssh-native-insecure option</a></p>
 <p>Multiple SSH authentication methods are supported.</p>
