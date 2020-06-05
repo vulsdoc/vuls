@@ -299,6 +299,19 @@ So @foo, @bar can receive mobile push notifications on their smartphone.</li>
 <span class="hljs-attr">cc</span>            = [<span class="hljs-string">"cc@address.com"</span>]
 <span class="hljs-attr">subjectPrefix</span> = <span class="hljs-string">"[vuls]"</span>
 </code></pre>
+<ul>
+<li>If you use SMTPS when send email, please set config.toml as follows.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-section">[email]</span>
+<span class="hljs-attr">smtpAddr</span>      = <span class="hljs-string">"smtp.gmail.com"</span>
+<span class="hljs-attr">smtpPort</span>      = <span class="hljs-string">"465"</span>
+<span class="hljs-attr">user</span>          = <span class="hljs-string">"username"</span>
+<span class="hljs-attr">password</span>      = <span class="hljs-string">"password"</span>
+<span class="hljs-attr">from</span>          = <span class="hljs-string">"from@address.com"</span>
+<span class="hljs-attr">to</span>            = [<span class="hljs-string">"to@address.com"</span>]
+<span class="hljs-attr">cc</span>            = [<span class="hljs-string">"cc@address.com"</span>]
+<span class="hljs-attr">subjectPrefix</span> = <span class="hljs-string">"[vuls]"</span>
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gmail-account-setting"></a><a href="#gmail-account-setting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gmail account setting</h3>
 <p>If you can't send vuls report via Email, please check your Gmail account setting.</p>
 <ol>
