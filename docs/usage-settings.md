@@ -243,6 +243,20 @@ to            = ["to@address.com"]
 cc            = ["cc@address.com"]
 subjectPrefix = "[vuls]"
 ```
+
+- If you use SMTPS when send email, please set config.toml as follows.
+```
+[email]
+smtpAddr      = "smtp.gmail.com"
+smtpPort      = "465"
+user          = "username"
+password      = "password"
+from          = "from@address.com"
+to            = ["to@address.com"]
+cc            = ["cc@address.com"]
+subjectPrefix = "[vuls]"
+```
+
 ### Gmail account setting
 If you can't send vuls report via Email, please check your Gmail account setting. 
 
