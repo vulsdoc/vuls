@@ -330,6 +330,18 @@ type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 ```
 
+## Example: Send scan results to email
+Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
+
+```bash
+$ vuls report \
+      -to-email \
+      -cvss-over=7
+```
+With this sample command, it will ..
+- Send scan results to Email
+- Only Report CVEs that CVSS score is over 7
+
 ## Example: Send scan results to HipChat
 
 Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
