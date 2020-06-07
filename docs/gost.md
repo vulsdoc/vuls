@@ -12,12 +12,25 @@ For detail of gost, see [knqyf263/gost](https://github.com/knqyf263/gost)
 $ gost server -bind=192.168.10.1 -port=1325
 ```
 
-Sepcify URL of the gost in config.toml
+Sepcify URL of the gost in config.toml or config.json
+
+- config.toml
 
 ```
 [gost]
 type = "http"
 url = "http://192.168.0.1:1325"
+```
+
+- config.json
+
+```
+{
+  "gost": {
+    "type": "http",
+    "url": "http://192.168.0.1:1325"
+  }
+}
 ```
 
 ```

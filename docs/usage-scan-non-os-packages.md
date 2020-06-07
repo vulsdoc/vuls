@@ -29,6 +29,8 @@ Trivy detects lock files listed below.
 A sample of config.toml is blow.  
 specify the path of locckfiles, Vuls can detect vulns of libs without defining CPEs.
 
+- config.toml
+
 ```bash
 [servers]
 
@@ -44,6 +46,26 @@ lockfiles = [
 ]
 ```
 
+- config.json
+
+```
+{
+  "servers": {
+    "abuntu": {
+      "host": "xxx.xxx.xxx",
+      "port": "22",
+      "user": "tamachi",
+      "keyPath": "/Users/amachi/.ssh/id_dsa",
+      "findLock": true,
+      "lockfiles": [
+        "/home/tamachi/lockfiles/package-lock.json",
+        "/home/tamachi/lockfiles/yarn.lock"
+      ]
+    }
+  }
+}
+```
+
 # Usage: Integrate with GitHub Security Alerts
 
 GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
@@ -55,12 +77,31 @@ Second, Issue a token. [see](https://github.com/settings/tokens)
 
 3rd, config.toml
 
+- config.toml
+
 ```toml
 [servers.ghsa]
 type = "pseudo"
 
 [servers.ghsa.githubs."owner/repo"]
 token   = "xxxxYourTokenxxx"
+```
+
+- config.json
+
+```
+{
+  "servers": {
+    "ghsa": {
+      "type": "pseudo",
+      "githubs": {
+        "\"owner/repo\"": {
+          "token": "xxxxYourTokenxxx"
+        }
+      }
+    }
+  }
+}
 ```
 
 To ignore vulnerabilities dismissed on GitHub, Report has the `-ignore-github-dismissed` option.
@@ -100,6 +141,8 @@ You can search a CPE name by the application name incrementally.
 
 To detect the vulnerability of Ruby on Rails v4.2.1 and PostgreSQL9.6.2, cpeNames needs to be set in the servers section.
 
+- config.toml
+
 ```bash
 [servers]
 
@@ -113,10 +156,30 @@ cpeNames = [
 ]
 ```
 
+- config.json
+
+```
+{
+  "servers": {
+    "172-31-4-82": {
+      "host": "172.31.4.82",
+      "user": "ec2-user",
+      "keyPath": "/home/username/.ssh/id_rsa",
+      "cpeNames": [
+        "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+        "cpe:2.3:a:postgresql:postgresql:9.6.2:*:*:*:*:*:*:*"
+      ]
+    }
+  }
+}
+```
+
 ### Container
 
 To detect the vulnerability of Ruby on Rails v4.2.1 on specific container, cpeNames needs to be set in the servers>containers section.
 The following is an example of running Ruby on Rails v4.2.1 and PostgreSQL9.6.2 on dockerA.
+
+- config.toml
 
 ```bash
 [servers]
@@ -136,11 +199,39 @@ cpeNames = [
 
 ```
 
+- config.json
+
+```
+{
+  "servers": {
+    "172-31-4-82": {
+      "host": "172.31.4.82",
+      "user": "ec2-user",
+      "keyPath": "/home/username/.ssh/id_rsa",
+      "containerType": "docker",
+      "containersIncluded": [
+        "${running}"
+      ],
+      "containers": {
+        "dockerA": {
+          "cpeNames": [
+            "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+            "cpe:2.3:a:postgresql:postgresql:9.6.2:*:*:*:*:*:*:*"
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 ### type="pseudo"
 
 Specify this when you want to detect vulnerability by specifying cpename without SSH connection.
 The pseudo type does not do anything when scanning.
 Search for NVD at report time and detect vulnerability of software specified as cpenamae.
+
+- config.toml
 
 ```bash
 [servers]
@@ -151,6 +242,22 @@ cpeNames = [
     "cpe:/o:fortinet:fortios:4.3.0",
 ]
 ```
+
+- config.json
+
+```
+{
+  "servers": {
+    "forti": {
+      "type": "pseudo",
+      "cpeNames": [
+        "cpe:/o:fortinet:fortios:4.3.0"
+      ]
+    }
+  }
+}
+```
+
 
 # Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
 
@@ -166,7 +273,9 @@ Benefit of integrating Vuls And OWASP Dependency Check is below.
 How to integrate Vuls with OWASP Dependency Check
 
 - Execute OWASP Dependency Check with --format=XML option.
-- Define the xml file path of dependency check in config.toml.
+- Define the xml file path of dependency check in config.toml or config.json.
+
+- config.toml
 
     ```bash
     [servers]
@@ -178,7 +287,24 @@ How to integrate Vuls with OWASP Dependency Check
     owaspDCXMLPath = "/tmp/dependency-check-report.xml"
     ```
 
+- config.json
+
+```
+{
+  "servers": {
+    "172-31-4-82": {
+      "host": "172.31.4.82",
+      "user": "ec2-user",
+      "keyPath": "/home/username/.ssh/id_rsa",
+      "owaspDCXMLPath": "/tmp/dependency-check-report.xml"
+    }
+  }
+}
+```
+
 The following is an example of how to specify a XML of OWASP DC to the specific container.
+
+- config.toml
 
 ```bash
 [servers]
@@ -193,4 +319,27 @@ containersIncluded = ["${running}"]
 [servers.172-31-4-82.containers.dockerA]
 owaspDCXMLPath = "/tmp/dependency-check-report.xml"
 
+```
+
+- config.json
+
+```
+{
+  "servers": {
+    "172-31-4-82": {
+      "host": "172.31.4.82",
+      "user": "ec2-user",
+      "keyPath": "/home/username/.ssh/id_rsa",
+      "containerType": "docker",
+      "containersIncluded": [
+        "${running}"
+      ],
+      "containers": {
+        "dockerA": {
+          "owaspDCXMLPath": "/tmp/dependency-check-report.xml"
+        }
+      }
+    }
+  }
+}
 ```

@@ -80,7 +80,9 @@ To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#de
 
 ## Step4. Configuration
 
-Create config.toml referring to [this](usage-settings.md).
+Create config.toml or config.json referring to [this](usage-settings.md).
+
+- config.toml
 
 ```toml
 [servers]
@@ -90,6 +92,21 @@ host         = "54.249.93.16"
 port        = "22"
 user        = "vuls-user"
 keyPath     = "/root/.ssh/id_rsa" # path to ssh private key in docker
+```
+
+- config.json
+
+```
+{
+  "servers": {
+    "c74": {
+      "host": "54.249.93.16",
+      "port": "22",
+      "user": "vuls-user",
+      "keyPath": "/root/.ssh/id_rsa"
+    }
+  }
+}
 ```
 
 
@@ -135,7 +152,9 @@ $ docker run --rm -it \
 
 ## Step7. Report
 
-config.toml
+prepare config.toml or config.json
+
+- config.toml
 
 ```
 [cveDict]
@@ -153,6 +172,29 @@ SQLite3Path = "/path/to/gost.sqlite3"
 [exploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
+```
+
+- config.json
+
+```
+{
+  "cveDict": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/cve.sqlite3"
+  },
+  "ovalDict": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/oval.sqlite3"
+  },
+  "gost": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/gost.sqlite3"
+  },
+  "exploit": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/go-exploitdb.sqlite3"
+  }
+}
 ```
 
 ```console
@@ -234,6 +276,10 @@ $ docker run -dt \
 
 ## Report
 
+Prepare config.toml or config.json.
+
+- config.toml
+
 ```
 [cveDict]
 type = "http"
@@ -250,6 +296,29 @@ url = "http://hostname:1325"
 [exploit]
 type = "http"
 url = "http://hostname:1326"
+```
+
+- config.json
+
+```
+{
+  "cveDict": {
+    "type": "http",
+    "url": "http://hostname:1323"
+  },
+  "ovalDict": {
+    "type": "http",
+    "url": "http://hostname:1324"
+  },
+  "gost": {
+    "type": "http",
+    "url": "http://hostname:1325"
+  },
+  "exploit": {
+    "type": "http",
+    "url": "http://hostname:1326"
+  }
+}
 ```
 
 ```console

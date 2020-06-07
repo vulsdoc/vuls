@@ -310,7 +310,7 @@ vuls history | grep "DATE" | vuls report -format-one-line-text -pipe
 
 ## Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost
 
-config.toml
+- config.toml
 
 ```toml
 [cveDict]
@@ -329,6 +329,30 @@ SQLite3Path = "/path/to/gost.sqlite3"
 type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 ```
+
+- config.json
+
+```
+{
+  "cveDict": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/cve.sqlite3"
+  },
+  "ovalDict": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/oval.sqlite3"
+  },
+  "gost": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/gost.sqlite3"
+  },
+  "exploit": {
+    "type": "sqlite3",
+    "SQLite3Path": "/path/to/go-exploitdb.sqlite3"
+  }
+}
+```
+
 
 ## Example: Send scan results to email
 Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
@@ -452,7 +476,7 @@ Example of IAM policy:
 }
 ```
 
-config.toml
+- config.toml
 
 ```bash
 [aws]
@@ -460,6 +484,19 @@ profile = "default"
 region = "ap-northeast-1"
 s3Bucket = "vuls"
 s3ServerSideEncryption = "AES256"
+```
+
+- config.json
+
+```
+{
+  "aws": {
+    "profile": "default",
+    "region": "ap-northeast-1",
+    "s3Bucket": "vuls",
+    "s3ServerSideEncryption": "AES256"
+  }
+}
 ```
 
 reporting
@@ -486,7 +523,7 @@ To put results in Azure Blob Storage, configure following settings in Azure befo
 
 - Create a Azure Blob container
 
-config.toml
+- config.toml
 
 ```bash
 [azure]
@@ -494,6 +531,18 @@ accountName = "default"
 accountKey = "xxxxxxxxxxxxxx"
 containerName "vuls"
 ```
+
+- config.json
+
+```
+{
+  "azure": {
+    "accountName": "default",
+    "accountKey": "xxxxxxxxxxxxxx"
+  }
+}
+```
+
 
 ```bash
 $ vuls report -to-azure-blob
@@ -532,6 +581,28 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
+- config.json
+
+```
+{
+  "default": {
+    "ignoreCves": [
+      "CVE-2016-6313"
+    ]
+  },
+  "servers": {
+    "bsd": {
+      "host": "192.168.11.11",
+      "user": "kanbe",
+      "ignoreCves": [
+        "CVE-2016-6314"
+      ]
+    }
+  }
+}
+```
+
+
 ## Example: IgnoreCves of a container
 
 - config.toml
@@ -548,9 +619,36 @@ user     = "kanbe"
 ignoreCves = ["CVE-2016-6314"]
 ```
 
+- config.json
+
+```
+{
+  "default": {
+    "ignoreCves": [
+      "CVE-2016-6313"
+    ]
+  },
+  "servers": {
+    "cent7": {
+      "host": "192.168.11.11",
+      "user": "kanbe",
+      "containers": {
+        "romantic_goldberg": {
+          "ignoreCves": [
+            "CVE-2016-6314"
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 ## Example: IgnorePkgsRegexp
 
 Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp [google/re2](https://github.com/google/re2/wiki/Syntax).
+
+- config.toml
 
 ```
 [servers.c74]
@@ -561,6 +659,31 @@ ignorePkgsRegexp = ["^kernel", "^python"]
 [servers.c74.containers.romantic_goldberg]
 ignorePkgsRegexp = ["^vim"]
 ```
+
+- config.json
+
+```
+{
+  "servers": {
+    "c74": {
+      "host": "192.168.11.11",
+      "user": "kanbe",
+      "ignorePkgsRegexp": [
+        "^kernel",
+        "^python"
+      ],
+      "containers": {
+        "romantic_goldberg": {
+          "ignorePkgsRegexp": [
+            "^vim"
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 
 ## Exapmle: GitHub Security Alerts Integration
 
@@ -589,6 +712,30 @@ key1 = "val1"
 key2 = "val2"
 ```
 
+- config.json
+
+```
+{
+  "default": {
+    "optional": {
+      "key1": "default_value",
+      "key3": 3
+    }
+  },
+  "servers": {
+    "bsd": {
+      "host": "192.168.11.11",
+      "user": "kanbe",
+      "optional": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    }
+  }
+}
+```
+
+
 - bsd.json
 
 ```json
@@ -609,7 +756,7 @@ key2 = "val2"
 
 ## Example: Use MySQL as a DB storage back-end
 
-config.toml
+- config.toml
 
 ```toml
 [cveDict]
@@ -627,6 +774,29 @@ url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 [exploit]
 type = "mysql"
 url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+```
+
+- config.json
+
+```
+{
+  "cveDict": {
+    "type": "mysql",
+    "url": true
+  },
+  "user:pass@tcp(localhost:3306)/dbname?parseTimeovalDict": {
+    "type": "mysql",
+    "url": true
+  },
+  "user:pass@tcp(localhost:3306)/dbname?parseTimegost": {
+    "type": "mysql",
+    "url": true
+  },
+  "user:pass@tcp(localhost:3306)/dbname?parseTimeexploit": {
+    "type": "mysql",
+    "url": true
+  }
+}
 ```
 
 ```bash
@@ -663,6 +833,8 @@ url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 type = "postgres"
 url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 ```
+
+
 
 ```bash
 $ vuls report

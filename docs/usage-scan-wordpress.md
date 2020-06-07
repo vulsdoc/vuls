@@ -17,7 +17,7 @@ First, you need to register a user and get the API token from your profile page 
 And then, check whether the [wp command](https://wp-cli.org/)  is insatalled on the scan target server.
 A sample configuration is below.
 
-* config.toml
+- config.toml
 
 ```toml
   [servers.kusanagi]
@@ -31,6 +31,27 @@ A sample configuration is below.
     docRoot = "/home/kusanagi/wp/DocumentRoot/"
     wpVulnDBToken = "xxxxTokenxxxx"
     ignoreInactive = false
+```
+
+- config.json
+
+```
+{
+  "servers": {
+    "kusanagi": {
+      "user": "root",
+      "host": "10.10.10.10",
+      "port": "22",
+      "wordpress": {
+        "cmdPath": "/usr/local/bin/wp",
+        "osUser": "wordpress",
+        "docRoot": "/home/kusanagi/wp/DocumentRoot/",
+        "wpVulnDBToken": "xxxxTokenxxxx",
+        "ignoreInactive": false
+      }
+    }
+  }
+}
 ```
 
 - cmdPath :  A path of `wp` on the wordpress server

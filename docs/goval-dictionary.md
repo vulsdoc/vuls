@@ -12,12 +12,25 @@ For detail of goval-dictionary, see [kotakanbe/goval-dictionary](https://github.
 $ goval-dictionary server -bind=192.168.10.1 -port=1324
 ```
 
-Sepcify URL of the goval-dict in config.toml
+Sepcify URL of the goval-dict in config.toml or config.json
+
+- config.toml
 
 ```
 [ovalDict]
 type = "http"
 url = "http://192.168.0.1:1324"
+```
+
+- config.json
+
+```
+{
+  "ovalDict": {
+    "type": "http",
+    "url": "http://192.168.0.1:1324"
+  }
+}
 ```
 
 ```

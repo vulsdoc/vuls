@@ -56,13 +56,15 @@ To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log i
 $ ssh ubuntu@172.31.4.82 -i ~/.ssh/id_rsa
 ```
 
-## Step3. Configure (config.toml)
+## Step3. Configure 
 
 ### localhost
 
-```bash
-$ cd $HOME
-$ cat config.toml
+Prepare config.toml or config.json.
+
+- config.toml
+
+```
 [servers]
 
 [servers.ubuntu]
@@ -71,6 +73,22 @@ port        = "22"
 user        = "ubuntu"
 keyPath     = "/home/centos/.ssh/id_rsa"
 ```
+
+- config.json
+
+```
+{
+  "servers": {
+    "ubuntu": {
+      "host": "172.31.4.82",
+      "port": "22",
+      "user": "ubuntu",
+      "keyPath": "/home/centos/.ssh/id_rsa"
+    }
+  }
+}
+```
+
 
 ## Step4. Check config.toml and settings on the server before scanning
 

@@ -34,15 +34,29 @@ If the installation process stops halfway, try increasing the instance type of E
 
 ## Step3. Configuration
 
-Create a config file(TOML format).  
+Prepare config.toml or config.json.
+
+- config.toml
+
 ```
-$ cd $HOME
-$ cat config.toml
 [servers]
 
 [servers.localhost]
 host = "localhost"
 port = "local"
+```
+
+- config.json
+
+```
+{
+  "servers": {
+    "localhost": {
+      "host": "localhost",
+      "port": "local"
+    }
+  }
+}
 ```
 
 ## Step4. Check config.toml and settings on the server before scanning
