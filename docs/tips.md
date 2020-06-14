@@ -29,8 +29,8 @@ Use SSH Key-Based Authentication with no passphrase or ssh-agent.
 
 ## How to scan without SSH host key check
 
-scan with -ssh-config option.
-see [#417](https://github.com/future-architect/vuls/pull/417), [#660](https://github.com/future-architect/vuls/pull/660)
+In `sshConfigPath` of config.toml, describe the PATH to the config file used by ssh.
+see [setting method in config.toml](https://vuls.io/docs/en/usage-settings.html#servers-section), [#1005](https://github.com/future-architect/vuls/pull/1005)
 
 ## How to cross compile
 

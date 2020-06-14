@@ -31,7 +31,7 @@ configtest:
   -log-dir string
         /path/to/log (default "/var/log/vuls")
   -ssh-config
-        Use SSH options specified in ssh_config preferentially
+        [Deprecated] Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int

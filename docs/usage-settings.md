@@ -128,6 +128,7 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 host                = "127.0.0.1"
 #port               = "22"
 #user               = "root"
+#sshConfigPath		= "/home/username/.ssh/config"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
 #type               = "pseudo"
@@ -316,11 +317,12 @@ Items of the default section will be used if not specified.
 [servers]
 
 [servers.172-31-4-82]
-host         = "172.31.4.82"
-#port        = "22"
-#user        = "root"
-#keyPath     = "/home/username/.ssh/id_rsa"
-#type 		 = "pseudo"
+host                = "172.31.4.82"
+#port               = "22"
+#user               = "root"
+#sshConfigPath		= "/home/username/.ssh/config"
+#keyPath            = "/home/username/.ssh/id_rsa"
+#type 		        = "pseudo"
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
@@ -339,6 +341,7 @@ You can overwrite the default value specified in default section.
 - host: IP address or hostname of target server
 - port: SSH Port number
 - user: SSH username
+- sshConfigPath: SSH config file path
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
