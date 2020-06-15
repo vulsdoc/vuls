@@ -30,7 +30,7 @@ Use SSH Key-Based Authentication with no passphrase or ssh-agent.
 ## How to scan without SSH host key check
 
 In `sshConfigPath` of config.toml, describe the PATH to the config file used by ssh.
-see [setting method in config.toml](usage-settings.md#servers-section), [#1005](https://github.com/future-architect/vuls/pull/1005)
+see [setting server section](usage-settings.md#servers-section), [#1005](https://github.com/future-architect/vuls/pull/1005)
 
 ## How to cross compile
 
