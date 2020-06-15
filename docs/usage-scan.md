@@ -45,7 +45,7 @@ scan:
   -skip-broken
         [For CentOS] yum update changelog with --skip-broken option
   -ssh-config
-        Use SSH options specified in ssh_config preferentially
+        [Deprecated] Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int
