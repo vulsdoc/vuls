@@ -126,6 +126,7 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 
 [servers.127-0-0-1]
 host                = "127.0.0.1"
+#jumpServer         = ["test@test.com:22", "test@test1.com:2222"]
 #port               = "22"
 #user               = "root"
 #sshConfigPath		= "/home/username/.ssh/config"
@@ -317,12 +318,13 @@ Items of the default section will be used if not specified.
 [servers]
 
 [servers.172-31-4-82]
-host                = "172.31.4.82"
-#port               = "22"
-#user               = "root"
+host         = "172.31.4.82"
+#jumpServer  = ["test@test.com:22", "test@test1.com:2222"]
+#port        = "22"
+#user        = "root"
 #sshConfigPath		= "/home/username/.ssh/config"
-#keyPath            = "/home/username/.ssh/id_rsa"
-#type 		        = "pseudo"
+#keyPath     = "/home/username/.ssh/id_rsa"
+#type 		   = "pseudo"
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
@@ -339,6 +341,7 @@ host                = "172.31.4.82"
 You can overwrite the default value specified in default section.  
 
 - host: IP address or hostname of target server
+- jumpServer: IP address or hostname with port number of proxy
 - port: SSH Port number
 - user: SSH username
 - sshConfigPath: SSH config file path
