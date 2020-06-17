@@ -292,7 +292,7 @@ LXC required root privilege.
 Example of /etc/sudoers on target servers
 
 ```bash
-vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
+vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 ```
 
 ## Example: scan WordPress (core, plugin, theme)
