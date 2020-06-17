@@ -194,6 +194,7 @@ SQLite3Path = &quot;/path/to/go-exploitdb.sqlite3&quot;
 
 [servers.127-0-0-1]
 host                = &quot;127.0.0.1&quot;
+#jumpServer         = [&quot;test@test.com:22&quot;, &quot;test@test1.com:2222&quot;]
 #port               = &quot;22&quot;
 #user               = &quot;root&quot;
 #sshConfigPath      = &quot;/home/username/.ssh/config&quot;
@@ -359,12 +360,13 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <pre><code class="hljs">[servers]
 
 [servers.172-31-4-82]
-host                = &quot;172.31.4.82&quot;
-#port               = &quot;22&quot;
-#user               = &quot;root&quot;
+host         = &quot;172.31.4.82&quot;
+#jumpServer  = [&quot;test@test.com:22&quot;, &quot;test@test1.com:2222&quot;]
+#port        = &quot;22&quot;
+#user        = &quot;root&quot;
 #sshConfigPath      = &quot;/home/username/.ssh/config&quot;
-#keyPath            = &quot;/home/username/.ssh/id_rsa&quot;
-#type               = &quot;pseudo&quot;
+#keyPath     = &quot;/home/username/.ssh/id_rsa&quot;
+#type          = &quot;pseudo&quot;
 #cpeNames = [
 #  &quot;cpe:/a:rubyonrails:ruby_on_rails:4.2.1&quot;,
 #]
@@ -380,6 +382,7 @@ host                = &quot;172.31.4.82&quot;
 <p>You can overwrite the default value specified in default section.</p>
 <ul>
 <li>host: IP address or hostname of target server</li>
+<li>jumpServer: IP address or hostname with port number of proxy</li>
 <li>port: SSH Port number</li>
 <li>user: SSH username</li>
 <li>sshConfigPath: SSH config file path</li>

@@ -193,6 +193,7 @@ SQLite3Path = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
 
 [servers<span class="hljs-number">.127</span><span class="hljs-number">-0</span><span class="hljs-number">-0</span><span class="hljs-number">-1</span>]
 host                = <span class="hljs-string">"127.0.0.1"</span>
+#jumpServer         = [<span class="hljs-string">"test@test.com:22"</span>, <span class="hljs-string">"test@test1.com:2222"</span>]
 #port               = <span class="hljs-string">"22"</span>
 #user               = <span class="hljs-string">"root"</span>
 #sshConfigPath      = <span class="hljs-string">"/home/username/.ssh/config"</span>
@@ -363,12 +364,13 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <pre><code class="hljs">[servers]
 
 [servers<span class="hljs-number">.172</span><span class="hljs-number">-31</span><span class="hljs-number">-4</span><span class="hljs-number">-82</span>]
-host                = <span class="hljs-string">"172.31.4.82"</span>
-#port               = <span class="hljs-string">"22"</span>
-#user               = <span class="hljs-string">"root"</span>
+host         = <span class="hljs-string">"172.31.4.82"</span>
+#jumpServer  = [<span class="hljs-string">"test@test.com:22"</span>, <span class="hljs-string">"test@test1.com:2222"</span>]
+#port        = <span class="hljs-string">"22"</span>
+#user        = <span class="hljs-string">"root"</span>
 #sshConfigPath      = <span class="hljs-string">"/home/username/.ssh/config"</span>
-#keyPath            = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-#type               = <span class="hljs-string">"pseudo"</span>
+#keyPath     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
+#type          = <span class="hljs-string">"pseudo"</span>
 #cpeNames = [
 #  <span class="hljs-string">"cpe:/a:rubyonrails:ruby_on_rails:4.2.1"</span>,
 #]
@@ -384,6 +386,7 @@ host                = <span class="hljs-string">"172.31.4.82"</span>
 <p>You can overwrite the default value specified in default section.</p>
 <ul>
 <li>host: IP address or hostname of target server</li>
+<li>jumpServer: IP address or hostname with port number of proxy</li>
 <li>port: SSH Port number</li>
 <li>user: SSH username</li>
 <li>sshConfigPath: SSH config file path</li>
