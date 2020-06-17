@@ -129,6 +129,7 @@ host                = "127.0.0.1"
 #jumpServer         = ["test@test.com:22", "test@test1.com:2222"]
 #port               = "22"
 #user               = "root"
+#sshConfigPath		= "/home/username/.ssh/config"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
 #type               = "pseudo"
@@ -321,8 +322,9 @@ host         = "172.31.4.82"
 #jumpServer  = ["test@test.com:22", "test@test1.com:2222"]
 #port        = "22"
 #user        = "root"
+#sshConfigPath		= "/home/username/.ssh/config"
 #keyPath     = "/home/username/.ssh/id_rsa"
-#type 		 = "pseudo"
+#type 		   = "pseudo"
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
@@ -342,6 +344,7 @@ You can overwrite the default value specified in default section.
 - jumpServer: IP address or hostname with port number of proxy
 - port: SSH Port number
 - user: SSH username
+- sshConfigPath: SSH config file path
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)

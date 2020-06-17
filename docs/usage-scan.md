@@ -45,7 +45,7 @@ scan:
   -skip-broken
         [For CentOS] yum update changelog with --skip-broken option
   -ssh-config
-        Use SSH options specified in ssh_config preferentially
+        [Deprecated] Use SSH options specified in ssh_config preferentially
   -ssh-native-insecure
         Use Native Go implementation of SSH. Default: Use the external command
   -timeout int
@@ -292,7 +292,7 @@ LXC required root privilege.
 Example of /etc/sudoers on target servers
 
 ```bash
-vuls ALL=(ALL) NOPASSWD:/usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
+vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 ```
 
 ## Example: scan WordPress (core, plugin, theme)
