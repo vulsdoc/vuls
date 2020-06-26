@@ -14,6 +14,7 @@ This can be done in the following steps.
 1. fetch oval (vuls/goval-dictionary)
 1. fetch gost (vuls/gost)
 1. fetch go-exploitdb(vuls/exploitdb)
+1. fetch go-msfdb(vuls/msfdb)
 1. configuration (vuls/vuls)
 1. configtest (vuls/vuls)
 1. scan (vuls/vuls)
@@ -23,7 +24,7 @@ This can be done in the following steps.
 
 ```console
 $ cd /path/to/working/dir
-$ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log
+$ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-msfdb-log
 ```
 
 ## Step1. Fetch NVD
@@ -77,6 +78,15 @@ $ docker run --rm -i \
     vuls/go-exploitdb fetch exploitdb
 ```
 To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit)
+
+## Step3.6. Fetch go-msfdb
+
+```console
+$ docker run --rm -i \
+    -v $PWD:/vuls \
+    -v $PWD/go-msfdb-log:/var/log/go-msfdb \
+    vuls/go-msfdb fetch msfdb
+```
 
 ## Step4. Configuration
 
@@ -153,6 +163,10 @@ SQLite3Path = "/path/to/gost.sqlite3"
 [exploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
+
+[metasploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/go-msfdb.sqlite3"
 ```
 
 ```console
@@ -250,6 +264,10 @@ url = "http://hostname:1325"
 [exploit]
 type = "http"
 url = "http://hostname:1326"
+
+[metasploit]
+type = "http"
+url = "http://hostname:1327"
 ```
 
 ```console

@@ -29,6 +29,7 @@ Vuls uses Multiple vulnerability databases
 - Commands(yum, zypper, pkg-audit)
   - RHSA/ALAS/ELSA/FreeBSD-SA
 - [Exploit Database](https://www.exploit-db.com/)
+- [Metasploit-Framework modules](https://www.rapid7.com/db/?q=&type=metasploit)
 - [US-CERT](https://www.us-cert.gov/ncas/alerts)
 - [JPCERT](http://www.jpcert.or.jp/at/2019.html)
 - [WPVulnDB](https://wpvulndb.com/api)

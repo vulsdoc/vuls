@@ -169,6 +169,30 @@ $ go-exploitdb fetch exploitdb
 
 Fetch with --deep option, Many exploits information will be obtained. But fetch time is too long...
 
+## Deploy go-msfdb
+
+[go-msfdb](https://github.com/takuzoo3868/go-msfdb)
+> New version Vuls 0.9.9 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
+
+```bash
+$ sudo mkdir /var/log/go-msfdb
+$ sudo chown <user> /var/log/go-msfdb
+$ sudo chmod 700 /var/log/go-msfdb
+$ mkdir -p $GOPATH/src/github.com/takuzoo3868
+$ cd $GOPATH/src/github.com/takuzoo3868
+$ git clone https://github.com/takuzoo3868/go-msfdb.git
+$ cd go-msfdb
+$ make install
+$ ln -s $GOPATH/src/github.com/mozqnet/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
+```
+The binary was built under `$GOPATH/bin`
+
+Then fetch msf-db information. [README](https://github.com/takuzoo3868/go-msfdb#usage-fetch-and-insert-modules-info)
+
+```bash
+$ go-msfdb fetch msfdb
+```
+
 ## Deploy Vuls
 
 ```

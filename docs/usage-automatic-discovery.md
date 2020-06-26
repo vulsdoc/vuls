@@ -69,6 +69,11 @@ type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 # url = ""
 
+[metasploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-msfdb.sqlite3"
+# url = ""
+
 [default]
 #port        = "22"
 #user        = "username"
