@@ -86,10 +86,13 @@ Create config.toml referring to [this](usage-settings.md).
 [servers]
 
 [servers.c74]
-host         = "54.249.93.16"
-port        = "22"
-user        = "vuls-user"
-keyPath     = "/root/.ssh/id_rsa" # path to ssh private key in docker
+host            = "54.249.93.16"
+port            = "22"
+user            = "vuls-user"
+# if ssh config file exists in .ssh, path to ssh config file in docker
+sshConfigPath   = "/root/.ssh/config" 
+# path to ssh private key in docker
+keyPath         = "/root/.ssh/id_rsa" 
 ```
 
 

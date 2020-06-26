@@ -344,7 +344,7 @@ You can overwrite the default value specified in default section.
 - jumpServer: IP address or hostname with port number of proxy
 - port: SSH Port number
 - user: SSH username
-- sshConfigPath: SSH config file path
+- sshConfigPath: SSH config file path. see [#1005](https://github.com/future-architect/vuls/pull/1005)
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package](usage-scan-non-os-packages.md)
