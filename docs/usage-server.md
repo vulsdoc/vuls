@@ -38,7 +38,7 @@ Server:
 
 		[RFC3339 datetime format under results dir]
   -config string
-    	/path/to/toml
+    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvedb-sqlite3-path string
     	/path/to/sqlite3
   -cvedb-type string
@@ -90,7 +90,7 @@ Server:
   -ovaldb-url string
     	http://goval-dictionary.com:1324 or DB connection string
   -results-dir string
-    	/path/to/results (default "/Users/takuya/go/src/github.com/takuzoo3868/go-msfdb/results")
+    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-localfile
     	Write report to localfile
 

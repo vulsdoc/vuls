@@ -63,7 +63,7 @@ report:
 
 		[RFC3339 datetime format under results dir]
   -config string
-    	/path/to/toml (default "/Users/takuya/go/src/github.com/takuzoo3868/go-msfdb/config.toml")
+    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvedb-sqlite3-path string
     	/path/to/sqlite3
   -cvedb-type string
@@ -139,7 +139,7 @@ report:
   -refresh-cve
     	Refresh CVE information in JSON file under results dir
   -results-dir string
-    	/path/to/results (default "/Users/takuya/go/src/github.com/takuzoo3868/go-msfdb/results")
+    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-azure-blob
     	Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-chatwork

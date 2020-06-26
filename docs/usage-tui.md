@@ -41,11 +41,11 @@ tui:
 		[-trivy-cachedb-dir=/path/to/dir]
 
   -config string
-    	/path/to/toml (default "/Users/takuya/go/src/github.com/takuzoo3868/go-msfdb/config.toml")
+    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvedb-path string
     	/path/to/sqlite3
   -cvedb-type string
-    	DB type of go-cve-dictionary (sqlite3, mysql, postgres or redis)
+    	DB type of go-cve-dictionary (sqlite3, mysql, postgres or redis) (default "sqlite3")
   -cvedb-url string
     	http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
@@ -95,9 +95,9 @@ tui:
   -refresh-cve
     	Refresh CVE information in JSON file under results dir
   -results-dir string
-    	/path/to/results (default "/Users/takuya/go/src/github.com/takuzoo3868/go-msfdb/results")
+    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -trivy-cachedb-dir string
-    	/path/to/dir (default "/Users/takuya/Library/Caches/trivy")
+    	/path/to/dir (default "/Users/kanbe/Library/Caches/trivy")
 
 ```
 
