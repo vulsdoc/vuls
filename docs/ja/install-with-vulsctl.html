@@ -100,9 +100,12 @@ $ <span class="hljs-built_in">cd</span> vulsctl
 host        = &quot;52.10.10.10&quot;
 port        = &quot;22&quot;
 user        = &quot;centos&quot;
+# if ssh config file exists in .ssh, path to ssh config file in docker
+sshConfigPath   = &quot;/root/.ssh/config&quot; 
 # keypath in the Vuls docker container
 keyPath     = &quot;/root/.ssh/id_rsa&quot;
 </code></pre>
+<p>When <code>config</code> exists in <code>.ssh</code>, vuls refers to <code>/root/.ssh/config</code> in the docker container when connecting to SSH. However, an error occurs because the local user does not match the user in Docker. To deal with this, specify <code>/root/.ssh/config</code> in <code>sshConfigPath</code>.</p>
 <p>The <strong>scan.sh</strong> will mount <strong>$HOME/.ssh</strong> from the host operating system into the Docker container, however you will need to SSH into the target server beforehand which will add your fingerprint to $HOME/.ssh/known_hosts.</p>
 <p>` <img src="https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg" alt=""></p>
 <pre><code class="hljs">$ ssh centos@52.100.100.100 -i ~/.ssh/id_rsa.pem

@@ -104,9 +104,14 @@ the configuration below.</p>
 host        = <span class="hljs-string">"52.10.10.10"</span><span class="hljs-built_in">
 port </span>       = <span class="hljs-string">"22"</span><span class="hljs-built_in">
 user </span>       = <span class="hljs-string">"centos"</span>
+<span class="hljs-comment"># if ssh config file exists in .ssh, path to ssh config file in docker</span>
+sshConfigPath   = <span class="hljs-string">"/root/.ssh/config"</span> 
 <span class="hljs-comment"># keypath in the Vuls docker container</span>
 keyPath     = <span class="hljs-string">"/root/.ssh/id_rsa"</span>
 </code></pre>
+<p>When <code>config</code> exists in <code>.ssh</code>, vuls refers to <code>/root/.ssh/config</code> in the docker container when connecting to SSH.
+However, an error occurs because the local user does not match the user in Docker.
+To deal with this, specify <code>/root/.ssh/config</code> in <code>sshConfigPath</code>.</p>
 <p>The <strong>scan.sh</strong> will mount <strong>$HOME/.ssh</strong> from the host operating system into
 the Docker container, however you will need to SSH into the target server
 beforehand which will add your fingerprint to $HOME/.ssh/known_hosts.</p>
