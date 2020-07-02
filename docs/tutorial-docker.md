@@ -17,7 +17,7 @@ This can be done in the following steps.
 1. configuration (vuls/vuls)
 1. configtest (vuls/vuls)
 1. scan (vuls/vuls)
-1. vulsrepo (ishiDACo/vulsrepo)
+1. vulsrepo (ishidaco/vulsrepo)
 
 ## Step0. Prepare Log Dir
 
@@ -190,7 +190,7 @@ $ docker run --rm -it \
 $docker run -dt \
     -v $PWD:/vuls \
     -p 5111:5111 \
-    ishiDACo/vulsrepo
+    ishidaco/vulsrepo
 ```
 
 [VulsRepo](vulsrepo.md)
