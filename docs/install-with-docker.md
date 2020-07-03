@@ -50,7 +50,7 @@ Go Exploit DB
 ## install/update go-msfdb
 
 [go-msfdb](https://github.com/takuzoo3868/go-msfdb)
-> New version Vuls 0.10.1 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
+> New version Vuls 0.11.0 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
 
 ```console
 $ docker pull vuls/gost
