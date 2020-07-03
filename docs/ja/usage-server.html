@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Server · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Server:"/><meta name="docsearch:language" content="ja"/><meta property="og:title" content="Server · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="Server:"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Server · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="$ vuls server -h"/><meta name="docsearch:language" content="ja"/><meta property="og:title" content="Server · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="$ vuls server -h"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -74,7 +74,8 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-server.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Server</h1></header><article><div><span><p>Server:
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-server.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Server</h1></header><article><div><span><p>$ vuls server -h
+Server:
 Server
 [-lang=en|ja]
 [-config=/path/to/config.toml]
@@ -99,58 +100,67 @@ Server
 [-gostdb-url=<a href="http://127.0.0.1:1325">http://127.0.0.1:1325</a> or DB connection string]
 [-exploitdb-type=sqlite3|mysql|redis|http]
 [-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
-[-exploitdb-url=<a href="http://127.0.0.1:1326">http://127.0.0.1:1326</a> or DB connection string]</p>
-<pre><code class="hljs">                [RFC3339 datetime format under results dir]
+[-exploitdb-url=<a href="http://127.0.0.1:1326">http://127.0.0.1:1326</a> or DB connection string]
+[-msfdb-type=sqlite3|mysql|redis|http]
+[-msfdb-sqlite3-path=/path/to/msfdb.sqlite3]
+[-msfdb-url=<a href="http://127.0.0.1:1327">http://127.0.0.1:1327</a> or DB connection string]</p>
+<pre><code class="hljs">    [RFC3339 datetime format under results dir]
   -config string
-        /path/to/toml (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml&quot;)
+      /path/to/toml (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml&quot;)
   -cvedb-sqlite3-path string
-        /path/to/sqlite3
+      /path/to/sqlite3
   -cvedb-type string
-        DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
+      DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
   -cvedb-url string
-        http://go-cve-dictionary.com:1323 or DB connection string
+      http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
-        -cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
+      -cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
   -debug
-        debug mode
+      debug mode
   -debug-sql
-        SQL debug mode
+      SQL debug mode
   -exploitdb-sqlite3-path string
-        /path/to/sqlite3
+      /path/to/sqlite3
   -exploitdb-type string
-        DB type of exploit (sqlite3, mysql, postgres, redis or http)
+      DB type of exploit (sqlite3, mysql, postgres, redis or http)
   -exploitdb-url string
-        http://exploit.com:1326 or DB connection string
+      http://exploit.com:1326 or DB connection string
   -format-json
-        JSON format
+      JSON format
   -gostdb-sqlite3-path string
-        /path/to/sqlite3
+      /path/to/sqlite3
   -gostdb-type string
-        DB type of gost (sqlite3, mysql, postgres, redis or http)
+      DB type of gost (sqlite3, mysql, postgres, redis or http)
   -gostdb-url string
-        http://gost.com:1325 or DB connection string
+      http://gost.com:1325 or DB connection string
   -http-proxy string
-        http://proxy-url:port (default: empty)
+      http://proxy-url:port (default: empty)
   -ignore-unfixed
-        Don't Server the unfixed CVEs
+      Don't Server the unfixed CVEs
   -ignore-unscored-cves
-        Don't Server the unscored CVEs
+      Don't Server the unscored CVEs
   -lang string
-        [en|ja] (default &quot;en&quot;)
+      [en|ja] (default &quot;en&quot;)
   -listen string
-        host:port (default: localhost:5515) (default &quot;localhost:5515&quot;)
+      host:port (default: localhost:5515) (default &quot;localhost:5515&quot;)
   -log-dir string
-        /path/to/log (default &quot;/var/log/vuls&quot;)
+      /path/to/log (default &quot;/var/log/vuls&quot;)
+  -msfdb-sqlite3-path string
+      /path/to/sqlite3
+  -msfdb-type string
+      DB type of msf (sqlite3, mysql, postgres, redis or http)
+  -msfdb-url string
+      http://metasploit.com:1327 or DB connection string
   -ovaldb-sqlite3-path string
-        /path/to/sqlite3
+      /path/to/sqlite3
   -ovaldb-type string
-        DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
+      DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
   -ovaldb-url string
-        http://goval-dictionary.com:1324 or DB connection string
+      http://goval-dictionary.com:1324 or DB connection string
   -results-dir string
-        /path/to/results (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/results&quot;)
+      /path/to/results (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/results&quot;)
   -to-localfile
-        Write report to localfile
+      Write report to localfile
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="エンドポイント"></a><a href="#エンドポイント" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>エンドポイント</h2>
 <ul>
