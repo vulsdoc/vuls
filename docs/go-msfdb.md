@@ -9,14 +9,14 @@ For detail of go-msfdb, see [takuzoo3868/go-msfdb](https://github.com/takuzoo386
 ## Usage: go-msfdb on different server
 
 ```
-$ go-msfdb server -bind=192.168.10.1 -port=1326
+$ go-msfdb server -bind=192.168.10.1 -port=1327
 ```
 
 Sepcify URL of the go-msfdb in config.toml
 
 ```
 [metasploit]
-url = "http://192.168.0.1:1326"
+url = "http://192.168.0.1:1327"
 ```
 
 ```
