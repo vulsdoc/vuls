@@ -6,149 +6,170 @@ sidebar_label: Report
 
 ```bash
 report:
-        report
-                [-lang=en|ja]
-                [-config=/path/to/config.toml]
-                [-results-dir=/path/to/results]
-                [-log-dir=/path/to/log]
-                [-refresh-cve]
-                [-cvss-over=7]
-                [-diff]
-                [-ignore-unscored-cves]
-                [-ignore-unfixed]
-                [-ignore-github-dismissed]
-                [-to-email]
-                [-to-http]
-                [-to-slack]
-                [-to-stride]
-                [-to-hipchat]
-                [-to-chatwork]
-                [-to-telegram]
-                [-to-localfile]
-                [-to-s3]
-                [-to-azure-blob]
-                [-format-json]
-                [-format-xml]
-                [-format-one-email]
-                [-format-one-line-text]
-                [-format-list]
-                [-format-full-text]
-                [-gzip]
-                [-uuid]
-                [-http-proxy=http://192.168.0.1:8080]
-                [-debug]
-                [-debug-sql]
-                [-pipe]
-                [-cvedb-type=sqlite3|mysql|postgres|redis|http]
-                [-cvedb-sqlite3-path=/path/to/cve.sqlite3]
-                [-cvedb-url=http://127.0.0.1:1323 or DB connection string]
-                [-ovaldb-type=sqlite3|mysql|postgres|redis|http]
-                [-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
-                [-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-                [-gostdb-type=sqlite3|mysql|postgres|redis|http]
-                [-gostdb-sqlite3-path=/path/to/gost.sqlite3]
-                [-gostdb-url=http://127.0.0.1:1325 or DB connection string]
-                [-exploitdb-type=sqlite3|mysql|postgres|redis|http]
-                [-exploitdb-sqlite3-path=/path/to/go-exploitdb.sqlite3]
-                [-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
-                [-http="http://vuls-report-server"]
+	report
+		[-lang=en|ja]
+		[-config=/path/to/config.toml]
+		[-results-dir=/path/to/results]
+		[-log-dir=/path/to/log]
+		[-refresh-cve]
+		[-cvss-over=7]
+		[-diff]
+		[-wp-ignore-inactive]
+		[-ignore-unscored-cves]
+		[-ignore-unfixed]
+		[-ignore-github-dismissed]
+		[-to-email]
+		[-to-http]
+		[-to-slack]
+		[-to-stride]
+		[-to-hipchat]
+		[-to-chatwork]
+		[-to-telegram]
+		[-to-localfile]
+		[-to-s3]
+		[-to-azure-blob]
+		[-to-saas]
+		[-format-json]
+		[-format-xml]
+		[-format-one-email]
+		[-format-one-line-text]
+		[-format-list]
+		[-format-full-text]
+		[-gzip]
+		[-uuid]
+		[-http-proxy=http://192.168.0.1:8080]
+		[-debug]
+		[-debug-sql]
+		[-quiet]
+		[-no-progress]
+		[-pipe]
+		[-cvedb-type=sqlite3|mysql|postgres|redis|http]
+		[-cvedb-sqlite3-path=/path/to/cve.sqlite3]
+		[-cvedb-url=http://127.0.0.1:1323 or DB connection string]
+		[-ovaldb-type=sqlite3|mysql|redis|http]
+		[-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
+		[-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
+		[-gostdb-type=sqlite3|mysql|redis|http]
+		[-gostdb-sqlite3-path=/path/to/gost.sqlite3]
+		[-gostdb-url=http://127.0.0.1:1325 or DB connection string]
+		[-exploitdb-type=sqlite3|mysql|redis|http]
+		[-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
+		[-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
+		[-msfdb-type=sqlite3|mysql|redis|http]
+		[-msfdb-sqlite3-path=/path/to/msfdb.sqlite3]
+		[-msfdb-url=http://127.0.0.1:1327 or DB connection string]
+		[-http="http://vuls-report-server"]
+		[-trivy-cachedb-dir=/path/to/dir]
 
-
-                [RFC3339 datetime format under results dir]
+		[RFC3339 datetime format under results dir]
   -config string
-        /path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvedb-sqlite3-path string
-        /path/to/sqlite3
+    	/path/to/sqlite3
   -cvedb-type string
-        DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
+    	DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
   -cvedb-url string
-        http://go-cve-dictionary.com:1323 or DB connection string
+    	http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
-        -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
+    	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
-        debug mode
+    	debug mode
   -debug-sql
-        SQL debug mode
+    	SQL debug mode
   -diff
-        Difference between previous result and current result
+    	Difference between previous result and current result
   -exploitdb-sqlite3-path string
-        /path/to/sqlite3
+    	/path/to/sqlite3
   -exploitdb-type string
-        DB type of exploit (sqlite3, mysql, postgres, redis or http)
+    	DB type of exploit (sqlite3, mysql, postgres, redis or http)
   -exploitdb-url string
-        http://exploit.com:1326 or DB connection string
+    	http://exploit.com:1326 or DB connection string
   -format-full-text
-        Detail report in plain text
+    	Detail report in plain text
   -format-json
-        JSON format
+    	JSON format
   -format-list
-        Display as list format
+    	Display as list format
   -format-one-email
-        Send all the host report via only one EMail (Specify with -to-email)
+    	Send all the host report via only one EMail (Specify with -to-email)
   -format-one-line-text
-        One line summary in plain text
+    	One line summary in plain text
   -format-xml
-        XML format
+    	XML format
   -gostdb-sqlite3-path string
-        /path/to/sqlite3
+    	/path/to/sqlite3
   -gostdb-type string
-        DB type of gost (sqlite3, mysql, postgres, redis or http)
+    	DB type of gost (sqlite3, mysql, postgres, redis or http)
   -gostdb-url string
-        http://gost.com:1325 or DB connection string
+    	http://gost.com:1325 or DB connection string
   -gzip
-        gzip compression
+    	gzip compression
   -http string
-        -to-http http://vuls-report
+    	-to-http http://vuls-report
   -http-proxy string
-        http://proxy-url:port (default: empty)
+    	http://proxy-url:port (default: empty)
   -ignore-github-dismissed
-        Don't report the dismissed CVEs on GitHub Security Alerts
+    	Don't report the dismissed CVEs on GitHub Security Alerts
   -ignore-unfixed
-        Don't report the unfixed CVEs
+    	Don't report the unfixed CVEs
   -ignore-unscored-cves
-        Don't report the unscored CVEs
+    	Don't report the unscored CVEs
   -lang string
-        [en|ja] (default "en")
+    	[en|ja] (default "en")
   -log-dir string
-        /path/to/log (default "/var/log/vuls")
+    	/path/to/log (default "/var/log/vuls")
+  -msfdb-sqlite3-path string
+    	/path/to/sqlite3
+  -msfdb-type string
+    	DB type of msf (sqlite3, mysql, postgres, redis or http)
+  -msfdb-url string
+    	http://metasploit.com:1327 or DB connection string
+  -no-progress
+    	Suppress progress bar
   -ovaldb-sqlite3-path string
-        /path/to/sqlite3
+    	/path/to/sqlite3
   -ovaldb-type string
-        DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
+    	DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
   -ovaldb-url string
-        http://goval-dictionary.com:1324 or DB connection string
+    	http://goval-dictionary.com:1324 or DB connection string
   -pipe
-        Use args passed via PIPE
+    	Use args passed via PIPE
+  -quiet
+    	Quiet mode. No output on stdout
   -refresh-cve
-        Refresh CVE information in JSON file under results dir
+    	Refresh CVE information in JSON file under results dir
   -results-dir string
-        /path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
+    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-azure-blob
-        Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
+    	Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-chatwork
-        Send report via chatwork
+    	Send report via chatwork
   -to-email
-        Send report via Email
+    	Send report via Email
   -to-hipchat
-        Send report via hipchat
+    	Send report via hipchat
   -to-http
-        Send report via HTTP POST
+    	Send report via HTTP POST
   -to-localfile
-        Write report to localfile
+    	Write report to localfile
   -to-s3
-        Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
+    	Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-saas
-        Upload report to Future Vuls(https://vuls.biz/) before report
+    	Upload report to Future Vuls(https://vuls.biz/) before report
   -to-slack
-        Send report via Slack
+    	Send report via Slack
   -to-stride
-        Send report via Stride
+    	Send report via Stride
   -to-syslog
-        Send report via Syslog
+    	Send report via Syslog
   -to-telegram
-        Send report via Telegram
+    	Send report via Telegram
+  -trivy-cachedb-dir string
+    	/path/to/dir (default "/Users/takuya/Library/Caches/trivy")
   -uuid
-        Auto generate of scan target servers and then write to config.toml and scan result
+    	Auto generate of scan target servers and then write to config.toml and scan result
+  -wp-ignore-inactive
+    	ignore inactive on wordpress's plugin and theme
 
 ```
 
@@ -328,6 +349,10 @@ SQLite3Path = "/path/to/gost.sqlite3"
 [exploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/go-exploitdb.sqlite3"
+
+[metasploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-msfdb.sqlite3"
 ```
 
 ## Example: Send scan results to email
@@ -627,6 +652,10 @@ url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 [exploit]
 type = "mysql"
 url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
+
+[metasploit]
+type = "mysql"
+url = "user:pass@tcp(localhost:3306)/dbname?parseTime=true"
 ```
 
 ```bash
@@ -662,6 +691,10 @@ url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 [exploit]
 type = "postgres"
 url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
+
+[metasploit]
+type = "postgres"
+url = "host=myhost user=user dbname=dbname sslmode=disable password=password"
 ```
 
 ```bash
@@ -687,6 +720,10 @@ type = "redis"
 url = "redis://localhost/1"
 
 [exploit]
+type = "redis"
+url = "redis://localhost/1"
+
+[metasploit]
 type = "redis"
 url = "redis://localhost/1"
 ```
@@ -716,6 +753,10 @@ url = "http://localhost:1325"
 [exploit]
 type = "http"
 url = "http://localhost:1326"
+
+[metasploit]
+type = "http"
+url = "http://localhost:1327"
 ```
 
 ```bash

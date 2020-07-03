@@ -39,7 +39,26 @@ gost  v0.1.xxx xxxx
 [go-exploitdb](https://github.com/mozqnet/go-exploitdb)
 > New version Vuls 0.6.0 now possible to display exploit codes have been published at [Exploit DB.com](https://www.exploit-db.com/). If you don't need to know about exploit code for detected CVEs, skip this section.
 
-go-exploitdb has no Dockerfile TODO.
+```console
+$ docker pull vuls/go-exploitdb
+$ docker run  --rm  vuls/go-exploitdb help
+
+Go Exploit DB
+[...]
+```
+
+## install/update go-msfdb
+
+[go-msfdb](https://github.com/takuzoo3868/go-msfdb)
+> New version Vuls 0.11.0 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
+
+```console
+$ docker pull vuls/gost
+$ docker run  --rm  vuls/go-msfdb help
+
+Go Metasploit DB
+[...]
+```
 
 ## install/update Vuls
 
