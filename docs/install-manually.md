@@ -183,7 +183,7 @@ $ cd $GOPATH/src/github.com/takuzoo3868
 $ git clone https://github.com/takuzoo3868/go-msfdb.git
 $ cd go-msfdb
 $ make install
-$ ln -s $GOPATH/src/github.com/mozqnet/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
+$ ln -s $GOPATH/src/github.com/takuzoo3868/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
 ```
 The binary was built under `$GOPATH/bin`
 
