@@ -78,11 +78,12 @@ report:
   ...
 ```
 
-
-
 ## CPE Scan
 
 It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm).
+
+The CPE scan uses the NVD information to search for the specified CPE. It is necessary to set up go-cve-dictionary and fetch NVD data source in advance.
+To setup go-cve-dictionary, see [here](https://vuls.io/docs/en/go-cve-dictionary.html#usage-go-cve-dictionary-on-different-server)
 
 ##  How to search CPE name by software name
 
