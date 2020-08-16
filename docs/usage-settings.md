@@ -257,6 +257,7 @@ subjectPrefix = "[vuls]"
 ```
 
 - If you use SMTPS when send email, please set config.toml as follows.
+
 ```
 [email]
 smtpAddr      = "smtp.gmail.com"
