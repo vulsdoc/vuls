@@ -6,7 +6,7 @@ sidebar_label: TUI
 
 ## Display the latest scan results
 
-```
+```bash
 $ vuls tui -h
 tui:
 	tui
@@ -112,13 +112,13 @@ Key binding is below.
 | Ctrl+j, Ctrl+k | move cursor to up/down |
 | Ctrl+u, Ctrl+d | page up/down |
 
-For details, see https://github.com/future-architect/vuls/blob/master/report/tui.go
+For details, see [source code](https://github.com/future-architect/vuls/blob/master/report/tui.go)
 
 ## Display the previous scan results
 
 - Display the list of scan results.
 
-```
+```bash
 $ vuls history
 2016-12-30T10:34:38+09:00 1 servers: u16
 2016-12-28T19:15:19+09:00 1 servers: ama
@@ -127,15 +127,14 @@ $ vuls history
 
 - Display the result of scan 2016-12-30T10:34:38+09:00
 
-```
+```bash
 $ vuls tui 2016-12-30T10:34:38+09:00
 ```
 
-# Display the previous scan results using peco
+## Display the previous scan results using peco
 
-```
+```bash
 $ vuls history | peco | vuls tui -pipe
 ```
 
 [![asciicast](https://asciinema.org/a/emi7y7docxr60bq080z10t7v8.png)](https://asciinema.org/a/emi7y7docxr60bq080z10t7v8)
-

@@ -56,7 +56,7 @@ scan:
 
 ## fast scan
 
-fast scan mode scans with no root-priviledge, no deps on scan target server.
+fast scan mode scans with no root-privilege, no deps on scan target server.
 fast For details about fast scan mode, see below.
 You need to execute `vuls configtest` to check the configuration of the target server before scanning.
 For details about fast scan mode, see below.
@@ -77,7 +77,6 @@ port         = "22"
 scanMode     = ["fast"]
 ```
 
-
 ### fast scan without internet access
 
 * config.toml
@@ -93,7 +92,7 @@ scanMode     = ["fast", "offline"]
 
 ## fast-root scan
 
-fast-root scan mode scans with root-priviledge.
+fast-root scan mode scans with root-privilege.
 You need to execute `vuls configtest` to check the configuration of the target server before scanning.
 For details about fast-root scan mode, see below.
 
@@ -175,9 +174,9 @@ With this sample command, it will ..
 * Use SSH Key-Based authentication with empty password (without -ask-key-password option)
 * Scan only 2 servers (server1, server2)
 
-## Example: Scan via shell instead of SSH.
+## Example: Scan via shell instead of SSH
 
-Vuls scans localhost instead of SSH if the host address is `localhst or 127.0.0.1` and the port is `local` in config.
+Vuls scans localhost instead of SSH if the host address is `localhost or 127.0.0.1` and the port is `local` in config.
 For more details, see [Architecture section](architecture-local-scan.md)
 
 * config.toml
@@ -206,8 +205,8 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
 #### To scan all of running containers
 
   `"${running}"` needs to be set in the containers item.
-    
-  ```bash
+
+  ```toml
   [servers]
 
   [servers.172-31-4-82]
@@ -224,8 +223,8 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
   In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
   Be sure to check these containers are running state before scanning.  
   If specified containers are not running, Vuls gives up scanning with printing error message.
-    
-  ```
+
+  ```toml
   [servers]
 
   [servers.172-31-4-82]
@@ -297,5 +296,4 @@ vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 
 ## Example: scan WordPress (core, plugin, theme)
 
-For Detials, see [usage-scan-wordpress](usage-scan-wordpress.md)
- 
+For Details, see [usage-scan-wordpress](usage-scan-wordpress.md)

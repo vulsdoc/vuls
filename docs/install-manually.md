@@ -7,11 +7,13 @@ sidebar_label: Install Manually
 ## Install Requirements
 
 ### Linux Distributions
+
 The following example should work on Fedora based Linux distributions,
 which include: CentOS, RedHat, Amazon Linux etc (tested on CentOS and
 Amazon Linux).
 
 ### Packages
+
 Vuls requires the following packages.
 
 - SQLite3, MySQL, PostgreSQL, Redis
@@ -19,7 +21,7 @@ Vuls requires the following packages.
 - gcc
 - GNU Make
 - Greater than or equal to Go v1.13 (The latest version is recommended)
-    - https://golang.org/doc/install
+  - [Install Go](https://golang.org/doc/install)
 
 ```bash
 $ ssh <user>@<IP> -i ~/.ssh/private.pem
@@ -29,6 +31,7 @@ $ wget https://dl.google.com/go/go$latest_version.linux-amd64.tar.gz
 $ sudo tar -C /usr/local -xzf go$latest_version.linux-amd64.tar.gz
 $ mkdir $HOME/go
 ```
+
 Add these lines into /etc/profile.d/goenv.sh
 (you'll need sudo access)
 
@@ -39,9 +42,11 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
 Set the OS environment variable to current shell
+
 ```bash
 $ source /etc/profile.d/goenv.sh
 ```
+
 ## Deploy go-cve-dictionary
 
 [go-cve-dictionary](https://github.com/kotakanbe/go-cve-dictionary)
@@ -56,6 +61,7 @@ $ git clone https://github.com/kotakanbe/go-cve-dictionary.git
 $ cd go-cve-dictionary
 $ make install
 ```
+
 The binary was built under `$GOPATH/bin`
 
 Then Fetch vulnerability data from NVD.
@@ -71,7 +77,6 @@ $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
 ```
 
-
 If you want results in Japanese, you also need to fetch the JVN data.
 It takes about 10 minutes (on AWS).
 
@@ -85,7 +90,6 @@ $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos 5.1M Aug  6 08:10 cve.sqlite3-wal
 ```
 
-
 ## Deploy goval-dictionary
 
 [goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
@@ -98,6 +102,7 @@ $ cd goval-dictionary
 $ make install
 $ ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3
 ```
+
 The binary was built under `$GOPATH/bin`
 
  Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
@@ -115,12 +120,10 @@ If you would like to scan other Linux distributions then retrieve the OVAL data 
 - [Oracle Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
 - [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
 
-
 ## Deploy gost
 
 [gost (go-security-tracker)](https://github.com/knqyf263/gost)
-> version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named gost.
-
+> version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new data source named gost.
 
 ```bash
 $ sudo mkdir /var/log/gost
@@ -133,6 +136,7 @@ $ cd gost
 $ make install
 $ ln -s $GOPATH/src/github.com/knqyf263/gost/gost.sqlite3 $HOME/gost.sqlite3
 ```
+
 The binary was built under `$GOPATH/bin`
 
  Then fetch security tracker for RedHat since the server to be scanned is CentOS. [README](https://github.com/knqyf263/gost#fetch-redhat)
@@ -159,6 +163,7 @@ $ cd go-exploitdb
 $ make install
 $ ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3
 ```
+
 The binary was built under `$GOPATH/bin`
 
 Then fetch exploit-db information. [README](https://github.com/mozqnet/go-exploitdb#usage-fetch-and-insert-exploit)
@@ -185,6 +190,7 @@ $ cd go-msfdb
 $ make install
 $ ln -s $GOPATH/src/github.com/takuzoo3868/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
 ```
+
 The binary was built under `$GOPATH/bin`
 
 Then fetch msf-db information. [README](https://github.com/takuzoo3868/go-msfdb#usage-fetch-and-insert-modules-info)
@@ -195,15 +201,17 @@ $ go-msfdb fetch msfdb
 
 ## Deploy Vuls
 
-```
+```bash
 $ mkdir -p $GOPATH/src/github.com/future-architect
 $ cd $GOPATH/src/github.com/future-architect
 $ git clone https://github.com/future-architect/vuls.git
 $ cd vuls
 $ make install
 ```
+
 If you have previously installed vuls and want to update, please do the following
-```
+
+```bash
 $ rm -rf $GOPATH/pkg/linux_amd64/github.com/future-architect/vuls/
 $ rm -rf $GOPATH/src/github.com/future-architect/vuls/
 $ cd $GOPATH/src/github.com/future-architect

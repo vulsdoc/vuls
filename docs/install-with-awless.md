@@ -4,5 +4,4 @@ title: Install with awless
 sidebar_label: Install with awless
 ---
 
-see https://github.com/wallix/awless-templates/tree/master/vuln_scanners
-
+For Details, see the [doc](https://github.com/wallix/awless-templates/tree/master/vuln_scanners)

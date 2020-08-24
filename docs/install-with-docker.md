@@ -4,7 +4,7 @@ title: Install with Docker
 sidebar_label: Install with Docker
 ---
 
-Vuls's Docker images are built per commit and push to [DockerHub/Vuls](https://hub.docker.com/u/vuls/) automatically.
+Docker images for Vuls are built per commit and push to [DockerHub/Vuls](https://hub.docker.com/u/vuls/) automatically.
 
 ## install/update go-cve-dictionary
 
@@ -14,6 +14,7 @@ $ docker run  --rm  vuls/go-cve-dictionary -v
 
 go-cve-dictionary v0.1.xxx xxxx
 ```
+
 ## install/update goval-dictionary
 
 ```console
@@ -25,7 +26,7 @@ goval-dictionary v0.1.xxx xxxx
 
 ## install/update gost
 
-> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new datasource named [gost](https://github.com/knqyf263/gost).
+> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new data source named [gost](https://github.com/knqyf263/gost).
 
 ```console
 $ docker pull vuls/gost
@@ -113,6 +114,6 @@ vuls v0.0.xxx xxxx
 - [vuls/goval-dictionary](https://hub.docker.com/r/vuls/goval-dictionary/)
 - [vuls/gost](https://hub.docker.com/r/vuls/gost/)
 - [vuls/vuls](https://hub.docker.com/r/vuls/vuls/)
-- [vuls/vulsrepo](https://hub.docker.com/r/vuls/vulsrepo/) 
+- [vuls/vulsrepo](https://hub.docker.com/r/vuls/vulsrepo/)
 
 This image version is same as the github repository version.

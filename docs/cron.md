@@ -4,13 +4,13 @@ title: Cron
 sidebar_label: Cron
 ---
 
-Comming soon
-
 - crontab
 - shell script
 
-### cron
+## cron
+
 If you use local scan mode for cron jobs, don't forget to add below line to `/etc/sudoers` on RHEL/CentOS. (username: vuls)
-```
+
+```bash
 Defaults:vuls !requiretty
 ```

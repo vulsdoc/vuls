@@ -7,6 +7,7 @@ sidebar_label: Vulsctl - Quickest Vuls setup
 ## Vulsctl
 
 ### Linux Distributions
+
 The following example should work on Fedora based Linux distributions,
 which include: CentOS, RedHat, Amazon Linux etc (tested on CentOS and
 Red Hat 7).
@@ -34,7 +35,7 @@ $ cd vulsctl
 
 This will take some time ...
 
-```
+```bash
 $ ./update-all.sh
 ```
 
@@ -43,17 +44,18 @@ $ ./update-all.sh
 Prepare the **config.toml** in the **vulsctl** install directory similar to
 the configuration below.
 
-```
+```toml
 [servers]
 [servers.hostos]
 host        = "52.10.10.10"
 port        = "22"
 user        = "centos"
 # if ssh config file exists in .ssh, path to ssh config file in docker
-sshConfigPath   = "/root/.ssh/config" 
+sshConfigPath   = "/root/.ssh/config"
 # keypath in the Vuls docker container
 keyPath     = "/root/.ssh/id_rsa"
 ```
+
 When `config` exists in `.ssh`, vuls refers to `/root/.ssh/config` in the docker container when connecting to SSH.
 However, an error occurs because the local user does not match the user in Docker.
 To deal with this, specify `/root/.ssh/config` in `sshConfigPath`.
@@ -63,40 +65,70 @@ the Docker container, however you will need to SSH into the target server
 beforehand which will add your fingerprint to $HOME/.ssh/known_hosts.
 
 `
-![](https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg)
+![scan](https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg)
 
-```
+```bash
 $ ssh centos@52.100.100.100 -i ~/.ssh/id_rsa.pem
 ```
 
-```
+```bash
 $ ./scan.sh
 $ ./report.sh
 $ ./tui.sh
 ```
 
 For details, see
+
 - [scan.sh](https://github.com/vulsio/vulsctl/blob/master/scan.sh)
 - [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
 - [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
 
 ## Deploy `vuls` on the host
 
-You can deploy `vuls` on your host easily while using the [install-host.sh](https://github.com/vulsio/vulsctl/blob/5efed5284bf97e9915563644d90411490bcf47ce/install-host.sh) script.
+You can deploy `vuls` on your host easily while using the [install.sh](https://github.com/vulsio/vulsctl/blob/master/install-host/install.sh) script.
+To know what the script doing, it's quicker to look at the script.
+
+### install
 
 ```bash
-$ sudo bash install-host.sh
+$ sudo bash install.sh
 ```
 
-> The support for RHEL and CentOS 6.x / 7.x is in [pull requests](https://github.com/vulsio/vulsctl/pulls).
+### Fetch all databases
+
+Fetch the various vulnerability databases used by Vuls to the current directory.
+Please comment out any unneeded databases.
+
+```bash
+$ fetch-all.sh
+```
+
+### Update Modules
+
+Update Vuls-related modules to the latest version.
+
+```bash
+$ sudo bash upgrade.sh
+```
+
+### Scan and Report
+
+You can find the Vuls command in /usr/local/bin/vuls, and the config.toml sample is [here](https://github.com/vulsio/vulsctl). If you don't define the SQLite3 databases path in config.toml, Vuls uses the ones in the same directory as the Vuls binaries.
+Scanning and reporting command is the following.
+
+```bash
+$ vuls scan
+$ vuls report
+$ vuls tui
+```
 
 ## Vulsrepo
 
-```
+```bash
 $ ./vulsrepo.sh
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
 39c8830dbeac        ishidaco/vulsrepo   "vulsrepo-server"   3 seconds ago       Up 1 second         0.0.0.0:5111->5111/tcp   focused_wu
 ```
 
-Vulsrepo is running on http://host-ip:5111 .
+Vulsrepo is running on `http://host-ip:5111`.

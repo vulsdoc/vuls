@@ -1,6 +1,6 @@
 ---
 id: usage-scan-non-os-packages
-title: Scan vulnerabilites of non-OS packages
+title: Scan vulnerabilities of non-OS packages
 sidebar_label: Scan non-OS packages
 ---
 
@@ -27,12 +27,12 @@ Trivy detects lock files listed below.
 - Cargo.lock
 
 A sample of config.toml is blow.  
-specify the path of locckfiles, Vuls can detect vulns of libs without defining CPEs.
+specify the path of lockfiles, Vuls can detect vulns of libs without defining CPEs.
 
 ```bash
 [servers]
 
-[servers.abuntu]
+[servers.ubuntu]
 host         = "xxx.xxx.xxx"
 port        = "22"
 user        = "tamachi"
@@ -44,7 +44,7 @@ lockfiles = [
 ]
 ```
 
-# Usage: Integrate with GitHub Security Alerts
+## Usage: Integrate with GitHub Security Alerts
 
 GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
 It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
@@ -85,7 +85,7 @@ It is possible to detect vulnerabilities in non-OS packages, such as something y
 The CPE scan uses the NVD information to search for the specified CPE. It is necessary to set up go-cve-dictionary and fetch NVD data source in advance.
 To setup go-cve-dictionary, see [here](https://vuls.io/docs/en/go-cve-dictionary.html#usage-go-cve-dictionary-on-different-server)
 
-##  How to search CPE name by software name
+## How to search CPE name by software name
 
 [NVD: Search Common Platform Enumerations (CPE)](https://web.nvd.nist.gov/view/cpe/search)
 You need **Check CPE Naming Format: 2.2**
@@ -153,7 +153,7 @@ cpeNames = [
 ]
 ```
 
-# Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
+## Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
 
 [OWASP Dependency check](https://www.owasp.org/index.php/OWASP_Dependency_Check) is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.
 
