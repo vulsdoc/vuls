@@ -20,7 +20,15 @@ sidebar_label: Fast-Root Scan
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                    Need |
 
 Raspbian has been modified from its previous Changelog only scan to scan using Debian OVAL and Debian Security Tracker, Changelog.
-The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi). For more information, see This Pull Request (https://github.com/future-architect/vuls/pull/1019).
+The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi). 
+In summary, the behavior of each scan mode in Raspbian is shown in the table below.
+
+|     Scan Mode    | fast |                 fast-root                |         deep         |
+|:----------------:|:----|:----------------------------------------|:--------------------|
+|      v0.11     |   (deep scan)  |                 (deep scan)                |       changelog      |
+|    v0.12   | <ul><li>OVAL</li><li>Debian Security Tracker</li></ul> | <ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(only raspberrypi package)</li></ul> | <ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(all updatable package)</li></ul> |
+
+For more information, see This Pull Request (https://github.com/future-architect/vuls/pull/1019).
 
 ## With -offline option
 
