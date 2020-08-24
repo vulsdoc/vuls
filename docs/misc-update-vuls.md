@@ -54,7 +54,7 @@ $ rm -r vendor
 $ make install
 ```
 
-- Update go-exploitdb
+- Update go-msfdb
 
 If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
