@@ -41,9 +41,9 @@ configtest:
 
 The configtest subcommand checks whether vuls is able to connect via SSH to servers/containers defined in the config.toml
 
-# Dependencies
+## Dependencies
 
-## fast scan mode
+### fast scan mode
 
 | Distribution |            Release | Requirements |
 |:-------------|-------------------:|:-------------|
@@ -58,7 +58,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | FreeBSD      |             10, 11 | - |
 | Raspbian     |    Jessie, Stretch | - |
 
-## fast-root scan mode
+### fast-root scan mode
 
 The configtest subcommand with `fast-root` mode checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 
@@ -77,11 +77,11 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | FreeBSD      |             10, 11 | - |
 | Raspbian     |    Jessie, Stretch | - |
 
-## deep scan mode
+### deep scan mode
 
 same as `fast-root` scan mode
 
-# /etc/sudoers on Target Servers
+## /etc/sudoers on Target Servers
 
 The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH.
 
@@ -93,9 +93,9 @@ Defaults:vuls !requiretty
 
 For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
-## /etc/sudoers
+### /etc/sudoers
 
-| Distibution | fast | fast-root           | deep         |
+| Distribution | fast | fast-root           | deep         |
 |:------------------|:-------------|:-------------|:-------------|
 | Ubuntu 14, 16, 18| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n` | same as `fast-root` |
 | Debian 8, 9, 10 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`  | same as `fast-root`|

@@ -15,30 +15,43 @@ sidebar_label: Main Features
 
 Vuls uses Multiple vulnerability databases
 
-- [NVD](https://nvd.nist.gov/)
-- [JVN(Japanese)](http://jvndb.jvn.jp/apis/myjvn/)
+- Vulnerability Database
+  - [NVD](https://nvd.nist.gov/)
+  - [JVN(Japanese)](http://jvndb.jvn.jp/apis/myjvn/)
+
 - OVAL
   - [Red Hat](https://www.redhat.com/security/data/oval/)
   - [Debian](https://www.debian.org/security/oval/)
   - [Ubuntu](https://people.canonical.com/~ubuntu-security/oval/)
   - [SUSE](http://ftp.suse.com/pub/projects/security/oval/)
   - [Oracle Linux](https://linux.oracle.com/security/oval/)
-- [Alpine-secdb](https://git.alpinelinux.org/cgit/alpine-secdb/)
-- [Red Hat Security Advisories](https://access.redhat.com/security/security-updates/)
-- [Debian Security Bug Tracker](https://security-tracker.debian.org/tracker/)
+
+- Security Advisory
+  - [Alpine-secdb](https://git.alpinelinux.org/cgit/alpine-secdb/)
+  - [Red Hat Security Advisories](https://access.redhat.com/security/security-updates/)
+  - [Debian Security Bug Tracker](https://security-tracker.debian.org/tracker/)
+
 - Commands(yum, zypper, pkg-audit)
-  - RHSA/ALAS/ELSA/FreeBSD-SA
-- [Exploit Database](https://www.exploit-db.com/)
-- [Metasploit-Framework modules](https://www.rapid7.com/db/?q=&type=metasploit)
-- [US-CERT](https://www.us-cert.gov/ncas/alerts)
-- [JPCERT](http://www.jpcert.or.jp/at/2019.html)
-- [WPVulnDB](https://wpvulndb.com/api)
-- [Node.js Security Working Group](https://github.com/nodejs/security-wg)
-- [Ruby Advisory Database](https://github.com/rubysec/ruby-advisory-db)
-- [Safety DB(Python)](https://github.com/pyupio/safety-db)
-- [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories)
-- [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
-- Changelog
+  - RHSA / ALAS / ELSA / FreeBSD-SA
+  - Changelog
+
+- PoC, Exploit
+  - [Exploit Database](https://www.exploit-db.com/)
+  - [Metasploit-Framework modules](https://www.rapid7.com/db/?q=&type=metasploit)
+
+- CERT
+  - [US-CERT](https://www.us-cert.gov/ncas/alerts)
+  - [JPCERT](http://www.jpcert.or.jp/at/2019.html)
+
+- Libraries
+  - [Node.js Security Working Group](https://github.com/nodejs/security-wg)
+  - [Ruby Advisory Database](https://github.com/rubysec/ruby-advisory-db)
+  - [Safety DB(Python)](https://github.com/pyupio/safety-db)
+  - [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories)
+  - [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
+
+- WordPress
+  - [WPVulnDB](https://wpvulndb.com/api)
 
 ## Fast scan and Deep scan
 
@@ -72,7 +85,7 @@ Vuls uses Multiple vulnerability databases
 
 [Server mode](https://vuls.io/docs/en/usage-server.html)
 
-- No SSH needed, No Scanner needed. Only issuing Linux commands directory on the scan tareget serve.
+- No SSH needed, No Scanner needed. Only issuing Linux commands directory on the scan target serve.
 - First, start Vuls in server mode and listen as an HTTP server.
 - Start Vuls in server mode and listen as an HTTP server.
 - Next, issue a command on the scan target server to collect software information. Then send the result to Vuls Server via HTTP. You receive the scan results as JSON format.

@@ -165,11 +165,11 @@ report:
   -to-telegram
     	Send report via Telegram
   -trivy-cachedb-dir string
-    	/path/to/dir (default "/Users/takuya/Library/Caches/trivy")
+    	/path/to/dir (default "/Users/hoge/Library/Caches/trivy")
   -uuid
     	Auto generate of scan target servers and then write to config.toml and scan result
   -wp-ignore-inactive
-    	ignore inactive on wordpress's plugin and theme
+    	ignore inactive on wordpress plugin and theme
 
 ```
 
@@ -261,11 +261,11 @@ c74 (centos7.4.1708)
 Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 ```
 
-- `c74` means that it is a scan report of `servers.c74` defined in cocnfig.toml.
+- `c74` means that it is a scan report of `servers.c74` defined in config.toml.
 - `(centos7.4.1708)` means that the version of the OS is CentOS 7.4.
 - `Total: 23 (High:22 Medium:1 Low:0)` means that a total of 23 vulnerabilities exist, and the distribution of CVSS Severity is displayed.
 - `9/23 Fixed`means` that a total of 23 vulnerabilities exist, and 9 is fixed, 14 is not fixed yet.
-- `285 updatable packages` means that there are 285 updateable packages on the target server.
+- `285 updatable packages` means that there are 285 update-able packages on the target server.
 
 ```bash
 +---------------+----------------------------------------------------------------------------------+
@@ -329,7 +329,7 @@ $ for REPORT_DATE in $(vuls history | awk '{ print $1 }') ; do echo "$REPORT_DAT
 vuls history | grep "DATE" | vuls report -format-one-line-text -pipe
 ```
 
-## Example: Specify the path of go-cve-dcitionary, goval-dictionary and gost
+## Example: Specify the path of go-cve-dictionary, goval-dictionary and gost
 
 config.toml
 
@@ -356,6 +356,7 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 ```
 
 ## Example: Send scan results to email
+
 Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
 
 ```bash
@@ -363,7 +364,9 @@ $ vuls report \
       -to-email \
       -cvss-over=7
 ```
+
 With this sample command, it will ..
+
 - Send scan results to Email
 - Only Report CVEs that CVSS score is over 7
 
@@ -577,7 +580,7 @@ ignoreCves = ["CVE-2016-6314"]
 
 Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp [google/re2](https://github.com/google/re2/wiki/Syntax).
 
-```
+```bash
 [servers.c74]
 host     = "192.168.11.11"
 user     = "kanbe"
@@ -587,7 +590,7 @@ ignorePkgsRegexp = ["^kernel", "^python"]
 ignorePkgsRegexp = ["^vim"]
 ```
 
-## Exapmle: GitHub Security Alerts Integration
+## Example: GitHub Security Alerts Integration
 
 - [Usage: Integrate with GitHub Security Alerts](https://vuls.io/docs/en/usage-scan-non-os-packages.html#usage-integrate-with-github-security-alerts)
 
@@ -733,7 +736,7 @@ $ vuls report
 ...
 ```
 
-## Example: Use HTTP to access to vulnerability dictionarys
+## Example: Use HTTP to access to vulnerability dictionary
 
 config.toml
 

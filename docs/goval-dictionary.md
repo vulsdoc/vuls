@@ -8,20 +8,20 @@ For detail of goval-dictionary, see [kotakanbe/goval-dictionary](https://github.
 
 ## Usage: goval-dictionary on different server
 
-```
+```bash
 $ goval-dictionary server -bind=192.168.10.1 -port=1324
 ```
 
-Sepcify URL of the goval-dict in config.toml
+Specify URL of the goval-dict in config.toml
 
-```
+```toml
 [ovalDict]
 type = "http"
 url = "http://192.168.0.1:1324"
 ```
 
-```
-$ vuls report 
+```bash
+$ vuls report
 ```
 
 ## Usage: Update OVAL Data
@@ -32,4 +32,3 @@ $ vuls report
 - [Oracle](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
 - [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
 - [Alpine](https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
-

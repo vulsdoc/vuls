@@ -8,19 +8,19 @@ For detail of go-msfdb, see [takuzoo3868/go-msfdb](https://github.com/takuzoo386
 
 ## Usage: go-msfdb on different server
 
-```
+```bash
 $ go-msfdb server -bind=192.168.10.1 -port=1327
 ```
 
-Sepcify URL of the go-msfdb in config.toml
+Specify URL of the go-msfdb in config.toml
 
-```
+```toml
 [metasploit]
 url = "http://192.168.0.1:1327"
 ```
 
-```
-$ vuls report 
+```bash
+$ vuls report
 ```
 
 ## Usage: Update metasploit module db

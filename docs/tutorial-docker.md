@@ -4,7 +4,7 @@ title: Tutorial - Scan using Docker
 sidebar_label: Scan using Docker
 ---
 
-This tutorial will let you scan the vulnerabilities on the remote host via SSH with [Docker-Vuls](https://hub.docker.com/u/vuls/).   
+This tutorial will let you scan the vulnerabilities on the remote host via SSH with [Docker-Vuls](https://hub.docker.com/u/vuls/).
 
 Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
 
@@ -31,7 +31,8 @@ $ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-
 
 [go-cve-dictionary](https://github.com/kotakanbe/go-cve-dictionary)
 
-[kotakanbe/go-cve-dictioanry:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
+[kotakanbe/go-cve-dictionary:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
+
 ```console
 $ for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
@@ -77,6 +78,7 @@ $ docker run --rm -i \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
 ```
+
 To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit)
 
 ## Step3.6. Fetch go-msfdb
@@ -100,11 +102,10 @@ host            = "54.249.93.16"
 port            = "22"
 user            = "vuls-user"
 # if ssh config file exists in .ssh, path to ssh config file in docker
-sshConfigPath   = "/root/.ssh/config" 
+sshConfigPath   = "/root/.ssh/config"
 # path to ssh private key in docker
-keyPath         = "/root/.ssh/id_rsa" 
+keyPath         = "/root/.ssh/id_rsa"
 ```
-
 
 ## Step5. Configtest
 
@@ -133,6 +134,7 @@ $ docker run --rm -it \
 ```
 
 If Docker Host is Debian or Ubuntu
+
 ```console
 $ docker run --rm -it \
     -v ~/.ssh:/root/.ssh:ro \
@@ -150,7 +152,7 @@ $ docker run --rm -it \
 
 config.toml
 
-```
+```toml
 [cveDict]
 type = "sqlite3"
 SQLite3Path = "/path/to/cve.sqlite3"
@@ -196,6 +198,7 @@ $ docker run --rm -it \
     vuls/vuls tui \
     -config=./config.toml # path to config.toml in docker
 ```
+
 ![Vuls-TUI](https://vuls.io/img/docs/hello-vuls-tui.png)
 
 ## Step8. vulsrepo
@@ -209,11 +212,11 @@ $docker run -dt \
 
 [VulsRepo](vulsrepo.md)
 
-# HTTP-Server mode
+## HTTP-Server mode
 
 Run containers as below if you want to use go-cve-dictionary, goval-dictionary and gost as a server mode.
 
-## go-cve
+### go-cve
 
 ```console
 $ docker run -dt \
@@ -225,7 +228,7 @@ $ docker run -dt \
     vuls/go-cve-dictionary server --bind=0.0.0.0
 ```
 
-## goval
+### goval
 
 ```console
 $ docker run -dt \
@@ -237,7 +240,7 @@ $ docker run -dt \
     vuls/goval-dictionary server --bind=0.0.0.0
 ```
 
-## gost
+### gost
 
 ```console
 $ docker run -dt \
@@ -249,9 +252,9 @@ $ docker run -dt \
     vuls/gost server --bind=0.0.0.0
 ```
 
-## Report
+### Report
 
-```
+```toml
 [cveDict]
 type = "http"
 url = "http://hostname:1323"
@@ -282,21 +285,21 @@ $ docker run --rm -it \
     -config=./config.toml
 ```
 
-# Use MySQL 5.7 or later
+## Use MySQL 5.7 or later
 
 If you get below error message while fetching, define `sql_mode`.
 
-```
+```bash
 Error 1292: Incorrect datetime value: '0000-00-00' for column 'issued' at row 1
 ```
 
-see https://github.com/kotakanbe/goval-dictionary/issues/45
+see the [issue](https://github.com/kotakanbe/goval-dictionary/issues/45)
 
-```
+```bash
 $ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chHUIDCUAUaidfhasuadasuda  -d mysql:8 --sql-mode="" --default-authentication-plugin=mysql_native_password
 4e4440bbbcb556cf949c2ffcda15afe6ee7139752c08de8b1e4def47adde24ea
 
-$ docker exec -it mysql bash               
+$ docker exec -it mysql bash
 root@4e4440bbbcb5:/# mysql -uroot -h127.0.0.1 -pchHUIDCUAUaidfhasuadasuda
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -344,4 +347,3 @@ INFO[08-21|21:50:14] Finished fetching OVAL definitions
 INFO[08-21|21:50:16] Fetched                                  URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml OVAL definitions=17946
 INFO[08-21|21:50:16] Refreshing...                            Family=debian Version=9
 ```
-

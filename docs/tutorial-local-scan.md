@@ -35,7 +35,8 @@ If the installation process stops halfway, try increasing the instance type of E
 ## Step3. Configuration
 
 Create a config file(TOML format).  
-```
+
+```bash
 $ cd $HOME
 $ cat config.toml
 [servers]
@@ -168,8 +169,7 @@ $ vuls tui
 
 ## Step8. Web UI
 
-[VulsRepo](https://github.com/ishiDACo/vulsrepo) is a awesome Web UI for Vuls.  
-<img src="https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif" width="100%">
+![Vulsrepo](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif)
 
 Check it out the [Online Demo](http://usiusi360.github.io/vulsrepo/).
 

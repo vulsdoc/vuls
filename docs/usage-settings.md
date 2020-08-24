@@ -5,11 +5,12 @@ sidebar_label: Settings
 ---
 
 Generate a template of the `config.toml` settings file
-```
+
+```bash
 $ vuls discover 127.0.0.1/32
 ```
 
-```
+```toml
 # Create config.toml using below and then ./vuls -config=/path/to/config.toml
 
 # https://vuls.io/docs/en/usage-settings.html#database-section
@@ -157,7 +158,8 @@ host                = "127.0.0.1"
 ```
 
 ## Database Section
-```
+
+```toml
 [cveDict]
 type = "sqlite3"
 SQLite3Path = "/path/to/cve.sqlite3"
@@ -196,7 +198,7 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 
 ## Slack section
 
-```
+```toml
 [slack]
 hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"
 #legacyToken  = "xoxp-11111111111-222222222222-3333333333"
@@ -210,17 +212,19 @@ notifyUsers  = ["@username"]
 - hookURL or legacyToken.  
 If there are a lot of vulnerabilities, it is better to use legacyToken since the Slack notification will be flooded.
 
-- hookURL : Incoming webhook's URL (hookURL is ignored when legacyToken is set.)  
+- hookURL : Incoming web-hook's URL (hookURL is ignored when legacyToken is set.)  
 ![Vuls-slack](/img/docs/vuls-slack-en.png)
 
-- legacyToken : slack legacy token (https://api.slack.com/custom-integrations/legacy-tokens)  
+- legacyToken : slack [legacy token](https://api.slack.com/custom-integrations/legacy-tokens)  
 ![Vuls-slack-thread](https://user-images.githubusercontent.com/8997330/31842418-02b703f2-b629-11e7-8ec3-beda5d3a397e.png)
 
-- channel : channel name. 
+- channel : channel name.
+
 If you set `${servername}` to channel, the report will be sent to each channel.  
 In the following example, the report will be sent to the `#server1` and `#server2`.  
 Be sure to create these channels before scanning.
-```
+
+```toml
 [slack]
 channel      = "${servername}"
 ...snip...
@@ -244,7 +248,7 @@ So @foo, @bar can receive mobile push notifications on their smartphone.
 
 ## EMail section
 
-```
+```toml
 [email]
 smtpAddr      = "smtp.gmail.com"
 smtpPort      = "587"
@@ -258,7 +262,7 @@ subjectPrefix = "[vuls]"
 
 - If you use SMTPS when send email, please set config.toml as follows.
 
-```
+```toml
 [email]
 smtpAddr      = "smtp.gmail.com"
 smtpPort      = "465"
@@ -271,7 +275,8 @@ subjectPrefix = "[vuls]"
 ```
 
 ### Gmail account setting
-If you can't send vuls report via Email, please check your Gmail account setting. 
+
+If you can't send vuls report via Email, please check your Gmail account setting.
 
 1. Access Manage your Google Account -> "Security" tab
 2. Check Signing in to Google -> "Use your phone to sign in" and "2-Step Verification" is **OFF**
@@ -279,7 +284,7 @@ If you can't send vuls report via Email, please check your Gmail account setting
 
 ## Syslog section
 
-```
+```toml
 [syslog]
 protocol    = "tcp"
 host        = "localhost"
@@ -293,22 +298,20 @@ verbose     = false
 - protocol : transfer protocol (default: empty)
 - `tcp` or `udp` or empty  
  If protocol is empty, vuls will connect to the local syslog server.
-- host : syslog target host 
+- host : syslog target host
 - domain name or IP address
-- port : syslog target port (default: 514) 
+- port : syslog target port (default: 514)
 - tag : syslog tag
 - facility : syslog facility (default: `auth`)  
 - kern, user, mail, daemon, etc.
-- severity : syslog severity (default: `info`) 
+- severity : syslog severity (default: `info`)
 - emerg, alert, crit, etc.
 - verbose : verbose mode  (default: false)
 - CVE detail, etc.
 
-
-
 ## Default section
 
-```
+```toml
 [default]
 #port        = "22"
 #user        = "username"
@@ -321,11 +324,12 @@ verbose     = false
 #    ["key", "value"],
 #]
 ```
+
 Items of the default section will be used if not specified.
 
 ## servers section
 
-```
+```toml
 [servers]
 
 [servers.172-31-4-82]
@@ -366,14 +370,14 @@ You can overwrite the default value specified in default section.
 Vuls supports two types of SSH. One is external command. The other is native go implementation. For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
 Multiple SSH authentication methods are supported.  
+
 - SSH agent
 - SSH public key authentication (with password and empty password)
 Password authentication is not supported.
 
-
 ## HipChat section
 
-```
+```toml
 [hipchat]
 room = "vuls"
 authToken = "xxxxxxxxxxxxxx"
@@ -381,7 +385,7 @@ authToken = "xxxxxxxxxxxxxx"
 
 ## Stride section
 
-```
+```toml
 [stride]
 hookURL  = "xxxxxxxxxxxxxxx"
 authToken = "xxxxxxxxxxxxxx"
@@ -389,7 +393,7 @@ authToken = "xxxxxxxxxxxxxx"
 
 ## ChatWork section
 
-```
+```toml
 [chatwork]
 room = "xxxxxxxxxxx"
 apiToken = "xxxxxxxxxxxxxxx"
@@ -399,7 +403,7 @@ apiToken = "xxxxxxxxxxxxxxx"
 
 Posting to a user: [here is how to find user's chatID](https://stackoverflow.com/questions/31078710/how-to-obtain-telegram-chat-id-for-a-specific-user)
 
-```
+```toml
 [telegram]
 chatID = "xxxxxxxxxxx"
 token = "xxxxxxxxxxxxxxx"
@@ -407,9 +411,8 @@ token = "xxxxxxxxxxxxxxx"
 
 Posting to a channel:
 
-```
+```toml
 [telegram]
 chatID = "@xxxxxxxxxx"
 token = "xxxxxxxxxxxxxxx"
 ```
-

@@ -4,7 +4,7 @@ title: Tutorial - Remote Scan Mode
 sidebar_label: Remote Scan Mode
 ---
 
-This tutorial will let you scan the vulnerabilities on the remote host via SSH with Vuls.   
+This tutorial will let you scan the vulnerabilities on the remote host via SSH with Vuls.
 This can be done in the following steps.  
 
 1. Launch new Ubuntu Linux
@@ -96,4 +96,3 @@ ubuntu  ubuntu16.04     30 updatable packages
 - See [Tutorial: Local Scan#Step6. Reporting](tutorial-local-scan.md#step6-reporting)
 - See [Tutorial: Local Scan#Step7. TUI](tutorial-local-scan.md#step7-tui)
 - See [Tutorial: Local Scan#Step8. Web UI](tutorial-local-scan.md#step8-web-ui)
-

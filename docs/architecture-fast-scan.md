@@ -34,7 +34,7 @@ Scan with -offline option, vuls scans with no internet access.
 | Oracle      |                                   Fast |　                No |  Supported |                                      No |
 | Ubuntu      |                                   Fast |　                No |  Supported |                                      No |
 | Debian      |                                   Fast |　                No |  Supported |                                      No |
-| Amazo       |                                   Fast |　                No |  Supported |                                      No |
+| Amazon       |                                   Fast |　                No |  Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
 Offline scan mode is not supported for FreeBSD, Raspbian.
@@ -42,6 +42,6 @@ Offline scan mode is not supported for FreeBSD, Raspbian.
 ## Dependencies and /etc/sudoers
 
 For details, see
+
 - Dependencies: [usage-configtest](usage-configtest.md#fast-scan-mode)
 - /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
-
