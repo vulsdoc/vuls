@@ -75,181 +75,181 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-settings.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Settings</h1></header><article><div><span><p>Generate a template of the <code>config.toml</code> settings file</p>
-<pre><code class="hljs">$ vuls discover <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>/<span class="hljs-number">32</span>
+<pre><code class="hljs css language-bash">$ vuls discover 127.0.0.1/32
 </code></pre>
-<pre><code class="hljs"># Create config.toml using below and then ./vuls -config=/path/to/config.toml
+<pre><code class="hljs css language-toml"><span class="hljs-comment"># Create config.toml using below and then ./vuls -config=/path/to/config.toml</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#database-section</span>
-[cveDict]
-type = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
-#type = [<span class="hljs-string">"mysql"</span>, <span class="hljs-string">"postgres"</span>, <span class="hljs-string">"redis"</span>, <span class="hljs-string">"http"</span> ]
-#url = <span class="hljs-string">""</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#database-section</span>
+<span class="hljs-section">[cveDict]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
+<span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#url = ""</span>
 
-[ovalDict]
-type = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
-#type = [<span class="hljs-string">"mysql"</span>, <span class="hljs-string">"postgres"</span>, <span class="hljs-string">"redis"</span>, <span class="hljs-string">"http"</span> ]
-#url = <span class="hljs-string">""</span>
+<span class="hljs-section">[ovalDict]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
+<span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#url = ""</span>
 
-[gost]
-type = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
-#type = [<span class="hljs-string">"mysql"</span>, <span class="hljs-string">"postgres"</span>, <span class="hljs-string">"redis"</span>, <span class="hljs-string">"http"</span> ]
-#url = <span class="hljs-string">""</span>
+<span class="hljs-section">[gost]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
+<span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#url = ""</span>
 
-[exploit]
-type = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
-#type = [<span class="hljs-string">"mysql"</span>, <span class="hljs-string">"postgres"</span>, <span class="hljs-string">"redis"</span>, <span class="hljs-string">"http"</span> ]
-#url = <span class="hljs-string">""</span>
+<span class="hljs-section">[exploit]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
+<span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#url = ""</span>
 
-[metasploit]
-type = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
-# url = <span class="hljs-string">""</span>
+<span class="hljs-section">[metasploit]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
+<span class="hljs-comment"># url = ""</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#slack-section</span>
-#[slack]
-#hookURL      = <span class="hljs-string">"https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"</span>
-##legacyToken = <span class="hljs-string">"xoxp-11111111111-222222222222-3333333333"</span>
-#channel      = <span class="hljs-string">"#channel-name"</span>
-##channel     = <span class="hljs-string">"${servername}"</span>
-#iconEmoji    = <span class="hljs-string">":ghost:"</span>
-#authUser     = <span class="hljs-string">"username"</span>
-#notifyUsers  = [<span class="hljs-string">"@username"</span>]
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#slack-section</span>
+<span class="hljs-comment">#[slack]</span>
+<span class="hljs-comment">#hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"</span>
+<span class="hljs-comment">##legacyToken = "xoxp-11111111111-222222222222-3333333333"</span>
+<span class="hljs-comment">#channel      = "#channel-name"</span>
+<span class="hljs-comment">##channel     = "${servername}"</span>
+<span class="hljs-comment">#iconEmoji    = ":ghost:"</span>
+<span class="hljs-comment">#authUser     = "username"</span>
+<span class="hljs-comment">#notifyUsers  = ["@username"]</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#email-section</span>
-#[email]
-#smtpAddr      = <span class="hljs-string">"smtp.example.com"</span>
-#smtpPort      = <span class="hljs-string">"587"</span>
-#user          = <span class="hljs-string">"username"</span>
-#password      = <span class="hljs-string">"password"</span>
-#<span class="hljs-keyword">from</span>          = <span class="hljs-string">"from@example.com"</span>
-#to            = [<span class="hljs-string">"to@example.com"</span>]
-#cc            = [<span class="hljs-string">"cc@example.com"</span>]
-#subjectPrefix = <span class="hljs-string">"[vuls]"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#email-section</span>
+<span class="hljs-comment">#[email]</span>
+<span class="hljs-comment">#smtpAddr      = "smtp.example.com"</span>
+<span class="hljs-comment">#smtpPort      = "587"</span>
+<span class="hljs-comment">#user          = "username"</span>
+<span class="hljs-comment">#password      = "password"</span>
+<span class="hljs-comment">#from          = "from@example.com"</span>
+<span class="hljs-comment">#to            = ["to@example.com"]</span>
+<span class="hljs-comment">#cc            = ["cc@example.com"]</span>
+<span class="hljs-comment">#subjectPrefix = "[vuls]"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#http-section</span>
-#[http]
-#url = <span class="hljs-string">"http://localhost:11234"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#http-section</span>
+<span class="hljs-comment">#[http]</span>
+<span class="hljs-comment">#url = "http://localhost:11234"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#syslog-section</span>
-#[syslog]
-#protocol    = <span class="hljs-string">"tcp"</span>
-#host        = <span class="hljs-string">"localhost"</span>
-#port        = <span class="hljs-string">"514"</span>
-#tag         = <span class="hljs-string">"vuls"</span>
-#facility    = <span class="hljs-string">"local0"</span>
-#severity    = <span class="hljs-string">"alert"</span>
-#verbose     = false
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#syslog-section</span>
+<span class="hljs-comment">#[syslog]</span>
+<span class="hljs-comment">#protocol    = "tcp"</span>
+<span class="hljs-comment">#host        = "localhost"</span>
+<span class="hljs-comment">#port        = "514"</span>
+<span class="hljs-comment">#tag         = "vuls"</span>
+<span class="hljs-comment">#facility    = "local0"</span>
+<span class="hljs-comment">#severity    = "alert"</span>
+<span class="hljs-comment">#verbose     = false</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-report.html#example-put-results-in-s3-bucket</span>
-#[aws]
-#profile                = <span class="hljs-string">"default"</span>
-#region                 = <span class="hljs-string">"ap-northeast-1"</span>
-#s3Bucket               = <span class="hljs-string">"vuls"</span>
-#s3ResultsDir           = <span class="hljs-string">"/path/to/result"</span>
-#s3ServerSideEncryption = <span class="hljs-string">"AES256"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-report.html#example-put-results-in-s3-bucket</span>
+<span class="hljs-comment">#[aws]</span>
+<span class="hljs-comment">#profile                = "default"</span>
+<span class="hljs-comment">#region                 = "ap-northeast-1"</span>
+<span class="hljs-comment">#s3Bucket               = "vuls"</span>
+<span class="hljs-comment">#s3ResultsDir           = "/path/to/result"</span>
+<span class="hljs-comment">#s3ServerSideEncryption = "AES256"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-report.html#example-put-results-in-azure-blob-storage&lt;Paste&gt;</span>
-#[azure]
-#accountName   = <span class="hljs-string">"default"</span>
-#accountKey    = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
-#containerName = <span class="hljs-string">"vuls"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-report.html#example-put-results-in-azure-blob-storage&lt;Paste&gt;</span>
+<span class="hljs-comment">#[azure]</span>
+<span class="hljs-comment">#accountName   = "default"</span>
+<span class="hljs-comment">#accountKey    = "xxxxxxxxxxxxxx"</span>
+<span class="hljs-comment">#containerName = "vuls"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#stride-section</span>
-#[stride]
-#hookURL   = <span class="hljs-string">"xxxxxxxxxxxxxxx"</span>
-#authToken = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#stride-section</span>
+<span class="hljs-comment">#[stride]</span>
+<span class="hljs-comment">#hookURL   = "xxxxxxxxxxxxxxx"</span>
+<span class="hljs-comment">#authToken = "xxxxxxxxxxxxxx"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#hipchat-section</span>
-#[hipchat]
-#room      = <span class="hljs-string">"vuls"</span>
-#authToken = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#hipchat-section</span>
+<span class="hljs-comment">#[hipchat]</span>
+<span class="hljs-comment">#room      = "vuls"</span>
+<span class="hljs-comment">#authToken = "xxxxxxxxxxxxxx"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#chatwork-section</span>
-#[chatwork]
-#room     = <span class="hljs-string">"xxxxxxxxxxx"</span>
-#apiToken = <span class="hljs-string">"xxxxxxxxxxxxxxxxxx"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#chatwork-section</span>
+<span class="hljs-comment">#[chatwork]</span>
+<span class="hljs-comment">#room     = "xxxxxxxxxxx"</span>
+<span class="hljs-comment">#apiToken = "xxxxxxxxxxxxxxxxxx"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#telegram-section</span>
-#[telegram]
-#chatID = <span class="hljs-string">"xxxxxxxxxxx"</span>
-#token   = <span class="hljs-string">"xxxxxxxxxxxxxxxxxx"</span>
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#telegram-section</span>
+<span class="hljs-comment">#[telegram]</span>
+<span class="hljs-comment">#chatID = "xxxxxxxxxxx"</span>
+<span class="hljs-comment">#token   = "xxxxxxxxxxxxxxxxxx"</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#default-section</span>
-[default]
-#port               = <span class="hljs-string">"22"</span>
-#user               = <span class="hljs-string">"username"</span>
-#keyPath            = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-#scanMode           = [<span class="hljs-string">"fast"</span>, <span class="hljs-string">"fast-root"</span>, <span class="hljs-string">"deep"</span>, <span class="hljs-string">"offline"</span>]
-#cpeNames = [
-#  <span class="hljs-string">"cpe:/a:rubyonrails:ruby_on_rails:4.2.1"</span>,
-#]
-#owaspDCXMLPath     = <span class="hljs-string">"/tmp/dependency-check-report.xml"</span>
-#ignoreCves         = [<span class="hljs-string">"CVE-2014-6271"</span>]
-#containerType      = <span class="hljs-string">"docker"</span> #or <span class="hljs-string">"lxd"</span> or <span class="hljs-string">"lxc"</span> default: docker
-#containersIncluded = [<span class="hljs-string">"${running}"</span>]
-#containersExcluded = [<span class="hljs-string">"container_name_a"</span>]
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#default-section</span>
+<span class="hljs-section">[default]</span>
+<span class="hljs-comment">#port               = "22"</span>
+<span class="hljs-comment">#user               = "username"</span>
+<span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
+<span class="hljs-comment">#cpeNames = [</span>
+<span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
+<span class="hljs-comment">#]</span>
+<span class="hljs-comment">#owaspDCXMLPath     = "/tmp/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2014-6271"]</span>
+<span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
+<span class="hljs-comment">#containersIncluded = ["${running}"]</span>
+<span class="hljs-comment">#containersExcluded = ["container_name_a"]</span>
 
-# https:<span class="hljs-comment">//vuls.io/docs/en/usage-settings.html#servers-section</span>
-[servers]
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-settings.html#servers-section</span>
+<span class="hljs-section">[servers]</span>
 
-[servers<span class="hljs-number">.127</span><span class="hljs-number">-0</span><span class="hljs-number">-0</span><span class="hljs-number">-1</span>]
-host                = <span class="hljs-string">"127.0.0.1"</span>
-#jumpServer         = [<span class="hljs-string">"test@test.com:22"</span>, <span class="hljs-string">"test@test1.com:2222"</span>]
-#port               = <span class="hljs-string">"22"</span>
-#user               = <span class="hljs-string">"root"</span>
-#sshConfigPath      = <span class="hljs-string">"/home/username/.ssh/config"</span>
-#keyPath            = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-#scanMode           = [<span class="hljs-string">"fast"</span>, <span class="hljs-string">"fast-root"</span>, <span class="hljs-string">"deep"</span>, <span class="hljs-string">"offline"</span>]
-#type               = <span class="hljs-string">"pseudo"</span>
-#memo               = <span class="hljs-string">"DB Server"</span>
-#cpeNames            = [ <span class="hljs-string">"cpe:/a:rubyonrails:ruby_on_rails:4.2.1"</span> ]
-#owaspDCXMLPath     = <span class="hljs-string">"/path/to/dependency-check-report.xml"</span>
-#ignoreCves         = [<span class="hljs-string">"CVE-2014-0160"</span>]
-#containerType      = <span class="hljs-string">"docker"</span> #or <span class="hljs-string">"lxd"</span> or <span class="hljs-string">"lxc"</span> default: docker
-#containersIncluded = [<span class="hljs-string">"${running}"</span>]
-#containersExcluded = [<span class="hljs-string">"container_name_a"</span>]
+<span class="hljs-section">[servers.127-0-0-1]</span>
+<span class="hljs-attr">host</span>                = <span class="hljs-string">"127.0.0.1"</span>
+<span class="hljs-comment">#jumpServer         = ["test@test.com:22", "test@test1.com:2222"]</span>
+<span class="hljs-comment">#port               = "22"</span>
+<span class="hljs-comment">#user               = "root"</span>
+<span class="hljs-comment">#sshConfigPath      = "/home/username/.ssh/config"</span>
+<span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
+<span class="hljs-comment">#type               = "pseudo"</span>
+<span class="hljs-comment">#memo               = "DB Server"</span>
+<span class="hljs-comment">#cpeNames            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
+<span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>
+<span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
+<span class="hljs-comment">#containersIncluded = ["${running}"]</span>
+<span class="hljs-comment">#containersExcluded = ["container_name_a"]</span>
 
-#[servers<span class="hljs-number">.127</span><span class="hljs-number">-0</span><span class="hljs-number">-0</span><span class="hljs-number">-1.</span>containers.container_name_a]
-#cpeNames        = [ <span class="hljs-string">"cpe:/a:rubyonrails:ruby_on_rails:4.2.1"</span> ]
-#owaspDCXMLPath = <span class="hljs-string">"/path/to/dependency-check-report.xml"</span>
-#ignoreCves     = [<span class="hljs-string">"CVE-2014-0160"</span>]
+<span class="hljs-comment">#[servers.127-0-0-1.containers.container_name_a]</span>
+<span class="hljs-comment">#cpeNames        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
+<span class="hljs-comment">#owaspDCXMLPath = "/path/to/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves     = ["CVE-2014-0160"]</span>
 
-#[servers<span class="hljs-number">.127</span><span class="hljs-number">-0</span><span class="hljs-number">-0</span><span class="hljs-number">-1.</span>optional]
-#key = <span class="hljs-string">"value1"</span>
+<span class="hljs-comment">#[servers.127-0-0-1.optional]</span>
+<span class="hljs-comment">#key = "value1"</span>
 
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="database-section"></a><a href="#database-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database Section</h2>
-<pre><code class="hljs">[cveDict]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
 <span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
 <span class="hljs-comment">#url = ""</span>
 
-[ovalDict]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
+<span class="hljs-section">[ovalDict]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
 <span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
 <span class="hljs-comment">#url = ""</span>
 
-[gost]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
+<span class="hljs-section">[gost]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
 <span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
 <span class="hljs-comment">#url = ""</span>
 
-[exploit]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
+<span class="hljs-section">[exploit]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
 <span class="hljs-comment">#type = ["mysql", "postgres", "redis", "http" ]</span>
 <span class="hljs-comment">#url = ""</span>
 
-[metasploit]<span class="hljs-built_in">
-type </span>= <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
+<span class="hljs-section">[metasploit]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
 <span class="hljs-comment"># url = ""</span>
 </code></pre>
 <ul>
@@ -258,7 +258,7 @@ SQLite3Path = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
 <li><p>url : specifies the url to access the database.</p></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="slack-section"></a><a href="#slack-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Slack section</h2>
-<pre><code class="hljs"><span class="hljs-section">[slack]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[slack]</span>
 <span class="hljs-attr">hookURL</span>      = <span class="hljs-string">"https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"</span>
 <span class="hljs-comment">#legacyToken  = "xoxp-11111111111-222222222222-3333333333"</span>
 <span class="hljs-attr">channel</span>      = <span class="hljs-string">"#channel-name"</span>
@@ -270,27 +270,27 @@ SQLite3Path = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
 <ul>
 <li><p>hookURL or legacyToken.<br>
 If there are a lot of vulnerabilities, it is better to use legacyToken since the Slack notification will be flooded.</p></li>
-<li><p>hookURL : Incoming webhook's URL (hookURL is ignored when legacyToken is set.)<br>
+<li><p>hookURL : Incoming web-hook's URL (hookURL is ignored when legacyToken is set.)<br>
 <img src="/img/docs/vuls-slack-en.png" alt="Vuls-slack"></p></li>
-<li><p>legacyToken : slack legacy token (<a href="https://api.slack.com/custom-integrations/legacy-tokens">https://api.slack.com/custom-integrations/legacy-tokens</a>)<br>
+<li><p>legacyToken : slack <a href="https://api.slack.com/custom-integrations/legacy-tokens">legacy token</a>  <br>
 <img src="https://user-images.githubusercontent.com/8997330/31842418-02b703f2-b629-11e7-8ec3-beda5d3a397e.png" alt="Vuls-slack-thread"></p></li>
-<li><p>channel : channel name.
-If you set <code>${servername}</code> to channel, the report will be sent to each channel.<br>
-In the following example, the report will be sent to the <code>#server1</code> and <code>#server2</code>.<br>
-Be sure to create these channels before scanning.</p></li>
+<li><p>channel : channel name.</p></li>
 </ul>
-<pre><code class="hljs">[slack]
-channel      = <span class="hljs-string">"${servername}"</span>
+<p>If you set <code>${servername}</code> to channel, the report will be sent to each channel.<br>
+In the following example, the report will be sent to the <code>#server1</code> and <code>#server2</code>.<br>
+Be sure to create these channels before scanning.</p>
+<pre><code class="hljs css language-toml">[slack]
+channel      = "${servername}"
 ...snip...
 
 [servers]
 
 [servers.server1]
-host         = <span class="hljs-string">"172.31.4.82"</span>
+host         = "172.31.4.82"
 ...snip...
 
 [servers.server2]
-host         = <span class="hljs-string">"172.31.4.83"</span>
+host         = "172.31.4.83"
 ...snip...
 </code></pre>
 <ul>
@@ -301,7 +301,7 @@ If you set <code>[&quot;@foo&quot;, &quot;@bar&quot;]</code> to notifyUsers, @fo
 So @foo, @bar can receive mobile push notifications on their smartphone.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="email-section"></a><a href="#email-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EMail section</h2>
-<pre><code class="hljs"><span class="hljs-section">[email]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[email]</span>
 <span class="hljs-attr">smtpAddr</span>      = <span class="hljs-string">"smtp.gmail.com"</span>
 <span class="hljs-attr">smtpPort</span>      = <span class="hljs-string">"587"</span>
 <span class="hljs-attr">user</span>          = <span class="hljs-string">"username"</span>
@@ -314,7 +314,7 @@ So @foo, @bar can receive mobile push notifications on their smartphone.</li>
 <ul>
 <li>If you use SMTPS when send email, please set config.toml as follows.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-section">[email]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[email]</span>
 <span class="hljs-attr">smtpAddr</span>      = <span class="hljs-string">"smtp.gmail.com"</span>
 <span class="hljs-attr">smtpPort</span>      = <span class="hljs-string">"465"</span>
 <span class="hljs-attr">user</span>          = <span class="hljs-string">"username"</span>
@@ -332,7 +332,7 @@ So @foo, @bar can receive mobile push notifications on their smartphone.</li>
 <li>Check &quot;Less secure app access&quot; is <strong>On</strong></li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="syslog-section"></a><a href="#syslog-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Syslog section</h2>
-<pre><code class="hljs"><span class="hljs-section">[syslog]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[syslog]</span>
 <span class="hljs-attr">protocol</span>    = <span class="hljs-string">"tcp"</span>
 <span class="hljs-attr">host</span>        = <span class="hljs-string">"localhost"</span>
 <span class="hljs-attr">port</span>        = <span class="hljs-string">"514"</span>
@@ -357,41 +357,41 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <li>CVE detail, etc.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="default-section"></a><a href="#default-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default section</h2>
-<pre><code class="hljs">[<span class="hljs-keyword">default</span>]
-<span class="hljs-meta">#port        = "22"</span>
-<span class="hljs-meta">#user        = "username"</span>
-<span class="hljs-meta">#keyPath     = "/home/username/.ssh/id_rsa"</span>
-<span class="hljs-meta">#cpeNames = [</span>
-<span class="hljs-meta">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
-<span class="hljs-meta">#]</span>
-<span class="hljs-meta">#ignoreCves = ["CVE-2016-6313"]</span>
-<span class="hljs-meta">#optional = [</span>
-<span class="hljs-meta">#    ["key", "value"],</span>
-<span class="hljs-meta">#]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[default]</span>
+<span class="hljs-comment">#port        = "22"</span>
+<span class="hljs-comment">#user        = "username"</span>
+<span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#cpeNames = [</span>
+<span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
+<span class="hljs-comment">#]</span>
+<span class="hljs-comment">#ignoreCves = ["CVE-2016-6313"]</span>
+<span class="hljs-comment">#optional = [</span>
+<span class="hljs-comment">#    ["key", "value"],</span>
+<span class="hljs-comment">#]</span>
 </code></pre>
 <p>Items of the default section will be used if not specified.</p>
 <h2><a class="anchor" aria-hidden="true" id="servers-section"></a><a href="#servers-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>servers section</h2>
-<pre><code class="hljs">[servers]
+<pre><code class="hljs css language-toml"><span class="hljs-section">[servers]</span>
 
-[servers<span class="hljs-number">.172</span><span class="hljs-number">-31</span><span class="hljs-number">-4</span><span class="hljs-number">-82</span>]
-host         = <span class="hljs-string">"172.31.4.82"</span>
-#jumpServer  = [<span class="hljs-string">"test@test.com:22"</span>, <span class="hljs-string">"test@test1.com:2222"</span>]
-#port        = <span class="hljs-string">"22"</span>
-#user        = <span class="hljs-string">"root"</span>
-#sshConfigPath      = <span class="hljs-string">"/home/username/.ssh/config"</span>
-#keyPath     = <span class="hljs-string">"/home/username/.ssh/id_rsa"</span>
-#type          = <span class="hljs-string">"pseudo"</span>
-#cpeNames = [
-#  <span class="hljs-string">"cpe:/a:rubyonrails:ruby_on_rails:4.2.1"</span>,
-#]
-#ignoreCves = [<span class="hljs-string">"CVE-2016-6314"</span>]
-#optional = [
-#    [<span class="hljs-string">"key"</span>, <span class="hljs-string">"value"</span>],
-#]
-#[servers<span class="hljs-number">.172</span><span class="hljs-number">-31</span><span class="hljs-number">-4</span><span class="hljs-number">-82.</span>containers]
-#type = <span class="hljs-string">"lxd"</span> # or <span class="hljs-string">"docker"</span> or <span class="hljs-string">"lxc"</span>
-#includes = [<span class="hljs-string">"${running}"</span>]
-#excludes = [<span class="hljs-string">"container_name"</span>, <span class="hljs-string">"container_id"</span>]
+<span class="hljs-section">[servers.172-31-4-82]</span>
+<span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
+<span class="hljs-comment">#jumpServer  = ["test@test.com:22", "test@test1.com:2222"]</span>
+<span class="hljs-comment">#port        = "22"</span>
+<span class="hljs-comment">#user        = "root"</span>
+<span class="hljs-comment">#sshConfigPath      = "/home/username/.ssh/config"</span>
+<span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#type          = "pseudo"</span>
+<span class="hljs-comment">#cpeNames = [</span>
+<span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
+<span class="hljs-comment">#]</span>
+<span class="hljs-comment">#ignoreCves = ["CVE-2016-6314"]</span>
+<span class="hljs-comment">#optional = [</span>
+<span class="hljs-comment">#    ["key", "value"],</span>
+<span class="hljs-comment">#]</span>
+<span class="hljs-comment">#[servers.172-31-4-82.containers]</span>
+<span class="hljs-comment">#type = "lxd" # or "docker" or "lxc"</span>
+<span class="hljs-comment">#includes = ["${running}"]</span>
+<span class="hljs-comment">#excludes = ["container_name", "container_id"]</span>
 </code></pre>
 <p>You can overwrite the default value specified in default section.</p>
 <ul>
@@ -415,28 +415,28 @@ host         = <span class="hljs-string">"172.31.4.82"</span>
 Password authentication is not supported.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="hipchat-section"></a><a href="#hipchat-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HipChat section</h2>
-<pre><code class="hljs"><span class="hljs-section">[hipchat]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[hipchat]</span>
 <span class="hljs-attr">room</span> = <span class="hljs-string">"vuls"</span>
 <span class="hljs-attr">authToken</span> = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="stride-section"></a><a href="#stride-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stride section</h2>
-<pre><code class="hljs"><span class="hljs-section">[stride]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[stride]</span>
 <span class="hljs-attr">hookURL</span>  = <span class="hljs-string">"xxxxxxxxxxxxxxx"</span>
 <span class="hljs-attr">authToken</span> = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="chatwork-section"></a><a href="#chatwork-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ChatWork section</h2>
-<pre><code class="hljs"><span class="hljs-section">[chatwork]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[chatwork]</span>
 <span class="hljs-attr">room</span> = <span class="hljs-string">"xxxxxxxxxxx"</span>
 <span class="hljs-attr">apiToken</span> = <span class="hljs-string">"xxxxxxxxxxxxxxx"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="telegram-section"></a><a href="#telegram-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Telegram section</h2>
 <p>Posting to a user: <a href="https://stackoverflow.com/questions/31078710/how-to-obtain-telegram-chat-id-for-a-specific-user">here is how to find user's chatID</a></p>
-<pre><code class="hljs"><span class="hljs-section">[telegram]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[telegram]</span>
 <span class="hljs-attr">chatID</span> = <span class="hljs-string">"xxxxxxxxxxx"</span>
 <span class="hljs-attr">token</span> = <span class="hljs-string">"xxxxxxxxxxxxxxx"</span>
 </code></pre>
 <p>Posting to a channel:</p>
-<pre><code class="hljs"><span class="hljs-section">[telegram]</span>
+<pre><code class="hljs css language-toml"><span class="hljs-section">[telegram]</span>
 <span class="hljs-attr">chatID</span> = <span class="hljs-string">"@xxxxxxxxxx"</span>
 <span class="hljs-attr">token</span> = <span class="hljs-string">"xxxxxxxxxxxxxxx"</span>
 </code></pre>

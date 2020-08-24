@@ -75,7 +75,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-tui.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">TUI(Terminal Based Viewer)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="最新のスキャン結果の表示"></a><a href="#最新のスキャン結果の表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最新のスキャン結果の表示</h2>
-<pre><code class="hljs">$ vuls tui -h
+<pre><code class="hljs css language-bash">$ vuls tui -h
 tui:
     tui
         [-refresh-cve]
@@ -85,7 +85,7 @@ tui:
         [-ignore-unscored-cves]
         [-ignore-unfixed]
         [-results-dir=/path/to/results]
-        [-log-dir=/path/to/log]
+        [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
         [-debug]
         [-debug-sql]
         [-quiet]
@@ -109,14 +109,14 @@ tui:
         [-trivy-cachedb-dir=/path/to/dir]
 
   -config string
-        /path/to/toml (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml&quot;)
+        /path/to/toml (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
   -cvedb-path string
         /path/to/sqlite3
   -cvedb-type string
-        DB type of go-cve-dictionary (sqlite3, mysql, postgres or redis) (default &quot;sqlite3&quot;)
+        DB <span class="hljs-built_in">type</span> of go-cve-dictionary (sqlite3, mysql, postgres or redis) (default <span class="hljs-string">"sqlite3"</span>)
   -cvedb-url string
         http://go-cve-dictionary.com:1323 or DB connection string
-  -cvss-over float
+  -cvss-over <span class="hljs-built_in">float</span>
         -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
         debug mode
@@ -127,25 +127,25 @@ tui:
   -exploitdb-sqlite3-path string
         /path/to/sqlite3
   -exploitdb-type string
-        DB type of exploit (sqlite3, mysql, postgres, redis or http)
+        DB <span class="hljs-built_in">type</span> of exploit (sqlite3, mysql, postgres, redis or http)
   -exploitdb-url string
         http://exploit.com:1326 or DB connection string
   -gostdb-path string
         /path/to/sqlite3
   -gostdb-type string
-        DB type of gost (sqlite3, mysql, postgres or redis)
+        DB <span class="hljs-built_in">type</span> of gost (sqlite3, mysql, postgres or redis)
   -gostdb-url string
         http://gost.com:1325 or DB connection string
   -ignore-unfixed
-        Don't report the unfixed CVEs
+        Don<span class="hljs-string">'t report the unfixed CVEs
   -ignore-unscored-cves
-        Don't report the unscored CVEs
-  -log-dir string
-        /path/to/log (default &quot;/var/log/vuls&quot;)
+        Don'</span>t report the unscored CVEs
+  -<span class="hljs-built_in">log</span>-dir string
+        /path/to/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
   -msfdb-sqlite3-path string
         /path/to/sqlite3
   -msfdb-type string
-        DB type of msf (sqlite3, mysql, postgres, redis or http)
+        DB <span class="hljs-built_in">type</span> of msf (sqlite3, mysql, postgres, redis or http)
   -msfdb-url string
         http://metasploit.com:1327 or DB connection string
   -no-progress
@@ -153,7 +153,7 @@ tui:
   -ovaldb-path string
         /path/to/sqlite3
   -ovaldb-type string
-        DB type of goval-dictionary (sqlite3, mysql, postgres or redis)
+        DB <span class="hljs-built_in">type</span> of goval-dictionary (sqlite3, mysql, postgres or redis)
   -ovaldb-url string
         http://goval-dictionary.com:1324 or DB connection string
   -pipe
@@ -161,11 +161,12 @@ tui:
   -quiet
         Quiet mode. No output on stdout
   -refresh-cve
-        Refresh CVE information in JSON file under results dir
+        Refresh CVE information <span class="hljs-keyword">in</span> JSON file under results dir
   -results-dir string
-        /path/to/results (default &quot;/Users/kanbe/go/src/github.com/future-architect/vuls/results&quot;)
+        /path/to/results (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/results"</span>)
   -trivy-cachedb-dir string
-        /path/to/dir (default &quot;/Users/kanbe/Library/Caches/trivy&quot;)
+        /path/to/dir (default <span class="hljs-string">"/Users/kanbe/Library/Caches/trivy"</span>)
+
 </code></pre>
 <p><img src="/img/docs/hello-vuls-tui.png" alt="report-list"></p>
 <p>キー操作は以下の通り。</p>
@@ -180,21 +181,23 @@ tui:
 <tr><td style="text-align:left">Ctrl+u, Ctrl+d</td><td style="text-align:left">ページの上下</td></tr>
 </tbody>
 </table>
-<p>詳細は、<a href="https://github.com/future-architect/vuls/blob/master/report/tui.go">https://github.com/future-architect/vuls/blob/master/report/tui.go</a> を参照。</p>
+<p>For details, see <a href="https://github.com/future-architect/vuls/blob/master/report/tui.go">source code</a></p>
 <h2><a class="anchor" aria-hidden="true" id="以前のスキャン結果の表示"></a><a href="#以前のスキャン結果の表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>以前のスキャン結果の表示</h2>
 <ul>
-<li><p>スキャン結果のリストの表示</p>
-<p>$ vuls history
+<li>スキャン結果のリストの表示</li>
+</ul>
+<pre><code class="hljs css language-bash">$ vuls <span class="hljs-built_in">history</span>
 2016-12-30T10:34:38+09:00 1 servers: u16
 2016-12-28T19:15:19+09:00 1 servers: ama
-2016-12-28T19:10:03+09:00 1 servers: cent6</p></li>
-</ul>
+2016-12-28T19:10:03+09:00 1 servers: cent6
+</code></pre>
 <ul>
-<li><p>2016-12-30T10:34:38+09:00 のスキャン結果の表示</p>
-<p>$ vuls tui 2016-12-30T10:34:38+09:00</p></li>
+<li>2016-12-30T10:34:38+09:00 のスキャン結果の表示</li>
 </ul>
-<h1><a class="anchor" aria-hidden="true" id="pecoを利用した以前のスキャン結果の表示"></a><a href="#pecoを利用した以前のスキャン結果の表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pecoを利用した以前のスキャン結果の表示</h1>
-<pre><code class="hljs">$ vuls history | peco | vuls tui -pipe
+<pre><code class="hljs css language-bash">$ vuls tui 2016-12-30T10:34:38+09:00
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="display-the-previous-scan-results-using-peco"></a><a href="#display-the-previous-scan-results-using-peco" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display the previous scan results using peco</h2>
+<pre><code class="hljs css language-bash">$ vuls <span class="hljs-built_in">history</span> | peco | vuls tui -pipe
 </code></pre>
 <p><a href="https://asciinema.org/a/emi7y7docxr60bq080z10t7v8"><img src="https://asciinema.org/a/emi7y7docxr60bq080z10t7v8.png" alt="asciicast"></a></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ja/usage-report.html"><span class="arrow-prev">← </span><span>Report</span></a><a class="docs-next button" href="/docs/ja/usage-server.html"><span>Server</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/ja/abstract.html">Introduction</a><a href="/docs/ja/architecture-remote-local.html">Architecture</a><a href="/docs/ja/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2020 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
