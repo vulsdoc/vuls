@@ -6,18 +6,29 @@ sidebar_label: Fast-Root Scan
 
 ![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast-root.png)
 
-| Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
-|:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
-| Alpine      |                                   Fast |　                No |  Supported |                                    Need |
-| CentOS      |                                   Fast |　              Need |  Supported |                                    Need |
-| RHEL        |                                   Fast |　              Need |  Supported |                                    Need |
-| Oracle      |                                   Fast |　              Need |  Supported |                                    Need |
-| Ubuntu      |                                   Fast |　              Need |  Supported |                                    Need |
-| Debian      |                                   Fast |　              Need |  Supported |                                    Need |
-| Raspbian    |    1st time: Slow, From 2nd time: Fast |                Need |         No |                                    Need |
-| FreeBSD     |                                   Fast |　                No |         No |                                    Need |
-| Amazon      |                                   Fast |　              Need |  Supported |                                    Need |
-| SUSE Enterprise |                               Fast |　                No |  Supported |                                    Need |
+| Distribution|                             Scan Speed | Need Root Privilege |                 OVAL | Need Internet Access|
+|:------------|:--------------------------------------:|:-------------------:|:--------------------:|:---------------------------------------:|
+| Alpine      |                                   Fast |　                No |            Supported |                                    Need |
+| CentOS      |                                   Fast |　              Need |            Supported |                                    Need |
+| RHEL        |                                   Fast |　              Need |            Supported |                                    Need |
+| Oracle      |                                   Fast |　              Need |            Supported |                                    Need |
+| Ubuntu      |                                   Fast |　              Need |            Supported |                                    Need |
+| Debian      |                                   Fast |　              Need |            Supported |                                    Need |
+| Raspbian    |    1st time: Slow, From 2nd time: Fast |                Need |  Partially Supported |                                    Need |
+| FreeBSD     |                                   Fast |　                No |                   No |                                    Need |
+| Amazon      |                                   Fast |　              Need |            Supported |                                    Need |
+| SUSE Enterprise |                               Fast |　                No |            Supported |                                    Need |
+
+Raspbian has been modified from its previous Changelog only scan to scan using Debian OVAL and Debian Security Tracker, Changelog.
+The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi). 
+In summary, the behavior of each scan mode in Raspbian is shown in the table below.
+
+|     Scan Mode    | fast |                 fast-root                |         deep         |
+|:----------------:|:----|:----------------------------------------|:--------------------|
+|      v0.11     |   (deep scan)  |                 (deep scan)                |       changelog      |
+|    v0.12   | <ul><li>OVAL</li><li>Debian Security Tracker</li></ul> | <ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(only raspberrypi package)</li></ul> | <ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(all updatable package)</li></ul> |
+
+For more information, see This Pull Request (https://github.com/future-architect/vuls/pull/1019).
 
 ## With -offline option
 
@@ -35,6 +46,9 @@ Scan with -offline option, vuls scans with no internet access.
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                    No |
 
 Offline scan mode is not supported FreeBSD, Raspbian.
+
+In Fast-Root Scan and Deep Scan, Raspbian scans a combination of Debian OVAL and Debian Security Tracker, Changelog, so Offline Scan mode cannot be provided completely. 
+If you execute Offline Scan, you can get the result of Debian OVAL and Debian Security Tracker only (same result as Fast Scan).
 
 ## Dependencies and /etc/sudoers
 

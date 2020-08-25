@@ -62,20 +62,20 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 
 The configtest subcommand with `fast-root` mode checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 
-| Distribution |            Release | Requirements |
-|:-------------|-------------------:|:-------------|
-| Alpine       |      3.2 and later | - |
-| Ubuntu       |          14, 16, 18| debian-goodies |
-| Debian       |            8, 9, 10| debian-goodies, reboot-notifier |
-| CentOS       |                6, 7| - |
-| Amazon       |                All | - |
-| RHEL         |                  6 | - |
-| RHEL         |                  7 | - |
-| RHEL         |                  8 | lsof |
-| Oracle Linux |            5, 6, 7 | - |
-| SUSE Enterprise|           11, 12 | - |
-| FreeBSD      |             10, 11 | - |
-| Raspbian     |    Jessie, Stretch | - |
+| Distribution |                    Release | Requirements |
+|:-------------|---------------------------:|:-------------|
+| Alpine       |              3.2 and later | - |
+| Ubuntu       |                  14, 16, 18| debian-goodies |
+| Debian       |                    8, 9, 10| debian-goodies, reboot-notifier |
+| CentOS       |                        6, 7| - |
+| Amazon       |                        All | - |
+| RHEL         |                          6 | - |
+| RHEL         |                          7 | - |
+| RHEL         |                          8 | lsof |
+| Oracle Linux |                    5, 6, 7 | - |
+| SUSE Enterprise|                   11, 12 | - |
+| FreeBSD      |                     10, 11 | - |
+| Raspbian     |    Jessie, Stretch, Buster | debian-goodies |
 
 ### deep scan mode
 
