@@ -86,12 +86,25 @@
 <tr><td style="text-align:left">Oracle</td><td style="text-align:center">Fast</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
 <tr><td style="text-align:left">Ubuntu</td><td style="text-align:center">Fast</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
 <tr><td style="text-align:left">Debian</td><td style="text-align:center">Fast</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
-<tr><td style="text-align:left">Raspbian</td><td style="text-align:center">1st time: Slow, From 2nd time: Fast</td><td style="text-align:center">Need</td><td style="text-align:center">No</td><td style="text-align:center">Need</td></tr>
+<tr><td style="text-align:left">Raspbian</td><td style="text-align:center">1st time: Slow, From 2nd time: Fast</td><td style="text-align:center">Need</td><td style="text-align:center">Partially Supported</td><td style="text-align:center">Need</td></tr>
 <tr><td style="text-align:left">FreeBSD</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">No</td><td style="text-align:center">Need</td></tr>
 <tr><td style="text-align:left">Amazon</td><td style="text-align:center">Fast</td><td style="text-align:center">Need</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
 <tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:center">Fast</td><td style="text-align:center">No</td><td style="text-align:center">Supported</td><td style="text-align:center">Need</td></tr>
 </tbody>
 </table>
+<p>Raspbian has been modified from its previous Changelog only scan to scan using Debian OVAL and Debian Security Tracker, Changelog.
+The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi).
+In summary, the behavior of each scan mode in Raspbian is shown in the table below.</p>
+<table>
+<thead>
+<tr><th style="text-align:center">Scan Mode</th><th style="text-align:left">fast</th><th style="text-align:left">fast-root</th><th style="text-align:left">deep</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">v0.11</td><td style="text-align:left">(deep scan)</td><td style="text-align:left">(deep scan)</td><td style="text-align:left">changelog</td></tr>
+<tr><td style="text-align:center">v0.12</td><td style="text-align:left"><ul><li>OVAL</li><li>Debian Security Tracker</li></ul></td><td style="text-align:left"><ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(only raspberrypi package)</li></ul></td><td style="text-align:left"><ul><li>OVAL</li><li>Debian Security Tracker</li><li>changelog(all updatable package)</li></ul></td></tr>
+</tbody>
+</table>
+<p>For more information, see This Pull Request (<a href="https://github.com/future-architect/vuls/pull/1019">https://github.com/future-architect/vuls/pull/1019</a>).</p>
 <h2><a class="anchor" aria-hidden="true" id="with--offline-option"></a><a href="#with--offline-option" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>With -offline option</h2>
 <p>Scan with -offline option, vuls scans with no internet access.</p>
 <table>
@@ -110,6 +123,8 @@
 </tbody>
 </table>
 <p>Offline scan mode is not supported FreeBSD, Raspbian.</p>
+<p>In Fast-Root Scan and Deep Scan, Raspbian scans a combination of Debian OVAL and Debian Security Tracker, Changelog, so Offline Scan mode cannot be provided completely.
+If you execute Offline Scan, you can get the result of Debian OVAL and Debian Security Tracker only (same result as Fast Scan).</p>
 <h2><a class="anchor" aria-hidden="true" id="dependencies-and-etcsudoers"></a><a href="#dependencies-and-etcsudoers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependencies and /etc/sudoers</h2>
 <p>For details, see</p>
 <ul>
