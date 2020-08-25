@@ -17,6 +17,7 @@
     ],
     "Installation": [
       "install-with-vulsctl",
+      "install-with-vulsctl-host",
       "install-manually",
       "install-with-docker",
       "install-with-package",

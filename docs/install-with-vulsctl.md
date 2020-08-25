@@ -83,45 +83,6 @@ For details, see
 - [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
 - [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
 
-## Deploy `vuls` on the host
-
-You can deploy `vuls` on your host easily while using the [install.sh](https://github.com/vulsio/vulsctl/blob/master/install-host/install.sh) script.
-To know what the script doing, it's quicker to look at the script.
-
-### install
-
-```bash
-$ sudo bash install.sh
-```
-
-### Fetch all databases
-
-Fetch the various vulnerability databases used by Vuls to the current directory.
-Please comment out any unneeded databases.
-
-```bash
-$ fetch-all.sh
-```
-
-### Update Modules
-
-Update Vuls-related modules to the latest version.
-
-```bash
-$ sudo bash upgrade.sh
-```
-
-### Scan and Report
-
-You can find the Vuls command in /usr/local/bin/vuls, and the config.toml sample is [here](https://github.com/vulsio/vulsctl). If you don't define the SQLite3 databases path in config.toml, Vuls uses the ones in the same directory as the Vuls binaries.
-Scanning and reporting command is the following.
-
-```bash
-$ vuls scan
-$ vuls report
-$ vuls tui
-```
-
 ## Vulsrepo
 
 ```bash
