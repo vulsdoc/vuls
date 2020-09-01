@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Tutorial - Scan using Docker · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="このチュートリアルでは、[Docker-Vuls](https://hub.docker.com/u/vuls/)を用いてリモートホストの脆弱性をスキャンする方法を学びます。"/><meta name="docsearch:language" content="ja"/><meta property="og:title" content="Tutorial - Scan using Docker · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="このチュートリアルでは、[Docker-Vuls](https://hub.docker.com/u/vuls/)を用いてリモートホストの脆弱性をスキャンする方法を学びます。"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Tutorial - Scan using Docker · Vuls</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="It&#x27;s easier to use [vulsctl](https://vuls.io/docs/en/tutorial-vulsctl-docker.html) than to use docker directly."/><meta name="docsearch:language" content="ja"/><meta property="og:title" content="Tutorial - Scan using Docker · Vuls"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/future-architect/vuls/index.html"/><meta property="og:description" content="It&#x27;s easier to use [vulsctl](https://vuls.io/docs/en/tutorial-vulsctl-docker.html) than to use docker directly."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/docs/vuls_icon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/future-architect/vuls/blog/atom.xml" title="Vuls Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/future-architect/vuls/blog/feed.xml" title="Vuls Blog RSS Feed"/><script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -74,9 +74,10 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/tutorial-docker.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Tutorial - Scan using Docker</h1></header><article><div><span><p>このチュートリアルでは、<a href="https://hub.docker.com/u/vuls/">Docker-Vuls</a>を用いてリモートホストの脆弱性をスキャンする方法を学びます。</p>
-<p>チュートリアルの前に、<a href="/docs/ja/install-with-docker.html">setup vuls with Docker</a> に従ってVulsを用意してください。</p>
-<p>このチュートリアルは以下の流れで行います。</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/tutorial-docker.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Tutorial - Scan using Docker</h1></header><article><div><span><p>It's easier to use <a href="https://vuls.io/docs/en/tutorial-vulsctl-docker.html">vulsctl</a> than to use docker directly.</p>
+<p>This tutorial will let you scan the vulnerabilities on the remote host via SSH with <a href="https://hub.docker.com/u/vuls/">Docker-Vuls</a>.</p>
+<p>Before doing this tutorial, you have to <a href="/docs/ja/install-with-docker.html">setup vuls with Docker</a>.</p>
+<p>This can be done in the following steps.</p>
 <ol>
 <li>NVDの取得 (vuls/go-cve-dictionary)</li>
 <li>OVALの取得 (vuls/goval-dictionary)</li>
@@ -102,7 +103,7 @@
     vuls/go-cve-dictionary fetchnvd -years $i; \
   done
 </code></pre>
-<p>NVDではなく日本語のJVNを取得する場合は、<a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data">README</a>を見てください。</p>
+<p>To fetch JVN(Japanese), See <a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data">README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step2-ovalの取得-redhatの例"></a><a href="#step2-ovalの取得-redhatの例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step2. OVALの取得 (RedHatの例)</h2>
 <p><a href="https://github.com/kotakanbe/goval-dictionary">goval-dictionary</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
@@ -110,7 +111,7 @@
     -v $PWD/goval-dictionary-log:/var/log/vuls \
     vuls/goval-dictionary fetch-redhat 5 6 7
 </code></pre>
-<p>RedHat以外の他のOVALを取得する場合は、<a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a>を見てください。</p>
+<p>To fetch other OVAL, See <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step3-gostの取得-go-security-tracker-redhatcentos-か-debian"></a><a href="#step3-gostの取得-go-security-tracker-redhatcentos-か-debian" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. GOSTの取得 (Go Security Tracker) (RedHat/CentOS か Debian)</h2>
 <p><a href="https://github.com/knqyf263/gost">gost (go-security-tracker)</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
@@ -118,14 +119,14 @@
     -v $PWD/gost-log:/var/log/gost \
     vuls/gost fetch redhat
 </code></pre>
-<p>Debianのデータを取得したいときは、 <a href="https://github.com/knqyf263/gost#fetch-debian">Gost README</a> を確認してください。</p>
+<p>To fetch Debian security tracker, See <a href="https://github.com/knqyf263/gost#fetch-debian">Gost README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step35-go-exploitdb-の取得"></a><a href="#step35-go-exploitdb-の取得" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.5. go-exploitdb の取得</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/vuls \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
 </code></pre>
-<p>より深いデータが欲しい場合は、<a href="https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit">this</a>を確認してください。</p>
+<p>To fetch deep go-exploitdb, See <a href="https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit">this</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step36-fetch-go-msfdb"></a><a href="#step36-fetch-go-msfdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.6. Fetch go-msfdb</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/vuls \
@@ -133,7 +134,7 @@
     vuls/go-msfdb fetch msfdb
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="step4-configuration"></a><a href="#step4-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. Configuration</h2>
-<p><a href="/docs/ja/usage-settings.html">これ</a>を参考にしてconfig.tomlを作ってください。</p>
+<p>Create config.toml referring to <a href="/docs/ja/usage-settings.html">this</a>.</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[servers]</span>
 
 <span class="hljs-section">[servers.c74]</span>
@@ -153,7 +154,7 @@
     vuls/vuls configtest \
     -config=./config.toml # path to config.toml in docker
 </code></pre>
-<p><a href="/docs/ja/usage-configtest.html">使い方: configtest</a></p>
+<p><a href="/docs/ja/usage-configtest.html">Usage: configtest</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step6-scan"></a><a href="#step6-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step6. Scan</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v ~/.ssh:/root/.ssh:ro \
@@ -164,7 +165,7 @@
     vuls/vuls scan \
     -config=./config.toml # path to config.toml in docker
 </code></pre>
-<p>もしDockerのホストがDebianかUbuntuのときは、</p>
+<p>If Docker Host is Debian or Ubuntu</p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v ~/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
@@ -174,7 +175,7 @@
     vuls/vuls scan \
     -config=./config.toml # path to config.toml in docker
 </code></pre>
-<p><a href="/docs/ja/usage-scan.html">使い方: Scan</a></p>
+<p><a href="/docs/ja/usage-scan.html">Usage: Scan</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step7-report"></a><a href="#step7-report" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step7. Report</h2>
 <p>config.toml</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
@@ -206,8 +207,8 @@
     -format-list \
     -config=./config.toml # path to config.toml in docker
 </code></pre>
-<p><a href="/docs/ja/usage-report.html">使い方: Report</a></p>
-<p>スキャン結果を見るために、TUI(Terminal-Based User Interface) が使えます。</p>
+<p><a href="/docs/ja/usage-report.html">Usage: Report</a></p>
+<p>Use TUI(Terminal-Based User Interface) to display the scan result.</p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v ~/.ssh:/root/.ssh:ro \
     -v $PWD:/vuls \
@@ -225,7 +226,7 @@
 </code></pre>
 <p><a href="/docs/ja/vulsrepo.html">VulsRepo</a></p>
 <h2><a class="anchor" aria-hidden="true" id="http-server-mode"></a><a href="#http-server-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP-Server mode</h2>
-<p>もしgo-cve-dictionaryとgoval-dictionaryをサーバモードで起動したい場合は、以下のようにしてコンテナを実行してください。</p>
+<p>Run containers as below if you want to use go-cve-dictionary, goval-dictionary and gost as a server mode.</p>
 <h3><a class="anchor" aria-hidden="true" id="go-cve"></a><a href="#go-cve" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-cve</h3>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
     --name go-cve-dictionary \
@@ -282,7 +283,7 @@
     -config=./config.toml
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="use-mysql-57-or-later"></a><a href="#use-mysql-57-or-later" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use MySQL 5.7 or later</h2>
-<p>もしデータの取得中に以下のようなエラーが出た場合は、 <code>sql_mode</code>を定義してください。</p>
+<p>If you get below error message while fetching, define <code>sql_mode</code>.</p>
 <pre><code class="hljs css language-bash">Error 1292: Incorrect datetime value: <span class="hljs-string">'0000-00-00'</span> <span class="hljs-keyword">for</span> column <span class="hljs-string">'issued'</span> at row 1
 </code></pre>
 <p>see the <a href="https://github.com/kotakanbe/goval-dictionary/issues/45">issue</a></p>
