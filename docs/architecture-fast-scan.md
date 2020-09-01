@@ -37,7 +37,7 @@ Scan with -offline option, vuls scans with no internet access.
 | Amazo       |                                   Fast |　                No |            Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                      No |
 
-Offline scan mode is not supported for FreeBSD.
+The offline scan mode is not supported for FreeBSD.
 
 ## Dependencies and /etc/sudoers
 

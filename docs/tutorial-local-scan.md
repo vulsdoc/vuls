@@ -29,8 +29,10 @@ This can be done in the following steps.
 
 ## Step2. Deploy Vuls
 
-Then [Deploy go-cve-dictionary, goval-dictionary, gost, go-exploitdb, go-msfdb, and Vuls](install-manually.md).
-If the installation process stops halfway, try increasing the instance type of EC2. An out of memory error may have occurred.
+There are several ways to set up Vuls.
+
+An easy one is [vulsctl/install-host](https://vuls.io/docs/en/install-with-vulsctl-host.html).
+It can be tedious, but you can also do [set up manually](https://vuls.io/docs/en/install-manually.html) instead of vulsctl.
 
 ## Step3. Configuration
 
