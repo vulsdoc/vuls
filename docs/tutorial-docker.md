@@ -4,6 +4,8 @@ title: Tutorial - Scan using Docker
 sidebar_label: Scan using Docker
 ---
 
+It's easier to use [vulsctl](https://vuls.io/docs/en/tutorial-vulsctl-docker.html) than to use docker directly.
+
 This tutorial will let you scan the vulnerabilities on the remote host via SSH with [Docker-Vuls](https://hub.docker.com/u/vuls/).
 
 Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
