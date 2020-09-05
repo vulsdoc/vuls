@@ -177,6 +177,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 - Amazon Linux
 - Debian
 - Ubuntu
+- SLES 
 
 ## Example: One liner scan
 
@@ -427,4 +428,27 @@ vagrant@jessie:~$ cat ubuntu1604.json
 
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: application/json" -d @ubuntu1604.json http://${VULS_SERVER}:5515/vuls
+```
+
+
+### SLES
+
+You may need to apply the following patch to goval-dictionnary before to fix SLES OVAL fetching: https://github.com/kotakanbe/goval-dictionary/pull/108
+
+```json
+$ cat sles12.json
+{
+  "family": "suse.linux.enterprise.server",
+  "release": "12.1",
+  "packages": {
+    "openssl": {
+      "name": "openssl",
+      "version": "1.0.1i-34.1",
+      "arch" : "x86_64"
+    }
+  }
+}
+
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: application/json" -d @sles12.json http://${VULS_SERVER}:5515/vuls
 ```
