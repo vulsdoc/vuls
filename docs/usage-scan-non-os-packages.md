@@ -1,7 +1,7 @@
 ---
 id: usage-scan-non-os-packages
 title: Scan vulnerabilities of non-OS packages
-sidebar_label: Scan non-OS packages
+sidebar_label: Scan non OS packages
 ---
 
 ## Options
