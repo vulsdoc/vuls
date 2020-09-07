@@ -220,7 +220,7 @@ Now that the vulnerability DB is ready. Run the report.
 
 Use [vulsctl/report.sh](https://github.com/vulsio/vulsctl/blob/master/docker/report.sh) to display the results.
 Identify potential CVE-IDs in the server to be scanned using the information in the JSON created by scan.sh and the OVAL provided by Red Hat, which we fetched earlier.
-See [documentation] (https://vuls.io/docs/en/usage-report.html) for details.
+See [documentation](https://vuls.io/docs/en/usage-report.html) for details.
 
 ```bash
 $ pwd
