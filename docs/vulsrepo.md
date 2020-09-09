@@ -19,7 +19,7 @@ With VulsRepo you can analyze the scan results like Excel pivot table.
 
 ## Requirements
 
-- [future-architect/Vuls](https://github.com/future-architect/vuls) >= v0.4.0
+- [future-architect/Vuls](https://github.com/future-architect/vuls) >= v0.9.0
 - Web Browser : Google Chrome or Firefox
 
 ## Installation
