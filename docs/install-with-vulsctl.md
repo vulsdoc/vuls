@@ -36,6 +36,7 @@ $ cd vulsctl
 This will take some time ...
 
 ```bash
+$ cd docker
 $ ./update-all.sh
 ```
 
