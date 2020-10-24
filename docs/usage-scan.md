@@ -145,12 +145,9 @@ To use native Go implementation from crypto/ssh, specify this option.
 This is useful in situations where you may not have access to traditional UNIX tools.
 But it is important to note that this mode does not check the host key.
 
-## -ask-key-password option
+-ask-key-password option
 
-| SSH key password |  -ask-key-password | |
-|:-----------------|:-------------------|:----|
-| empty password   |                 -  | |
-| with password    |           required | or use ssh-agent |
+You can bypass the ssh private key passphrase by specifying -ask-key-password.
 
 ## Example: Scan all servers defined in config file
 

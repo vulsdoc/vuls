@@ -375,6 +375,8 @@ Multiple SSH authentication methods are supported.
 - SSH public key authentication (with password and empty password)
 Password authentication is not supported.
 
+- [How to Log in With No Password While Using ssh-agent](https://docs.oracle.com/cd/E19683-01/806-4078/6jd6cjru9/index.html)
+
 ## HipChat section
 
 ```toml
