@@ -190,28 +190,20 @@ scanMode     = [<span class="hljs-string">"fast-root"</span>, <span class="hljs-
 </code></pre>
 <p>GoライブラリのSSH実装であるcrypto/sshを使いたい場合はこのオプションを指定してください。<br>
 既存のUNIXツールを使えない状況で便利です。 ただし、このモードではhost keyをチェックしないことに注意してください。</p>
-<h2><a class="anchor" aria-hidden="true" id="-ask-key-password-オプション"></a><a href="#-ask-key-password-オプション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ask-key-password オプション</h2>
-<table>
-<thead>
-<tr><th style="text-align:left">SSH key password</th><th style="text-align:left">-ask-key-password</th><th style="text-align:left"></th></tr>
-</thead>
-<tbody>
-<tr><td style="text-align:left">empty password</td><td style="text-align:left">-</td><td style="text-align:left"></td></tr>
-<tr><td style="text-align:left">with password</td><td style="text-align:left">required</td><td style="text-align:left">or use ssh-agent</td></tr>
-</tbody>
-</table>
-<h2><a class="anchor" aria-hidden="true" id="例-設定ファイルに定義された全サーバをスキャンする"></a><a href="#例-設定ファイルに定義された全サーバをスキャンする" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: 設定ファイルに定義された全サーバをスキャンする</h2>
+<p>-ask-key-password option</p>
+<p>You can bypass the ssh private key passphrase by specifying -ask-key-password.</p>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-all-servers-defined-in-config-file"></a><a href="#example-scan-all-servers-defined-in-config-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan all servers defined in config file</h2>
 <pre><code class="hljs css language-bash">$ vuls scan -ask-key-password
 </code></pre>
-<p>このサンプルコマンドでは、</p>
+<p>With this sample command, it will ..</p>
 <ul>
 <li>スキャン前にSSH秘密鍵のパスワードを入力</li>
 <li>設定ファイルに定義された全サーバをスキャンする</li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-設定フィアルに定義されたサーバのうち特定のサーバをスキャンする"></a><a href="#例-設定フィアルに定義されたサーバのうち特定のサーバをスキャンする" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: 設定フィアルに定義されたサーバのうち特定のサーバをスキャンする</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-specific-servers"></a><a href="#example-scan-specific-servers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan specific servers</h2>
 <pre><code class="hljs css language-bash">$ vuls scan server1 server2
 </code></pre>
-<p>このコマンドが意味することは...</p>
+<p>With this sample command, it will ..</p>
 <ul>
 <li>SSH鍵認証、パスワードが設定されてない秘密鍵を用いる（-ask-key-passwordオプションを指定していないので）</li>
 <li>2台のみスキャンする（server1, server2)</li>
@@ -227,22 +219,22 @@ host         = <span class="hljs-string">"localhost"</span> <span class="hljs-co
 port         = <span class="hljs-string">"local"</span>
 </code></pre></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="例-実行中のコンテナをスキャンする-dockerlxdlxc"></a><a href="#例-実行中のコンテナをスキャンする-dockerlxdlxc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: <code>実行中の</code>コンテナをスキャンする (Docker/LXD/LXC)</h2>
-<p>コンテナ内でsshdデーモンを起動しないことが普通です。 <a href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/">Docker Blog:Why you don't need to run SSHd in your Docker containers</a>も参照してください。</p>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-running-containers-dockerlxdlxc"></a><a href="#example-scan-running-containers-dockerlxdlxc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan <code>Running</code> containers (Docker/LXD/LXC)</h2>
+<p>It is common that keep containers running without SSHd daemon. see <a href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/">Docker Blog:Why you don't need to run SSHd in your Docker containers</a></p>
 <h3><a class="anchor" aria-hidden="true" id="docker"></a><a href="#docker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker</h3>
-<p>Vulsは<code>実行中の</code> Docker コンテナを、SSHではなく <code>docker exec</code> を用いてスキャンします。 詳しくは <a href="architecture-remote-scan.html">Architecture section</a>を参照してください。</p>
-<p>もしrootを使いたくない時は、Unixグループを作ってユーザをそこに追加してください。詳細は、<a href="https://docs.docker.com/install/linux/linux-postinstall/">docker manual</a>を参照してください。</p>
+<p>Vuls scans <code>running</code> Docker containers via <code>docker exec</code> instead of SSH. For more details, see <a href="architecture-remote-scan.html">Architecture section</a></p>
+<p>If you don’t want to use root, create a Unix group called docker and add users to it For details, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">docker manual</a></p>
 <h4><a class="anchor" aria-hidden="true" id="設定されたすべての実行中のコンテナをスキャンする"></a><a href="#設定されたすべての実行中のコンテナをスキャンする" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>設定されたすべての実行中のコンテナをスキャンする</h4>
-<p>設定ファイルに<code>&quot;${running}&quot;</code>が設定されている必要があります。</p>
+<p><code>&quot;${running}&quot;</code> needs to be set in the containers item.</p>
 <pre><code class="hljs css language-toml [servers]">
 [servers.172-31-4-82] host = "172.31.4.82" user = "ec2-user" keyPath = "/home/username/.ssh/id_rsa" containerType = "docker" containersIncluded = ["${running}"] ```
 
 #### 特定の実行中のコンテナだけをスキャンする
 
-コンテナIDかコンテナ名が設定ファイルに設定されている必要があります。  
-以下の例では、`container_name_a` と`4aa37a8b63b9`のみがスキャンされます。   
-スキャン前に、これらのコンテナが実行中であることを確認してください。  
-もし指定されたコンテナが実行中ではない場合、Vulsはエラーメッセージを出してスキャンを終了します。
+The container ID or container name needs to be set in the containers item.  
+In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
+Be sure to check these containers are running state before scanning.  
+If specified containers are not running, Vuls gives up scanning with printing error message.
 
 ```toml [servers]
 
@@ -262,9 +254,9 @@ containersIncluded = ["${running}"]
 containersExcluded = ["container_name_a", "4aa37a8b63b9"]
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="コンテナだけをスキャンする-dockerホストはスキャンされない"></a><a href="#コンテナだけをスキャンする-dockerホストはスキャンされない" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>コンテナだけをスキャンする (Dockerホストはスキャンされない)</h4>
-<p>--containers-onlyオプションが使えます。</p>
+<p>--containers-only option is available.</p>
 <h3><a class="anchor" aria-hidden="true" id="lxd"></a><a href="#lxd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXD</h3>
-<p>LXDをスキャンするときは、SSHではなく <code>lxc exec</code>を使用してコマンドを実行してスキャンします。</p>
+<p>Vuls scans lxd via <code>lxc exec</code> instead of SSH.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
@@ -276,7 +268,7 @@ containersIncluded = [<span class="hljs-string">"<span class="hljs-variable">${r
 containersExcluded = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="lxc"></a><a href="#lxc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LXC</h3>
-<p>lxcをスキャンするときは、SSHではなく <code>lxc-attach</code>を使用してコマンドを実行してスキャンします。</p>
+<p>Vuls scans lxc via <code>lxc-attach</code> instead of SSH.</p>
 <pre><code class="hljs css language-bash">[servers]
 
 [servers.172-31-4-82]
@@ -288,11 +280,11 @@ containersIncluded = [<span class="hljs-string">"<span class="hljs-variable">${r
 containersExcluded = [<span class="hljs-string">"container_name_a"</span>, <span class="hljs-string">"4aa37a8b63b9"</span>]
 
 </code></pre>
-<p>LXCのスキャンはroot権限が必要です。</p>
-<p>スキャン対象サーバ上の/etc/sudoersの例</p>
+<p>LXC required root privilege.</p>
+<p>Example of /etc/sudoers on target servers</p>
 <pre><code class="hljs css language-bash">vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="例-wordpressのスキャン-本体、プラグイン、テーマ"></a><a href="#例-wordpressのスキャン-本体、プラグイン、テーマ" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>例: WordPressのスキャン (本体、プラグイン、テーマ)</h2>
+<h2><a class="anchor" aria-hidden="true" id="example-scan-wordpress-core-plugin-theme"></a><a href="#example-scan-wordpress-core-plugin-theme" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: scan WordPress (core, plugin, theme)</h2>
 <p>For Details, see <a href="/docs/ja/usage-scan-wordpress.html">usage-scan-wordpress</a></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ja/usage-configtest.html"><span class="arrow-prev">← </span><span>configtest</span></a><a class="docs-next button" href="/docs/ja/usage-report.html"><span>Report</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docs/vuls_icon.png" alt="Vuls" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/ja/abstract.html">Introduction</a><a href="/docs/ja/architecture-remote-local.html">Architecture</a><a href="/docs/ja/tutorial.html">Tutorial</a></div><div><h5>Community</h5><a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a><a href="https://vuls-github.slack.com/">Slack</a><a href="https://twitter.com/vuls_en">Twitter(English)</a><a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/future-architect/vuls">GitHub</a></div></section><a href="https://github.com/future-architect/vuls" target="_blank" class="fbOpenSource"><img src="/img/docs/vuls_logo.png" width="170" height="45"/></a><section class="copyright">Copyright © 2020 kotakanbe</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
