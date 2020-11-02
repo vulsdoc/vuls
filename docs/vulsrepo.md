@@ -240,7 +240,7 @@ When the data is loaded, the `pivot table` is shown as follows.
 If you try to load a large amount of data, it may fail. Please use the following methods.
 
 - Reduce the selection of the data to be displayed and load it again.
-- Setting `Summary` and `Cvss Metrics` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show-hide-the-item)).
+- Setting `Summary` and `Cvss Metrics` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show--hide-the-item)).
 
 ### Pivot table
 
@@ -264,11 +264,11 @@ When you change a filter in the pull-down menu, you can apply a pre-defined filt
 
 There are five available.
 
-- [01. Graph: CVSS-Severity => ServerName](#01-graph-cvss-severity-servername)
-- [02. Graph: CVSS-Severity => CVSS-Score](#02-graph-cvss-severity-cvss-score)
-- [03. Pivot: Package/CVSS-Severity/CveID/Summary => ServerName](#03-pivot-packagecvss-severitycveidsummary-servername)
-- [04. Pivot: Package/CveID => ScanTime](#04-pivot-packagecveid-scantime)
-- [05. Pivot: CveID/PackageInfo => NotFixedYet](#05-pivot-cveidpackageinfo-notfixedyet)
+- [01. Graph: CVSS-Severity => ServerName](#01-graph-cvss-severity--servername)
+- [02. Graph: CVSS-Severity => CVSS-Score](#02-graph-cvss-severity--cvss-score)
+- [03. Pivot: Package/CVSS-Severity/CveID/Summary => ServerName](#03-pivot-packagecvss-severitycveidsummary--servername)
+- [04. Pivot: Package/CveID => ScanTime](#04-pivot-packagecveid--scantime)
+- [05. Pivot: CveID/PackageInfo => NotFixedYet](#05-pivot-cveidpackageinfo--notfixedyet)
 
 ###### 01. Graph: CVSS-Severity => ServerName
 
