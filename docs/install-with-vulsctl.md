@@ -80,9 +80,9 @@ $ ./tui.sh
 
 For details, see
 
-- [scan.sh](https://github.com/vulsio/vulsctl/blob/master/scan.sh)
-- [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
-- [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
+- [scan.sh](https://github.com/vulsio/vulsctl/blob/master/docker/scan.sh)
+- [report.sh](https://github.com/vulsio/vulsctl/blob/master/docker/report.sh)
+- [tui.sh](https://github.com/vulsio/vulsctl/blob/master/docker/tui.sh)
 
 ## Vulsrepo
 
