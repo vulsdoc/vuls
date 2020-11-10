@@ -46,7 +46,7 @@ From now on, executed by a user running the vuls scan.
 
 ```bash
 $ cd $HOME
-$ git clone https://github.com/usiusi360/vulsrepo.git
+$ git clone https://github.com/ishiDACo/vulsrepo.git
 ```
 
 ### Step3. Change the setting of vulsrepo-server
