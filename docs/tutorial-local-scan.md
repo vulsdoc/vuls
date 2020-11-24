@@ -14,7 +14,7 @@ This can be done in the following steps.
 1. Scan
 1. Reporting
 1. TUI(Terminal-Based User Interface)
-1. Web UI ([VulsRepo](https://github.com/ishiDACo/vulsrepo))
+1. Web UI ([VulsRepo](vulsrepo.md))
 
 ## Step1. Launch CentOS7
 
@@ -173,6 +173,6 @@ $ vuls tui
 
 ![Vulsrepo](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif)
 
-Check it out the [Online Demo](http://usiusi360.github.io/vulsrepo/).
+Check it out the [Online Demo](https://monocosel.jp/vulsrepo/).
 
 Installation refer to [VulsRepo](vulsrepo.md)
