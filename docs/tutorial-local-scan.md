@@ -171,7 +171,7 @@ $ vuls tui
 
 ## Step8. Web UI
 
-![Vulsrepo](https://raw.githubusercontent.com/usiusi360/vulsrepo/master/gallery/demo.gif)
+![Vulsrepo](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/demo.gif)
 
 Check it out the [Online Demo](https://monocosel.jp/vulsrepo/).
 
