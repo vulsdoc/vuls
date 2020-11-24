@@ -103,7 +103,7 @@ Server:
 - `/health`
   - For health check
 
-## Support Content-Type
+## Content-Types
 
 - `application/json`
 - `text/plain`
@@ -170,7 +170,7 @@ $ cat centos6.json
 $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://localhost:5515/vuls
 ```
 
-## Support OS
+## Supported OS
 
 - RHEL
 - CentOS
