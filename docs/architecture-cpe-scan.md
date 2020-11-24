@@ -1,6 +1,6 @@
 ---
 id: architecture-cpe-scan
-title: cpe Scan
+title: CPE Scan
 sidebar_label: CPE Scan
 ---
 
