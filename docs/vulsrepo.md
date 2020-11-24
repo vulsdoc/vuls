@@ -135,6 +135,9 @@ $ sudo systemctl start vulsrepo
 
 ## DigestAuth
 
+DigestAuth implementation has a lot of problems. It requires multiple authentications on Chrome, Chromium and Firefox.
+If authentication is required, it's easier to isolate it by using nginx and vulsrepo-server with a proxy.
+
 ### To perform digest authentication, create an authentication file
 
 ```bash
