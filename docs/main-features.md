@@ -51,7 +51,7 @@ Vuls uses Multiple vulnerability databases
   - [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
 
 - WordPress
-  - [WPVulnDB](https://wpvulndb.com/api)
+  - [WPScan](https://wpscan.com/api)
 
 ## Fast scan and Deep scan
 
