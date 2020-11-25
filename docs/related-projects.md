@@ -14,18 +14,19 @@ sidebar_label: Related Projects
 
 ## [Jiab77/vuls-scripts](https://github.com/Jiab77/vuls-scripts)
 
-* `vuls-client-scan.sh`: Copy this script on the client to be scanned and execute it.
+* `vuls-client-scan.sh`: Copy this script on the client to be scanned and run it.
 * `vuls-server.sh`: Start the `vuls` scanning server for using the client scan script.
   * (_can be done also with the `vuls-manage.sh` script_)
-* `vuls-manage.sh`: Used to run most of the common actions with Vuls
+* `vuls-manage.sh`: Used to run most of the common actions with [Vuls](https://github.com/future-architect/vuls)
   * Start the scan server
   * Start the terminal interface
   * Start the web interface
+  * Scan local host
   * Show scan history
   * Generate recent scan reports
   * Generate all scan reports
   * Send scan reports
-  * Reset Vuls configuration
+  * Create / Reset Vuls configuration
   * Update all vulnerabilities databases
-  
+
 The scripts are based on [vulsctl](https://vuls.io/docs/en/install-with-vulsctl.html).
