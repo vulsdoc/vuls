@@ -243,7 +243,7 @@ When the data is loaded, the `pivot table` is shown as follows.
 If you try to load a large amount of data, it may fail. Please use the following methods.
 
 - Reduce the selection of the data to be displayed and load it again.
-- Make sure that you have not changed the directory name and file name under the `reselts` directory.
+- Make sure that you have not changed the directory name and file name under the `results` directory.
 - Setting `Summary`, `Cvss Metrics` or `Affected Processes` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show--hide-the-item)).
 
 ### Pivot table
