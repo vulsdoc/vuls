@@ -135,6 +135,9 @@ $ sudo systemctl start vulsrepo
 
 ## DigestAuth
 
+DigestAuth implementation has a lot of problems. It requires multiple authentications on Chrome, Chromium and Firefox.
+If authentication is required, it's easier to isolate it by using nginx and vulsrepo-server with a proxy.
+
 ### To perform digest authentication, create an authentication file
 
 ```bash
@@ -240,7 +243,8 @@ When the data is loaded, the `pivot table` is shown as follows.
 If you try to load a large amount of data, it may fail. Please use the following methods.
 
 - Reduce the selection of the data to be displayed and load it again.
-- Setting `Summary` and `Cvss Metrics` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show--hide-the-item)).
+- Make sure that you have not changed the directory name and file name under the `reselts` directory.
+- Setting `Summary`, `Cvss Metrics` or `Affected Processes` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show--hide-the-item)).
 
 ### Pivot table
 
@@ -352,9 +356,9 @@ Pressing the `Clear` button clears the filter and returns the `pivot table` disp
 | ScanTime        | Scan date                                                                                                                                                                                                                                                         |
 | ServerName      | Scanned server                                                                                                                                                                                                                                                    |
 | Container       | Scanned container                                                                                                                                                                                                                                                 |
-| CVSS Score      | CVSS Base score of vulnerability calculated by NVD, JVN, or RedHat, with a maximum of `10.0`.                                                                                                                                                                     |
-| CVSS Severity   | Vulnerability severity as calculated by NVD, JVN, or RedHat. Red is more severe.                                                                                                                                                                                  |
-| CVSS Score Type | The source of `CVSS Score`, `CVSS Severity` and `CVSS Vector`                                                                                                                                                                                                     |
+| CVSS Score      | CVSS Base score of vulnerability, with a maximum of `10.0`.                                                                                                                                                                                                       |
+| CVSS Severity   | Vulnerability severity. Red is more severe.                                                                                                                                                                                                                       |
+| CVSS Score Type | The source of `CVSS Score`, `CVSS Severity` and `CVSS Vector`. For example, see [CVSS Score Type](#cvss-score-type)                                                                                                                                               |
 | Platform        | Running platform                                                                                                                                                                                                                                                  |
 | Family          | OS                                                                                                                                                                                                                                                                |
 | Release         | OS release version                                                                                                                                                                                                                                                |
@@ -367,18 +371,36 @@ Pressing the `Clear` button clears the filter and returns the `pivot table` disp
 | NewPackageVer   | Latest Package Version                                                                                                                                                                                                                                            |
 | Repository      | Package provider's repositories                                                                                                                                                                                                                                   |
 | CweID           | Its CVE's [CWE - Common Weakness Enumeration](https://nvd.nist.gov/vuln/categories). Click on [MITRE](https://cwe.mitre.org/data/index.html) or [JVN](https://www.ipa.go.jp/security/vuln/CWE.html) to view the appropriate CWE description page in a new window. |
+| Title           | Vulnerability title                                                                                                                                                                                                                                               |
 | Summary         | Vulnerability Overview                                                                                                                                                                                                                                            |
+| PortScannable   | Whether the port can be scanned or not. Click to view [Package panel](#package-panel).                                                                                                                                                                            |
+| Process         | The `process ID: process name` of the process affected by the vulnerability. Click to view [Package panel](#package-panel).                                                                                                                                       |
+| Path            | The path of the lock file that led to the vulnerability scan of the library.                                                                                                                                                                                      |
 | Mitigation      | Whether or not information on mitigation measures is available.                                                                                                                                                                                                   |
 | CVSSv3(*)       | CVSS 3.0 Vector                                                                                                                                                                                                                                                   |
 | CVSS(*)         | CVSS 2 Vector                                                                                                                                                                                                                                                     |
-| AdvisoryID      | (Amazon Linux 2 only) Advisory IDs for supported distributions. Click to open the advisory page in a new window.                                                                                                                                                  |
+| AdvisoryID      | (Amazon Linux 2 RedHat, Oracle Linux only) Advisory IDs for supported distributions. Click to open the advisory page in a new window.                                                                                                                             |
 | CERT            | Whether there is a [USCERT Alert](https://us-cert.cisa.gov/ncas/alerts) or [JPCERT Alert](https://www.jpcert.or.jp/at/). Click to view the relevant information in a new window.                                                                                  |
 | PoC             | Whether the exploit code exists. If so, the number of them.                                                                                                                                                                                                       |
-| Changelog       | Whether or not there is a Changelog. Click to view [Changelog panel](#changelog-panel).                                                                                                                                                                           |
+| Changelog       | Whether or not there is a Changelog. Click to view [Package panel](#package-panel).                                                                                                                                                                               |
 | DetectionMethod | Vulnerability Detection Methodology                                                                                                                                                                                                                               |
 | ConfidenceScore | Reliability of detection. `100` means high reliability.                                                                                                                                                                                                           |
 | Published       | Date the information was released.                                                                                                                                                                                                                                |
 | Last Modified   | Date the information was last updated.                                                                                                                                                                                                                            |
+
+##### CVSS Score Type
+
+Here are some examples.
+
+| Value            | Source                         |
+| ---------------- | ------------------------------ |
+| `nvdV3`          | NVD CVSS v3                    |
+| `nvd`            | NVD CVSS v2                    |
+| `jvnV3`          | JVN CVSS v3                    |
+| `jvn`            | JVN CVSS v2                    |
+| `redhat_apiV3`   | RedHat CVSS v3                 |
+| `oracleAdvisory` | Oracle Linux Errata repository |
+| `Unknown`        | Unknown                        |
 
 #### Filtering by item
 
@@ -400,17 +422,17 @@ To close it without applying it, press the `Cancel` button.
 
 The leftmost row is the highest priority for sorting.
 
-| Item          | Ascending/descending order                                               |
-| ------------- | ------------------------------------------------------------------------ |
-| CVSS Score    | descending order                                                         |
-| CVSS Severity | `Unknown`, `Critical`, `High`, `Important`, `Medium`, `Important`, `Low` |
-| CVSSv3(*)     | descending order                                                         |
-| CVSS(*)       | descending order                                                         |
-| CERT          | descending order                                                         |
-| PoC           | descending order                                                         |
-| Published     | descending order                                                         |
-| Last Modified | descending order                                                         |
-| Other         | ascending order                                                          |
+| Item          | Ascending/descending order                                                                                                        |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| CVSS Score    | descending order                                                                                                                  |
+| CVSS Severity | `Unknown`, `Critical`, `High`, `Important`, `Medium`, `Moderate`, `Low`, `Negligible`, `Unimportant`, `Pending`, `Not Vulnerable` |
+| CVSSv3(*)     | descending order                                                                                                                  |
+| CVSS(*)       | descending order                                                                                                                  |
+| CERT          | descending order                                                                                                                  |
+| PoC           | descending order                                                                                                                  |
+| Published     | descending order                                                                                                                  |
+| Last Modified | descending order                                                                                                                  |
+| Other         | ascending order                                                                                                                   |
 
 The order of ascending and descending is fixed and cannot be switched.
 
@@ -442,7 +464,7 @@ The settings are applied by pressing `x` or clicking outside the panel frame or 
 
 ##### Show / Hide the Item
 
-Set the items to be displayed in the `Pivot table`. Because the data of `Summary` and `CVSS Metrics` is very large, an error may occur if the number of vulnerabilities is large. In this case, setting `OFF` may improve the situation.
+Set the items to be displayed in the `Pivot table`. Because the data of `Summary`, `CVSS Metrics` and `Affected Processes(PortScannable, Process)` is very large, an error may occur if the number of vulnerabilities is large. In this case, setting `OFF` may improve the situation.
 
 ###### Attention CweId
 
@@ -459,7 +481,9 @@ If any of the following is applicable to the `CweId` of the `pivot table`, the C
 Set the data to be displayed with priority in the `pivot table`.The default is NVD data.
 
 You can swap priorities by dragging and dropping blocks.
+You can also swap what you want to show and what you want to hide.
 In the following example, the priority of `JVN` and `Ubuntu` is raised so that Japanese and Ubuntu information is shown first.
+We also move `amazon`, `oracle` to the `Hide` side to hide information about Amazon Linux and Oracle Linux.
 
 ![priority](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/priority.gif)
 
@@ -506,11 +530,11 @@ See the tooltip of `?` tooltips for basic score and severity categories.
 ##### CVSS Vector radar chart
 
 It shows the value of each evaluation item calculated by NVD, JVN, and RedHat in a radar chart.
-You can switch between the `CVSS v2` and `CVSS v3` charts by clicking the `CvssV2 tab` or the `CvssV3 tab`.
-The initial display is `CVSS v3`.
+You can switch between the `CVSS v2` and `CVSS v3.x` charts by clicking the `Cvss v2 tab` or the `Cvss v3.x tab`.
+The initial display is `CVSS v3.x`.
 
-You can control to show or hide the chart by clicking the `NVD v3`, `JVN v3`, or `RehHatV3`.
-In the following example, the chart of `NVD v3` and `RehHatV3` is hidden.
+You can control to show or hide the chart by clicking the `NVD v3.x`, `JVN v3.x`, or `RehHat v3.x`.
+In the following example, the chart of `NVD v3.1` and `RehHat v3.0` is hidden.
 
 ![cvss-chart](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/cvss-chart.png)
 
@@ -544,6 +568,7 @@ Open the following page in a new window.
 | CVSS Calculator V3 (JVN) | [Common Vulnerability Scoring System Version 3.0 Calculator](https://jvndb.jvn.jp/cvss/ja/v3.html) page provided by [JVN](https://jvn.jp/). |
 | Amazon                   | (Amazon Linux 2 only) [Amazon Linux Security Center](https://alas.aws.amazon.com/alas2.html)                                                |
 | RedHat Network           | (RedHat only) [Red Hat Product Errata](https://access.redhat.com/errata/)                                                                   |
+| OracleLinux Errata       | (Oracle Linux only) [Unbreakable Linux Network](https://linux.oracle.com/errata/)                                                           |
 
 CVSS Calculator is useful for calculating severity, including `Environmental Metrics`.
 
@@ -573,19 +598,28 @@ Displays the reference information provided by each information organization and
 #### Package tab
 
 Here is a list of packages that contain vulnerabilities.
-Click each `PackageName` to open the [Changelog panel](#changelog-panel).
+Click each `PackageName` to open the [Package panel](#package-panel).
 
 ![package](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-package.png)
 
-### Changelog panel
-
-View the package changelog.
-
-The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.
+### Package panel
 
 To close the panel, click outside the panel frame or press the ESC key.
 
 ![changelog](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/changelog.png)
+
+#### Affected Processes
+
+If there are processes affected by the vulnerability, they will be shown.
+Lists the process ID, process name, IP address and port.
+
+![affected-processes](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/affected-processes.png)
+
+#### Changelog
+
+View the package changelog.
+
+The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.
 
 ### FAQ
 
