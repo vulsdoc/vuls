@@ -172,6 +172,7 @@ vulsrepo.service                           enabled
 <pre><code class="hljs css language-bash">$ sudo systemctl start vulsrepo
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="digestauth"></a><a href="#digestauth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DigestAuth</h2>
+<p>DigestAuth implementation has a lot of problems. It requires multiple authentications on Chrome, Chromium and Firefox. If authentication is required, it's easier to isolate it by using nginx and vulsrepo-server with a proxy.</p>
 <h3><a class="anchor" aria-hidden="true" id="to-perform-digest-authentication-create-an-authentication-file"></a><a href="#to-perform-digest-authentication-create-an-authentication-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To perform digest authentication, create an authentication file</h3>
 <pre><code class="hljs css language-bash">$ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
@@ -228,14 +229,14 @@ $ go build -o vulsrepo-server
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="使い方"></a><a href="#使い方" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使い方</h2>
 <h3><a class="anchor" aria-hidden="true" id="vulsrepo-の表示"></a><a href="#vulsrepo-の表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VulsRepo の表示</h3>
-<p>ブラウザで以下 URL にアクセスします。 ブラウザで JavaScript の動作を無効にしている場合は、JavaScript を有効にしてください。</p>
+<p>Please access the following URL in your browser. If you have JavaScript disabled in your browser, please enable it.</p>
 <pre><code class="hljs css language-bash">http://&lt;server-address&gt;:5111
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="表示対象データの選択"></a><a href="#表示対象データの選択" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>表示対象データの選択</h3>
-<p>表示したいデータをファイル選択ツリーで選んでください。複数選択可能です。 まとめて選ぶ場合は <code>Select All</code> をクリック、 クリアする場合は <code>Select None</code> をクリックしてください。</p>
-<p>選んだら <code>Submit</code> ボタンをクリックしてください。</p>
+<p>Select the data you want to display in the file selection tree. You can select multiple files. Click <code>Select All</code> to select them all together, or <code>Select None</code> to clear them.</p>
+<p>Click the <code>Submit</code> button after selecting them.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/select-file-2.png" alt="select-file"></p>
-<p>データの読み込みができたら、以下のように <code>ピボットテーブル</code> が表示されます。</p>
+<p>When the data is loaded, the <code>pivot table</code> is shown as follows.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-off.png" alt="filter-off"></p>
 <h4><a class="anchor" aria-hidden="true" id="トラブルシューティング-ファイル選択ツリーが出ない"></a><a href="#トラブルシューティング-ファイル選択ツリーが出ない" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>トラブルシューティング: ファイル選択ツリーが出ない</h4>
 <ul>
@@ -243,22 +244,23 @@ $ go build -o vulsrepo-server
 <li>Vuls の出力結果として参照しているディレクトリに大量のファイルがある場合、ファイル選択ツリーの生成に失敗します。 その場合、不要な <code>*.json</code> ファイルを別のディレクトリに移動するか、VulsRepoを表示する前に削除してください。</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="トラブルシューティング-ピボットテーブルが出ない"></a><a href="#トラブルシューティング-ピボットテーブルが出ない" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>トラブルシューティング: ピボットテーブルが出ない</h4>
-<p>大量データを読み込もうとすると失敗することがあります。以下の方法で対応してください。</p>
+<p>If you try to load a large amount of data, it may fail. Please use the following methods.</p>
 <ul>
 <li>表示対象データの選択を減らしてから、再度読み込んでください。</li>
-<li><code>Setting</code> で <code>Summary</code> や <code>Cvss Metrics</code> を <code>OFF</code> にすると改善する場合があります ( <a href="#show--hide-the-item">表示設定 - Show / Hide the Item</a> を参照)。</li>
+<li>Make sure that you have not changed the directory name and file name under the <code>reselts</code> directory.</li>
+<li>Setting <code>Summary</code>, <code>Cvss Metrics</code> or <code>Affected Processes</code> to <code>OFF</code> in the <code>Setting</code> may solve this problem (see <a href="#show--hide-the-item">Display setting - Show / Hide the Item</a>).</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="ピボットテーブル"></a><a href="#ピボットテーブル" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ピボットテーブル</h3>
 <h4><a class="anchor" aria-hidden="true" id="フィルター未適用の初期状態"></a><a href="#フィルター未適用の初期状態" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルター未適用の初期状態</h4>
-<p>スキャンした日時・サーバー・コンテナごとに発見された脆弱性の個数が、深刻度ごとのヒートマップとして表示されます。</p>
-<p><code>healty</code> は、脆弱性が発見されなかったことを示しています。</p>
+<p>The number of vulnerabilities found by date/time and server/container scanned is shown as a heat map by severity.</p>
+<p>The <code>healty</code> indicates that no vulnerabilities were found.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-off.png" alt="filter-off"></p>
 <h4><a class="anchor" aria-hidden="true" id="フィルターの操作"></a><a href="#フィルターの操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルターの操作</h4>
 <h5><a class="anchor" aria-hidden="true" id="既存フィルターの適用"></a><a href="#既存フィルターの適用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>既存フィルターの適用</h5>
-<p>プルダウンメニューでフィルターを変更すると、事前定義されたフィルターを適用して <code>ピボットテーブル</code> を表示することができます。</p>
+<p>When you change a filter in the pull-down menu, you can apply a pre-defined filter to display a <code>pivot table</code>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/select-filter.png" alt="select-filter"></p>
 <h6><a class="anchor" aria-hidden="true" id="プリセットフィルター"></a><a href="#プリセットフィルター" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>プリセットフィルター</h6>
-<p>5つ用意されています。</p>
+<p>There are five available.</p>
 <ul>
 <li><a href="#01-graph-cvss-severity--servername">01. Graph: CVSS-Severity =&gt; ServerName</a></li>
 <li><a href="#02-graph-cvss-severity--cvss-score">02. Graph: CVSS-Severity =&gt; CVSS-Score</a></li>
@@ -267,44 +269,44 @@ $ go build -o vulsrepo-server
 <li><a href="#05-pivot-cveidpackageinfo--notfixedyet">05. Pivot: CveID/PackageInfo =&gt; NotFixedYet</a></li>
 </ul>
 <h6><a class="anchor" aria-hidden="true" id="01-graph-cvss-severity--servername"></a><a href="#01-graph-cvss-severity--servername" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>01. Graph: CVSS-Severity =&gt; ServerName</h6>
-<p>サーバー・コンテナごとに、脆弱性の延べ検出数を積み上げた棒グラフです。</p>
-<p>直近のデータを選択して、各サーバーとコンテナーの状態を横並びに比較するのに適しています。</p>
+<p>A bar chart stacking the total number of vulnerabilities detected per server and container.</p>
+<p>The most recent data is selected for a side-by-side comparison of the status of each server and container.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-01.png" alt="filter-01"></p>
 <h6><a class="anchor" aria-hidden="true" id="02-graph-cvss-severity--cvss-score"></a><a href="#02-graph-cvss-severity--cvss-score" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>02. Graph: CVSS-Severity =&gt; CVSS-Score</h6>
-<p>CVSS 基本値ごとに、脆弱性の延べ検出数を集計した棒グラフです。</p>
-<p>直近のデータを選択して表示するとよいです。</p>
+<p>This bar graph shows the total number of vulnerability detections for each CVSS base score.</p>
+<p>It is recommended that the most recent data be selected for display.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-02.png" alt="filter-02"></p>
 <h6><a class="anchor" aria-hidden="true" id="03-pivot-packagecvss-severitycveidsummary--servername"></a><a href="#03-pivot-packagecvss-severitycveidsummary--servername" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>03. Pivot: Package/CVSS-Severity/CveID/Summary =&gt; ServerName</h6>
-<p>脆弱性の発見されたパッケージ、深刻度、対応する CVE ID、脆弱性の概要と、サーバーとコンテナごとに、延べ検出数を集計したヒートマップです。</p>
-<p>直近のデータを選択して各サーバーとコンテナーの状態を横並びに比較するのに適しています。</p>
+<p>A heat map of the packages where the vulnerability was found, the severity, the corresponding CVE IDs, a summary of the vulnerability, and the total number of detections by server and container.</p>
+<p>It is suitable for comparing the status of each server and container side by side by selecting the most recent data.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-03.png" alt="filter-03"></p>
 <h6><a class="anchor" aria-hidden="true" id="04-pivot-packagecveid--scantime"></a><a href="#04-pivot-packagecveid--scantime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>04. Pivot: Package/CveID =&gt; ScanTime</h6>
-<p>各 CVE ID の脆弱性が解消されたかまたは新たに検出されたかを確認するのに適しています。</p>
-<p>単一サーバーもしくはコンテナを時系列で比較するのに適しています。</p>
+<p>Good for checking whether each CVE ID vulnerability is resolved or newly detected.</p>
+<p>Suitable for comparing a single server or container over time.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-04.png" alt="filter-04"></p>
 <h6><a class="anchor" aria-hidden="true" id="05-pivot-cveidpackageinfo--notfixedyet"></a><a href="#05-pivot-cveidpackageinfo--notfixedyet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>05. Pivot: CveID/PackageInfo =&gt; NotFixedYet</h6>
-<p>各 CVE ID の脆弱性が含まれるパッケージに修正済みバージョンが提供されているかどうか確認するのに適しています。</p>
-<p>直近の単一サーバーもしくはコンテナを選んで確認すると良いです。</p>
+<p>This is a good time to check if a fixed version is provided in the package that contains each CVE ID vulnerability.</p>
+<p>You can choose the most recent single server or container to check.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-05.png" alt="filter-05"></p>
 <h5><a class="anchor" aria-hidden="true" id="表示項目の追加・削除・並び替え"></a><a href="#表示項目の追加・削除・並び替え" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>表示項目の追加・削除・並び替え</h5>
-<p>表示項目は項目をドラッグ&amp;ドロップすると変更できます。</p>
+<p>You can change the display items by dragging and dropping them.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/pivot-item-add-remove-move.gif" alt="pivot-item-add-remove-move"></p>
 <h5><a class="anchor" aria-hidden="true" id="フィルターの新規保存、上書き保存"></a><a href="#フィルターの新規保存、上書き保存" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルターの新規保存、上書き保存</h5>
-<p>表示項目を入れ替えたり並び替えた状態を保存することができます。<code>ボタン</code>を押すことで、<code>フィルター保存パネル</code> が開きます。</p>
+<p>You can save the filtered items and reorder them. Press the <code>Save</code> button to open the <code>Save Filter Panel</code>.</p>
 <ul>
 <li>新規で保存したければ、<code>Save new filter</code> を選択して、任意のフィルター名を入力してください。</li>
 <li>既存フィルターへ上書き保存したければ、<code>Update filter</code> を選び、プルダウンから上書きしたいフィルターを選んでください。</li>
 <li>保存するならば <code>OK</code> ボタン、やめるならば <code>Cancel</code> か <code>x</code> ボタンまたは ESC キーを押してください。</li>
 </ul>
-<p><a href="#preset-filters">プリセットフィルター</a> を上書きすることはできません。</p>
+<p>You can't overwrite <a href="#preset-filters">Preset filters</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/save-filter.png" alt="save-filter"></p>
 <h5><a class="anchor" aria-hidden="true" id="フィルターの削除"></a><a href="#フィルターの削除" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルターの削除</h5>
-<p><code>Delete</code> ボタンを押すことで、現在選択しているフィルターを削除できます。</p>
-<p><code>Are you sure to delete?</code> と確認ダイアログが表示されるので、削除するならば <code>OK</code> ボタン、やめるならば <code>キャンセル</code> ボタンを押してください。</p>
-<p><a href="#preset-filters">プリセットフィルター</a> を削除することはできません。</p>
+<p>Press the <code>Delete</code> button to delete the current filter.</p>
+<p>The <code>Are you sure to delete?</code> confirmation dialog is displayed. Press the <code>OK</code> button to delete the filter, or the <code>Cancel</code> button to cancel.</p>
+<p>You can't delete <a href="#preset-filters">Preset filters</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/delete-filter.png" alt="delete-filter"></p>
 <h5><a class="anchor" aria-hidden="true" id="フィルターのクリア"></a><a href="#フィルターのクリア" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルターのクリア</h5>
-<p><code>Clear</code> ボタンを押すと、フィルターが解除され、 <code>ピボットテーブル</code> が <a href="#unfiltered-initial-state">フィルター未適用の初期状態</a> に戻ります。</p>
+<p>Pressing the <code>Clear</code> button clears the filter and returns the <code>pivot table</code> display to <a href="#unfiltered-initial-state">Unfiltered initial state</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/clear-filter.png" alt="clear-filter"></p>
 <h4><a class="anchor" aria-hidden="true" id="各項目の説明"></a><a href="#各項目の説明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>各項目の説明</h4>
 <table>
@@ -315,9 +317,9 @@ $ go build -o vulsrepo-server
 <tr><td>ScanTime</td><td>スキャンした日時</td></tr>
 <tr><td>ServerName</td><td>スキャン対象サーバー名</td></tr>
 <tr><td>Container</td><td>スキャン対象コンテナ名</td></tr>
-<tr><td>CVSS Score</td><td>NVD, JVN, RedHat いずれかが算出した脆弱性の基本値。最高は <code>10.0</code>。</td></tr>
-<tr><td>CVSS Severity</td><td>NVD, JVN, RedHat いずれかが算出した脆弱性の深刻度。赤いほうがより深刻</td></tr>
-<tr><td>CVSS Score Type</td><td><code>CVSS Score</code>, <code>CVSS Severity</code> と <code>CVSS Vector</code> の算出元</td></tr>
+<tr><td>CVSS Score</td><td>CVSS Base score of vulnerability, with a maximum of <code>10.0</code>.</td></tr>
+<tr><td>CVSS Severity</td><td>Vulnerability severity. Red is more severe.</td></tr>
+<tr><td>CVSS Score Type</td><td>The source of <code>CVSS Score</code>, <code>CVSS Severity</code> and <code>CVSS Vector</code>. For example, see <a href="#cvss-score-type">CVSS Score Type</a></td></tr>
 <tr><td>Platform</td><td>稼働しているプラットフォーム</td></tr>
 <tr><td>Family</td><td>OS</td></tr>
 <tr><td>Release</td><td>OS リリースバージョン</td></tr>
@@ -330,63 +332,83 @@ $ go build -o vulsrepo-server
 <tr><td>NewPackageVer</td><td>最新パッケージのバージョン</td></tr>
 <tr><td>Repository</td><td>パッケージ提供元のリポジトリ</td></tr>
 <tr><td>CweID</td><td>その CVEの <a href="https://nvd.nist.gov/vuln/categories">CWE - Common Weakness Enumeration</a>。 <a href="https://cwe.mitre.org/data/index.html">MITRE</a> または <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVM</a> をクリックして、新しいウィンドウで適切な CWE 説明ページを表示します。</td></tr>
-<tr><td>Summary</td><td>脆弱性の概要</td></tr>
-<tr><td>Mitigation</td><td>緩和策の情報があるかどうか</td></tr>
+<tr><td>Title</td><td>Vulnerability title</td></tr>
+<tr><td>Summary</td><td>Vulnerability Overview</td></tr>
+<tr><td>PortScannable</td><td>Whether the port can be scanned or not. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
+<tr><td>Process</td><td>The <code>process ID: process name</code> of the process affected by the vulnerability. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
+<tr><td>Path</td><td>The path of the lock file that led to the vulnerability scan of the library.</td></tr>
+<tr><td>Mitigation</td><td>Whether or not information on mitigation measures is available.</td></tr>
 <tr><td>CVSSv3(*)</td><td>CVSS 3.0 Vector</td></tr>
 <tr><td>CVSS(*)</td><td>CVSS 2 Vector</td></tr>
-<tr><td>AdvisoryID</td><td>(Amazon Linux 2 のみ) 対応ディストリビューションのアドバイザリーID。クリックでアドバイザリーページを別ウィンドウで表示します。</td></tr>
-<tr><td>CERT</td><td><a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> または <a href="https://www.jpcert.or.jp/at/">JPCERT 注意喚起</a> があるかどうか。 クリックで該当する情報を別ウィンドウで表示します。</td></tr>
-<tr><td>PoC</td><td>エクスプロイトコードが存在するかどうか。存在するならばその個数</td></tr>
-<tr><td>Changelog</td><td>Changelog があるかどうか。クリックで <a href="#changelog-panel">Changelog</a> パネル を表示します。</td></tr>
-<tr><td>DetectionMethod</td><td>脆弱性を検知した手法</td></tr>
-<tr><td>ConfidenceScore</td><td>検知の信頼度。<code>100</code> は信頼度が高い</td></tr>
-<tr><td>Published</td><td>情報の公表日</td></tr>
-<tr><td>Last Modified</td><td>情報の最終更新日</td></tr>
+<tr><td>AdvisoryID</td><td>(Amazon Linux 2 RedHat, Oracle Linux only) Advisory IDs for supported distributions. Click to open the advisory page in a new window.</td></tr>
+<tr><td>CERT</td><td>Whether there is a <a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> or <a href="https://www.jpcert.or.jp/at/">JPCERT Alert</a>. Click to view the relevant information in a new window.</td></tr>
+<tr><td>PoC</td><td>Whether the exploit code exists. If so, the number of them.</td></tr>
+<tr><td>Changelog</td><td>Whether or not there is a Changelog. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
+<tr><td>DetectionMethod</td><td>Vulnerability Detection Methodology</td></tr>
+<tr><td>ConfidenceScore</td><td>Reliability of detection. <code>100</code> means high reliability.</td></tr>
+<tr><td>Published</td><td>Date the information was released.</td></tr>
+<tr><td>Last Modified</td><td>Date the information was last updated.</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="cvss-score-type"></a><a href="#cvss-score-type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Score Type</h5>
+<p>Here are some examples.</p>
+<table>
+<thead>
+<tr><th>Value</th><th>Source</th></tr>
+</thead>
+<tbody>
+<tr><td><code>nvdV3</code></td><td>NVD CVSS v3</td></tr>
+<tr><td><code>nvd</code></td><td>NVD CVSS v2</td></tr>
+<tr><td><code>jvnV3</code></td><td>JVN CVSS v3</td></tr>
+<tr><td><code>jvn</code></td><td>JVN CVSS v2</td></tr>
+<tr><td><code>redhat_apiV3</code></td><td>RedHat CVSS v3</td></tr>
+<tr><td><code>oracleAdvisory</code></td><td>Oracle Linux Errata repository</td></tr>
+<tr><td><code>Unknown</code></td><td>Unknown</td></tr>
 </tbody>
 </table>
 <h4><a class="anchor" aria-hidden="true" id="項目ごとのフィルタリング"></a><a href="#項目ごとのフィルタリング" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>項目ごとのフィルタリング</h4>
-<p>項目の <code>▼</code> 部分を押してください。</p>
-<p>チェックボックスのオンオフで表示対象を選びます。 まとめて選ぶ場合は <code>Select All</code>、クリアする場合は <code>Select None</code> をクリックしてください。</p>
-<p>候補が多い場合は絞り込みができます。以下の例では <code>python</code> で絞り込んで、いくつかのパッケージを選んでいます。</p>
+<p>Press the <code>▼</code> part of the item.</p>
+<p>Select the items to be displayed by checking or unchecking the checkboxes. Click <code>Select All</code> to select them all together, or <code>Select None</code> to clear them.</p>
+<p>If you have a lot of candidates, you can refine your selection. The following example shows how to filter by <code>python</code> and select some packages.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/item-filter.png" alt="item-filter"></p>
-<p>適用するならば <code>Apply</code> ボタンを押してください。フィルタリングが効いている項目は <em>斜体</em> で表示されます。 適用せず閉じるならば <code>Cancel</code> ボタンを押してください。</p>
+<p>Press the <code>Apply</code> button to apply it. Filtered items are shown in <em>italics</em>. To close it without applying it, press the <code>Cancel</code> button.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/item-filtered.png" alt="item-filtered"></p>
 <h4><a class="anchor" aria-hidden="true" id="ソート"></a><a href="#ソート" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ソート</h4>
-<p>ソートは一番左の列が最優先となります。</p>
+<p>The leftmost row is the highest priority for sorting.</p>
 <table>
 <thead>
-<tr><th>項目</th><th>昇順/降順</th></tr>
+<tr><th>項目</th><th>Ascending/descending order</th></tr>
 </thead>
 <tbody>
-<tr><td>CVSS Score</td><td>降順</td></tr>
-<tr><td>CVSS Severity</td><td><code>Unknown</code>, <code>Critical</code>, <code>High</code>, <code>Important</code>, <code>Medium</code>, <code>Important</code>, <code>Low</code></td></tr>
-<tr><td>CVSSv3(*)</td><td>降順</td></tr>
-<tr><td>CVSS(*)</td><td>降順</td></tr>
-<tr><td>CERT</td><td>降順</td></tr>
-<tr><td>PoC</td><td>降順</td></tr>
-<tr><td>Published</td><td>降順</td></tr>
-<tr><td>Last Modified</td><td>降順</td></tr>
-<tr><td>その他</td><td>昇順</td></tr>
+<tr><td>CVSS Score</td><td>descending order</td></tr>
+<tr><td>CVSS Severity</td><td><code>Unknown</code>, <code>Critical</code>, <code>High</code>, <code>Important</code>, <code>Medium</code>, <code>Moderate</code>, <code>Low</code>, <code>Negligible</code>, <code>Unimportant</code>, <code>Pending</code>, <code>Not Vulnerable</code></td></tr>
+<tr><td>CVSSv3(*)</td><td>descending order</td></tr>
+<tr><td>CVSS(*)</td><td>descending order</td></tr>
+<tr><td>CERT</td><td>descending order</td></tr>
+<tr><td>PoC</td><td>descending order</td></tr>
+<tr><td>Published</td><td>descending order</td></tr>
+<tr><td>Last Modified</td><td>descending order</td></tr>
+<tr><td>Other</td><td>ascending order</td></tr>
 </tbody>
 </table>
-<p>昇順と降順は固定されており、切り替えることはできません。</p>
+<p>The order of ascending and descending is fixed and cannot be switched.</p>
 <h4><a class="anchor" aria-hidden="true" id="その他ピボットテーブルの操作"></a><a href="#その他ピボットテーブルの操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>その他ピボットテーブルの操作</h4>
-<p>レンダラーの変更や集計単位、集計値の行および列のソート順の変更ができます。</p>
-<p><a href="https://github.com/nicolaskruchten/pivottable/wiki">pivottable wiki</a> と <a href="https://pivottable.js.org/examples/">PivotTable.js Examples</a> を参照してください。</p>
+<p>You can change the renderer, the unit of aggregation, and the sort order of rows and columns of aggregate values.</p>
+<p>See <a href="https://github.com/nicolaskruchten/pivottable/wiki">pivottable wiki</a> and <a href="https://pivottable.js.org/examples/">PivotTable.js Examples</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/pivot-table-misc.png" alt="pivot-table-misc"></p>
 <h3><a class="anchor" aria-hidden="true" id="ヘッダー上ボタン"></a><a href="#ヘッダー上ボタン" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ヘッダー上ボタン</h3>
 <h4><a class="anchor" aria-hidden="true" id="表示対象データの再選択"></a><a href="#表示対象データの再選択" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>表示対象データの再選択</h4>
-<p>画面左上の <code>☰</code> ボタンを押すと、ファイル選択ツリーを表示します。もう一度押すと閉じます。</p>
-<p>表示対象データを選び直すときに押してください。</p>
+<p>Press <code>☰</code> button at the top left of the screen to display the file selection tree. Press again to close the tree.</p>
+<p>Press this button to select the data to be displayed.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/hamburger.png" alt="hamburger"></p>
 <h4><a class="anchor" aria-hidden="true" id="表示設定"></a><a href="#表示設定" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>表示設定</h4>
-<p>画面右上の<code>レンチ</code>ボタンを押すと <code>表示設定パネル</code> が開きます。</p>
-<p><code>x</code> を押すか、パネル枠外をクリックするか ESC キーを押してパネルを閉じることで設定が適用されます。</p>
+<p>Press the <code>wrench</code> button in the upper right corner of the screen to open the <code>Display Settings Panel</code>.</p>
+<p>The settings are applied by pressing <code>x</code> or clicking outside the panel frame or pressing the ESC key to close the panel.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/pivot-table-setting.png" alt="pivot-table-setting"></p>
 <h5><a class="anchor" aria-hidden="true" id="show--hide-the-item"></a><a href="#show--hide-the-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show / Hide the Item</h5>
-<p><code>ピボットテーブル</code> で表示する項目を設定します。 <code>Summary</code>, <code>CVSS Metrics</code> のデータは非常に大きいため、脆弱性の数が多いとエラーが発生します。 その場合は <code>OFF</code> にすると改善する場合があります。</p>
+<p>Set the items to be displayed in the <code>Pivot table</code>. Because the data of <code>Summary</code>, <code>CVSS Metrics</code> and <code>Affected Processes(PortScannable, Process)</code> is very large, an error may occur if the number of vulnerabilities is large. In this case, setting <code>OFF</code> may improve the situation.</p>
 <h6><a class="anchor" aria-hidden="true" id="attention-cweid"></a><a href="#attention-cweid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attention CweId</h6>
-<p><code>ピボットテーブル</code> の <code>CweId</code> で下記いずれかに該当する場合、<code>ON</code> にすることで CWE ID に要注意を示すマークがつきます。</p>
+<p>If any of the following is applicable to the <code>CweId</code> of the <code>pivot table</code>, the CWE ID will be marked with a caution symbol by setting it to <code>ON</code>.</p>
 <ul>
 <li><a href="https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html">2019 CWE Top 25 Most Dangerous Software Errors</a></li>
 <li><a href="https://github.com/OWASP/Top10/blob/master/2017/">OWASP Top 10 - 2017</a></li>
@@ -394,12 +416,12 @@ $ go build -o vulsrepo-server
 </ul>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/cweid.png" alt="cweid"></p>
 <h5><a class="anchor" aria-hidden="true" id="priority"></a><a href="#priority" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Priority</h5>
-<p><code>ピボットテーブル</code> に表示するデータの優先度を設定します。デフォルトは NVD です。</p>
-<p>ブロックのドラッグ&amp;ドロップすることで優先度を入れ替え出来ます。 以下の例では <code>JVN</code> や <code>Ubuntu</code> の優先度を上げて、日本語の情報および Ubuntu の情報を優先して表示するようにしています。</p>
+<p>Set the data to be displayed with priority in the <code>pivot table</code>.The default is NVD data.</p>
+<p>You can swap priorities by dragging and dropping blocks. You can also swap what you want to show and what you want to hide. In the following example, the priority of <code>JVN</code> and <code>Ubuntu</code> is raised so that Japanese and Ubuntu information is shown first. We also move <code>amazon</code>, <code>oracle</code> to the <code>Hide</code> side to hide information about Amazon Linux and Oracle Linux.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/priority.gif" alt="priority"></p>
 <h4><a class="anchor" aria-hidden="true" id="フィルター・表示設定の共有"></a><a href="#フィルター・表示設定の共有" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>フィルター・表示設定の共有</h4>
-<p>フィルターや表示設定はサーバー側ではなく各ブラウザの Local Storage に保存しています。 したがって、複数の人が同じフィルターと表示設定を必要とする場合は、それらを他の人と共有する必要があります。</p>
-<h5><a class="anchor" aria-hidden="true" id="渡す側の操作"></a><a href="#渡す側の操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>渡す側の操作</h5>
+<p>Filters and display settings are stored in the Local Storage of each browser, not on the server side. Therefore, if more than one person needs the same filter and display settings, you will need to share them with others.</p>
+<h5><a class="anchor" aria-hidden="true" id="senders-operation"></a><a href="#senders-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sender's Operation</h5>
 <ol>
 <li>Click the `</li></li>
 </ol>
@@ -407,7 +429,7 @@ $ go build -o vulsrepo-server
 <li>コピーした URL を何らかの方法で他の人に渡します。</li>
 <li><code>x` を押すか、パネル枠外をクリックしてパネルを閉じてください。
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/share-setting.png" alt="share-setting"></p>
-<h5><a class="anchor" aria-hidden="true" id="渡された側の操作"></a><a href="#渡された側の操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>渡された側の操作</h5>
+<h5><a class="anchor" aria-hidden="true" id="recipients-operation"></a><a href="#recipients-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recipient's Operation</h5>
 <ol>
 <li>ブラウザでコピーした URL にアクセスしてください。</li>
 <li>必要に応じて URL をブックマークしてください。ブックマークから VulsRepo を開くことで次回以降も同じ設定で表示できます。</li>
@@ -415,69 +437,74 @@ $ go build -o vulsrepo-server
 <li>必要に応じて、 <a href="#save-and-overwrite-a-new-filter"> フィルターの新規保存、上書き保存</a> してください。</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="詳細パネル"></a><a href="#詳細パネル" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>詳細パネル</h3>
-<p>詳細情報は <a href="#main-tab">メインタブ</a> と <a href="#package-tab">パッケージタブ</a> に分かれています。 初期表示は <a href="#main-tab">Main タブ</a> です。 適宜タブをクリックして表示を切り替えてください。</p>
-<p>パネルを閉じる場合は パネル右上の <code>x</code> を押すか、パネル枠外をクリックするか、ESC キーを押してください。</p>
+<p>Detailed information is divided into <a href="#main-tab">Main tab</a> and <a href="#package-tab">Package tab</a>. The initial view is <a href="#main-tab">Main tab</a>. Click on the tabs to switch the display to suit your needs.</p>
+<p>To close the panel, press <code>x</code> on the top right corner of the panel, or click outside the panel frame, or press ESC key.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-tab.png" alt="detail-tab"></p>
 <h4><a class="anchor" aria-hidden="true" id="main-タブ"></a><a href="#main-タブ" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Main タブ</h4>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-main.png" alt="detail-main"></p>
-<h5><a class="anchor" aria-hidden="true" id="cvss-detail-セクション"></a><a href="#cvss-detail-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Detail セクション</h5>
-<p>各情報機関、ディストリビュータから提供された基本値および深刻度、脆弱性の概要、情報の最終更新日を表示します。</p>
-<p>各 Type をクリックすると、情報機関、ディストリビュータが提供しているページを新しいウィンドウで開きます。</p>
-<p>基本値および深刻度の区分については <code>?</code> のツールチップを参照してください。</p>
-<h5><a class="anchor" aria-hidden="true" id="cvss-vector-チャート"></a><a href="#cvss-vector-チャート" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Vector チャート</h5>
-<p>NVD, JVN, RedHat が算出した各評価項目の値をチャート表示します。 <code>CvssV2 タブ</code>, <code>CvssV3 タブ</code> をクリックすると <code>CVSS v2</code>, <code>CVSS v3</code> チャートを切り替えできます。 初期表示は <code>CVSS v3</code> です。</p>
-<p><code>NVD v3</code>, <code>JVN v3</code>, <code>RehHatV3</code> をクリックするとチャート表示、非表示を制御できます。 以下の例では <code>NVD v3</code>, <code>RehHatV3</code> のチャートを非表示にしています。</p>
+<h5><a class="anchor" aria-hidden="true" id="cvss-detail-section"></a><a href="#cvss-detail-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Detail section</h5>
+<p>This section shows the basic score and severity, summary of the vulnerability, and the date the information was last updated, as provided by each organization and distributor.</p>
+<p>Clicking each type opens the page provided by the organization or distributor in a new window.</p>
+<p>See the tooltip of <code>?</code> tooltips for basic score and severity categories.</p>
+<h5><a class="anchor" aria-hidden="true" id="cvss-vector-radar-chart"></a><a href="#cvss-vector-radar-chart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Vector radar chart</h5>
+<p>It shows the value of each evaluation item calculated by NVD, JVN, and RedHat in a radar chart. You can switch between the <code>CVSS v2</code> and <code>CVSS v3.x</code> charts by clicking the <code>Cvss v2 tab</code> or the <code>Cvss v3.x tab</code>. The initial display is <code>CVSS v3.x</code>.</p>
+<p>You can control to show or hide the chart by clicking the <code>NVD v3.x</code>, <code>JVN v3.x</code>, or <code>RehHat v3.x</code>. In the following example, the chart of <code>NVD v3.1</code> and <code>RehHat v3.0</code> is hidden.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/cvss-chart.png" alt="cvss-chart"></p>
-<h5><a class="anchor" aria-hidden="true" id="mitigation-セクション"></a><a href="#mitigation-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mitigation セクション</h5>
-<p>緩和策の情報がある場合に表示されます。 ヘッダー部分をクリックすると、セクションを開閉します。</p>
+<h5><a class="anchor" aria-hidden="true" id="mitigation-section"></a><a href="#mitigation-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mitigation section</h5>
+<p>This section will appear if information on mitigation measures is available. Click on the header to open and close the section.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/mitigation.png" alt="mitigation"></p>
-<h5><a class="anchor" aria-hidden="true" id="cweid-セクション"></a><a href="#cweid-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CweID セクション</h5>
-<p><a href="https://cwe.mitre.org/data/index.html">MITRE</a> および <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVN</a> をクリックすることで該当する CWE の詳細説明ページを別ウィンドウで表示します。</p>
-<p>下記のいずれかにランクインしているしている場合、ランクをバッジとして表示します。バッジをクリックすることで各情報のページを別ウィンドウで表示します。</p>
+<h5><a class="anchor" aria-hidden="true" id="cweid-section"></a><a href="#cweid-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CweID section</h5>
+<p>By clicking on <a href="https://cwe.mitre.org/data/index.html">MITRE</a> and <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVN</a>, a new window will open with the appropriate CWE details Display the description page.</p>
+<p>If CweID is ranked in one of the following categories, the rank will be displayed as a badge. Clicking on a badge will take you to a new window for each piece of information.</p>
 <ul>
 <li><a href="https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html">2019 CWE Top 25 Most Dangerous Software Errors</a></li>
 <li><a href="https://github.com/OWASP/Top10/blob/master/2017/">OWASP Top 10 - 2017</a></li>
 <li><a href="https://www.sans.org/top25-software-errors/">SANS Top 25 Software Errors</a></li>
 </ul>
-<h5><a class="anchor" aria-hidden="true" id="links-セクション"></a><a href="#links-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links セクション</h5>
-<p>新しいウィンドウで下記ページを開きます。</p>
+<h5><a class="anchor" aria-hidden="true" id="links-section"></a><a href="#links-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links section</h5>
+<p>Open the following page in a new window.</p>
 <table>
 <thead>
-<tr><th>項目</th><th>リンク先</th></tr>
+<tr><th>Item</th><th>Link</th></tr>
 </thead>
 <tbody>
-<tr><td>MITRE</td><td><a href="https://cve.mitre.org">MITRE</a> が提供する該当 CVE のページ</td></tr>
-<tr><td>CveDetails</td><td><a href="https://www.cvedetails.com/">CVE Details</a> が提供する該当 CVE のページ</td></tr>
-<tr><td>CVSS Calculator V2</td><td><a href="https://www.nist.gov/">NIST</a> が提供する <code>Common Vulnerability Scoring System Calculator Version 2</code> のページ</td></tr>
-<tr><td>CVSS Calculator V3</td><td><a href="https://www.nist.gov/">NIST</a> が提供する <code>Common Vulnerability Scoring System Calculator Version 3.0</code> のページ</td></tr>
-<tr><td>CVSS Calculator V3 (JVN)</td><td><a href="https://jvn.jp/">JVN</a> が提供する <a href="https://jvndb.jvn.jp/cvss/ja/v3.html">共通脆弱性評価システム (Common Vulnerability Scoring System) Version 3.0 Calculator</a> のページ</td></tr>
-<tr><td>Amazon</td><td>(Amazon Linux 2 のみ) <a href="https://alas.aws.amazon.com/alas2.html">Amazon Linux Security Center</a> の該当 CVE のページ</td></tr>
-<tr><td>RedHat Network</td><td>(RedHat のみ) <a href="https://access.redhat.com/errata/">Red Hat Product Errata</a></td></tr>
+<tr><td>MITRE</td><td>The corresponding CVE page provided by <a href="https://cve.mitre.org">MITRE</a></td></tr>
+<tr><td>CveDetails</td><td>The corresponding CVE page provided by <a href="https://www.cvedetails.com/">CVE Details</a></td></tr>
+<tr><td>CVSS Calculator V2</td><td><code>Common Vulnerability Scoring System Calculator Version 2</code> page from <a href="https://www.nist.gov/">NIST</a></td></tr>
+<tr><td>CVSS Calculator V3</td><td><code>Common Vulnerability Scoring System Calculator Version 3.0</code> page from <a href="https://www.nist.gov/">NIST</a></td></tr>
+<tr><td>CVSS Calculator V3 (JVN)</td><td><a href="https://jvndb.jvn.jp/cvss/ja/v3.html">Common Vulnerability Scoring System Version 3.0 Calculator</a> page provided by <a href="https://jvn.jp/">JVN</a>.</td></tr>
+<tr><td>Amazon</td><td>(Amazon Linux 2 only) <a href="https://alas.aws.amazon.com/alas2.html">Amazon Linux Security Center</a></td></tr>
+<tr><td>RedHat Network</td><td>(RedHat only) <a href="https://access.redhat.com/errata/">Red Hat Product Errata</a></td></tr>
+<tr><td>OracleLinux Errata</td><td>(Oracle Linux only) <a href="https://linux.oracle.com/errata/">Unbreakable Linux Network</a></td></tr>
 </tbody>
 </table>
-<p>CVSS Calculator は、<code>環境評価基準</code>を含めた深刻度の算出に有用です。</p>
-<h5><a class="anchor" aria-hidden="true" id="uscert--jpcert-alert-セクション"></a><a href="#uscert--jpcert-alert-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>USCERT / JPCERT Alert セクション</h5>
-<p>USCERT Alert または <a href="https://www.jpcert.or.jp/at/">JPCERT 注意喚起</a> の情報がある場合に表示されます。 ヘッダー部分をクリックすると、セクションを開閉します。 <a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> および <a href="https://www.jpcert.or.jp/at/">JPCERT 注意喚起</a> のリンクを表示します。 クリックすると別ウィンドウで該当のページを開きます。</p></p>
+<p>CVSS Calculator is useful for calculating severity, including <code>Environmental Metrics</code>.</p>
+<h5><a class="anchor" aria-hidden="true" id="uscert--jpcert-alert-section"></a><a href="#uscert--jpcert-alert-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>USCERT / JPCERT Alert section</h5>
+<p>If there is <a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> or <a href="https://www.jpcert.or.jp/at/">JPCERT Alert</a>, <code>USCERT / JPCERT Alert</code> section appears. ヘッダー部分をクリックすると、セクションを開閉します。 Shows links to <a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> and <a href="https://www.jpcert.or.jp/at/">JPCERT Alert</a>. クリックすると別ウィンドウで該当のページを開きます。</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/cert-alert.png" alt="cert-alert"></p>
-<h5><a class="anchor" aria-hidden="true" id="exploits-セクション"></a><a href="#exploits-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exploits セクション</h5>
-<p><code>Exploit Codes</code> および <code>Metasploit Modules</code> の情報がある場合に表示されます。 ヘッダー部分をクリックすると、セクションを開閉します。 各 <code>Exploit Codes</code> および <code>Metasploit Modules</code> のリンクを表示します。 クリックすると別ウィンドウで該当のページを開きます。</p>
+<h5><a class="anchor" aria-hidden="true" id="exploits-section"></a><a href="#exploits-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exploits section</h5>
+<p><code>Exploits</code> section is displayed if there is information on <code>Exploit Codes</code> or <code>Metasploit Modules</code>. Click on the header to open and close the section. Displays links for each <code>Exploit Codes</code> and <code>Metasploit Modules</code>. Clicking on them will open the page in a new window.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/exploits.png" alt="exploits"></p>
-<h5><a class="anchor" aria-hidden="true" id="references-セクション"></a><a href="#references-セクション" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>References セクション</h5>
-<p>ヘッダー部分をクリックすると、セクションを開閉します。 各情報機関、ディストリビュータが提供している参照情報です。クリックすると別ウィンドウで該当のページを開きます。</p>
+<h5><a class="anchor" aria-hidden="true" id="references-section"></a><a href="#references-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>References section</h5>
+<p>Click on the header to open and close the section. Displays the reference information provided by each information organization and distributor. Clicking on them will open the page in a new window.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/references.png" alt="references"></p>
 <h4><a class="anchor" aria-hidden="true" id="package-タブ"></a><a href="#package-タブ" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package タブ</h4>
-<p>脆弱性を含むパッケージの一覧です。 各 <code>PackageName</code> をクリックすると <a href="#changelog-panel">Changelog パネル</a> を開きます。</p>
+<p>Here is a list of packages that contain vulnerabilities. Click each <code>PackageName</code> to open the <a href="#package-panel">Package panel</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-package.png" alt="package"></p>
-<h3><a class="anchor" aria-hidden="true" id="changelog-パネル"></a><a href="#changelog-パネル" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changelog パネル</h3>
-<p>パッケージの changelog を表示します。</p>
-<p>Changelog の記述に、該当する CVE ID が存在すると橙色でハイライト表示されます。それ以外の CVE ID が存在すると水色でハイライト表示されます。</p>
+<h3><a class="anchor" aria-hidden="true" id="package-panel"></a><a href="#package-panel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package panel</h3>
 <p>パネルを閉じるには、パネル枠外をクリックするか ESC キーを押してください。</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/changelog.png" alt="changelog"></p>
+<h4><a class="anchor" aria-hidden="true" id="affected-processes"></a><a href="#affected-processes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Affected Processes</h4>
+<p>If there are processes affected by the vulnerability, they will be shown. Lists the process ID, process name, IP address and port.</p>
+<p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/affected-processes.png" alt="affected-processes"></p>
+<h4><a class="anchor" aria-hidden="true" id="changelog"></a><a href="#changelog" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changelog</h4>
+<p>View the package changelog.</p>
+<p>The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.</p>
 <h3><a class="anchor" aria-hidden="true" id="よくある質問"></a><a href="#よくある質問" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>よくある質問</h3>
 <ul>
 <li>何故、VulsとVulsRepoで結果の集計値が違うのか？</li>
 </ul>
-<p>Vuls はホストに含まれる CveID の数を集計します。 しかしながら、VulsRepo では CveID に関連するパッケージを1件としてカウントしています。 よって、1つの CveID に関連するパッケージが複数ある場合、Vuls よりも集計値が多くなります。</p>
+<p>Vuls aggregates the number of CveIDs included in the host. However, VulsRepo counts Packages related to CveID as one case. If more than one package is associated with one CveID, Total will increase more than Vuls.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/image008.png" alt="count"></p>
 <h2><a class="anchor" aria-hidden="true" id="ギャラリー"></a><a href="#ギャラリー" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ギャラリー</h2>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/image001.png" alt="image"> <img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/image002.png" alt="image"> <img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-03.png" alt="image"> <img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-main.png" alt="image"> <img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/changelog.png" alt="image"></p>
