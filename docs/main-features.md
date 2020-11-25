@@ -51,7 +51,7 @@ Vuls uses Multiple vulnerability databases
   - [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
 
 - WordPress
-  - [WPVulnDB](https://wpvulndb.com/api)
+  - [WPScan](https://wpscan.com/api)
 
 ## Fast scan and Deep scan
 
@@ -114,4 +114,4 @@ Vuls uses Multiple vulnerability databases
 - [Auto generation of configuration file template](usage-automatic-discovery.md)
   - Auto detection of servers set using CIDR, generate configuration file template
 - Email and Slack notification is possible (supports Japanese language)
-- Scan result is viewable on accessory software, [TUI Viewer on terminal](usage-tui.md) or Web UI ([VulsRepo](https://github.com/ishiDACo/vulsrepo)).
+- Scan result is viewable on accessory software, [TUI Viewer on terminal](usage-tui.md) or Web UI ([VulsRepo](vulsrepo.md)).

@@ -7,14 +7,14 @@ sidebar_label: Scan WordPress
 ## Scan WordPress (core, plugin, theme)
 
 For non-commercial use, you can use this WordPress integration for free.
-But for commercial use, You have to send a E-Mail to the WPVulnDB team.
-For Details, see the [NOTE](https://wpvulndb.com/api):
+But for commercial use, You have to send a E-Mail to the WPScan Team.
+For Details, see the [NOTE](https://wpscan.com/api):
 
 ```bash
 If you are under any doubt if your software is classed as non-commercial and/or would like to inquire about commercial usage of our databases get in touch.
 ```
 
-First, you need to register a user and get the API token from your profile page on [wpvulndb.com](https://wpvulndb.com/).
+First, you need to register a user and get the API token from your profile page on [wpscan.com](https://wpscan.com/).
 And then, check whether the [wp command](https://wp-cli.org/)  is installed on the scan target server.
 A sample configuration is below.
 
@@ -37,7 +37,7 @@ A sample configuration is below.
 * cmdPath :  A path of `wp` on the wordpress server
 * osUser : A OS user of `wp` on the wordpress server
 * docRoot : A path of document root on the wordpress server
-* wpVulnDBToken :  A token of [WPVULNDB API](https://wpvulndb.com/api)
+* wpVulnDBToken :  A token of [WPVULNDB API](https://wpscan.com/api)
 * ignoreInactive : Ignore plugins or themes which are inactive state
 
 ## Scan
@@ -56,7 +56,7 @@ Vuls collects WordPress Core version, plugins and themes via `wp-cli`.
 $ vuls report
 ```
 
-Vuls detects vulnerabilities via accessing [WPVulnDB.com](https://wpvulndb.com/api) via HTTP.
+Vuls detects vulnerabilities via accessing [WPScan.com](https://wpscan.com/api) via HTTP.
 
 * Slack
 
