@@ -175,6 +175,8 @@ vulsrepo.service                           enabled
 <pre><code class="hljs css language-bash">$ sudo systemctl start vulsrepo
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="digestauth"></a><a href="#digestauth" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DigestAuth</h2>
+<p>DigestAuth implementation has a lot of problems. It requires multiple authentications on Chrome, Chromium and Firefox.
+If authentication is required, it's easier to isolate it by using nginx and vulsrepo-server with a proxy.</p>
 <h3><a class="anchor" aria-hidden="true" id="to-perform-digest-authentication-create-an-authentication-file"></a><a href="#to-perform-digest-authentication-create-an-authentication-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To perform digest authentication, create an authentication file</h3>
 <pre><code class="hljs css language-bash">$ ./vulsrepo-server -h
 Usage of ./vulsrepo-server:
@@ -251,7 +253,8 @@ Click <code>Select All</code> to select them all together, or <code>Select None<
 <p>If you try to load a large amount of data, it may fail. Please use the following methods.</p>
 <ul>
 <li>Reduce the selection of the data to be displayed and load it again.</li>
-<li>Setting <code>Summary</code> and <code>Cvss Metrics</code> to <code>OFF</code> in the <code>Setting</code> may solve this problem (see <a href="#show--hide-the-item">Display setting - Show / Hide the Item</a>).</li>
+<li>Make sure that you have not changed the directory name and file name under the <code>reselts</code> directory.</li>
+<li>Setting <code>Summary</code>, <code>Cvss Metrics</code> or <code>Affected Processes</code> to <code>OFF</code> in the <code>Setting</code> may solve this problem (see <a href="#show--hide-the-item">Display setting - Show / Hide the Item</a>).</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="pivot-table"></a><a href="#pivot-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pivot table</h3>
 <h4><a class="anchor" aria-hidden="true" id="unfiltered-initial-state"></a><a href="#unfiltered-initial-state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unfiltered initial state</h4>
@@ -321,9 +324,9 @@ Press the <code>OK</code> button to delete the filter, or the <code>Cancel</code
 <tr><td>ScanTime</td><td>Scan date</td></tr>
 <tr><td>ServerName</td><td>Scanned server</td></tr>
 <tr><td>Container</td><td>Scanned container</td></tr>
-<tr><td>CVSS Score</td><td>CVSS Base score of vulnerability calculated by NVD, JVN, or RedHat, with a maximum of <code>10.0</code>.</td></tr>
-<tr><td>CVSS Severity</td><td>Vulnerability severity as calculated by NVD, JVN, or RedHat. Red is more severe.</td></tr>
-<tr><td>CVSS Score Type</td><td>The source of <code>CVSS Score</code>, <code>CVSS Severity</code> and <code>CVSS Vector</code></td></tr>
+<tr><td>CVSS Score</td><td>CVSS Base score of vulnerability, with a maximum of <code>10.0</code>.</td></tr>
+<tr><td>CVSS Severity</td><td>Vulnerability severity. Red is more severe.</td></tr>
+<tr><td>CVSS Score Type</td><td>The source of <code>CVSS Score</code>, <code>CVSS Severity</code> and <code>CVSS Vector</code>. For example, see <a href="#cvss-score-type">CVSS Score Type</a></td></tr>
 <tr><td>Platform</td><td>Running platform</td></tr>
 <tr><td>Family</td><td>OS</td></tr>
 <tr><td>Release</td><td>OS release version</td></tr>
@@ -336,18 +339,38 @@ Press the <code>OK</code> button to delete the filter, or the <code>Cancel</code
 <tr><td>NewPackageVer</td><td>Latest Package Version</td></tr>
 <tr><td>Repository</td><td>Package provider's repositories</td></tr>
 <tr><td>CweID</td><td>Its CVE's <a href="https://nvd.nist.gov/vuln/categories">CWE - Common Weakness Enumeration</a>. Click on <a href="https://cwe.mitre.org/data/index.html">MITRE</a> or <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVN</a> to view the appropriate CWE description page in a new window.</td></tr>
+<tr><td>Title</td><td>Vulnerability title</td></tr>
 <tr><td>Summary</td><td>Vulnerability Overview</td></tr>
+<tr><td>PortScannable</td><td>Whether the port can be scanned or not. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
+<tr><td>Process</td><td>The <code>process ID: process name</code> of the process affected by the vulnerability. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
+<tr><td>Path</td><td>The path of the lock file that led to the vulnerability scan of the library.</td></tr>
 <tr><td>Mitigation</td><td>Whether or not information on mitigation measures is available.</td></tr>
 <tr><td>CVSSv3(*)</td><td>CVSS 3.0 Vector</td></tr>
 <tr><td>CVSS(*)</td><td>CVSS 2 Vector</td></tr>
-<tr><td>AdvisoryID</td><td>(Amazon Linux 2 only) Advisory IDs for supported distributions. Click to open the advisory page in a new window.</td></tr>
+<tr><td>AdvisoryID</td><td>(Amazon Linux 2 RedHat, Oracle Linux only) Advisory IDs for supported distributions. Click to open the advisory page in a new window.</td></tr>
 <tr><td>CERT</td><td>Whether there is a <a href="https://us-cert.cisa.gov/ncas/alerts">USCERT Alert</a> or <a href="https://www.jpcert.or.jp/at/">JPCERT Alert</a>. Click to view the relevant information in a new window.</td></tr>
 <tr><td>PoC</td><td>Whether the exploit code exists. If so, the number of them.</td></tr>
-<tr><td>Changelog</td><td>Whether or not there is a Changelog. Click to view <a href="#changelog-panel">Changelog panel</a>.</td></tr>
+<tr><td>Changelog</td><td>Whether or not there is a Changelog. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
 <tr><td>DetectionMethod</td><td>Vulnerability Detection Methodology</td></tr>
 <tr><td>ConfidenceScore</td><td>Reliability of detection. <code>100</code> means high reliability.</td></tr>
 <tr><td>Published</td><td>Date the information was released.</td></tr>
 <tr><td>Last Modified</td><td>Date the information was last updated.</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="cvss-score-type"></a><a href="#cvss-score-type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Score Type</h5>
+<p>Here are some examples.</p>
+<table>
+<thead>
+<tr><th>Value</th><th>Source</th></tr>
+</thead>
+<tbody>
+<tr><td><code>nvdV3</code></td><td>NVD CVSS v3</td></tr>
+<tr><td><code>nvd</code></td><td>NVD CVSS v2</td></tr>
+<tr><td><code>jvnV3</code></td><td>JVN CVSS v3</td></tr>
+<tr><td><code>jvn</code></td><td>JVN CVSS v2</td></tr>
+<tr><td><code>redhat_apiV3</code></td><td>RedHat CVSS v3</td></tr>
+<tr><td><code>oracleAdvisory</code></td><td>Oracle Linux Errata repository</td></tr>
+<tr><td><code>Unknown</code></td><td>Unknown</td></tr>
 </tbody>
 </table>
 <h4><a class="anchor" aria-hidden="true" id="filtering-by-item"></a><a href="#filtering-by-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filtering by item</h4>
@@ -367,7 +390,7 @@ To close it without applying it, press the <code>Cancel</code> button.</p>
 </thead>
 <tbody>
 <tr><td>CVSS Score</td><td>descending order</td></tr>
-<tr><td>CVSS Severity</td><td><code>Unknown</code>, <code>Critical</code>, <code>High</code>, <code>Important</code>, <code>Medium</code>, <code>Important</code>, <code>Low</code></td></tr>
+<tr><td>CVSS Severity</td><td><code>Unknown</code>, <code>Critical</code>, <code>High</code>, <code>Important</code>, <code>Medium</code>, <code>Moderate</code>, <code>Low</code>, <code>Negligible</code>, <code>Unimportant</code>, <code>Pending</code>, <code>Not Vulnerable</code></td></tr>
 <tr><td>CVSSv3(*)</td><td>descending order</td></tr>
 <tr><td>CVSS(*)</td><td>descending order</td></tr>
 <tr><td>CERT</td><td>descending order</td></tr>
@@ -392,7 +415,7 @@ To close it without applying it, press the <code>Cancel</code> button.</p>
 <p>The settings are applied by pressing <code>x</code> or clicking outside the panel frame or pressing the ESC key to close the panel.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/pivot-table-setting.png" alt="pivot-table-setting"></p>
 <h5><a class="anchor" aria-hidden="true" id="show--hide-the-item"></a><a href="#show--hide-the-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show / Hide the Item</h5>
-<p>Set the items to be displayed in the <code>Pivot table</code>. Because the data of <code>Summary</code> and <code>CVSS Metrics</code> is very large, an error may occur if the number of vulnerabilities is large. In this case, setting <code>OFF</code> may improve the situation.</p>
+<p>Set the items to be displayed in the <code>Pivot table</code>. Because the data of <code>Summary</code>, <code>CVSS Metrics</code> and <code>Affected Processes(PortScannable, Process)</code> is very large, an error may occur if the number of vulnerabilities is large. In this case, setting <code>OFF</code> may improve the situation.</p>
 <h6><a class="anchor" aria-hidden="true" id="attention-cweid"></a><a href="#attention-cweid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attention CweId</h6>
 <p>If any of the following is applicable to the <code>CweId</code> of the <code>pivot table</code>, the CWE ID will be marked with a caution symbol by setting it to <code>ON</code>.</p>
 <ul>
@@ -404,7 +427,9 @@ To close it without applying it, press the <code>Cancel</code> button.</p>
 <h5><a class="anchor" aria-hidden="true" id="priority"></a><a href="#priority" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Priority</h5>
 <p>Set the data to be displayed with priority in the <code>pivot table</code>.The default is NVD data.</p>
 <p>You can swap priorities by dragging and dropping blocks.
-In the following example, the priority of <code>JVN</code> and <code>Ubuntu</code> is raised so that Japanese and Ubuntu information is shown first.</p>
+You can also swap what you want to show and what you want to hide.
+In the following example, the priority of <code>JVN</code> and <code>Ubuntu</code> is raised so that Japanese and Ubuntu information is shown first.
+We also move <code>amazon</code>, <code>oracle</code> to the <code>Hide</code> side to hide information about Amazon Linux and Oracle Linux.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/priority.gif" alt="priority"></p>
 <h4><a class="anchor" aria-hidden="true" id="share-filter-and-display-settings"></a><a href="#share-filter-and-display-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Share filter and display settings</h4>
 <p>Filters and display settings are stored in the Local Storage of each browser, not on the server side. Therefore, if more than one person needs the same filter and display settings, you will need to share them with others.</p>
@@ -435,10 +460,10 @@ In the following example, the priority of <code>JVN</code> and <code>Ubuntu</cod
 <p>See the tooltip of <code>?</code> tooltips for basic score and severity categories.</p>
 <h5><a class="anchor" aria-hidden="true" id="cvss-vector-radar-chart"></a><a href="#cvss-vector-radar-chart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CVSS Vector radar chart</h5>
 <p>It shows the value of each evaluation item calculated by NVD, JVN, and RedHat in a radar chart.
-You can switch between the <code>CVSS v2</code> and <code>CVSS v3</code> charts by clicking the <code>CvssV2 tab</code> or the <code>CvssV3 tab</code>.
-The initial display is <code>CVSS v3</code>.</p>
-<p>You can control to show or hide the chart by clicking the <code>NVD v3</code>, <code>JVN v3</code>, or <code>RehHatV3</code>.
-In the following example, the chart of <code>NVD v3</code> and <code>RehHatV3</code> is hidden.</p>
+You can switch between the <code>CVSS v2</code> and <code>CVSS v3.x</code> charts by clicking the <code>Cvss v2 tab</code> or the <code>Cvss v3.x tab</code>.
+The initial display is <code>CVSS v3.x</code>.</p>
+<p>You can control to show or hide the chart by clicking the <code>NVD v3.x</code>, <code>JVN v3.x</code>, or <code>RehHat v3.x</code>.
+In the following example, the chart of <code>NVD v3.1</code> and <code>RehHat v3.0</code> is hidden.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/cvss-chart.png" alt="cvss-chart"></p>
 <h5><a class="anchor" aria-hidden="true" id="mitigation-section"></a><a href="#mitigation-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mitigation section</h5>
 <p>This section will appear if information on mitigation measures is available.
@@ -466,6 +491,7 @@ Click on the header to open and close the section.</p>
 <tr><td>CVSS Calculator V3 (JVN)</td><td><a href="https://jvndb.jvn.jp/cvss/ja/v3.html">Common Vulnerability Scoring System Version 3.0 Calculator</a> page provided by <a href="https://jvn.jp/">JVN</a>.</td></tr>
 <tr><td>Amazon</td><td>(Amazon Linux 2 only) <a href="https://alas.aws.amazon.com/alas2.html">Amazon Linux Security Center</a></td></tr>
 <tr><td>RedHat Network</td><td>(RedHat only) <a href="https://access.redhat.com/errata/">Red Hat Product Errata</a></td></tr>
+<tr><td>OracleLinux Errata</td><td>(Oracle Linux only) <a href="https://linux.oracle.com/errata/">Unbreakable Linux Network</a></td></tr>
 </tbody>
 </table>
 <p>CVSS Calculator is useful for calculating severity, including <code>Environmental Metrics</code>.</p>
@@ -485,13 +511,18 @@ Displays the reference information provided by each information organization and
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/references.png" alt="references"></p>
 <h4><a class="anchor" aria-hidden="true" id="package-tab"></a><a href="#package-tab" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package tab</h4>
 <p>Here is a list of packages that contain vulnerabilities.
-Click each <code>PackageName</code> to open the <a href="#changelog-panel">Changelog panel</a>.</p>
+Click each <code>PackageName</code> to open the <a href="#package-panel">Package panel</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/detail-package.png" alt="package"></p>
-<h3><a class="anchor" aria-hidden="true" id="changelog-panel"></a><a href="#changelog-panel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changelog panel</h3>
-<p>View the package changelog.</p>
-<p>The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.</p>
+<h3><a class="anchor" aria-hidden="true" id="package-panel"></a><a href="#package-panel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package panel</h3>
 <p>To close the panel, click outside the panel frame or press the ESC key.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/changelog.png" alt="changelog"></p>
+<h4><a class="anchor" aria-hidden="true" id="affected-processes"></a><a href="#affected-processes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Affected Processes</h4>
+<p>If there are processes affected by the vulnerability, they will be shown.
+Lists the process ID, process name, IP address and port.</p>
+<p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/affected-processes.png" alt="affected-processes"></p>
+<h4><a class="anchor" aria-hidden="true" id="changelog"></a><a href="#changelog" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Changelog</h4>
+<p>View the package changelog.</p>
+<p>The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.</p>
 <h3><a class="anchor" aria-hidden="true" id="faq"></a><a href="#faq" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FAQ</h3>
 <ul>
 <li>Why does not Total of Vuls and VulsRepo result match ?</li>

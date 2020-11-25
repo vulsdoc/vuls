@@ -76,11 +76,11 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/vulsdoc/vuls/edit/master/docs/usage-scan-wordpress.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Scan vulnerabilities of WordPress</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="scan-wordpress-core-plugin-theme"></a><a href="#scan-wordpress-core-plugin-theme" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scan WordPress (core, plugin, theme)</h2>
 <p>For non-commercial use, you can use this WordPress integration for free.
-But for commercial use, You have to send a E-Mail to the WPVulnDB team.
-For Details, see the <a href="https://wpvulndb.com/api">NOTE</a>:</p>
+But for commercial use, You have to send a E-Mail to the WPScan Team.
+For Details, see the <a href="https://wpscan.com/api">NOTE</a>:</p>
 <pre><code class="hljs css language-bash">If you are under any doubt <span class="hljs-keyword">if</span> your software is classed as non-commercial and/or would like to inquire about commercial usage of our databases get <span class="hljs-keyword">in</span> touch.
 </code></pre>
-<p>First, you need to register a user and get the API token from your profile page on <a href="https://wpvulndb.com/">wpvulndb.com</a>.
+<p>First, you need to register a user and get the API token from your profile page on <a href="https://wpscan.com/">wpscan.com</a>.
 And then, check whether the <a href="https://wp-cli.org/">wp command</a>  is installed on the scan target server.
 A sample configuration is below.</p>
 <ul>
@@ -102,7 +102,7 @@ A sample configuration is below.</p>
 <li>cmdPath :  A path of <code>wp</code> on the wordpress server</li>
 <li>osUser : A OS user of <code>wp</code> on the wordpress server</li>
 <li>docRoot : A path of document root on the wordpress server</li>
-<li>wpVulnDBToken :  A token of <a href="https://wpvulndb.com/api">WPVULNDB API</a></li>
+<li>wpVulnDBToken :  A token of <a href="https://wpscan.com/api">WPVULNDB API</a></li>
 <li>ignoreInactive : Ignore plugins or themes which are inactive state</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="scan"></a><a href="#scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scan</h2>
@@ -113,7 +113,7 @@ A sample configuration is below.</p>
 <h2><a class="anchor" aria-hidden="true" id="reporting"></a><a href="#reporting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reporting</h2>
 <pre><code class="hljs css language-bash">$ vuls report
 </code></pre>
-<p>Vuls detects vulnerabilities via accessing <a href="https://wpvulndb.com/api">WPVulnDB.com</a> via HTTP.</p>
+<p>Vuls detects vulnerabilities via accessing <a href="https://wpscan.com/api">WPScan.com</a> via HTTP.</p>
 <ul>
 <li>Slack</li>
 </ul>
