@@ -8,7 +8,7 @@ sidebar_label: VulsRepo
 [usiusi360/vulsrepo](https://github.com/usiusi360/vulsrepo) is NOT maintained anymore.  
 You should use maintained repository: [ishiDACo/vulsrepo](https://github.com/ishiDACo/vulsrepo)
 
-[VulsRepo](https://github.com/usiusi360/vulsrepo) is awesome OSS Web UI for Vuls.
+[VulsRepo](https://github.com/ishiDACo/vulsrepo) is awesome OSS Web UI for Vuls.
 With VulsRepo you can analyze the scan results like Excel pivot table.
 
 ![vulsrepo](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/demo.gif)
