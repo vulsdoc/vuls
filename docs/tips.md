@@ -36,7 +36,7 @@ see [setting server section](usage-settings.md#servers-section), [#1005](https:/
 
 ```bash
 $ cd /path/to/your/local-git-repository/vuls
-$ GOOS=linux GOARCH=amd64 go build -o vuls.amd64
+$ GOOS=linux GOARCH=amd64 go build -o vuls.amd64 ./cmd/vuls
 ```
 
 ## Logging  
