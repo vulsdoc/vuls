@@ -36,7 +36,7 @@ $ vuls report -format-json
 
 ```
 
-Output to a JSON files (/opt/vuls/results/)
+Output to a JSON files (/opt/vuls/results)
 
 ### Step2. Installation
 
@@ -235,15 +235,17 @@ When the data is loaded, the `pivot table` is shown as follows.
 
 #### Troubleshooting: No file selection tree
 
-- Make sure that the directory `/opt/vuls/results/` is the correct one to refer to as the output of Vuls.
+- Make sure that the directory `/opt/vuls/results` is the correct one to refer to as the output of Vuls.
 - If the directory referenced by the output of Vuls contains a large number of files, it will fail to generate a file selection tree. In that case, move the unnecessary `*.json` files to a separate directory, or delete them before displaying VulsRepo.
 
 #### Troubleshooting: No pivot table
 
+- Make sure that you have not changed the directory name and file name under the `results` directory.
+- Do not append `/` to the `resultsPath` value. For example, `resultsPath = "/opt/vuls/results/"` is wrong and `resultsPath = "/opt/vuls/results"` is the correct setting.
+
 If you try to load a large amount of data, it may fail. Please use the following methods.
 
 - Reduce the selection of the data to be displayed and load it again.
-- Make sure that you have not changed the directory name and file name under the `results` directory.
 - Setting `Summary`, `Cvss Metrics` or `Affected Processes` to `OFF` in the `Setting` may solve this problem (see [Display setting - Show / Hide the Item](#show--hide-the-item)).
 
 ### Pivot table
@@ -349,6 +351,14 @@ Pressing the `Clear` button clears the filter and returns the `pivot table` disp
 
 ![clear-filter](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/clear-filter.png)
 
+##### Print
+
+Press the `Open print preview` button to open print preview window.
+
+![open-print-preview](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/open-print-preview.png)
+
+You can print by pressing the `Print` button.
+
 #### Explanation of each item
 
 | Item            | Description                                                                                                                                                                                                                                                       |
@@ -435,6 +445,12 @@ The leftmost row is the highest priority for sorting.
 | Other         | ascending order                                                                                                                   |
 
 The order of ascending and descending is fixed and cannot be switched.
+
+#### TSV Export
+
+You can render TSV data by setting the `renderer` to `TSV Export`. The displayed data can be copied to the clipboard. You can also download the data as a TSV file by pressing the `Download TSV` button.
+
+![tsv-export](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/tsv-export.png)
 
 #### Other pivot table operations
 
