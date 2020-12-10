@@ -96,7 +96,7 @@ $ vuls scan
 $ vuls report -format-json
 
 </code></pre>
-<p>Output to a JSON files (/opt/vuls/results/)</p>
+<p>Output to a JSON files (/opt/vuls/results)</p>
 <h3><a class="anchor" aria-hidden="true" id="step2-installation"></a><a href="#step2-installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step2. Installation</h3>
 <p>From now on, executed by a user running the vuls scan.</p>
 <ul>
@@ -246,14 +246,17 @@ Click <code>Select All</code> to select them all together, or <code>Select None<
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/filter-off.png" alt="filter-off"></p>
 <h4><a class="anchor" aria-hidden="true" id="troubleshooting-no-file-selection-tree"></a><a href="#troubleshooting-no-file-selection-tree" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Troubleshooting: No file selection tree</h4>
 <ul>
-<li>Make sure that the directory <code>/opt/vuls/results/</code> is the correct one to refer to as the output of Vuls.</li>
+<li>Make sure that the directory <code>/opt/vuls/results</code> is the correct one to refer to as the output of Vuls.</li>
 <li>If the directory referenced by the output of Vuls contains a large number of files, it will fail to generate a file selection tree. In that case, move the unnecessary <code>*.json</code> files to a separate directory, or delete them before displaying VulsRepo.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="troubleshooting-no-pivot-table"></a><a href="#troubleshooting-no-pivot-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Troubleshooting: No pivot table</h4>
+<ul>
+<li>Make sure that you have not changed the directory name and file name under the <code>results</code> directory.</li>
+<li>Do not append <code>/</code> to the <code>resultsPath</code> value. For example, <code>resultsPath = &quot;/opt/vuls/results/&quot;</code> is wrong and <code>resultsPath = &quot;/opt/vuls/results&quot;</code> is the correct setting.</li>
+</ul>
 <p>If you try to load a large amount of data, it may fail. Please use the following methods.</p>
 <ul>
 <li>Reduce the selection of the data to be displayed and load it again.</li>
-<li>Make sure that you have not changed the directory name and file name under the <code>reselts</code> directory.</li>
 <li>Setting <code>Summary</code>, <code>Cvss Metrics</code> or <code>Affected Processes</code> to <code>OFF</code> in the <code>Setting</code> may solve this problem (see <a href="#show--hide-the-item">Display setting - Show / Hide the Item</a>).</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="pivot-table"></a><a href="#pivot-table" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pivot table</h3>
@@ -315,6 +318,10 @@ Press the <code>OK</code> button to delete the filter, or the <code>Cancel</code
 <h5><a class="anchor" aria-hidden="true" id="clearing-filter"></a><a href="#clearing-filter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clearing filter</h5>
 <p>Pressing the <code>Clear</code> button clears the filter and returns the <code>pivot table</code> display to <a href="#unfiltered-initial-state">Unfiltered initial state</a>.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/clear-filter.png" alt="clear-filter"></p>
+<h5><a class="anchor" aria-hidden="true" id="print"></a><a href="#print" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Print</h5>
+<p>Press the <code>Open print preview</code> button to open print preview window.</p>
+<p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/open-print-preview.png" alt="open-print-preview"></p>
+<p>You can print by pressing the <code>Print</code> button.</p>
 <h4><a class="anchor" aria-hidden="true" id="explanation-of-each-item"></a><a href="#explanation-of-each-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Explanation of each item</h4>
 <table>
 <thead>
@@ -401,6 +408,9 @@ To close it without applying it, press the <code>Cancel</code> button.</p>
 </tbody>
 </table>
 <p>The order of ascending and descending is fixed and cannot be switched.</p>
+<h4><a class="anchor" aria-hidden="true" id="tsv-export"></a><a href="#tsv-export" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TSV Export</h4>
+<p>You can render TSV data by setting the <code>renderer</code> to <code>TSV Export</code>. The displayed data can be copied to the clipboard. You can also download the data as a TSV file by pressing the <code>Download TSV</code> button.</p>
+<p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/tsv-export.png" alt="tsv-export"></p>
 <h4><a class="anchor" aria-hidden="true" id="other-pivot-table-operations"></a><a href="#other-pivot-table-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other pivot table operations</h4>
 <p>You can change the renderer, the unit of aggregation, and the sort order of rows and columns of aggregate values.</p>
 <p>See <a href="https://github.com/nicolaskruchten/pivottable/wiki">pivottable wiki</a> and <a href="https://pivottable.js.org/examples/">PivotTable.js Examples</a>.</p>
