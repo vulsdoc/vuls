@@ -25,7 +25,9 @@ sidebar_label: Related Projects
   * Show scan history
   * Generate recent scan reports
   * Generate all scan reports
-  * Send scan reports
+  * Generate and send recent scan reports and specify severity level
+  * Generate and upload recent scan reports
+  * Generate and upload all scan reports
   * Create / Reset Vuls configuration
   * Update all vulnerabilities databases
 
