@@ -25,7 +25,7 @@ Fetch the vulnerability databases used by Vuls to the current directory using [u
 Fetching all databases is time consuming. Look at the script before executing update-all.sh and make sure you fetch only what you need.
 
 ```bash
-$ fetch-all.sh
+$ update-all.sh
 ```
 
 ### Update Modules
