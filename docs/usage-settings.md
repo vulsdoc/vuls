@@ -92,16 +92,6 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 #accountKey    = "xxxxxxxxxxxxxx"
 #containerName = "vuls"
 
-# https://vuls.io/docs/en/usage-settings.html#stride-section
-#[stride]
-#hookURL   = "xxxxxxxxxxxxxxx"
-#authToken = "xxxxxxxxxxxxxx"
-
-# https://vuls.io/docs/en/usage-settings.html#hipchat-section
-#[hipchat]
-#room      = "vuls"
-#authToken = "xxxxxxxxxxxxxx"
-
 # https://vuls.io/docs/en/usage-settings.html#chatwork-section
 #[chatwork]
 #room     = "xxxxxxxxxxx"
@@ -376,22 +366,6 @@ Multiple SSH authentication methods are supported.
 Password authentication is not supported.
 
 - [How to Log in With No Password While Using ssh-agent](https://docs.oracle.com/cd/E19683-01/806-4078/6jd6cjru9/index.html)
-
-## HipChat section
-
-```toml
-[hipchat]
-room = "vuls"
-authToken = "xxxxxxxxxxxxxx"
-```
-
-## Stride section
-
-```toml
-[stride]
-hookURL  = "xxxxxxxxxxxxxxx"
-authToken = "xxxxxxxxxxxxxx"
-```
 
 ## ChatWork section
 

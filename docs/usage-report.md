@@ -21,8 +21,6 @@ report:
 		[-to-email]
 		[-to-http]
 		[-to-slack]
-		[-to-stride]
-		[-to-hipchat]
 		[-to-chatwork]
 		[-to-telegram]
 		[-to-localfile]
@@ -146,8 +144,6 @@ report:
     	Send report via chatwork
   -to-email
     	Send report via Email
-  -to-hipchat
-    	Send report via hipchat
   -to-http
     	Send report via HTTP POST
   -to-localfile
@@ -158,8 +154,6 @@ report:
     	Upload report to Future Vuls(https://vuls.biz/) before report
   -to-slack
     	Send report via Slack
-  -to-stride
-    	Send report via Stride
   -to-syslog
     	Send report via Syslog
   -to-telegram
@@ -368,36 +362,6 @@ $ vuls report \
 With this sample command, it will ..
 
 - Send scan results to Email
-- Only Report CVEs that CVSS score is over 7
-
-## Example: Send scan results to HipChat
-
-Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
-
-```bash
-$ vuls report \
-      -to-hipchat \
-      -cvss-over=7
-```
-
-With this sample command, it will ..
-
-- Send scan results to HipChat
-- Only Report CVEs that CVSS score is over 7
-
-## Example: Send scan results to Stride
-
-Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.html#stride-section)
-
-```bash
-$ vuls report \
-      -to-stride \
-      -cvss-over=7
-```
-
-With this sample command, it will ..
-
-- Send scan results to Stride
 - Only Report CVEs that CVSS score is over 7
 
 ## Example: Send scan results to ChatWork
