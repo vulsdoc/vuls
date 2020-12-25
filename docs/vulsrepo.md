@@ -222,7 +222,24 @@ http://<server-address>:5111
 
 ### How to select the data to be displayed
 
-Select the data you want to display in the file selection tree. You can select multiple files.
+In the initial state, the data of the most recent day of the scan is selected for display.
+You can narrow down the target range by date. Select a range from the drop-down list.
+
+![daterange](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/daterange.png)
+
+You can specify any range with `Custom Range`.
+
+![daterange-custom](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/daterange-custom.png)
+
+You can narrow down the target by server name. You can select more than one.
+
+![multiselect](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/multiselect.png)
+
+You can also filter targets by server name and then select and deselect them.
+
+![multiselect-filter](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/multiselect-filter.png)
+
+If you want to make a detailed selection, please select the data you want to display in the file selection tree. You can select multiple files.
 Click `Select All` to select them all together, or `Select None` to clear them.
 
 Click the `Submit` button after selecting them.
