@@ -349,6 +349,36 @@ type = "sqlite3"
 SQLite3Path = "/path/to/go-msfdb.sqlite3"
 ```
 
+## Example: Send scan results to another endpoint
+
+Define HTTP section in [config.toml](https://vuls.io/docs/en/usage-settings.html#http-section)
+
+```bash
+$ vuls report \
+      -to-http \
+      -format-json
+```
+
+Sample `PHP` code on the endpoint side:
+
+```php
+<?php
+$tmp_file = __DIR__ . '/vuls-'. uniqid() . '.json';
+file_put_contents($tmp_file, file_get_contents("php://input"));
+if (file_exists($tmp_file)) {
+    $raw_json_data = file_get_contents($tmp_file);
+    $json_data = json_decode($raw_json_data);
+    $scanned_hostname = $json_data->{'serverName'};
+    $new_file = __DIR__ . '/' . strtolower($scanned_hostname) . '.json';
+    rename($tmp_file, $new_file);
+}
+?>
+```
+
+Source: `vuls.php`
+
+> The following code will simply create a `JSON` file named with the hostname extracted that way `hostname.json`. It will be created in the same location of the `vuls.php` file.
+
 ## Example: Send scan results to email
 
 Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
