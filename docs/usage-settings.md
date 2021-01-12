@@ -234,7 +234,14 @@ host         = "172.31.4.83"
 - authUser: username of the slack team
 - notifyUsers: a list of Slack usernames to send Slack notifications.
 If you set `["@foo", "@bar"]` to notifyUsers, @foo @bar will be included in text.  
-So @foo, @bar can receive mobile push notifications on their smartphone.  
+So @foo, @bar can receive mobile push notifications on their smartphone.
+
+## HTTP section
+
+```toml
+[http]
+url = "http://localhost:11234"
+```
 
 ## EMail section
 
