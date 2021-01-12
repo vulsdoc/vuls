@@ -14,7 +14,6 @@ scan:
                 [-cachedb-path=/path/to/cache.db]
                 [-ssh-native-insecure]
                 [-ssh-config]
-                [-containers-only]
                 [-skip-broken]
                 [-http-proxy=http://192.168.0.1:8080]
                 [-ask-key-password]
@@ -30,8 +29,6 @@ scan:
         /path/to/cache.db (local cache of changelog for Ubuntu/Debian)
   -config string
         /path/to/toml
-  -containers-only
-        Scan containers only. Default: Scan both of hosts and containers
   -debug
         debug mode
   -http-proxy string
@@ -135,7 +132,7 @@ Vuls supports different types of SSH.
 
 By Default, external SSH command will be used.
 This is useful If you want to use ProxyCommand or cipher algorithm of SSH that is not supported by native go implementation.  
-Don't forget to add below line to /etc/sudoers on the target servers. (username: vuls)
+Don't forget to add the below line to /etc/sudoers on the target servers. (username: vuls)
 
 ```bash
 Defaults:vuls !requiretty
@@ -168,7 +165,7 @@ $ vuls scan server1 server2
 
 With this sample command, it will ..
 
-* Use SSH Key-Based authentication with empty password (without -ask-key-password option)
+* Use SSH Key-Based authentication with an empty password (without -ask-key-password option)
 * Scan only 2 servers (server1, server2)
 
 ## Example: Scan via shell instead of SSH
@@ -199,7 +196,7 @@ For more details, see [Architecture section](architecture-remote-scan.html)
 If you don’t want to use root, create a Unix group called docker and add users to it
 For details, see [docker manual](https://docs.docker.com/install/linux/linux-postinstall/)
 
-#### To scan all of running containers
+#### To scan all of the running containers
 
   `"${running}"` needs to be set in the containers item.
 
@@ -216,10 +213,10 @@ For details, see [docker manual](https://docs.docker.com/install/linux/linux-pos
 
 #### To scan specific running containers
 
-  The container ID or container name needs to be set in the containers item.  
+  The container ID or container name needs to be set in the container item.  
   In the following example, only `container_name_a` and `4aa37a8b63b9` will be scanned.  
   Be sure to check these containers are running state before scanning.  
-  If specified containers are not running, Vuls gives up scanning with printing error message.
+  If specified containers are not running, Vuls gives up scanning with the printing error message.
 
   ```toml
   [servers]
@@ -248,7 +245,15 @@ containersExcluded = ["container_name_a", "4aa37a8b63b9"]
 
 #### To scan containers only (Docker Host will not be scanned)
 
-  --containers-only option is available.
+```
+ [servers.localhost]
+host = "localhost"
+port = "local"
+user = "vuls"
+scanMode = ["fast-root"]
+containersIncluded = ["${running}"]
+containersOnly= true
+```
 
 ### LXD
 
@@ -294,3 +299,7 @@ vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/lxc-attach -n *, /usr/bin/lxc-ls *
 ## Example: scan WordPress (core, plugin, theme)
 
 For Details, see [usage-scan-wordpress](usage-scan-wordpress.md)
+
+## Example: scan a lockfile of libraries
+
+For Details, see [Scan vulnerabilities of non-OS packages](https://vuls.io/docs/en/usage-scan-non-os-packages.html#typepseudo)
