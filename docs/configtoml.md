@@ -1,5 +1,5 @@
 ---
-id: config.toml
+id: configtoml
 title: config.toml
 sidebar_label: config.toml
 ---
@@ -14,7 +14,7 @@ $ vuls discover 127.0.0.1/32
 # Create config.toml using below and then ./vuls -config=/path/to/config.toml
 
 
-# https://vuls.io/docs/en/usage-settings.html
+# https://vuls.io/docs/en/configtoml.html
 [cveDict]
 type        = "sqlite3"
 sqlite3Path = "/path/to/cve.sqlite3"
@@ -193,10 +193,17 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 ```
 
 - type : the method of access for the database
-
 - SQLite3Path : Should only be set when using "sqlite" otherwise unused.
-
 - url : specifies the url to access the database.
+
+These can also be specified by an environment variable.
+Refer to the source code for the environment variable names.
+
+- [cveDict](https://github.com/future-architect/vuls/blob/master/config/gocvedictconf.go#L30-L32)
+- [ovalDict](https://github.com/future-architect/vuls/blob/master/config/govaldictconf.go#L31-L33)
+- [gost](https://github.com/future-architect/vuls/blob/master/config/gostconf.go#L30-L32)
+- [exploit](https://github.com/future-architect/vuls/blob/master/config/exploitconf.go#L30-L32)
+- [metasploit](https://github.com/future-architect/vuls/blob/master/config/metasploitconf.go#L30-L32)
 
 ## Slack section
 
