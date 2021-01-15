@@ -1,5 +1,5 @@
 ---
-id: configtoml
+id: config.toml
 title: config.toml
 sidebar_label: config.toml
 ---
