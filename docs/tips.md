@@ -30,7 +30,7 @@ Use SSH Key-Based Authentication with no passphrase or ssh-agent.
 
 Write `StrictHostKeyChecking no` to the config file used for SSH connection.
 Then, describe the PATH to the config file used by ssh in `sshConfigPath` of config.toml.
-see [setting server section](usage-settings.md#servers-section), [#1005](https://github.com/future-architect/vuls/pull/1005)
+see [setting server section](config.toml.md#servers-section), [#1005](https://github.com/future-architect/vuls/pull/1005)
 
 ## How to cross compile
 

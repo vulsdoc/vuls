@@ -94,7 +94,7 @@ $ docker run --rm -i \
 
 ## Step4. Configuration
 
-Create config.toml referring to [this](usage-settings.md).
+Create config.toml referring to [this](config.toml.md).
 
 ```toml
 [servers]

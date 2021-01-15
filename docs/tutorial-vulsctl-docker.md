@@ -111,7 +111,7 @@ In config.toml, you can set up the information needed to SSH to the server you w
 - User Name
 - Private Key for SSH
 
-For details of config.toml, please refer to [Manual](https://vuls.io/docs/en/usage-settings.html).
+For details of config.toml, please refer to [Manual](https://vuls.io/docs/en/config.toml.html).
 
 ```bash
 $ pwd
@@ -689,6 +689,6 @@ $ ./update-all.sh
 
 - [WordPress](https://vuls.io/docs/usage-scan-wordpress.html#scan-wordpress-core-plugin-theme)
 
-- [Slack Notification](https://vuls.io/docs/usage-settings.html#slack-section)
+- [Slack Notification](https://vuls.io/docs/config.toml.html#slack-section)
 
 - [Scan running containers](https://vuls.io/docs/usage-scan.html#example-scan-running-containers-docker-lxd-lxc)

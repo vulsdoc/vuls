@@ -298,7 +298,7 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 
 ## Example: Send scan results to another endpoint
 
-Define HTTP section in [config.toml](https://vuls.io/docs/en/usage-settings.html#http-section)
+Define HTTP section in [config.toml](https://vuls.io/docs/en/config.toml.html#http-section)
 
 ```bash
 $ vuls report \
@@ -328,7 +328,7 @@ Source: `vuls.php`
 
 ## Example: Send scan results to email
 
-Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
+Define EMail section in [config.toml](https://vuls.io/docs/ja/config.toml.html#email-section)
 
 ```bash
 $ vuls report \
@@ -343,7 +343,7 @@ With this sample command, it will ..
 
 ## Example: Send scan results to ChatWork
 
-Define ChatWork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
+Define ChatWork section in [config.toml](https://vuls.io/docs/en/config.toml.html#chatwork-section)
 
 ```bash
 $ vuls report \
@@ -358,7 +358,7 @@ With this sample command, it will ..
 
 ## Example: Send scan results to Slack
 
-Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.html#slack-section)
+Define Slack section in [config.toml](https://vuls.io/docs/en/config.toml.html#slack-section)
 
 ```bash
 $ vuls report \
@@ -373,7 +373,7 @@ With this sample command, it will ..
 
 ## Example: Send scan results to Telegram
 
-Define Telegram section in [config.toml](https://vuls.io/docs/en/usage-settings.html#telegram-section)
+Define Telegram section in [config.toml](https://vuls.io/docs/en/config.toml.html#telegram-section)
 
 ```bash
 $ vuls report \
