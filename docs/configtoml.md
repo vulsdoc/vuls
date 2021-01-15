@@ -1,7 +1,7 @@
 ---
-id: usage-settings
-title: Settings
-sidebar_label: Settings
+id: config.toml
+title: config.toml
+sidebar_label: config.toml
 ---
 
 Generate a template of the `config.toml` settings file
@@ -13,35 +13,32 @@ $ vuls discover 127.0.0.1/32
 ```toml
 # Create config.toml using below and then ./vuls -config=/path/to/config.toml
 
-# https://vuls.io/docs/en/usage-settings.html#database-section
+
+# https://vuls.io/docs/en/usage-settings.html
 [cveDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/cve.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+type        = "sqlite3"
+sqlite3Path = "/path/to/cve.sqlite3"
+#url        = ""
 
 [ovalDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/oval.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+type        = "sqlite3"
+sqlite3Path = "/path/to/oval.sqlite3"
+#url        = ""
 
 [gost]
-type = "sqlite3"
-SQLite3Path = "/path/to/gost.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+type        = "sqlite3"
+sqlite3Path = "/path/to/gost.sqlite3"
+#url        = ""
 
 [exploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-exploitdb.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+type        = "sqlite3"
+sqlite3Path = "/path/to/go-exploitdb.sqlite3"
+#url        = ""
 
 [metasploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-msfdb.sqlite3"
-# url = ""
+type        = "sqlite3"
+sqlite3Path = "/path/to/go-msfdb.sqlite3"
+#url        = ""
 
 # https://vuls.io/docs/en/usage-settings.html#slack-section
 #[slack]
@@ -99,8 +96,12 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 
 # https://vuls.io/docs/en/usage-settings.html#telegram-section
 #[telegram]
-#chatID = "xxxxxxxxxxx"
-#token   = "xxxxxxxxxxxxxxxxxx"
+#chatID     = "xxxxxxxxxxx"
+#token = "xxxxxxxxxxxxxxxxxx"
+
+#[wpscan]
+#token = "xxxxxxxxxxx"
+#detectInactive = false
 
 # https://vuls.io/docs/en/usage-settings.html#default-section
 [default]
@@ -108,11 +109,13 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 #user               = "username"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
+#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-6271"]
+#containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
@@ -122,25 +125,34 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 
 [servers.127-0-0-1]
 host                = "127.0.0.1"
-#jumpServer         = ["test@test.com:22", "test@test1.com:2222"]
 #port               = "22"
 #user               = "root"
-#sshConfigPath		= "/home/username/.ssh/config"
+#sshConfigPath          = "/home/username/.ssh/config"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
+#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
 #type               = "pseudo"
 #memo               = "DB Server"
-#cpeNames            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
+#containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
 #[servers.127-0-0-1.containers.container_name_a]
-#cpeNames        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath = "/path/to/dependency-check-report.xml"
 #ignoreCves     = ["CVE-2014-0160"]
+
+#[servers.127-0-0-1.githubs."owner/repo"]
+#token   = "yourToken"
+
+#[servers.127-0-0-1.wordpress]
+#cmdPath = "/usr/local/bin/wp"
+#osUser = "wordpress"
+#docRoot = "/path/to/DocumentRoot/"
 
 #[servers.127-0-0-1.optional]
 #key = "value1"
