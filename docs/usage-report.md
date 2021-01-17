@@ -27,7 +27,6 @@ report:
 		[-to-azure-blob]
 		[-to-saas]
 		[-format-json]
-		[-format-xml]
 		[-format-one-email]
 		[-format-one-line-text]
 		[-format-list]
@@ -63,8 +62,6 @@ report:
     	Send all the host report via only one EMail (Specify with -to-email)
   -format-one-line-text
     	One line summary in plain text
-  -format-xml
-    	XML format
   -gzip
     	gzip compression
   -http string

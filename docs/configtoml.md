@@ -23,7 +23,6 @@ $ vuls discover 127.0.0.1/32
 [ovalDict]
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
 #sqlite3Path = "/path/to/oval.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
 #url        = ""
 
 [gost]
@@ -170,7 +169,6 @@ host                = "127.0.0.1"
 [ovalDict]
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
 #sqlite3Path = "/path/to/oval.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
 #url        = ""
 
 [gost]
