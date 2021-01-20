@@ -338,15 +338,17 @@ $ go build -o vulsrepo-server
 <tr><td>Platform</td><td>稼働しているプラットフォーム</td></tr>
 <tr><td>Family</td><td>OS</td></tr>
 <tr><td>Release</td><td>OS リリースバージョン</td></tr>
-<tr><td>CveID</td><td>脆弱性に割り当てられたCVE ID。クリックして <a href="#detail-panel">詳細パネル</a> を表示します。</td></tr>
-<tr><td>Packages</td><td>脆弱性を含むパッケージ名</td></tr>
-<tr><td>FixedIn</td><td>脆弱性を修正したパッケージのバージョン</td></tr>
-<tr><td>FixState</td><td>脆弱性に対するパッケージの対応状況</td></tr>
-<tr><td>NotFixedYet</td><td>脆弱性を修正したバージョンのパッケージが提供されているかどうか</td></tr>
-<tr><td>PackageVer</td><td>インストール済みパッケージのバージョン</td></tr>
-<tr><td>NewPackageVer</td><td>最新パッケージのバージョン</td></tr>
-<tr><td>Repository</td><td>パッケージ提供元のリポジトリ</td></tr>
-<tr><td>CweID</td><td>その CVEの <a href="https://nvd.nist.gov/vuln/categories">CWE - Common Weakness Enumeration</a>。 <a href="https://cwe.mitre.org/data/index.html">MITRE</a> または <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVM</a> をクリックして、新しいウィンドウで適切な CWE 説明ページを表示します。</td></tr>
+<tr><td>Errors</td><td>Vuls Error Messages</td></tr>
+<tr><td>Warnings</td><td>Vuls warning messages, which include OS EOL information in Vuls v0.15.x and later.</td></tr>
+<tr><td>CveID</td><td>The CVE ID assigned to the vulnerability. Click to view <a href="#detail-panel">Detail panel</a>.</td></tr>
+<tr><td>Packages</td><td>The name of the package containing the vulnerability</td></tr>
+<tr><td>FixedIn</td><td>The version of the package that fixed the vulnerability</td></tr>
+<tr><td>FixState</td><td>Status of packages against vulnerabilities</td></tr>
+<tr><td>NotFixedYet</td><td>Whether a version of the package that fixes the vulnerability is available.</td></tr>
+<tr><td>PackageVer</td><td>Installed package version</td></tr>
+<tr><td>NewPackageVer</td><td>Latest Package Version</td></tr>
+<tr><td>Repository</td><td>Package provider's repositories</td></tr>
+<tr><td>CweID</td><td>Its CVE's <a href="https://nvd.nist.gov/vuln/categories">CWE - Common Weakness Enumeration</a>. Click on <a href="https://cwe.mitre.org/data/index.html">MITRE</a> or <a href="https://www.ipa.go.jp/security/vuln/CWE.html">JVN</a> to view the appropriate CWE description page in a new window.</td></tr>
 <tr><td>Title</td><td>Vulnerability title</td></tr>
 <tr><td>Summary</td><td>Vulnerability Overview</td></tr>
 <tr><td>PortScannable</td><td>Whether the port can be scanned or not. Click to view <a href="#package-panel">Package panel</a>.</td></tr>
@@ -505,6 +507,7 @@ $ go build -o vulsrepo-server
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/exploits.png" alt="exploits"></p>
 <h5><a class="anchor" aria-hidden="true" id="references-section"></a><a href="#references-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>References section</h5>
 <p>Click on the header to open and close the section. Displays the reference information provided by each information organization and distributor. Clicking on them will open the page in a new window.</p>
+<p>You can filter by tags. Clicking on a tag toggles it on and off. The default is Show All. You can open and close the display for each information source. Click on the <code>▼</code> button. The default is open.</p>
 <p><img src="https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/references.png" alt="references"></p>
 <h4><a class="anchor" aria-hidden="true" id="package-tab"></a><a href="#package-tab" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Package tab</h4>
 <p>Here is a list of packages that contain vulnerabilities. Click each <code>PackageName</code> to open the <a href="#package-panel">Package panel</a>.</p>
