@@ -13,7 +13,8 @@ report:
 		[-log-dir=/path/to/log]
 		[-refresh-cve]
 		[-cvss-over=7]
-		[-diff]
+		[-diff-minus]
+		[-diff-plus]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
 		[-ignore-github-dismissed]
@@ -50,8 +51,10 @@ report:
     	debug mode
   -debug-sql
     	SQL debug mode
-  -diff
-    	Difference between previous result and current result
+  -diff-minus
+    	Minus Difference between previous result and current result
+  -diff-plus
+    	Plus Difference between previous result and current result
   -format-full-text
     	Detail report in plain text
   -format-json
@@ -265,6 +268,16 @@ $ for REPORT_DATE in $(vuls history | awk '{ print $1 }') ; do echo "$REPORT_DAT
 
 # Generate reports for a specific date
 vuls history | grep "DATE" | vuls report -format-one-line-text -pipe
+```
+## Example: Difference between previous result and current result
+
+The -diff-plus option detects new or updated vulnerabilities compared to the previous json.The one with _plus_diff.json is output.
+The -diff-minus option detects vulnerabilities that have already been patched compared to the previous json.The one with _minus_diff.json is output.
+With both options, -diff-plus takes precedence.
+
+```bash
+# After vuls scan, get minus difference.
+$ vuls report -diff-minus -to-localfile -format-json
 ```
 
 ## Example: Specify the path of go-cve-dictionary, goval-dictionary and gost
