@@ -280,7 +280,7 @@ The -diff-minus option detects vulnerabilities that have already been patched co
 
 ```bash
 # After vuls scan, get minus difference.
-$ vuls report -diff -to-localfile -format-json
+$ vuls report -diff-minus -to-localfile -format-json
 ```
 
 ## Example: Specify the path of go-cve-dictionary, goval-dictionary and gost
