@@ -1,7 +1,7 @@
 ---
-id: usage-settings
-title: Settings
-sidebar_label: Settings
+id: config.toml
+title: config.toml
+sidebar_label: config.toml
 ---
 
 Generate a template of the `config.toml` settings file
@@ -13,37 +13,34 @@ $ vuls discover 127.0.0.1/32
 ```toml
 # Create config.toml using below and then ./vuls -config=/path/to/config.toml
 
-# https://vuls.io/docs/en/usage-settings.html#database-section
+
+# https://vuls.io/docs/en/config.toml.html#database-section
 [cveDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/cve.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/cve.sqlite3"
+#url        = ""
 
 [ovalDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/oval.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/oval.sqlite3"
+#url        = ""
 
 [gost]
-type = "sqlite3"
-SQLite3Path = "/path/to/gost.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/gost.sqlite3"
+#url        = ""
 
 [exploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-exploitdb.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-exploitdb.sqlite3"
+#url        = ""
 
 [metasploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-msfdb.sqlite3"
-# url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-msfdb.sqlite3"
+#url        = ""
 
-# https://vuls.io/docs/en/usage-settings.html#slack-section
+# https://vuls.io/docs/en/config.toml.html#slack-section
 #[slack]
 #hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"
 ##legacyToken = "xoxp-11111111111-222222222222-3333333333"
@@ -53,7 +50,7 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 #authUser     = "username"
 #notifyUsers  = ["@username"]
 
-# https://vuls.io/docs/en/usage-settings.html#email-section
+# https://vuls.io/docs/en/config.toml.html#email-section
 #[email]
 #smtpAddr      = "smtp.example.com"
 #smtpPort      = "587"
@@ -64,11 +61,11 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 #cc            = ["cc@example.com"]
 #subjectPrefix = "[vuls]"
 
-# https://vuls.io/docs/en/usage-settings.html#http-section
+# https://vuls.io/docs/en/config.toml.html#http-section
 #[http]
 #url = "http://localhost:11234"
 
-# https://vuls.io/docs/en/usage-settings.html#syslog-section
+# https://vuls.io/docs/en/config.toml.html#syslog-section
 #[syslog]
 #protocol    = "tcp"
 #host        = "localhost"
@@ -92,109 +89,116 @@ SQLite3Path = "/path/to/go-msfdb.sqlite3"
 #accountKey    = "xxxxxxxxxxxxxx"
 #containerName = "vuls"
 
-# https://vuls.io/docs/en/usage-settings.html#stride-section
-#[stride]
-#hookURL   = "xxxxxxxxxxxxxxx"
-#authToken = "xxxxxxxxxxxxxx"
-
-# https://vuls.io/docs/en/usage-settings.html#hipchat-section
-#[hipchat]
-#room      = "vuls"
-#authToken = "xxxxxxxxxxxxxx"
-
-# https://vuls.io/docs/en/usage-settings.html#chatwork-section
+# https://vuls.io/docs/en/config.toml.html#chatwork-section
 #[chatwork]
 #room     = "xxxxxxxxxxx"
 #apiToken = "xxxxxxxxxxxxxxxxxx"
 
-# https://vuls.io/docs/en/usage-settings.html#telegram-section
+# https://vuls.io/docs/en/config.toml.html#telegram-section
 #[telegram]
-#chatID = "xxxxxxxxxxx"
-#token   = "xxxxxxxxxxxxxxxxxx"
+#chatID     = "xxxxxxxxxxx"
+#token = "xxxxxxxxxxxxxxxxxx"
 
-# https://vuls.io/docs/en/usage-settings.html#default-section
+#[wpscan]
+#token = "xxxxxxxxxxx"
+#detectInactive = false
+
+# https://vuls.io/docs/en/config.toml.html#default-section
 [default]
 #port               = "22"
 #user               = "username"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
+#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-6271"]
+#containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
-# https://vuls.io/docs/en/usage-settings.html#servers-section
+# https://vuls.io/docs/en/config.toml.html#servers-section
 [servers]
 
 [servers.127-0-0-1]
 host                = "127.0.0.1"
-#jumpServer         = ["test@test.com:22", "test@test1.com:2222"]
 #port               = "22"
 #user               = "root"
-#sshConfigPath		= "/home/username/.ssh/config"
+#sshConfigPath          = "/home/username/.ssh/config"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
+#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
 #type               = "pseudo"
 #memo               = "DB Server"
-#cpeNames            = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
+#containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
 #[servers.127-0-0-1.containers.container_name_a]
-#cpeNames        = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath = "/path/to/dependency-check-report.xml"
 #ignoreCves     = ["CVE-2014-0160"]
 
+#[servers.127-0-0-1.githubs."owner/repo"]
+#token   = "yourToken"
+
+#[servers.127-0-0-1.wordpress]
+#cmdPath = "/usr/local/bin/wp"
+#osUser = "wordpress"
+#docRoot = "/path/to/DocumentRoot/"
+
 #[servers.127-0-0-1.optional]
 #key = "value1"
-
 ```
 
 ## Database Section
 
 ```toml
 [cveDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/cve.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/cve.sqlite3"
+#url        = ""
 
 [ovalDict]
-type = "sqlite3"
-SQLite3Path = "/path/to/oval.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/oval.sqlite3"
+#url        = ""
 
 [gost]
-type = "sqlite3"
-SQLite3Path = "/path/to/gost.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/gost.sqlite3"
+#url        = ""
 
 [exploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-exploitdb.sqlite3"
-#type = ["mysql", "postgres", "redis", "http" ]
-#url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-exploitdb.sqlite3"
+#url        = ""
 
 [metasploit]
-type = "sqlite3"
-SQLite3Path = "/path/to/go-msfdb.sqlite3"
-# url = ""
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-msfdb.sqlite3"
+#url        = ""
 ```
 
-- type : the method of access for the database
-
-- SQLite3Path : Should only be set when using "sqlite" otherwise unused.
-
+- type : the method of access for the database. (Default: "sqlite3")
+- SQLite3Path : Should only be set when using "sqlite" otherwise unused. (Default: SQLite3 in current directory)
 - url : specifies the url to access the database.
+
+These can also be specified by an environment variable.
+Refer to the source code for the environment variable names.
+
+- [cveDict](https://github.com/future-architect/vuls/blob/master/config/gocvedictconf.go#L30-L32)
+- [ovalDict](https://github.com/future-architect/vuls/blob/master/config/govaldictconf.go#L31-L33)
+- [gost](https://github.com/future-architect/vuls/blob/master/config/gostconf.go#L30-L32)
+- [exploit](https://github.com/future-architect/vuls/blob/master/config/exploitconf.go#L30-L32)
+- [metasploit](https://github.com/future-architect/vuls/blob/master/config/metasploitconf.go#L30-L32)
 
 ## Slack section
 
@@ -244,7 +248,14 @@ host         = "172.31.4.83"
 - authUser: username of the slack team
 - notifyUsers: a list of Slack usernames to send Slack notifications.
 If you set `["@foo", "@bar"]` to notifyUsers, @foo @bar will be included in text.  
-So @foo, @bar can receive mobile push notifications on their smartphone.  
+So @foo, @bar can receive mobile push notifications on their smartphone.
+
+## HTTP section
+
+```toml
+[http]
+url = "http://localhost:11234"
+```
 
 ## EMail section
 
@@ -376,22 +387,6 @@ Multiple SSH authentication methods are supported.
 Password authentication is not supported.
 
 - [How to Log in With No Password While Using ssh-agent](https://docs.oracle.com/cd/E19683-01/806-4078/6jd6cjru9/index.html)
-
-## HipChat section
-
-```toml
-[hipchat]
-room = "vuls"
-authToken = "xxxxxxxxxxxxxx"
-```
-
-## Stride section
-
-```toml
-[stride]
-hookURL  = "xxxxxxxxxxxxxxx"
-authToken = "xxxxxxxxxxxxxx"
-```
 
 ## ChatWork section
 

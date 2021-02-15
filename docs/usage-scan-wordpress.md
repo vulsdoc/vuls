@@ -21,6 +21,10 @@ A sample configuration is below.
 * config.toml
 
 ```toml
+  [wpscan]
+  token = "Token"
+  detectInactive = false
+
   [servers.kusanagi]
     user = "root"
     host = "10.10.10.10"
@@ -30,15 +34,13 @@ A sample configuration is below.
     cmdPath = "/usr/local/bin/wp"
     osUser = "wordpress"
     docRoot = "/home/kusanagi/wp/DocumentRoot/"
-    wpVulnDBToken = "xxxxTokenxxxx"
-    ignoreInactive = false
 ```
 
+* token:  A token of [wpscan.com](https://wpscan.com/api)
+* ignoreInactive : Ignore plugins or themes which are inactive state
 * cmdPath :  A path of `wp` on the wordpress server
 * osUser : A OS user of `wp` on the wordpress server
 * docRoot : A path of document root on the wordpress server
-* wpVulnDBToken :  A token of [WPVULNDB API](https://wpscan.com/api)
-* ignoreInactive : Ignore plugins or themes which are inactive state
 
 ## Scan
 
@@ -77,9 +79,6 @@ Vuls detects vulnerabilities via accessing [WPScan.com](https://wpscan.com/api) 
 * If you have some virtual WordPres sites in a server.
 * If you want a report of only WordPress without OS packages.
 
-Let's use `ignorePkgsRegexp = [".*"]`. This is not *ECO*, but works fine :-)
-
-* The point of config.toml
 
 ```toml
 # for server administrator
@@ -89,14 +88,14 @@ host = "wordpress"
 # for WordPress site FOO
 [servers.foo]
 host = "wordpress"
-ignorePkgsRegexp = [".*"]
+scanModules = ["wordpress"]
 [servers.foo.wordpress]
 docRoot = "/home/foo/wordpress/"
 
 # for WordPress site BAR
 [servers.bar]
 host = "wordpress"
-ignorePkgsRegexp = [".*"]
+scanModules = ["wordpress"]
 [servers.bar.wordpress]
 docRoot = "/home/bar/wordpress/"
 ```

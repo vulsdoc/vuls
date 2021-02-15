@@ -389,6 +389,8 @@ You can print by pressing the `Print` button.
 | Platform        | Running platform                                                                                                                                                                                                                                                  |
 | Family          | OS                                                                                                                                                                                                                                                                |
 | Release         | OS release version                                                                                                                                                                                                                                                |
+| Errors          | Vuls Error Messages                                                                                                                                                                                                                                               |
+| Warnings        | Vuls warning messages, which include OS EOL information in Vuls v0.15.x and later.                                                                                                                                                                                |
 | CveID           | The CVE ID assigned to the vulnerability. Click to view [Detail panel](#detail-panel).                                                                                                                                                                            |
 | Packages        | The name of the package containing the vulnerability                                                                                                                                                                                                              |
 | FixedIn         | The version of the package that fixed the vulnerability                                                                                                                                                                                                           |
@@ -625,6 +627,9 @@ Displays links for each `Exploit Codes` and `Metasploit Modules`. Clicking on th
 
 Click on the header to open and close the section.
 Displays the reference information provided by each information organization and distributor. Clicking on them will open the page in a new window.
+
+You can filter by tags. Clicking on a tag toggles it on and off. The default is Show All.
+You can open and close the display for each information source. Click on the `▼` button. The default is open.
 
 ![references](https://raw.githubusercontent.com/ishiDACo/vulsrepo/master/gallery/references.png)
 

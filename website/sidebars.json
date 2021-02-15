@@ -36,8 +36,8 @@
       "usage-scan-wordpress"
     ],
     "Usage": [
+      "config.toml",
       "usage-automatic-discovery",
-      "usage-settings",
       "usage-configtest",
       "usage-scan",
       "usage-report",

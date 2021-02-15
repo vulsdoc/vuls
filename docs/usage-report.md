@@ -14,15 +14,14 @@ report:
 		[-refresh-cve]
 		[-cvss-over=7]
 		[-diff]
-		[-wp-ignore-inactive]
+		[-diff-minus]
+		[-diff-plus]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
 		[-ignore-github-dismissed]
 		[-to-email]
 		[-to-http]
 		[-to-slack]
-		[-to-stride]
-		[-to-hipchat]
 		[-to-chatwork]
 		[-to-telegram]
 		[-to-localfile]
@@ -30,46 +29,23 @@ report:
 		[-to-azure-blob]
 		[-to-saas]
 		[-format-json]
-		[-format-xml]
 		[-format-one-email]
 		[-format-one-line-text]
 		[-format-list]
 		[-format-full-text]
 		[-gzip]
-		[-uuid]
 		[-http-proxy=http://192.168.0.1:8080]
 		[-debug]
 		[-debug-sql]
 		[-quiet]
 		[-no-progress]
 		[-pipe]
-		[-cvedb-type=sqlite3|mysql|postgres|redis|http]
-		[-cvedb-sqlite3-path=/path/to/cve.sqlite3]
-		[-cvedb-url=http://127.0.0.1:1323 or DB connection string]
-		[-ovaldb-type=sqlite3|mysql|redis|http]
-		[-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
-		[-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-		[-gostdb-type=sqlite3|mysql|redis|http]
-		[-gostdb-sqlite3-path=/path/to/gost.sqlite3]
-		[-gostdb-url=http://127.0.0.1:1325 or DB connection string]
-		[-exploitdb-type=sqlite3|mysql|redis|http]
-		[-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
-		[-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
-		[-msfdb-type=sqlite3|mysql|redis|http]
-		[-msfdb-sqlite3-path=/path/to/msfdb.sqlite3]
-		[-msfdb-url=http://127.0.0.1:1327 or DB connection string]
 		[-http="http://vuls-report-server"]
 		[-trivy-cachedb-dir=/path/to/dir]
 
 		[RFC3339 datetime format under results dir]
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
-  -cvedb-sqlite3-path string
-    	/path/to/sqlite3
-  -cvedb-type string
-    	DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
-  -cvedb-url string
-    	http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
     	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -77,13 +53,11 @@ report:
   -debug-sql
     	SQL debug mode
   -diff
-    	Difference between previous result and current result
-  -exploitdb-sqlite3-path string
-    	/path/to/sqlite3
-  -exploitdb-type string
-    	DB type of exploit (sqlite3, mysql, postgres, redis or http)
-  -exploitdb-url string
-    	http://exploit.com:1326 or DB connection string
+    	Plus & Minus Difference between previous result and current result
+  -diff-minus
+    	Minus Difference between previous result and current result
+  -diff-plus
+    	Plus Difference between previous result and current result
   -format-full-text
     	Detail report in plain text
   -format-json
@@ -94,14 +68,6 @@ report:
     	Send all the host report via only one EMail (Specify with -to-email)
   -format-one-line-text
     	One line summary in plain text
-  -format-xml
-    	XML format
-  -gostdb-sqlite3-path string
-    	/path/to/sqlite3
-  -gostdb-type string
-    	DB type of gost (sqlite3, mysql, postgres, redis or http)
-  -gostdb-url string
-    	http://gost.com:1325 or DB connection string
   -gzip
     	gzip compression
   -http string
@@ -118,20 +84,6 @@ report:
     	[en|ja] (default "en")
   -log-dir string
     	/path/to/log (default "/var/log/vuls")
-  -msfdb-sqlite3-path string
-    	/path/to/sqlite3
-  -msfdb-type string
-    	DB type of msf (sqlite3, mysql, postgres, redis or http)
-  -msfdb-url string
-    	http://metasploit.com:1327 or DB connection string
-  -no-progress
-    	Suppress progress bar
-  -ovaldb-sqlite3-path string
-    	/path/to/sqlite3
-  -ovaldb-type string
-    	DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
-  -ovaldb-url string
-    	http://goval-dictionary.com:1324 or DB connection string
   -pipe
     	Use args passed via PIPE
   -quiet
@@ -146,8 +98,6 @@ report:
     	Send report via chatwork
   -to-email
     	Send report via Email
-  -to-hipchat
-    	Send report via hipchat
   -to-http
     	Send report via HTTP POST
   -to-localfile
@@ -158,18 +108,12 @@ report:
     	Upload report to Future Vuls(https://vuls.biz/) before report
   -to-slack
     	Send report via Slack
-  -to-stride
-    	Send report via Stride
   -to-syslog
     	Send report via Syslog
   -to-telegram
     	Send report via Telegram
   -trivy-cachedb-dir string
     	/path/to/dir (default "/Users/hoge/Library/Caches/trivy")
-  -uuid
-    	Auto generate of scan target servers and then write to config.toml and scan result
-  -wp-ignore-inactive
-    	ignore inactive on wordpress plugin and theme
 
 ```
 
@@ -328,6 +272,16 @@ $ for REPORT_DATE in $(vuls history | awk '{ print $1 }') ; do echo "$REPORT_DAT
 # Generate reports for a specific date
 vuls history | grep "DATE" | vuls report -format-one-line-text -pipe
 ```
+## Example: Difference between previous result and current result
+
+The -diff-plus option detects new or updated vulnerabilities compared to the previous json.The one with _diff.json is output.
+The -diff-minus option detects vulnerabilities that have already been patched compared to the previous json.The one with _diff.json is output.
+-diff option turns on both options -diff-plus and -diff-minus
+
+```bash
+# After vuls scan, get minus difference.
+$ vuls report -diff-minus -to-localfile -format-json
+```
 
 ## Example: Specify the path of go-cve-dictionary, goval-dictionary and gost
 
@@ -355,9 +309,39 @@ type = "sqlite3"
 SQLite3Path = "/path/to/go-msfdb.sqlite3"
 ```
 
+## Example: Send scan results to another endpoint
+
+Define HTTP section in [config.toml](https://vuls.io/docs/en/config.toml.html#http-section)
+
+```bash
+$ vuls report \
+      -to-http \
+      -format-json
+```
+
+Sample `PHP` code on the endpoint side:
+
+```php
+<?php
+$tmp_file = __DIR__ . '/vuls-'. uniqid() . '.json';
+file_put_contents($tmp_file, file_get_contents("php://input"));
+if (file_exists($tmp_file)) {
+    $raw_json_data = file_get_contents($tmp_file);
+    $json_data = json_decode($raw_json_data);
+    $scanned_hostname = $json_data->{'serverName'};
+    $new_file = __DIR__ . '/' . strtolower($scanned_hostname) . '.json';
+    rename($tmp_file, $new_file);
+}
+?>
+```
+
+Source: `vuls.php`
+
+> The following code will simply create a `JSON` file named with the hostname extracted that way `hostname.json`. It will be created in the same location of the `vuls.php` file.
+
 ## Example: Send scan results to email
 
-Define EMail section in [config.toml](https://vuls.io/docs/ja/usage-settings.html#email-section)
+Define EMail section in [config.toml](https://vuls.io/docs/ja/config.toml.html#email-section)
 
 ```bash
 $ vuls report \
@@ -370,39 +354,9 @@ With this sample command, it will ..
 - Send scan results to Email
 - Only Report CVEs that CVSS score is over 7
 
-## Example: Send scan results to HipChat
-
-Define HipChat section in [config.toml](https://vuls.io/docs/en/usage-settings.html#hipchat-section)
-
-```bash
-$ vuls report \
-      -to-hipchat \
-      -cvss-over=7
-```
-
-With this sample command, it will ..
-
-- Send scan results to HipChat
-- Only Report CVEs that CVSS score is over 7
-
-## Example: Send scan results to Stride
-
-Define stride Section in [config.toml](https://vuls.io/docs/en/usage-settings.html#stride-section)
-
-```bash
-$ vuls report \
-      -to-stride \
-      -cvss-over=7
-```
-
-With this sample command, it will ..
-
-- Send scan results to Stride
-- Only Report CVEs that CVSS score is over 7
-
 ## Example: Send scan results to ChatWork
 
-Define ChatWork section in [config.toml](https://vuls.io/docs/en/usage-settings.html#chatwork-section)
+Define ChatWork section in [config.toml](https://vuls.io/docs/en/config.toml.html#chatwork-section)
 
 ```bash
 $ vuls report \
@@ -417,7 +371,7 @@ With this sample command, it will ..
 
 ## Example: Send scan results to Slack
 
-Define Slack section in [config.toml](https://vuls.io/docs/en/usage-settings.html#slack-section)
+Define Slack section in [config.toml](https://vuls.io/docs/en/config.toml.html#slack-section)
 
 ```bash
 $ vuls report \
@@ -432,7 +386,7 @@ With this sample command, it will ..
 
 ## Example: Send scan results to Telegram
 
-Define Telegram section in [config.toml](https://vuls.io/docs/en/usage-settings.html#telegram-section)
+Define Telegram section in [config.toml](https://vuls.io/docs/en/config.toml.html#telegram-section)
 
 ```bash
 $ vuls report \

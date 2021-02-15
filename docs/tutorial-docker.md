@@ -54,7 +54,7 @@ To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-diction
 $ docker run --rm -it \
     -v $PWD:/vuls \
     -v $PWD/goval-dictionary-log:/var/log/vuls \
-    vuls/goval-dictionary fetch-redhat 5 6 7
+    vuls/goval-dictionary fetch-redhat 5 6 7 8
 ```
 
 To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
@@ -94,7 +94,7 @@ $ docker run --rm -i \
 
 ## Step4. Configuration
 
-Create config.toml referring to [this](usage-settings.md).
+Create config.toml referring to [this](config.toml.md).
 
 ```toml
 [servers]

@@ -13,7 +13,6 @@ configtest:
                         [-ask-key-password]
                         [-ssh-native-insecure]
                         [-ssh-config]
-                        [-containers-only]
                         [-timeout=300]
                         [-debug]
 
@@ -22,8 +21,6 @@ configtest:
         Ask ssh privatekey password before scanning
   -config string
         /path/to/toml (default "/Users/kotakanbe/go/src/github.com/future-architect/vuls/config.toml")
-  -containers-only
-        Test containers only. Default: Test both of hosts and containers
   -debug
         debug mode
   -http-proxy string
@@ -102,8 +99,8 @@ For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure
 | CentOS 6, 7  | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
 | Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | Amazon Linux 2| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
-| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
-| Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache` |same as `fast-root` |
+| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
+| Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes` |same as `fast-root` |
 | SUSE Enterprise 11, 12 |  - | -            | - |
 | FreeBSD 10 | -  | -            | - |
 | Raspbian | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`   | same as `fast-root`|
