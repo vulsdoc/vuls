@@ -391,6 +391,7 @@ You can print by pressing the `Print` button.
 | Release         | OS release version                                                                                                                                                                                                                                                |
 | Errors          | Vuls Error Messages                                                                                                                                                                                                                                               |
 | Warnings        | Vuls warning messages, which include OS EOL information in Vuls v0.15.x and later.                                                                                                                                                                                |
+| Diff            | (Only when Vuls v0.15.8 or later is used to output diff information) `+` New vulnerabilities found compared to previous scan  `-` Vulnerabilities that are no longer present (or have been addressed) since the last scan                                         |
 | CveID           | The CVE ID assigned to the vulnerability. Click to view [Detail panel](#detail-panel).                                                                                                                                                                            |
 | Packages        | The name of the package containing the vulnerability                                                                                                                                                                                                              |
 | FixedIn         | The version of the package that fixed the vulnerability                                                                                                                                                                                                           |
@@ -400,6 +401,9 @@ You can print by pressing the `Print` button.
 | NewPackageVer   | Latest Package Version                                                                                                                                                                                                                                            |
 | Repository      | Package provider's repositories                                                                                                                                                                                                                                   |
 | CweID           | Its CVE's [CWE - Common Weakness Enumeration](https://nvd.nist.gov/vuln/categories). Click on [MITRE](https://cwe.mitre.org/data/index.html) or [JVN](https://www.ipa.go.jp/security/vuln/CWE.html) to view the appropriate CWE description page in a new window. |
+| VulnType        | (WordPress only) Vulnerability type provided by [WPScan](https://wpscan.com/).                                                                                                                                                                                    |
+| Status          | (WordPress theme and plugin only) Whether a WordPress theme or plugin is active or inactive.                                                                                                                                                                      |
+| Update          | (WordPress theme and plugin only) Availability of updates for WordPress themes and plugins.                                                                                                                                                                       |
 | Title           | Vulnerability title                                                                                                                                                                                                                                               |
 | Summary         | Vulnerability Overview                                                                                                                                                                                                                                            |
 | PortScannable   | Whether the port can be scanned or not. Click to view [Package panel](#package-panel).                                                                                                                                                                            |
@@ -658,6 +662,74 @@ Lists the process ID, process name, IP address and port.
 View the package changelog.
 
 The changelog description is highlighted in orange if the corresponding CVE ID is present. Any other CVE IDs are highlighted in light blue.
+
+### URL parameters
+
+You can filter the target data and display it immediately by specifying the date, server and filter by URL parameters.
+If you already know the period, server and filter you want to view, you can specify these parameters in the URL when you open VulsRepo, saving you the trouble of manually selecting them each time.
+
+The following parameters can be specified.
+
+| Parameter | Purpose                   | Value                                                                                                         |
+| --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| server    | Target server (container) | For all, `all`. If more than one, concatenate them with `+`. ex）`foo.json`, `foo.json+bar.json+baz@foo.json` |
+| daterange | Date Range                | `today`, `yesterday`, `last7days`, `last30days`, `thismonth`, `lastmonth` or  `alldays`                       |
+| datefrom  | Date Range from (*)       | YYYY-MM-DD format  ex）`2020-11-01`                                                                           |
+| dateto    | Date Range to (*)         | YYYY-MM-DD format  ex）`2021-01-23`                                                                           |
+| time      | Specific date and time    | ISO8601 format  ex) `2020-02-04T01:25:11Z` or `2021-01-25T12:34:56+09:00`                                     |
+| filter    | Specifying a filter       | Filter name. If not specified, no filter ex) `01.%20Graph:%20CVSS-Severity%20=>%20ServerName`                 |
+
+(*) `datefrom` and `dateto` must be specified as a set.
+
+#### Priority of date-related parameters
+
+High `daterange` > `datefrom` and `dateto` > `time` Low
+
+If none of these are specified, the latest date will be set.
+
+#### Examples
+
+Here are some examples.
+
+##### `localhost.json` of the latest date
+
+`http://<server-address>:5111/?server=localhost.json`
+
+##### `localhost.json` and `raspberry10.json` for the last 30 days
+
+`http://<server-address>:5111/?daterange=last30days&server=localhost.json+raspberry10.json`
+
+##### All servers (containers) from 2020-09-18 to 2020-11-16
+
+`http://<server-address>:5111/?datefrom=2020-09-18&dateto=2020-11-16&server=all`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z`
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json`
+
+##### `localhost.json` and `vulsrepo@localhost.json` on `2020-02-04T01:25:11Z`
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json+vulsrepo@localhost.json`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z` with `01. Graph: CVSS-Severity => ServerName` filter
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json&filter=01.%20Graph:%20CVSS-Severity%20=%3E%20ServerName`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z` with `02. Graph: CVSS-Severity => CVSS-Score` filter
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json&filter=02.%20Graph:%20CVSS-Severity%20=%3E%20CVSS-Score`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z` with `03. Pivot: Package/CVSS-Severity/CveID/Summary => ServerName` filter
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json&filter=03.%20Pivot:%20Package/CVSS-Severity/CveID/Summary%20=%3E%20ServerName`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z` with `04. Pivot: Package/CveID => ScanTime` filter
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json&filter=04.%20Pivot:%20Package/CveID%20=%3E%20ScanTime`
+
+##### `localhost.json` on `2020-02-04T01:25:11Z` with `05. Pivot: CveID/PackageInfo => NotFixedYet` filter
+
+`http://<server-address>:5111/?time=2020-02-04T01:25:11Z&server=localhost.json&filter=05.%20Pivot:%20CveID/PackageInfo%20=%3E%20NotFixedYet`
 
 ### FAQ
 
