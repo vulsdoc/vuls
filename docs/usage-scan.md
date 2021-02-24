@@ -12,7 +12,6 @@ scan:
                 [-results-dir=/path/to/results]
                 [-log-dir=/path/to/log]
                 [-cachedb-path=/path/to/cache.db]
-                [-ssh-native-insecure]
                 [-ssh-config]
                 [-skip-broken]
                 [-http-proxy=http://192.168.0.1:8080]
@@ -43,8 +42,6 @@ scan:
         [For CentOS] yum update changelog with --skip-broken option
   -ssh-config
         [Deprecated] Use SSH options specified in ssh_config preferentially
-  -ssh-native-insecure
-        Use Native Go implementation of SSH. Default: Use the external command
   -timeout int
         Number of seconds for processing other than scan (default 300)
   -timeout-scan int
@@ -128,23 +125,7 @@ scanMode     = ["fast-root", "offline"]
 
 ## -ssh-native-insecure option
 
-Vuls supports different types of SSH.
-
-By Default, external SSH command will be used.
-This is useful If you want to use ProxyCommand or cipher algorithm of SSH that is not supported by native go implementation.  
-Don't forget to add the below line to /etc/sudoers on the target servers. (username: vuls)
-
-```bash
-Defaults:vuls !requiretty
-```
-
-To use native Go implementation from crypto/ssh, specify this option.  
-This is useful in situations where you may not have access to traditional UNIX tools.
-But it is important to note that this mode does not check the host key.
-
--ask-key-password option
-
-You can bypass the ssh private key passphrase by specifying -ask-key-password.
+removed in https://github.com/future-architect/vuls/issues/1181
 
 ## Example: Scan all servers defined in config file
 

@@ -11,7 +11,6 @@ configtest:
                         [-config=/path/to/config.toml]
                         [-log-dir=/path/to/log]
                         [-ask-key-password]
-                        [-ssh-native-insecure]
                         [-ssh-config]
                         [-timeout=300]
                         [-debug]
@@ -29,8 +28,6 @@ configtest:
         /path/to/log (default "/var/log/vuls")
   -ssh-config
         [Deprecated] Use SSH options specified in ssh_config preferentially
-  -ssh-native-insecure
-        Use Native Go implementation of SSH. Default: Use the external command
   -timeout int
         Timeout(Sec) (default 300)
 
@@ -82,13 +79,16 @@ same as `fast-root` scan mode
 
 The configtest subcommand also checks sudo settings on target servers whether Vuls is able to SUDO with nopassword via SSH.
 
-if you run Vuls with `-ssh-native-insecure` option, requiretty must be defined in /etc/sudoers.
+if you got the below error, `requiretty` should be defined in /etc/sudoers.
+
+```bash
+stderr: sudo: sorry, you must have a tty to run sudo
+```
+
 
 ```bash
 Defaults:vuls !requiretty
 ```
-
-For details, see [-ssh-native-insecure option](usage-scan.md#ssh-native-insecure-option)
 
 ### /etc/sudoers
 
