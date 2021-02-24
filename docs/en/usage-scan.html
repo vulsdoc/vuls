@@ -81,7 +81,6 @@ scan:
                 [-results-dir=/path/to/results]
                 [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
                 [-cachedb-path=/path/to/cache.db]
-                [-ssh-native-insecure]
                 [-ssh-config]
                 [-skip-broken]
                 [-http-proxy=http://192.168.0.1:8080]
@@ -112,8 +111,6 @@ scan:
         [For CentOS] yum update changelog with --skip-broken option
   -ssh-config
         [Deprecated] Use SSH options specified <span class="hljs-keyword">in</span> ssh_config preferentially
-  -ssh-native-insecure
-        Use Native Go implementation of SSH. Default: Use the external <span class="hljs-built_in">command</span>
   -timeout int
         Number of seconds <span class="hljs-keyword">for</span> processing other than scan (default 300)
   -timeout-scan int
@@ -185,17 +182,7 @@ scanMode     = [<span class="hljs-string">"fast-root"</span>, <span class="hljs-
 <li>same as fast-root scan mode for now.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="-ssh-native-insecure-option"></a><a href="#-ssh-native-insecure-option" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>-ssh-native-insecure option</h2>
-<p>Vuls supports different types of SSH.</p>
-<p>By Default, external SSH command will be used.
-This is useful If you want to use ProxyCommand or cipher algorithm of SSH that is not supported by native go implementation.<br>
-Don't forget to add the below line to /etc/sudoers on the target servers. (username: vuls)</p>
-<pre><code class="hljs css language-bash">Defaults:vuls !requiretty
-</code></pre>
-<p>To use native Go implementation from crypto/ssh, specify this option.<br>
-This is useful in situations where you may not have access to traditional UNIX tools.
-But it is important to note that this mode does not check the host key.</p>
-<p>-ask-key-password option</p>
-<p>You can bypass the ssh private key passphrase by specifying -ask-key-password.</p>
+<p>removed in <a href="https://github.com/future-architect/vuls/issues/1181">https://github.com/future-architect/vuls/issues/1181</a></p>
 <h2><a class="anchor" aria-hidden="true" id="example-scan-all-servers-defined-in-config-file"></a><a href="#example-scan-all-servers-defined-in-config-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Scan all servers defined in config file</h2>
 <pre><code class="hljs css language-bash">$ vuls scan -ask-key-password
 </code></pre>
