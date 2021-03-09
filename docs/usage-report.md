@@ -70,8 +70,6 @@ report:
     	One line summary in plain text
   -gzip
     	gzip compression
-  -http string
-    	-to-http http://vuls-report
   -http-proxy string
     	http://proxy-url:port (default: empty)
   -ignore-github-dismissed
