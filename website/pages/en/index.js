@@ -225,6 +225,19 @@ class Index extends React.Component {
             </div>
           </div>
           </Container>
+
+          <Container padding={['bottom', 'top']}>
+          <div className="productShowcaseSection paddingBottom">
+            <h2>{"Test Environment Sponsor"}</h2>
+	    <p>Sponsoring company for the test environment</p>
+            <div className="logos">
+              <a href='https://www.sakura.ad.jp/'>
+                <img src='/img/icons/sakura.svg' title='SAKURA internet'/>
+              </a>
+	    </div>
+          </div>
+          </Container>
+
         </div>
       </div>
     );
