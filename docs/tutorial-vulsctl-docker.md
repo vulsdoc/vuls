@@ -683,7 +683,11 @@ This will take over an hour in my environment.
 $ ./update-all.sh
 ```
 
----
+To fetch Vulnerability database for Japanese(JVN).
+
+```bash
+$ ./jvn.sh
+```
 
 ## Misc
 

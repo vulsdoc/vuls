@@ -47,6 +47,10 @@
     "Vulsrepo": [
       "vulsrepo"
     ],
+    "Development": [
+      "how-to-contribute",
+      "testing"
+    ],
     "Misc": [
       "cron",
       "misc-update-vuls",
@@ -56,8 +60,7 @@
       "go-exploitdb",
       "go-msfdb",
       "related-projects",
-      "tips",
-      "how-to-contribute"
+      "tips"
     ]
   },
   "docs-other": {}
