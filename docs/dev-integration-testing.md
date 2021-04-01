@@ -4,6 +4,10 @@ title: Integration Testing
 sidebar_label: Integration Testing
 ---
 
+## Makerfile
+
+https://github.com/future-architect/vuls/blob/master/GNUmakefile#L85
+
 ## Diff
 
 Prepare vulnerability databases
