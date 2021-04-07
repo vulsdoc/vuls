@@ -78,7 +78,7 @@ keyPath     = "/home/centos/.ssh/id_rsa"
 $ vuls configtest ubuntu
 ```
 
-see [Usage: configtest](#usage-configtest)
+see [Usage: configtest](usage-configtest.md)
 
 ## Step5. Start Scanning
 
