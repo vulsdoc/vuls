@@ -245,7 +245,7 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print 
 $ export VULS_SERVER=[Your Vuls Server]
 $ export KERNEL_RELEASE=$(uname -r)
 $ export KERNEL_VERSION=$(uname -a | awk '{print $7}')
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: debian" -H "X-Vuls-OS-Release: 8.10" -H "X-Vuls-Kernel-Release: ${KERNEL_RELEASE}" -H "X-Vuls-Kernel-Version: ${KERNEL_VERSION}" -H "X-Vuls-Server-Name: `hostname`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: debian" -H "X-Vuls-OS-Release: `cat /etc/debian_version`" -H "X-Vuls-Kernel-Release: ${KERNEL_RELEASE}" -H "X-Vuls-Kernel-Version: ${KERNEL_VERSION}" -H "X-Vuls-Server-Name: `hostname`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Ubuntu
