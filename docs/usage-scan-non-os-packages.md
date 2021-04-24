@@ -55,27 +55,15 @@ Second, Issue a token. [see](https://github.com/settings/tokens)
 
 3rd, config.toml
 
+To ignore vulnerabilities dismissed on GitHub, set IgnoreGithubDismissed to true at githubs section. 
+
 ```toml
 [servers.ghsa]
 type = "pseudo"
 
 [servers.ghsa.githubs."owner/repo"]
 token   = "xxxxYourTokenxxx"
-```
-
-To ignore vulnerabilities dismissed on GitHub, Report has the `-ignore-github-dismissed` option.
-
-```bash
-$ ./vuls report -h
-report:
-        report
-               ...
-                [-ignore-github-dismissed]
-               ...
-
-  -ignore-github-dismissed
-        Don't report the dismissed CVEs on GitHub Security Alerts
-  ...
+IgnoreGithubDismissed = true
 ```
 
 ## CPE Scan
