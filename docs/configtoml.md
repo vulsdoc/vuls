@@ -148,6 +148,8 @@ host                = "127.0.0.1"
 
 #[servers.127-0-0-1.githubs."owner/repo"]
 #token   = "yourToken"
+#IgnoreGithubDismissed = true
+
 
 #[servers.127-0-0-1.wordpress]
 #cmdPath = "/usr/local/bin/wp"

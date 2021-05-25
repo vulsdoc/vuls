@@ -18,7 +18,6 @@ report:
 		[-diff-plus]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
-		[-ignore-github-dismissed]
 		[-to-email]
 		[-to-http]
 		[-to-slack]
@@ -72,8 +71,6 @@ report:
     	gzip compression
   -http-proxy string
     	http://proxy-url:port (default: empty)
-  -ignore-github-dismissed
-    	Don't report the dismissed CVEs on GitHub Security Alerts
   -ignore-unfixed
     	Don't report the unfixed CVEs
   -ignore-unscored-cves
