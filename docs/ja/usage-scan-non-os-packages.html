@@ -113,24 +113,14 @@ lockfiles = [
 <p>First, enable GitHub security alerts on your repo. <a href="https://help.github.com/en/github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization">see</a></p>
 <p>Second, Issue a token. <a href="https://github.com/settings/tokens">see</a></p>
 <p>3rd, config.toml</p>
+<p>To ignore vulnerabilities dismissed on GitHub, set IgnoreGithubDismissed to true at githubs section.</p>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[servers.ghsa]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"pseudo"</span>
 
 <span class="hljs-section">[servers.ghsa.githubs."owner/repo"]</span>
 <span class="hljs-attr">token</span>   = <span class="hljs-string">"xxxxYourTokenxxx"</span>
+<span class="hljs-attr">IgnoreGithubDismissed</span> = <span class="hljs-literal">true</span>
 </code></pre>
-<p>To ignore vulnerabilities dismissed on GitHub, Report has the <code>-ignore-github-dismissed</code> option.</p>
-<pre><code class="hljs css language-bash">$ ./vuls report -h
-report:
-        report
-               ...
-                [-ignore-github-dismissed]
-               ...
-
-  -ignore-github-dismissed
-        Don<span class="hljs-string">'t report the dismissed CVEs on GitHub Security Alerts
-  ...
-</span></code></pre>
 <h2><a class="anchor" aria-hidden="true" id="cpe-scan"></a><a href="#cpe-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CPE Scan</h2>
 <p>It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>.</p>
 <p>The CPE scan uses the NVD information to search for the specified CPE. It is necessary to set up go-cve-dictionary and fetch NVD data source in advance. To setup go-cve-dictionary, see <a href="https://vuls.io/docs/en/go-cve-dictionary.html#usage-go-cve-dictionary-on-different-server">here</a></p>

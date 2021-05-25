@@ -87,7 +87,6 @@
     [-diff-plus]
     [-ignore-unscored-cves]
     [-ignore-unfixed]
-    [-ignore-github-dismissed]
     [-to-email]
     [-to-http]
     [-to-slack]
@@ -141,24 +140,22 @@
       gzip compression
   -http-proxy string
       http://proxy-url:port (default: empty)
-  -ignore-github-dismissed
-      Don<span class="hljs-string">'t report the dismissed CVEs on GitHub Security Alerts
   -ignore-unfixed
-      Don'</span>t report the unfixed CVEs
+      Don<span class="hljs-string">'t report the unfixed CVEs
   -ignore-unscored-cves
-      Don<span class="hljs-string">'t report the unscored CVEs
+      Don'</span>t report the unscored CVEs
   -lang string
-      [en|ja] (default "en")
-  -log-dir string
-      /path/to/log (default "/var/log/vuls")
+      [en|ja] (default <span class="hljs-string">"en"</span>)
+  -<span class="hljs-built_in">log</span>-dir string
+      /path/to/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
   -pipe
       Use args passed via PIPE
   -quiet
       Quiet mode. No output on stdout
   -refresh-cve
-      Refresh CVE information in JSON file under results dir
+      Refresh CVE information <span class="hljs-keyword">in</span> JSON file under results dir
   -results-dir string
-      /path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
+      /path/to/results (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/results"</span>)
   -to-azure-blob
       Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
   -to-chatwork
@@ -180,9 +177,9 @@
   -to-telegram
       Send report via Telegram
   -trivy-cachedb-dir string
-      /path/to/dir (default "/Users/hoge/Library/Caches/trivy")
+      /path/to/dir (default <span class="hljs-string">"/Users/hoge/Library/Caches/trivy"</span>)
 
-</span></code></pre>
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="3つのフォーマットオプションの例"></a><a href="#3つのフォーマットオプションの例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3つのフォーマットオプションの例</h2>
 <p>Vulsには3つのフォーマットオプションがあります。</p>
 <ul>
