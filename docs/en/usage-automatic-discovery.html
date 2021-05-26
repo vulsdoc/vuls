@@ -81,98 +81,154 @@ discover:
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
 <pre><code class="hljs css language-bash">$ vuls discover 192.168.11.0/24
-<span class="hljs-comment"># Create config.toml using below and then ./vuls --config=/path/to/config.toml</span>
+<span class="hljs-comment"># Create config.toml using below and then ./vuls -config=/path/to/config.toml</span>
 
-[slack]
-hookURL      = <span class="hljs-string">"https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"</span>
-<span class="hljs-comment">#legacyToken  = "xoxp-11111111111-222222222222-3333333333"</span>
-channel      = <span class="hljs-string">"#channel-name"</span>
-<span class="hljs-comment">#channel      = "${servername}"</span>
-iconEmoji    = <span class="hljs-string">":ghost:"</span>
-authUser     = <span class="hljs-string">"username"</span>
-notifyUsers  = [<span class="hljs-string">"@username"</span>]
 
-[email]
-smtpAddr      = <span class="hljs-string">"smtp.gmail.com"</span>
-smtpPort      = <span class="hljs-string">"587"</span>
-user          = <span class="hljs-string">"username"</span>
-password      = <span class="hljs-string">"password"</span>
-from          = <span class="hljs-string">"from@address.com"</span>
-to            = [<span class="hljs-string">"to@address.com"</span>]
-cc            = [<span class="hljs-string">"cc@address.com"</span>]
-subjectPrefix = <span class="hljs-string">"[vuls]"</span>
-
-[aws]
-profile = <span class="hljs-string">"default"</span>
-region = <span class="hljs-string">"ap-northeast-1"</span>
-s3Bucket = <span class="hljs-string">"vuls"</span>
-s3ResultsDir = <span class="hljs-string">"/path/to/result"</span>
-s3ServerSideEncryption = <span class="hljs-string">"AES256"</span>
-
-[azure]
-accountName = <span class="hljs-string">"default"</span>
-AccountKey = <span class="hljs-string">"xxxxxxxxxxxxxx"</span>
-ContainerName = <span class="hljs-string">"vuls"</span>
-
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#database-section</span>
 [cveDict]
-<span class="hljs-built_in">type</span> = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/cve.sqlite3"</span>
-<span class="hljs-comment"># url = ""</span>
+<span class="hljs-comment">#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#sqlite3Path = "/path/to/cve.sqlite3"</span>
+<span class="hljs-comment">#url        = ""</span>
 
 [ovalDict]
-<span class="hljs-built_in">type</span> = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/oval.sqlite3"</span>
-<span class="hljs-comment"># url = ""</span>
+<span class="hljs-comment">#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#sqlite3Path = "/path/to/oval.sqlite3"</span>
+<span class="hljs-comment">#url        = ""</span>
 
 [gost]
-<span class="hljs-built_in">type</span> = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/gost.sqlite3"</span>
-<span class="hljs-comment"># url = ""</span>
+<span class="hljs-comment">#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#sqlite3Path = "/path/to/gost.sqlite3"</span>
+<span class="hljs-comment">#url        = ""</span>
 
 [exploit]
-<span class="hljs-built_in">type</span> = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-exploitdb.sqlite3"</span>
-<span class="hljs-comment"># url = ""</span>
+<span class="hljs-comment">#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#sqlite3Path = "/path/to/go-exploitdb.sqlite3"</span>
+<span class="hljs-comment">#url        = ""</span>
 
 [metasploit]
-<span class="hljs-built_in">type</span> = <span class="hljs-string">"sqlite3"</span>
-SQLite3Path = <span class="hljs-string">"/path/to/go-msfdb.sqlite3"</span>
-<span class="hljs-comment"># url = ""</span>
+<span class="hljs-comment">#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]</span>
+<span class="hljs-comment">#sqlite3Path = "/path/to/go-msfdb.sqlite3"</span>
+<span class="hljs-comment">#url        = ""</span>
 
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#slack-section</span>
+<span class="hljs-comment">#[slack]</span>
+<span class="hljs-comment">#hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"</span>
+<span class="hljs-comment">##legacyToken = "xoxp-11111111111-222222222222-3333333333"</span>
+<span class="hljs-comment">#channel      = "#channel-name"</span>
+<span class="hljs-comment">##channel     = "${servername}"</span>
+<span class="hljs-comment">#iconEmoji    = ":ghost:"</span>
+<span class="hljs-comment">#authUser     = "username"</span>
+<span class="hljs-comment">#notifyUsers  = ["@username"]</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#email-section</span>
+<span class="hljs-comment">#[email]</span>
+<span class="hljs-comment">#smtpAddr      = "smtp.example.com"</span>
+<span class="hljs-comment">#smtpPort      = "587"</span>
+<span class="hljs-comment">#user          = "username"</span>
+<span class="hljs-comment">#password      = "password"</span>
+<span class="hljs-comment">#from          = "from@example.com"</span>
+<span class="hljs-comment">#to            = ["to@example.com"]</span>
+<span class="hljs-comment">#cc            = ["cc@example.com"]</span>
+<span class="hljs-comment">#subjectPrefix = "[vuls]"</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#http-section</span>
+<span class="hljs-comment">#[http]</span>
+<span class="hljs-comment">#url = "http://localhost:11234"</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#syslog-section</span>
+<span class="hljs-comment">#[syslog]</span>
+<span class="hljs-comment">#protocol    = "tcp"</span>
+<span class="hljs-comment">#host        = "localhost"</span>
+<span class="hljs-comment">#port        = "514"</span>
+<span class="hljs-comment">#tag         = "vuls"</span>
+<span class="hljs-comment">#facility    = "local0"</span>
+<span class="hljs-comment">#severity    = "alert"</span>
+<span class="hljs-comment">#verbose     = false</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-report.html#example-put-results-in-s3-bucket</span>
+<span class="hljs-comment">#[aws]</span>
+<span class="hljs-comment">#profile                = "default"</span>
+<span class="hljs-comment">#region                 = "ap-northeast-1"</span>
+<span class="hljs-comment">#s3Bucket               = "vuls"</span>
+<span class="hljs-comment">#s3ResultsDir           = "/path/to/result"</span>
+<span class="hljs-comment">#s3ServerSideEncryption = "AES256"</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/usage-report.html#example-put-results-in-azure-blob-storage&lt;Paste&gt;</span>
+<span class="hljs-comment">#[azure]</span>
+<span class="hljs-comment">#accountName   = "default"</span>
+<span class="hljs-comment">#accountKey    = "xxxxxxxxxxxxxx"</span>
+<span class="hljs-comment">#containerName = "vuls"</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#chatwork-section</span>
+<span class="hljs-comment">#[chatwork]</span>
+<span class="hljs-comment">#room     = "xxxxxxxxxxx"</span>
+<span class="hljs-comment">#apiToken = "xxxxxxxxxxxxxxxxxx"</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#telegram-section</span>
+<span class="hljs-comment">#[telegram]</span>
+<span class="hljs-comment">#chatID     = "xxxxxxxxxxx"</span>
+<span class="hljs-comment">#token = "xxxxxxxxxxxxxxxxxx"</span>
+
+<span class="hljs-comment">#[wpscan]</span>
+<span class="hljs-comment">#token = "xxxxxxxxxxx"</span>
+<span class="hljs-comment">#detectInactive = false</span>
+
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#default-section</span>
 [default]
-<span class="hljs-comment">#port        = "22"</span>
-<span class="hljs-comment">#user        = "username"</span>
-<span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
-<span class="hljs-comment">#scanMode        = ["fast", "fast-root", "deep", "offline"]</span>
+<span class="hljs-comment">#port               = "22"</span>
+<span class="hljs-comment">#user               = "username"</span>
+<span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
+<span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
-<span class="hljs-comment">#owaspDCXMLPath = "/tmp/dependency-check-report.xml"</span>
-<span class="hljs-comment">#ignoreCves = ["CVE-2014-6271"]</span>
-<span class="hljs-comment">#containerType = "docker" #or "lxd" or "lxc" default: docker</span>
+<span class="hljs-comment">#owaspDCXMLPath     = "/tmp/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2014-6271"]</span>
+<span class="hljs-comment">#containersOnly     = false</span>
+<span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
 <span class="hljs-comment">#containersIncluded = ["${running}"]</span>
-<span class="hljs-comment">#ContainersExcluded= ["container_name_a"]</span>
+<span class="hljs-comment">#containersExcluded = ["container_name_a"]</span>
 
+<span class="hljs-comment"># https://vuls.io/docs/en/config.toml.html#servers-section</span>
 [servers]
 
 [servers.192-168-11-6]
-host         = <span class="hljs-string">"192.168.11.6"</span>
-<span class="hljs-comment">#port        = "22"</span>
-<span class="hljs-comment">#user        = "root"</span>
-<span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
-<span class="hljs-comment">#scanMode        = ["fast", "fast-root", "deep", "offline"]</span>
-<span class="hljs-comment">#type            = "pseudo"</span>
-<span class="hljs-comment">#memo        = "DB Server"</span>
-<span class="hljs-comment">#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
-<span class="hljs-comment">#owaspDCXMLPath = "/path/to/dependency-check-report.xml"</span>
-<span class="hljs-comment">#ignoreCves = ["CVE-2014-0160"]</span>
-<span class="hljs-comment">#containerType = "docker" #or "lxd" or "lxc" default: docker</span>
+host                = <span class="hljs-string">"192.168.11.6"</span>
+<span class="hljs-comment">#port               = "22"</span>
+<span class="hljs-comment">#user               = "root"</span>
+<span class="hljs-comment">#sshConfigPath      = "/home/username/.ssh/config"</span>
+<span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
+<span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
+<span class="hljs-comment">#type               = "pseudo"</span>
+<span class="hljs-comment">#memo               = "DB Server"</span>
+<span class="hljs-comment">#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
+<span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>
+<span class="hljs-comment">#containersOnly     = false</span>
+<span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
 <span class="hljs-comment">#containersIncluded = ["${running}"]</span>
-<span class="hljs-comment">#ContainersExcluded= ["container_name_a"]</span>
+<span class="hljs-comment">#containersExcluded = ["container_name_a"]</span>
 
 <span class="hljs-comment">#[servers.192-168-11-6.containers.container_name_a]</span>
-<span class="hljs-comment">#cpeNames = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
+<span class="hljs-comment">#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
 <span class="hljs-comment">#owaspDCXMLPath = "/path/to/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves     = ["CVE-2014-0160"]</span>
+
+<span class="hljs-comment">#[servers.192-168-11-6.githubs."owner/repo"]</span>
+<span class="hljs-comment">#token   = "yourToken"</span>
+
+<span class="hljs-comment">#[servers.192-168-11-6.wordpress]</span>
+<span class="hljs-comment">#cmdPath = "/usr/local/bin/wp"</span>
+<span class="hljs-comment">#osUser = "wordpress"</span>
+<span class="hljs-comment">#docRoot = "/path/to/DocumentRoot/"</span>
+
+<span class="hljs-comment">#[servers.192-168-11-6.portscan]</span>
+<span class="hljs-comment">#scannerBinPath = "/usr/bin/nmap"</span>
+<span class="hljs-comment">#hasPrivileged = true</span>
+<span class="hljs-comment">#scanTechniques = ["sS"]</span>
+<span class="hljs-comment">#sourcePort = "65535"</span>
 
 <span class="hljs-comment">#[servers.192-168-11-6.optional]</span>
 <span class="hljs-comment">#key = "value1"</span>
