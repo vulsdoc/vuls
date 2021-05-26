@@ -156,6 +156,12 @@ host                = "127.0.0.1"
 #osUser = "wordpress"
 #docRoot = "/path/to/DocumentRoot/"
 
+#[servers.192-168-11-6.portscan]
+#scannerBinPath = "/usr/bin/nmap"
+#hasPrivileged = true
+#scanTechniques = ["sS"]
+#sourcePort = "65535"
+
 #[servers.127-0-0-1.optional]
 #key = "value1"
 ```

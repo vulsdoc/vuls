@@ -284,3 +284,7 @@ For Details, see [usage-scan-wordpress](usage-scan-wordpress.md)
 ## Example: scan a lockfile of libraries
 
 For Details, see [Scan vulnerabilities of non-OS packages](https://vuls.io/docs/en/usage-scan-non-os-packages.html#typepseudo)
+
+## Example: scan Port by External Port Scanner(nmap)
+
+For Details, see [Scan Port by External Port Scanner](usage-scan-port.md)
