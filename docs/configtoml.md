@@ -402,6 +402,21 @@ room = "xxxxxxxxxxx"
 apiToken = "xxxxxxxxxxxxxxx"
 ```
 
+## GoogleChat section
+
+```toml
+[googlechat]
+webHookURL = "https://chat.googleapis.com/v1/spaces/xxxxxxxxxx/messages?key=yyyyyyyyyy&token=zzzzzzzzzz%3D"
+skipHealthy = false
+```
+- webHookURL  
+Chat room pull down menu ▼  
+Select web hook management ⚙  
+Create web hook  
+Copy and Paste from web hook url  
+- skipHealthy  
+Skip reporting healthy server.
+
 ## Telegram section
 
 Posting to a user: [here is how to find user's chatID](https://stackoverflow.com/questions/31078710/how-to-obtain-telegram-chat-id-for-a-specific-user)
