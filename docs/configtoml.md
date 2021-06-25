@@ -408,6 +408,7 @@ apiToken = "xxxxxxxxxxxxxxx"
 [googlechat]
 webHookURL = "https://chat.googleapis.com/v1/spaces/xxxxxxxxxx/messages?key=yyyyyyyyyy&token=zzzzzzzzzz%3D"
 skipHealthy = false
+filter = "(^(\\[Reboot Required\\] )?(?:(spam|ham)).*|.*(?:egg)$)"
 ```
 - webHookURL  
 Chat room pull down menu ▼  
@@ -416,6 +417,10 @@ Create web hook
 Copy and Paste from web hook url  
 - skipHealthy  
 Skip reporting healthy server.
+- filter  
+ServerName filter by regexp.  
+The bellow excluds spamonigiri, hamburger and boiledegg.  
+`Reboot Required` is magic words. Please ignore 😀  
 
 ## Telegram section
 
