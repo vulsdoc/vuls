@@ -9,7 +9,7 @@ sidebar_label: Cron
 
 ## cron
 
-If you use local scan mode for cron jobs, don't forget to add below line to `/etc/sudoers` on RHEL/CentOS. (username: vuls)
+If you use local scan mode for cron jobs, don't forget to add below line to `/etc/sudoers` on RHEL/CentOS/Rocky Linux. (username: vuls)
 
 ```bash
 Defaults:vuls !requiretty

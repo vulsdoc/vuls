@@ -271,7 +271,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 
   | Detection Method       | Confidence         |  OS                              |Description|
   |:-----------------------|-------------------:|:---------------------------------|:--|
-  | OvalMatch              | 100                | CentOS, RHEL, Oracle, Ubuntu, Debian, SUSE |Detection using OVAL |
+  | OvalMatch              | 100                | CentOS, Rocky Linux,RHEL, Oracle, Ubuntu, Debian, SUSE |Detection using OVAL |
   | YumUpdateSecurityMatch | 100                |               RHEL, Amazon, Oracle |Detection using yum-plugin-security|
   | ChangelogExactMatch    | 95                 | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version|
   | ChangelogLenientMatch  | 50                 |         Ubuntu, Debian, Raspbian |Lenient version match between changelog and package version|
