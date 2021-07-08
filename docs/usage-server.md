@@ -23,7 +23,7 @@ Server:
 
 		[RFC3339 datetime format under results dir]
   -config string
-    	/path/to/toml (default "/home/mainek00n/github/github.com/MaineK00n/vuls/config.toml")
+    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -cvss-over float
     	-cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
   -debug
