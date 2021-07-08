@@ -45,7 +45,7 @@ Server:
   -log-to-file
     	Output log to file
   -results-dir string
-    	/path/to/results (default "/home/mainek00n/github/github.com/MaineK00n/vuls/results")
+    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-localfile
     	Write report to localfile
 
