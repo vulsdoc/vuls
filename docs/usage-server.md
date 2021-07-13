@@ -10,65 +10,30 @@ Server:
 	Server
 		[-lang=en|ja]
 		[-config=/path/to/config.toml]
+		[-log-to-file]
 		[-log-dir=/path/to/log]
 		[-cvss-over=7]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
 		[-to-localfile]
-		[-format-json]
 		[-http-proxy=http://192.168.0.1:8080]
 		[-debug]
 		[-debug-sql]
 		[-listen=localhost:5515]
-		[-cvedb-type=sqlite3|mysql|postgres|redis|http]
-		[-cvedb-sqlite3-path=/path/to/cve.sqlite3]
-		[-cvedb-url=http://127.0.0.1:1323 or DB connection string]
-		[-ovaldb-type=sqlite3|mysql|redis|http]
-		[-ovaldb-sqlite3-path=/path/to/oval.sqlite3]
-		[-ovaldb-url=http://127.0.0.1:1324 or DB connection string]
-		[-gostdb-type=sqlite3|mysql|redis|http]
-		[-gostdb-sqlite3-path=/path/to/gost.sqlite3]
-		[-gostdb-url=http://127.0.0.1:1325 or DB connection string]
-		[-exploitdb-type=sqlite3|mysql|redis|http]
-		[-exploitdb-sqlite3-path=/path/to/exploitdb.sqlite3]
-		[-exploitdb-url=http://127.0.0.1:1326 or DB connection string]
-		[-msfdb-type=sqlite3|mysql|redis|http]
-		[-msfdb-sqlite3-path=/path/to/msfdb.sqlite3]
-		[-msfdb-url=http://127.0.0.1:1327 or DB connection string]
 
 		[RFC3339 datetime format under results dir]
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
-  -cvedb-sqlite3-path string
-    	/path/to/sqlite3
-  -cvedb-type string
-    	DB type of go-cve-dictionary (sqlite3, mysql, postgres, redis or http)
-  -cvedb-url string
-    	http://go-cve-dictionary.com:1323 or DB connection string
   -cvss-over float
-    	ie. -cvss-over=6.5 displays CVSS Score 6.5 and over (default: 0 (means Server all))
+    	-cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
   -debug
     	debug mode
   -debug-sql
     	SQL debug mode
-  -exploitdb-sqlite3-path string
-    	/path/to/sqlite3
-  -exploitdb-type string
-    	DB type of exploit (sqlite3, mysql, postgres, redis or http)
-  -exploitdb-url string
-    	http://exploit.com:1326 or DB connection string
-  -format-json
-    	JSON format
-  -gostdb-sqlite3-path string
-    	/path/to/sqlite3
-  -gostdb-type string
-    	DB type of gost (sqlite3, mysql, postgres, redis or http)
-  -gostdb-url string
-    	http://gost.com:1325 or DB connection string
   -http-proxy string
     	http://proxy-url:port (default: empty)
   -ignore-unfixed
-    	Don't Server the unfixed CVEs
+    	Don't show the unfixed CVEs
   -ignore-unscored-cves
     	Don't Server the unscored CVEs
   -lang string
@@ -77,18 +42,8 @@ Server:
     	host:port (default: localhost:5515) (default "localhost:5515")
   -log-dir string
     	/path/to/log (default "/var/log/vuls")
-  -msfdb-sqlite3-path string
-    	/path/to/sqlite3
-  -msfdb-type string
-    	DB type of msf (sqlite3, mysql, postgres, redis or http)
-  -msfdb-url string
-    	http://metasploit.com:1327 or DB connection string
-  -ovaldb-sqlite3-path string
-    	/path/to/sqlite3
-  -ovaldb-type string
-    	DB type of goval-dictionary (sqlite3, mysql, postgres, redis or http)
-  -ovaldb-url string
-    	http://goval-dictionary.com:1324 or DB connection string
+  -log-to-file
+    	Output log to file
   -results-dir string
     	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
   -to-localfile
@@ -266,7 +221,7 @@ Change `[Your Vuls Server]` to your host name or IP address of the Vuls server.
 Vuls server saves the sent scan results to local.
 
 ```bash
-$ vuls server -listen 0.0.0.0:5515 -to-localfile -format-json
+$ vuls server -listen 0.0.0.0:5515 -to-localfile
 ```
 
 ### Client
@@ -297,7 +252,7 @@ Vuls agent scans the target servers and sent the scan results to Vuls server.
 Vuls server saves the sent scan results to local.
 
 ```bash
-$ vuls server -listen 0.0.0.0:5515 -to-localfile -format-json
+$ vuls server -listen 0.0.0.0:5515 -to-localfile
 ```
 
 ### Client
@@ -321,7 +276,7 @@ Vuls server responds the scan result.
 Vuls server saves the sent scan results to local.
 
 ```bash
-$ vuls server -listen 0.0.0.0:5515 -to-localfile -format-json
+$ vuls server -listen 0.0.0.0:5515 -to-localfile
 ```
 
 ### RHEL/CentOS
