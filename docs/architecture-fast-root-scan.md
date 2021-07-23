@@ -40,7 +40,7 @@ Scan with -offline option, vuls scans with no internet access.
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
 | Alpine      |                                   Fast |　                No |  Supported |                                    No |
 | CentOS      |                                   Fast |　              Need |  Supported |                                    No |
-| Alma Linux |                                   Fast |　              Need |  Supported |                                    No |
+| Alma  Linux |                                   Fast |　              Need |  Supported |                                    No |
 | Rocky Linux |                                   Fast |　              Need |  Supported |                                    No |
 | RHEL        |                                   Fast |　              Need |  Supported |                                    No |
 | Oracle      |                                   Fast |　              Need |  Supported |                                    No |
