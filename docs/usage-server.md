@@ -68,7 +68,7 @@ Server:
 #### Headers
 
 - X-Vuls-OS-Family (required)
-  - OS Family of your target server (rhel, centos, rocky, amazon, ubuntu and debian, raspbian)
+  - OS Family of your target server (rhel, centos, alma, rocky, amazon, ubuntu and debian, raspbian)
 - X-Vuls-OS-Release (required)
   - OS Family of your target server  (e.g. 6.9, 16.04, etc.)
 - X-Vuls-Kernel-Release (required)
@@ -129,6 +129,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 
 - RHEL
 - CentOS
+- Alma Linux
 - Rocky Linux
 - Amazon Linux
 - Debian

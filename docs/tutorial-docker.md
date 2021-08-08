@@ -59,7 +59,7 @@ $ docker run --rm -it \
 
 To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
-## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Rocky Linux, Debian and Ubuntu)
+## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)
 
 [gost (go-security-tracker)](https://github.com/knqyf263/gost)
 

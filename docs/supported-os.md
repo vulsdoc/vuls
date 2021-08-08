@@ -12,6 +12,7 @@ sidebar_label: Supported OS
 | RHEL         |                  5, 6, 7, 8|
 | Oracle Linux |                     5, 6, 7|
 | CentOS       |                     6, 7, 8|
+| Alma  Linux  |                           8|
 | Rocky Linux  |                           8|
 | Amazon Linux |                         All|
 | FreeBSD      |                      10, 11|
