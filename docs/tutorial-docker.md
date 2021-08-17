@@ -52,9 +52,9 @@ To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-diction
 
 ```console
 $ docker run --rm -it \
-    -v $PWD:/vuls \
+    -v $PWD:/goval-dictionary \
     -v $PWD/goval-dictionary-log:/var/log/vuls \
-    vuls/goval-dictionary fetch-redhat 5 6 7 8
+    vuls/goval-dictionary fetch redhat 5 6 7 8
 ```
 
 To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
@@ -87,7 +87,7 @@ To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#de
 
 ```console
 $ docker run --rm -i \
-    -v $PWD:/vuls \
+    -v $PWD:/go-msfdb \
     -v $PWD/go-msfdb-log:/var/log/go-msfdb \
     vuls/go-msfdb fetch msfdb
 ```
