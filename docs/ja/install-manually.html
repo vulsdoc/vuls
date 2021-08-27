@@ -118,7 +118,7 @@ $ make install
 <p>The binary was built under <code>$GOPATH/bin</code></p>
 <p>Then Fetch vulnerability data from NVD. It takes about 10 minutes (on AWS).</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
-$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 2002 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetchnvd -years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 2002 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetch nvd --years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
 ... snip ...
 $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
@@ -127,7 +127,7 @@ $ ls -alh cve.sqlite3
 </code></pre>
 <p>If you want results in Japanese, you also need to fetch the JVN data. It takes about 10 minutes (on AWS).</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
-$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 1998 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetchjvn -years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
+$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 1998 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> go-cve-dictionary fetch jvn --years <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span>
 ... snip ...
 $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
