@@ -38,9 +38,9 @@ $ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-
 ```console
 $ for i in `seq 2002 $(date +"%Y")`; do \
     docker run --rm -it \
-    -v $PWD:/vuls \
-    -v $PWD/go-cve-dictionary-log:/var/log/vuls \
-    vuls/go-cve-dictionary fetchnvd -years $i; \
+    -v $PWD:/go-cve-dictionary \
+    -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
+    vuls/go-cve-dictionary fetch nvd -years $i; \
   done
 ```
 
@@ -53,7 +53,7 @@ To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-diction
 ```console
 $ docker run --rm -it \
     -v $PWD:/goval-dictionary \
-    -v $PWD/goval-dictionary-log:/var/log/vuls \
+    -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     vuls/goval-dictionary fetch redhat 5 6 7 8
 ```
 
@@ -65,7 +65,7 @@ To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#
 
 ```console
 $ docker run --rm -i \
-	-v $PWD:/vuls \
+	-v $PWD:/gost \
 	-v $PWD/gost-log:/var/log/gost \
 	vuls/gost fetch redhat
 ```
@@ -76,7 +76,7 @@ To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/
 
 ```console
 $ docker run --rm -i \
-    -v $PWD:/vuls \
+    -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
 ```
@@ -218,25 +218,25 @@ $docker run -dt \
 
 Run containers as below if you want to use go-cve-dictionary, goval-dictionary and gost as a server mode.
 
-### go-cve
+### go-cve-dictionary
 
 ```console
 $ docker run -dt \
     --name go-cve-dictionary \
-    -v $PWD:/vuls \
-    -v $PWD/go-cve-dictionary-log:/var/log/vuls \
+    -v $PWD:/go-cve-dictionary \
+    -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
     --expose 1323 \
     -p 1323:1323 \
     vuls/go-cve-dictionary server --bind=0.0.0.0
 ```
 
-### goval
+### goval-dictionary
 
 ```console
 $ docker run -dt \
     --name goval-dictionary \
-    -v $PWD:/vuls \
-    -v $PWD/goval-dictionary-log:/var/log/vuls \
+    -v $PWD:/goval-dictionary \
+    -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     --expose 1324 \
     -p 1324:1324 \
     vuls/goval-dictionary server --bind=0.0.0.0
@@ -247,11 +247,35 @@ $ docker run -dt \
 ```console
 $ docker run -dt \
     --name gost \
-    -v $PWD:/vuls \
+    -v $PWD:/gost \
     -v $PWD/gost-log:/var/log/gost \
     --expose 1325 \
     -p 1325:1325 \
     vuls/gost server --bind=0.0.0.0
+```
+
+### go-exploitdb
+
+```console
+$ docker run -dt \
+    --name go-exploitdb \
+    -v $PWD:/go-exploitdb \
+    -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
+    --expose 1326 \
+    -p 1325:1326 \
+    vuls/go-exploitdb server --bind=0.0.0.0
+```
+
+### go-msfdb
+
+```console
+$ docker run -dt \
+    --name go-msfdb \
+    -v $PWD:/go-msfdb \
+    -v $PWD/go-msfdb-log:/var/log/go-msfdb \
+    --expose 1327 \
+    -p 1325:1327 \
+    vuls/go-msfdb server --bind=0.0.0.0
 ```
 
 ### Report
