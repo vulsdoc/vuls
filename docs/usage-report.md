@@ -12,6 +12,7 @@ report:
 		[-results-dir=/path/to/results]
 		[-log-dir=/path/to/log]
 		[-refresh-cve]
+		[-confidence-over=80]
 		[-cvss-over=7]
 		[-diff]
 		[-diff-minus]
@@ -45,6 +46,8 @@ report:
 		[RFC3339 datetime format under results dir]
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over float
     	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
