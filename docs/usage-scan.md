@@ -136,7 +136,7 @@ $ vuls scan -ask-key-password
 With this sample command, it will ..
 
 * Ask SSH key password before scanning
-* Scan all servers defined in config file
+* Scan all servers defined in the config file
 
 ## Example: Scan specific servers
 

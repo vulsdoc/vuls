@@ -68,10 +68,12 @@ IgnoreGithubDismissed = true
 
 ## CPE Scan
 
-It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm).
+Vuls scan detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks that have been registered in the [CPE](https://nvd.nist.gov/cpe.cfm).
 
 The CPE scan uses the NVD information to search for the specified CPE. It is necessary to set up go-cve-dictionary and fetch NVD data source in advance.
 To setup go-cve-dictionary, see [here](https://vuls.io/docs/en/go-cve-dictionary.html#usage-go-cve-dictionary-on-different-server)
+
+see also [Architecture/CPE Scan](architecture-cpe-scan.md)
 
 ## How to search CPE name by software name
 
@@ -140,6 +142,16 @@ cpeNames = [
     "cpe:/o:fortinet:fortios:4.3.0",
 ]
 ```
+
+### Japanese Software
+
+JVN can be used to detect vulnerabilities in Japanese software that are not defined in the NVD.
+
+- Fetching JVN with go-cve-dictionary
+- Define CPE for Japanese software.
+- Report with `--confidence-over=0 `.
+
+The Affected version is not defined in a parsable format in JVN. Therefore, all vulnerabilities with matching Part, Vendor, and Product are detected. Note that there are false positives.
 
 ## Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)
 

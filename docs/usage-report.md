@@ -12,6 +12,7 @@ report:
 		[-results-dir=/path/to/results]
 		[-log-dir=/path/to/log]
 		[-refresh-cve]
+		[-confidence-over=80]
 		[-cvss-over=7]
 		[-diff]
 		[-diff-minus]
@@ -45,6 +46,8 @@ report:
 		[RFC3339 datetime format under results dir]
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over float
     	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -266,17 +269,24 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 - `Affected PKG` shows the package version information including this vulnerability.
 - `Confidence` means the reliability of detection.
   - `100` is highly reliable
-  - `YumUpdateSecurityMatch` is the method of detecting this vulnerability.
 - Item list of `Confidence`
 
-  | Detection Method       | Confidence         |  OS                              |Description|
-  |:-----------------------|-------------------:|:---------------------------------|:--|
-  | OvalMatch              | 100                | CentOS, Alma Linux, Rocky Linux, RHEL, Oracle, Ubuntu, Debian, SUSE |Detection using OVAL |
-  | YumUpdateSecurityMatch | 100                |               RHEL, Amazon, Oracle |Detection using yum-plugin-security|
-  | ChangelogExactMatch    | 95                 | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version|
-  | ChangelogLenientMatch  | 50                 |         Ubuntu, Debian, Raspbian |Lenient version match between changelog and package version|
-  | PkgAuditMatch          | 100                |                          FreeBSD |Detection using pkg audit|
-  | CpeNameMatch           | 100                |                              All |Search for NVD information with CPE name specified in config.toml|
+  | Detection Method       | Confidence |  type                            |Description|
+  |:-----------------------|-----------:|:---------------------------------|:--|
+  | OvalMatch              | 100        | CentOS, Alma Linux, Rocky Linux, RHEL, Oracle, Ubuntu, Debian, SUSE |OVAL |
+  | RedHatAPIMatch         | 100        | CentOS, Alma Linux, Rocky Linux, RHEL |Red Hat API |
+  | UbuntuAPIMatch         | 100        | Ubuntu                           |Ubuntu API |
+  | DebianSecurityTrackerMatch| 100     | Debian                           |Debian Security Tracker |
+  | TrivyMatch             | 100        | Container image and Lockfile     |trivy |
+  | PkgAuditMatch          | 100        |                          FreeBSD |pkg audit|
+  | WPScanMatch            | 100        |                        WordPress |wpscan.com |
+  | GitHubMatch            | 100        |  library                         |Detected by GitHub Security Alerts |
+  | NvdExactVersionMatch   | 100        |                         CPE scan |Range match in semantic versioning format or an exact match.|
+  | NvdRoughVersionMatch   |  80        |                         CPE scan |Rough version match for non-semantic versioning as defined in NVD.|
+  | NvdVendorProductMatch  |  10        |                         CPE scan |If the version is not defined for the CPE specified in config.toml. There is a possibility of false positives.|
+  | JvnVendorProductMatch  |  10        |                         CPE scan |Detected by Jvn. Affected Version in JVN is not a parsable format, so it is matched by Part,  Vendor and Product. There is a possibility of false positives.|
+  | ChangelogExactMatch    |  95        | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version.|
+  | ChangelogRoughMatch    |  50        |         Ubuntu, Debian, Raspbian |Rough version match between changelog and package version.|
   
 ## Example: Generate all client scan reports
 

@@ -13,6 +13,7 @@ tui:
 		[-refresh-cve]
 		[-config=/path/to/config.toml]
 		[-cvss-over=7]
+		[-cvss-over=7]
 		[-diff]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
@@ -27,6 +28,8 @@ tui:
 
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over float
     	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug

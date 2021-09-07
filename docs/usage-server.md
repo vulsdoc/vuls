@@ -12,6 +12,7 @@ Server:
 		[-config=/path/to/config.toml]
 		[-log-to-file]
 		[-log-dir=/path/to/log]
+		[-confidence-over=80]
 		[-cvss-over=7]
 		[-ignore-unscored-cves]
 		[-ignore-unfixed]
@@ -24,6 +25,8 @@ Server:
 		[RFC3339 datetime format under results dir]
   -config string
     	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over float
     	-cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
   -debug
