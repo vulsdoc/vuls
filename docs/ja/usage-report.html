@@ -81,6 +81,7 @@
     [-results-dir=/path/to/results]
     [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
     [-refresh-cve]
+    [-confidence-over=80]
     [-cvss-over=7]
     [-diff]
     [-diff-minus]
@@ -114,6 +115,8 @@
     [RFC3339 datetime format under results dir]
   -config string
       /path/to/toml (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over <span class="hljs-built_in">float</span>
       -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -319,20 +322,27 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 <li><p><code>Confidence</code> means the reliability of detection.</p>
 <ul>
 <li><code>100</code> is highly reliable</li>
-<li><code>YumUpdateSecurityMatch</code> is the method of detecting this vulnerability.</li>
 </ul></li>
 <li><p>Item list of <code>Confidence</code></p>
 <table>
 <thead>
-<tr><th style="text-align:left">Detection Method</th><th style="text-align:right">Confidence</th><th style="text-align:left">OS</th><th style="text-align:left">Description</th></tr>
+<tr><th style="text-align:left">Detection Method</th><th style="text-align:right">Confidence</th><th style="text-align:left">type</th><th style="text-align:left">Description</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align:left">OvalMatch</td><td style="text-align:right">100</td><td style="text-align:left">CentOS, Alma Linux, Rocky Linux, RHEL, Oracle, Ubuntu, Debian, SUSE</td><td style="text-align:left">Detection using OVAL</td></tr>
-<tr><td style="text-align:left">YumUpdateSecurityMatch</td><td style="text-align:right">100</td><td style="text-align:left">RHEL, Amazon, Oracle</td><td style="text-align:left">Detection using yum-plugin-security</td></tr>
-<tr><td style="text-align:left">ChangelogExactMatch</td><td style="text-align:right">95</td><td style="text-align:left">CentOS, Ubuntu, Debian, Raspbian</td><td style="text-align:left">Exact version match between changelog and package version</td></tr>
-<tr><td style="text-align:left">ChangelogLenientMatch</td><td style="text-align:right">50</td><td style="text-align:left">Ubuntu, Debian, Raspbian</td><td style="text-align:left">Lenient version match between changelog and package version</td></tr>
-<tr><td style="text-align:left">PkgAuditMatch</td><td style="text-align:right">100</td><td style="text-align:left">FreeBSD</td><td style="text-align:left">Detection using pkg audit</td></tr>
-<tr><td style="text-align:left">CpeNameMatch</td><td style="text-align:right">100</td><td style="text-align:left">All</td><td style="text-align:left">Search for NVD information with CPE name specified in config.toml</td></tr>
+<tr><td style="text-align:left">OvalMatch</td><td style="text-align:right">100</td><td style="text-align:left">CentOS, Alma Linux, Rocky Linux, RHEL, Oracle, Ubuntu, Debian, SUSE</td><td style="text-align:left">OVAL</td></tr>
+<tr><td style="text-align:left">RedHatAPIMatch</td><td style="text-align:right">100</td><td style="text-align:left">CentOS, Alma Linux, Rocky Linux, RHEL</td><td style="text-align:left">Red Hat API</td></tr>
+<tr><td style="text-align:left">UbuntuAPIMatch</td><td style="text-align:right">100</td><td style="text-align:left">Ubuntu</td><td style="text-align:left">Ubuntu API</td></tr>
+<tr><td style="text-align:left">DebianSecurityTrackerMatch</td><td style="text-align:right">100</td><td style="text-align:left">Debian</td><td style="text-align:left">Debian Security Tracker</td></tr>
+<tr><td style="text-align:left">TrivyMatch</td><td style="text-align:right">100</td><td style="text-align:left">Container image and Lockfile</td><td style="text-align:left">trivy</td></tr>
+<tr><td style="text-align:left">PkgAuditMatch</td><td style="text-align:right">100</td><td style="text-align:left">FreeBSD</td><td style="text-align:left">pkg audit</td></tr>
+<tr><td style="text-align:left">WPScanMatch</td><td style="text-align:right">100</td><td style="text-align:left">WordPress</td><td style="text-align:left">wpscan.com</td></tr>
+<tr><td style="text-align:left">GitHubMatch</td><td style="text-align:right">100</td><td style="text-align:left">library</td><td style="text-align:left">Detected by GitHub Security Alerts</td></tr>
+<tr><td style="text-align:left">NvdExactVersionMatch</td><td style="text-align:right">100</td><td style="text-align:left">CPE scan</td><td style="text-align:left">Range match in semantic versioning format or an exact match.</td></tr>
+<tr><td style="text-align:left">NvdRoughVersionMatch</td><td style="text-align:right">80</td><td style="text-align:left">CPE scan</td><td style="text-align:left">Rough version match for non-semantic versioning as defined in NVD.</td></tr>
+<tr><td style="text-align:left">NvdVendorProductMatch</td><td style="text-align:right">10</td><td style="text-align:left">CPE scan</td><td style="text-align:left">If the version is not defined for the CPE specified in config.toml. There is a possibility of false positives.</td></tr>
+<tr><td style="text-align:left">JvnVendorProductMatch</td><td style="text-align:right">10</td><td style="text-align:left">CPE scan</td><td style="text-align:left">Detected by Jvn. Affected Version in JVN is not a parsable format, so it is matched by Part, Vendor and Product. There is a possibility of false positives.</td></tr>
+<tr><td style="text-align:left">ChangelogExactMatch</td><td style="text-align:right">95</td><td style="text-align:left">CentOS, Ubuntu, Debian, Raspbian</td><td style="text-align:left">Exact version match between changelog and package version.</td></tr>
+<tr><td style="text-align:left">ChangelogRoughMatch</td><td style="text-align:right">50</td><td style="text-align:left">Ubuntu, Debian, Raspbian</td><td style="text-align:left">Rough version match between changelog and package version.</td></tr>
 </tbody>
 </table>
 </li>

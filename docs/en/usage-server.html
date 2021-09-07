@@ -81,6 +81,7 @@ Server:
         [-config=/path/to/config.toml]
         [-<span class="hljs-built_in">log</span>-to-file]
         [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
+        [-confidence-over=80]
         [-cvss-over=7]
         [-ignore-unscored-cves]
         [-ignore-unfixed]
@@ -93,6 +94,8 @@ Server:
         [RFC3339 datetime format under results dir]
   -config string
         /path/to/toml (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
+  -confidence-over int
+      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
   -cvss-over <span class="hljs-built_in">float</span>
         -cvss-over=6.5 means Servering CVSS Score 6.5 and over (default: 0 (means Server all))
   -debug

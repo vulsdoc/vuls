@@ -124,9 +124,10 @@ It becomes possible to import vulnerabilities detected by GitHub via GitHub 's A
 <span class="hljs-attr">IgnoreGithubDismissed</span> = <span class="hljs-literal">true</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="cpe-scan"></a><a href="#cpe-scan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CPE Scan</h2>
-<p>It is possible to detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks, that have been registered in the <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>.</p>
+<p>Vuls scan detect vulnerabilities in non-OS packages, such as something you compiled by yourself, language libraries and frameworks that have been registered in the <a href="https://nvd.nist.gov/cpe.cfm">CPE</a>.</p>
 <p>The CPE scan uses the NVD information to search for the specified CPE. It is necessary to set up go-cve-dictionary and fetch NVD data source in advance.
 To setup go-cve-dictionary, see <a href="https://vuls.io/docs/en/go-cve-dictionary.html#usage-go-cve-dictionary-on-different-server">here</a></p>
+<p>see also <a href="/docs/en/architecture-cpe-scan.html">Architecture/CPE Scan</a></p>
 <h2><a class="anchor" aria-hidden="true" id="how-to-search-cpe-name-by-software-name"></a><a href="#how-to-search-cpe-name-by-software-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to search CPE name by software name</h2>
 <p><a href="https://web.nvd.nist.gov/view/cpe/search">NVD: Search Common Platform Enumerations (CPE)</a>
 You need <strong>Check CPE Naming Format: 2.2</strong></p>
@@ -178,6 +179,14 @@ cpeNames = [
     <span class="hljs-string">"cpe:/o:fortinet:fortios:4.3.0"</span>,
 ]
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" id="japanese-software"></a><a href="#japanese-software" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Japanese Software</h3>
+<p>JVN can be used to detect vulnerabilities in Japanese software that are not defined in the NVD.</p>
+<ul>
+<li>Fetching JVN with go-cve-dictionary</li>
+<li>Define CPE for Japanese software.</li>
+<li>Report with <code>--confidence-over=0</code>.</li>
+</ul>
+<p>The Affected version is not defined in a parsable format in JVN. Therefore, all vulnerabilities with matching Part, Vendor, and Product are detected. Note that there are false positives.</p>
 <h2><a class="anchor" aria-hidden="true" id="usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental"></a><a href="#usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage: Integrate with OWASP Dependency Check to Automatic update when the libraries are updated (Experimental)</h2>
 <p><a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP Dependency check</a> is a utility that identifies project dependencies and checks if there are any known, publicly disclosed, vulnerabilities.</p>
 <p>Benefit of integrating Vuls And OWASP Dependency Check is below.</p>
