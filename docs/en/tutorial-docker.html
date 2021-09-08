@@ -98,9 +98,9 @@
 <p><a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data">kotakanbe/go-cve-dictionary:README</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `seq 2002 $(date +<span class="hljs-string">"%Y"</span>)`; <span class="hljs-keyword">do</span> \</span>
     docker run --rm -it \
-    -v $PWD:/vuls \
-    -v $PWD/go-cve-dictionary-log:/var/log/vuls \
-    vuls/go-cve-dictionary fetchnvd -years $i; \
+    -v $PWD:/go-cve-dictionary \
+    -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
+    vuls/go-cve-dictionary fetch nvd -years $i; \
   done
 </code></pre>
 <p>To fetch JVN(Japanese), See <a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data">README</a></p>
@@ -108,21 +108,21 @@
 <p><a href="https://github.com/kotakanbe/goval-dictionary">goval-dictionary</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v $PWD:/goval-dictionary \
-    -v $PWD/goval-dictionary-log:/var/log/vuls \
+    -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     vuls/goval-dictionary fetch redhat 5 6 7 8
 </code></pre>
 <p>To fetch other OVAL, See <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step3-fetch-gostgo-security-tracker-for-redhatcentosalma-linuxrocky-linux-debian-and-ubuntu"></a><a href="#step3-fetch-gostgo-security-tracker-for-redhatcentosalma-linuxrocky-linux-debian-and-ubuntu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)</h2>
 <p><a href="https://github.com/knqyf263/gost">gost (go-security-tracker)</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
-    -v $PWD:/vuls \
+    -v $PWD:/gost \
     -v $PWD/gost-log:/var/log/gost \
     vuls/gost fetch redhat
 </code></pre>
 <p>To fetch Debian security tracker, See <a href="https://github.com/knqyf263/gost#fetch-debian">Gost README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step35-fetch-go-exploitdb"></a><a href="#step35-fetch-go-exploitdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.5. Fetch go-exploitdb</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
-    -v $PWD:/vuls \
+    -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
 </code></pre>
@@ -227,20 +227,20 @@
 <p><a href="/docs/en/vulsrepo.html">VulsRepo</a></p>
 <h2><a class="anchor" aria-hidden="true" id="http-server-mode"></a><a href="#http-server-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP-Server mode</h2>
 <p>Run containers as below if you want to use go-cve-dictionary, goval-dictionary and gost as a server mode.</p>
-<h3><a class="anchor" aria-hidden="true" id="go-cve"></a><a href="#go-cve" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-cve</h3>
+<h3><a class="anchor" aria-hidden="true" id="go-cve-dictionary"></a><a href="#go-cve-dictionary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-cve-dictionary</h3>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
     --name go-cve-dictionary \
-    -v $PWD:/vuls \
-    -v $PWD/go-cve-dictionary-log:/var/log/vuls \
+    -v $PWD:/go-cve-dictionary \
+    -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
     --expose 1323 \
     -p 1323:1323 \
     vuls/go-cve-dictionary server --bind=0.0.0.0
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="goval"></a><a href="#goval" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>goval</h3>
+<h3><a class="anchor" aria-hidden="true" id="goval-dictionary"></a><a href="#goval-dictionary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>goval-dictionary</h3>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
     --name goval-dictionary \
-    -v $PWD:/vuls \
-    -v $PWD/goval-dictionary-log:/var/log/vuls \
+    -v $PWD:/goval-dictionary \
+    -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     --expose 1324 \
     -p 1324:1324 \
     vuls/goval-dictionary server --bind=0.0.0.0
@@ -248,11 +248,29 @@
 <h3><a class="anchor" aria-hidden="true" id="gost"></a><a href="#gost" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gost</h3>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
     --name gost \
-    -v $PWD:/vuls \
+    -v $PWD:/gost \
     -v $PWD/gost-log:/var/log/gost \
     --expose 1325 \
     -p 1325:1325 \
     vuls/gost server --bind=0.0.0.0
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="go-exploitdb"></a><a href="#go-exploitdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-exploitdb</h3>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
+    --name go-exploitdb \
+    -v $PWD:/go-exploitdb \
+    -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
+    --expose 1326 \
+    -p 1325:1326 \
+    vuls/go-exploitdb server --bind=0.0.0.0
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="go-msfdb"></a><a href="#go-msfdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-msfdb</h3>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
+    --name go-msfdb \
+    -v $PWD:/go-msfdb \
+    -v $PWD/go-msfdb-log:/var/log/go-msfdb \
+    --expose 1327 \
+    -p 1325:1327 \
+    vuls/go-msfdb server --bind=0.0.0.0
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="report"></a><a href="#report" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Report</h3>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
