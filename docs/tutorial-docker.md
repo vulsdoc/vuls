@@ -36,12 +36,10 @@ $ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-
 [kotakanbe/go-cve-dictionary:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
 
 ```console
-$ for i in `seq 2002 $(date +"%Y")`; do \
-    docker run --rm -it \
+$ docker run --rm -it \
     -v $PWD:/go-cve-dictionary \
     -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
-    vuls/go-cve-dictionary fetch nvd -years $i; \
-  done
+    vuls/go-cve-dictionary fetch nvd
 ```
 
 To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data)
