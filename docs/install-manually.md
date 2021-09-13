@@ -69,7 +69,7 @@ It takes about 10 minutes (on AWS).
 
 ```bash
 $ cd $HOME
-$ for i in `seq 2002 $(date +"%Y")`; do go-cve-dictionary fetch nvd --years $i; done
+$ go-cve-dictionary fetch nvd
 ... snip ...
 $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
@@ -82,7 +82,7 @@ It takes about 10 minutes (on AWS).
 
 ```bash
 $ cd $HOME
-$ for i in `seq 1998 $(date +"%Y")`; do go-cve-dictionary fetch jvn --years $i; done
+$ go-cve-dictionary fetch jvn
 ... snip ...
 $ ls -alh cve.sqlite3
 -rw-r--r--. 1 centos centos  51M Aug  6 08:10 cve.sqlite3
