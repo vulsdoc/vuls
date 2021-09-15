@@ -234,8 +234,8 @@ INFO[0000] -ovaldb-type: sqlite3, -ovaldb-url: , -ovaldb-path: /vuls/oval.sqlite
 INFO[0000] -gostdb-type: sqlite3, -gostdb-url: , -gostdb-path: /vuls/gost.sqlite3 
 INFO[0000] -exploitdb-type: sqlite3, -exploitdb-url: , -exploitdb-path: /vuls/go-exploitdb.sqlite3 
 [Sep 12 07:12:10]  WARN [localhost] --cvedb-path=/vuls/cve.sqlite3 file not found. [CPE-scan](https://vuls.io/docs/en/usage-scan-non-os-packages.html#cpe-scan) needs cve-dictionary. if you specify cpe in config.toml, fetch cve-dictionary before reporting. For details, see `https://github.com/kotakanbe/go-cve-dictionary#deploy-go-cve-dictionary`
-[Sep 12 07:12:10]  WARN [localhost] --gostdb-path=/vuls/gost.sqlite3 file not found. Vuls can detect `patch-not-released-CVE-ID` using gost if the scan target server is Debian, RHEL or CentOS, For details, see `https://github.com/knqyf263/gost#fetch- f`
-[Sep 12 07:12:10]  WARN [localhost] --exploitdb-path=/vuls/go-exploitdb.sqlite3 file not found. Fetch go-exploit-db before reporting if you want to display exploit codes of detected CVE-IDs. For details, see `https://github.com/mozqnet/go-exploitdb`
+[Sep 12 07:12:10]  WARN [localhost] --gostdb-path=/vuls/gost.sqlite3 file not found. Vuls can detect `patch-not-released-CVE-ID` using gost if the scan target server is Debian, RHEL or CentOS, For details, see `https://github.com/vulsio/gost#fetch- f`
+[Sep 12 07:12:10]  WARN [localhost] --exploitdb-path=/vuls/go-exploitdb.sqlite3 file not found. Fetch go-exploit-db before reporting if you want to display exploit codes of detected CVE-IDs. For details, see `https://github.com/vulsio/go-exploitdb`
 [Sep 12 07:12:10]  INFO [localhost] host: 0 CVEs are detected with Library
 [Sep 12 07:12:10]  INFO [localhost] OVAL is fresh: redhat 7.6.1810 
 [Sep 12 07:12:12]  INFO [localhost] host: 111 CVEs are detected with OVAL
@@ -344,7 +344,7 @@ If you scan other Linux distributions, please prepare a corresponding OVAL in ad
 There are a number of vulnerabilities for which CVE-IDs have been issued, but no update package is available(henceforth referred to as `not-fixed-yet vulnerability`), and Vuls can also detect `not-fixed-yet vulnerability`.
 
 To detect these vulnerabilities, you need an additional vulnerability database.
-Use the following command to obtain the vulnerability DB using [knqyf263/gost](https://github.com/knqyf263/gost).
+Use the following command to obtain the vulnerability DB using [vulsio/gost](https://github.com/vulsio/gost).
 
 gost only supports Red Hat, CentOS, and Debian. For other OS, fetching gost's DB does not affect the detection accuracy.
 However, it is recommended to fetch gost to add CVSS and Summary information, because Red Hat CVE information is rich and useful.
@@ -384,7 +384,7 @@ Vulnerabilities that `not-fixed-yet vulnerability` is shown as "Unfixed".
 
 Reports can show whether Exploit for detected CVE-IDs is in [Metasploit Framework](https://www.metasploit.com/). A CVE with an attack module is considered to be easily attackable by the tool, so the risk is higher than a CVE without an attack module.
 
-Fetch [go-msfdb](https://github.com/takuzoo3868/go-msfdb).
+Fetch [go-msfdb](https://github.com/vulsio/go-msfdb).
 
 ```bash
 $ pwd

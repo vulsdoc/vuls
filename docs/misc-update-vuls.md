@@ -36,7 +36,7 @@ If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
 
 ```bash
-$ cd $GOPATH/src/github.com/knqyf263/gost
+$ cd $GOPATH/src/github.com/vulsio/gost
 $ git pull
 $ rm -r vendor
 $ make install
@@ -48,7 +48,7 @@ If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
 
 ```bash
-$ cd $GOPATH/src/github.com/mozqnet/go-exploitdb
+$ cd $GOPATH/src/github.com/vulsio/go-exploitdb
 $ git pull
 $ rm -r vendor
 $ make install
@@ -60,7 +60,7 @@ If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
 
 ```bash
-$ cd $GOPATH/src/github.com/takuzoo3868/go-msfdb
+$ cd $GOPATH/src/github.com/vulsio/go-msfdb
 $ git pull
 $ make install
 ```

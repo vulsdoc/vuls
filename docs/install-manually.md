@@ -122,51 +122,51 @@ If you would like to scan other Linux distributions then retrieve the OVAL data 
 
 ## Deploy gost
 
-[gost (go-security-tracker)](https://github.com/knqyf263/gost)
+[gost (go-security-tracker)](https://github.com/vulsio/gost)
 > version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new data source named gost.
 
 ```bash
 $ sudo mkdir /var/log/gost
 $ sudo chown <user> /var/log/gost
 $ sudo chmod 700 /var/log/gost
-$ mkdir -p $GOPATH/src/github.com/knqyf263
-$ cd $GOPATH/src/github.com/knqyf263
-$ git clone https://github.com/knqyf263/gost.git
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
+$ git clone https://github.com/vulsio/gost.git
 $ cd gost
 $ make install
-$ ln -s $GOPATH/src/github.com/knqyf263/gost/gost.sqlite3 $HOME/gost.sqlite3
+$ ln -s $GOPATH/src/github.com/vulsio/gost/gost.sqlite3 $HOME/gost.sqlite3
 ```
 
 The binary was built under `$GOPATH/bin`
 
- Then fetch security tracker for RedHat since the server to be scanned is CentOS. [README](https://github.com/knqyf263/gost#fetch-redhat)
+ Then fetch security tracker for RedHat since the server to be scanned is CentOS. [README](https://github.com/vulsio/gost#fetch-redhat)
 
 ```bash
 $ gost fetch redhat
 ```
 
-To fetch Debian security tracker, See [gost README](https://github.com/knqyf263/gost#fetch-debian)
+To fetch Debian security tracker, See [gost README](https://github.com/vulsio/gost#fetch-debian)
 
 ## Deploy go-exploitdb
 
-[go-exploitdb](https://github.com/mozqnet/go-exploitdb)
+[go-exploitdb](https://github.com/vulsio/go-exploitdb)
 > New version Vuls 0.6.0 now possible to display exploit codes have been published at [Exploit DB.com](https://www.exploit-db.com/). If you don't need to know about exploit code for detected CVEs, skip this section.
 
 ```bash
 $ sudo mkdir /var/log/go-exploitdb
 $ sudo chown <user> /var/log/go-exploitdb
 $ sudo chmod 700 /var/log/go-exploitdb
-$ mkdir -p $GOPATH/src/github.com/mozqnet
-$ cd $GOPATH/src/github.com/mozqnet
-$ git clone https://github.com/mozqnet/go-exploitdb.git
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
+$ git clone https://github.com/vulsio/go-exploitdb.git
 $ cd go-exploitdb
 $ make install
-$ ln -s $GOPATH/src/github.com/mozqnet/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3
+$ ln -s $GOPATH/src/github.com/vulsio/go-exploitdb/go-exploitdb.sqlite3 $HOME/go-exploitdb.sqlite3
 ```
 
 The binary was built under `$GOPATH/bin`
 
-Then fetch exploit-db information. [README](https://github.com/mozqnet/go-exploitdb#usage-fetch-and-insert-exploit)
+Then fetch exploit-db information. [README](https://github.com/vulsio/go-exploitdb#usage-fetch-and-insert-exploit)
 
 ```bash
 $ go-exploitdb fetch exploitdb
@@ -176,7 +176,7 @@ Fetch with --deep option, Many exploits information will be obtained. But fetch 
 
 ## Deploy go-msfdb
 
-[go-msfdb](https://github.com/takuzoo3868/go-msfdb)
+[go-msfdb](https://github.com/vulsio/go-msfdb)
 > New version Vuls 0.11.0 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
 
 ```bash
@@ -185,15 +185,15 @@ $ sudo chown <user> /var/log/go-msfdb
 $ sudo chmod 700 /var/log/go-msfdb
 $ mkdir -p $GOPATH/src/github.com/takuzoo3868
 $ cd $GOPATH/src/github.com/takuzoo3868
-$ git clone https://github.com/takuzoo3868/go-msfdb.git
+$ git clone https://github.com/vulsio/go-msfdb.git
 $ cd go-msfdb
 $ make install
-$ ln -s $GOPATH/src/github.com/takuzoo3868/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
+$ ln -s $GOPATH/src/github.com/vulsio/go-msfdb/go-msfdb.sqlite3 $HOME/go-msfdb.sqlite3
 ```
 
 The binary was built under `$GOPATH/bin`
 
-Then fetch msf-db information. [README](https://github.com/takuzoo3868/go-msfdb#usage-fetch-and-insert-modules-info)
+Then fetch msf-db information. [README](https://github.com/vulsio/go-msfdb#usage-fetch-and-insert-modules-info)
 
 ```bash
 $ go-msfdb fetch msfdb

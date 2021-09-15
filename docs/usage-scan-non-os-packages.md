@@ -15,7 +15,7 @@ To scan vulnerabilities of `non-OS-packages`, there are some options.
 
 ## Library Vulns Scan
 
-Vuls over v0.8.0 can scan libraries using [knqyf263/trivy](https://github.com/knqyf263/trivy).
+Vuls over v0.8.0 can scan libraries using [aquasecurity/trivy](https://github.com/aquasecurity/trivy).
 Trivy detects lock files listed below.
 
 - Gemfile.lock

@@ -59,7 +59,7 @@ To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#
 
 ## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)
 
-[gost (go-security-tracker)](https://github.com/knqyf263/gost)
+[gost (go-security-tracker)](https://github.com/vulsio/gost)
 
 ```console
 $ docker run --rm -i \
@@ -68,7 +68,7 @@ $ docker run --rm -i \
 	vuls/gost fetch redhat
 ```
 
-To fetch Debian security tracker, See [Gost README](https://github.com/knqyf263/gost#fetch-debian)
+To fetch Debian security tracker, See [Gost README](https://github.com/vulsio/gost#fetch-debian)
 
 ## Step3.5. Fetch go-exploitdb
 

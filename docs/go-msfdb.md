@@ -4,7 +4,7 @@ title: go-msfdb
 sidebar_label: go-msfdb
 ---
 
-For detail of go-msfdb, see [takuzoo3868/go-msfdb](https://github.com/takuzoo3868/go-msfdb)
+For detail of go-msfdb, see [vulsio/go-msfdb](https://github.com/vulsio/go-msfdb)
 
 ## Usage: go-msfdb on different server
 
@@ -25,4 +25,4 @@ $ vuls report
 
 ## Usage: Update metasploit module db
 
-see [Usage: Fetch and Insert Module](https://github.com/takuzoo3868/go-msfdb#usage-fetch-and-insert-modules-info)
+see [Usage: Fetch and Insert Module](https://github.com/vulsio/go-msfdb#usage-fetch-and-insert-modules-info)
