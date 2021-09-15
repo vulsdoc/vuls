@@ -31,9 +31,9 @@ $ mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-
 
 ## Step1. Fetch NVD
 
-[go-cve-dictionary](https://github.com/kotakanbe/go-cve-dictionary)
+[go-cve-dictionary](https://github.com/vulsio/go-cve-dictionary)
 
-[kotakanbe/go-cve-dictionary:README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data)
+[vulsio/go-cve-dictionary:README](https://github.com/vulsio/go-cve-dictionary#usage-fetch-nvd-data)
 
 ```console
 $ docker run --rm -it \
@@ -42,7 +42,7 @@ $ docker run --rm -it \
     vuls/go-cve-dictionary fetch nvd
 ```
 
-To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data)
+To fetch JVN(Japanese), See [README](https://github.com/vulsio/go-cve-dictionary#usage-fetch-jvn-data)
 
 ## Step2. Fetch OVAL (e.g. redhat)
 

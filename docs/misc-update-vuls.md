@@ -12,7 +12,7 @@ If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
 
 ```bash
-$ cd $GOPATH/src/github.com/kotakanbe/go-cve-dictionary
+$ cd $GOPATH/src/github.com/vulsio/go-cve-dictionary
 $ git pull
 $ rm -r vendor
 $ make install

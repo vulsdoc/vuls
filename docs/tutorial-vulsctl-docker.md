@@ -233,7 +233,7 @@ INFO[0000] -cvedb-type: sqlite3, -cvedb-url: , -cvedb-path: /vuls/cve.sqlite3
 INFO[0000] -ovaldb-type: sqlite3, -ovaldb-url: , -ovaldb-path: /vuls/oval.sqlite3 
 INFO[0000] -gostdb-type: sqlite3, -gostdb-url: , -gostdb-path: /vuls/gost.sqlite3 
 INFO[0000] -exploitdb-type: sqlite3, -exploitdb-url: , -exploitdb-path: /vuls/go-exploitdb.sqlite3 
-[Sep 12 07:12:10]  WARN [localhost] --cvedb-path=/vuls/cve.sqlite3 file not found. [CPE-scan](https://vuls.io/docs/en/usage-scan-non-os-packages.html#cpe-scan) needs cve-dictionary. if you specify cpe in config.toml, fetch cve-dictionary before reporting. For details, see `https://github.com/kotakanbe/go-cve-dictionary#deploy-go-cve-dictionary`
+[Sep 12 07:12:10]  WARN [localhost] --cvedb-path=/vuls/cve.sqlite3 file not found. [CPE-scan](https://vuls.io/docs/en/usage-scan-non-os-packages.html#cpe-scan) needs cve-dictionary. if you specify cpe in config.toml, fetch cve-dictionary before reporting. For details, see `https://github.com/vulsio/go-cve-dictionary#deploy-go-cve-dictionary`
 [Sep 12 07:12:10]  WARN [localhost] --gostdb-path=/vuls/gost.sqlite3 file not found. Vuls can detect `patch-not-released-CVE-ID` using gost if the scan target server is Debian, RHEL or CentOS, For details, see `https://github.com/vulsio/gost#fetch- f`
 [Sep 12 07:12:10]  WARN [localhost] --exploitdb-path=/vuls/go-exploitdb.sqlite3 file not found. Fetch go-exploit-db before reporting if you want to display exploit codes of detected CVE-IDs. For details, see `https://github.com/vulsio/go-exploitdb`
 [Sep 12 07:12:10]  INFO [localhost] host: 0 CVEs are detected with Library
@@ -487,7 +487,7 @@ It is possible to obtain JPCERT/CC and US-CERT alerts and display whether the de
 - [JPCERT/CC Alert](https://www.jpcert.or.jp/at/2020.html)
 - [USCERT Alert](https://www.kb.cert.org/vuls/bypublished/desc/)
 
-- [kotakanbe/go-cve-dictionary](https://github.com/kotakanbe/go-cve-dictionary) fetch.
+- [vulsio/go-cve-dictionary](https://github.com/vulsio/go-cve-dictionary) fetch.
 
 ---
 

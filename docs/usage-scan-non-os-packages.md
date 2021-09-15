@@ -80,7 +80,7 @@ see also [Architecture/CPE Scan](architecture-cpe-scan.md)
 [NVD: Search Common Platform Enumerations (CPE)](https://web.nvd.nist.gov/view/cpe/search)
 You need **Check CPE Naming Format: 2.2**
 
-[go-cpe-dictionary](https://github.com/kotakanbe/go-cpe-dictionary) is a good choice for geeks.
+[go-cpe-dictionary](https://github.com/vulsio/go-cpe-dictionary) is a good choice for geeks.
 [![asciicast](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png)](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0)
 
 You can search a CPE name by the application name incrementally.
