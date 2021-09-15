@@ -24,7 +24,7 @@ If the DB schema was changed, use a new database.
 Vuls doesn't migrate old schema to new schema.
 
 ```bash
-$ cd $GOPATH/src/github.com/kotakanbe/goval-dictionary
+$ cd $GOPATH/src/github.com/vulsio/goval-dictionary
 $ git pull
 $ rm -r vendor
 $ make install

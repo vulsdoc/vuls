@@ -335,7 +335,7 @@ $ ./tui.sh
 If you scan other Linux distributions, please prepare a corresponding OVAL in advance as well. Please refer to the documentation for details.
 
 - [vulsctl/docker/oval.sh](https://github.com/vulsio/vulsctl/blob/master/docker/oval.sh)
-- [kotakanbe/goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
+- [vulsio/goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ---
 

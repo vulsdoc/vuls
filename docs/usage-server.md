@@ -411,7 +411,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @ubuntu1604.json http://${
 
 ### SLES
 
-You may need to apply the following patch to goval-dictionnary before to fix SLES OVAL fetching: https://github.com/kotakanbe/goval-dictionary/pull/108
+You may need to apply the following patch to goval-dictionnary before to fix SLES OVAL fetching: https://github.com/vulsio/goval-dictionary/pull/108
 
 ```json
 $ cat sles12.json

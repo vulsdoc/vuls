@@ -92,20 +92,20 @@ $ ls -alh cve.sqlite3
 
 ## Deploy goval-dictionary
 
-[goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
+[goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ```bash
 $ mkdir -p $GOPATH/src/github.com/kotakanbe
 $ cd $GOPATH/src/github.com/kotakanbe
-$ git clone https://github.com/kotakanbe/goval-dictionary.git
+$ git clone https://github.com/vulsio/goval-dictionary.git
 $ cd goval-dictionary
 $ make install
-$ ln -s $GOPATH/src/github.com/kotakanbe/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3
+$ ln -s $GOPATH/src/github.com/vulsio/goval-dictionary/oval.sqlite3 $HOME/oval.sqlite3
 ```
 
 The binary was built under `$GOPATH/bin`
 
- Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
+ Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
 ```bash
 $ goval-dictionary fetch-redhat 7
@@ -113,12 +113,12 @@ $ goval-dictionary fetch-redhat 7
 
 If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.
 
-- [Alpine](https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
-- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
-- [Debian](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-debian)
-- [Ubuntu](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
-- [Oracle Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
-- [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
+- [Alpine](https://github.com/vulsio/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
+- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+- [Debian](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-debian)
+- [Ubuntu](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
+- [Oracle Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)
+- [SUSE](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-suse)
 
 ## Deploy gost
 

@@ -46,7 +46,7 @@ To fetch JVN(Japanese), See [README](https://github.com/kotakanbe/go-cve-diction
 
 ## Step2. Fetch OVAL (e.g. redhat)
 
-[goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
+[goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ```console
 $ docker run --rm -it \
@@ -55,7 +55,7 @@ $ docker run --rm -it \
     vuls/goval-dictionary fetch redhat 5 6 7 8
 ```
 
-To fetch other OVAL, See [README](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
+To fetch other OVAL, See [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
 ## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)
 
@@ -317,7 +317,7 @@ If you get below error message while fetching, define `sql_mode`.
 Error 1292: Incorrect datetime value: '0000-00-00' for column 'issued' at row 1
 ```
 
-see the [issue](https://github.com/kotakanbe/goval-dictionary/issues/45)
+see the [issue](https://github.com/vulsio/goval-dictionary/issues/45)
 
 ```bash
 $ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chHUIDCUAUaidfhasuadasuda  -d mysql:8 --sql-mode="" --default-authentication-plugin=mysql_native_password
