@@ -94,30 +94,30 @@
 <span class="hljs-meta">$</span><span class="bash"> mkdir go-cve-dictionary-log goval-dictionary-log gost-log go-exploitdb-log go-msfdb-log</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="step1-fetch-nvd"></a><a href="#step1-fetch-nvd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step1. Fetch NVD</h2>
-<p><a href="https://github.com/kotakanbe/go-cve-dictionary">go-cve-dictionary</a></p>
-<p><a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-nvd-data">kotakanbe/go-cve-dictionary:README</a></p>
+<p><a href="https://github.com/vulsio/go-cve-dictionary">go-cve-dictionary</a></p>
+<p><a href="https://github.com/vulsio/go-cve-dictionary#usage-fetch-nvd-data">vulsio/go-cve-dictionary:README</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v $PWD:/go-cve-dictionary \
     -v $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary \
     vuls/go-cve-dictionary fetch nvd
 </code></pre>
-<p>To fetch JVN(Japanese), See <a href="https://github.com/kotakanbe/go-cve-dictionary#usage-fetch-jvn-data">README</a></p>
+<p>To fetch JVN(Japanese), See <a href="https://github.com/vulsio/go-cve-dictionary#usage-fetch-jvn-data">README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step2-fetch-oval-eg-redhat"></a><a href="#step2-fetch-oval-eg-redhat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step2. Fetch OVAL (e.g. redhat)</h2>
-<p><a href="https://github.com/kotakanbe/goval-dictionary">goval-dictionary</a></p>
+<p><a href="https://github.com/vulsio/goval-dictionary">goval-dictionary</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v $PWD:/goval-dictionary \
     -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     vuls/goval-dictionary fetch redhat 5 6 7 8
 </code></pre>
-<p>To fetch other OVAL, See <a href="https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
+<p>To fetch other OVAL, See <a href="https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat">README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step3-fetch-gostgo-security-tracker-for-redhatcentosalma-linuxrocky-linux-debian-and-ubuntu"></a><a href="#step3-fetch-gostgo-security-tracker-for-redhatcentosalma-linuxrocky-linux-debian-and-ubuntu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)</h2>
-<p><a href="https://github.com/knqyf263/gost">gost (go-security-tracker)</a></p>
+<p><a href="https://github.com/vulsio/gost">gost (go-security-tracker)</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/gost \
     -v $PWD/gost-log:/var/log/gost \
     vuls/gost fetch redhat
 </code></pre>
-<p>To fetch Debian security tracker, See <a href="https://github.com/knqyf263/gost#fetch-debian">Gost README</a></p>
+<p>To fetch Debian security tracker, See <a href="https://github.com/vulsio/gost#fetch-debian">Gost README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step35-fetch-go-exploitdb"></a><a href="#step35-fetch-go-exploitdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.5. Fetch go-exploitdb</h2>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/go-exploitdb \
@@ -302,7 +302,7 @@
 <p>If you get below error message while fetching, define <code>sql_mode</code>.</p>
 <pre><code class="hljs css language-bash">Error 1292: Incorrect datetime value: <span class="hljs-string">'0000-00-00'</span> <span class="hljs-keyword">for</span> column <span class="hljs-string">'issued'</span> at row 1
 </code></pre>
-<p>see the <a href="https://github.com/kotakanbe/goval-dictionary/issues/45">issue</a></p>
+<p>see the <a href="https://github.com/vulsio/goval-dictionary/issues/45">issue</a></p>
 <pre><code class="hljs css language-bash">$ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=chHUIDCUAUaidfhasuadasuda  -d mysql:8 --sql-mode=<span class="hljs-string">""</span> --default-authentication-plugin=mysql_native_password
 4e4440bbbcb556cf949c2ffcda15afe6ee7139752c08de8b1e4def47adde24ea
 
