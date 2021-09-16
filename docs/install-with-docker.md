@@ -26,7 +26,7 @@ goval-dictionary v0.1.xxx xxxx
 
 ## install/update gost
 
-> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new data source named [gost](https://github.com/knqyf263/gost).
+> New version Vuls 0.5.0 now possible to detect vulnerabilities that patches have not been published from distributors using new data source named [gost](https://github.com/vulsio/gost).
 
 ```console
 $ docker pull vuls/gost
@@ -37,7 +37,7 @@ gost  v0.1.xxx xxxx
 
 ## install/update go-exploitdb
 
-[go-exploitdb](https://github.com/mozqnet/go-exploitdb)
+[go-exploitdb](https://github.com/vulsio/go-exploitdb)
 > New version Vuls 0.6.0 now possible to display exploit codes have been published at [Exploit DB.com](https://www.exploit-db.com/). If you don't need to know about exploit code for detected CVEs, skip this section.
 
 ```console
@@ -50,7 +50,7 @@ Go Exploit DB
 
 ## install/update go-msfdb
 
-[go-msfdb](https://github.com/takuzoo3868/go-msfdb)
+[go-msfdb](https://github.com/vulsio/go-msfdb)
 > New version Vuls 0.11.0 now possible to display metasploit modules have been published at [Metasploit](https://github.com/rapid7/metasploit-framework). If you don't need to know about metasploit modules for detected CVEs, skip this section.
 
 ```console

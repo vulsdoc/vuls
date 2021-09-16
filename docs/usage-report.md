@@ -122,7 +122,7 @@ Vuls detects CVEs, gets the information of CVEs and filters.
 - Detector
   - [trivy](https://github.com/aquasecurity/trivy)
   - [OVAL](https://oval.mitre.org/)
-  - [GOST](https://github.com/knqyf263/gost)
+  - [GOST](https://github.com/vulsio/gost)
   - [CPE](https://nvd.nist.gov/products/cpe)
   - [Github Security Alerts](https://docs.github.com/ja/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)
   - [WPScan](https://wpscan.com/)

@@ -4,7 +4,7 @@ title: goval-dictionary
 sidebar_label: goval-dictionary
 ---
 
-For detail of goval-dictionary, see [kotakanbe/goval-dictionary](https://github.com/kotakanbe/goval-dictionary)
+For detail of goval-dictionary, see [vulsio/goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ## Usage: goval-dictionary on different server
 
@@ -26,9 +26,9 @@ $ vuls report
 
 ## Usage: Update OVAL Data
 
-- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-redhat)
-- [Ubuntu](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
-- [Debian](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-debian)
-- [Oracle](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-oracle)
-- [SUSE](https://github.com/kotakanbe/goval-dictionary#usage-fetch-oval-data-from-suse)
-- [Alpine](https://github.com/kotakanbe/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
+- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+- [Ubuntu](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
+- [Debian](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-debian)
+- [Oracle](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)
+- [SUSE](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-suse)
+- [Alpine](https://github.com/vulsio/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)

@@ -4,7 +4,7 @@ title: gost
 sidebar_label: gost
 ---
 
-For detail of gost, see [knqyf263/gost](https://github.com/knqyf263/gost)
+For detail of gost, see [vulsio/gost](https://github.com/vulsio/gost)
 
 ## Usage: gost  on different server
 
@@ -26,4 +26,4 @@ $ vuls report
 
 ## Usage: Update security tracker data
 
-for details, see [doc](https://github.com/knqyf263/gost#fetch-redhat)
+for details, see [doc](https://github.com/vulsio/gost#fetch-redhat)

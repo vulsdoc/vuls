@@ -15,7 +15,7 @@ To scan vulnerabilities of `non-OS-packages`, there are some options.
 
 ## Library Vulns Scan
 
-Vuls over v0.8.0 can scan libraries using [knqyf263/trivy](https://github.com/knqyf263/trivy).
+Vuls over v0.8.0 can scan libraries using [aquasecurity/trivy](https://github.com/aquasecurity/trivy).
 Trivy detects lock files listed below.
 
 - Gemfile.lock
@@ -80,7 +80,7 @@ see also [Architecture/CPE Scan](architecture-cpe-scan.md)
 [NVD: Search Common Platform Enumerations (CPE)](https://web.nvd.nist.gov/view/cpe/search)
 You need **Check CPE Naming Format: 2.2**
 
-[go-cpe-dictionary](https://github.com/kotakanbe/go-cpe-dictionary) is a good choice for geeks.
+[go-cpe-dictionary](https://github.com/vulsio/go-cpe-dictionary) is a good choice for geeks.
 [![asciicast](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png)](https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0)
 
 You can search a CPE name by the application name incrementally.
