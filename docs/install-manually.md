@@ -55,8 +55,8 @@ $ source /etc/profile.d/goenv.sh
 $ sudo mkdir /var/log/vuls
 $ sudo chown <user> /var/log/vuls
 $ sudo chmod 700 /var/log/vuls
-$ mkdir -p $GOPATH/src/github.com/kotakanbe
-$ cd $GOPATH/src/github.com/kotakanbe
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
 $ git clone https://github.com/vulsio/go-cve-dictionary.git
 $ cd go-cve-dictionary
 $ make install
@@ -95,8 +95,8 @@ $ ls -alh cve.sqlite3
 [goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ```bash
-$ mkdir -p $GOPATH/src/github.com/kotakanbe
-$ cd $GOPATH/src/github.com/kotakanbe
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
 $ git clone https://github.com/vulsio/goval-dictionary.git
 $ cd goval-dictionary
 $ make install
@@ -183,8 +183,8 @@ Fetch with --deep option, Many exploits information will be obtained. But fetch 
 $ sudo mkdir /var/log/go-msfdb
 $ sudo chown <user> /var/log/go-msfdb
 $ sudo chmod 700 /var/log/go-msfdb
-$ mkdir -p $GOPATH/src/github.com/takuzoo3868
-$ cd $GOPATH/src/github.com/takuzoo3868
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
 $ git clone https://github.com/vulsio/go-msfdb.git
 $ cd go-msfdb
 $ make install
