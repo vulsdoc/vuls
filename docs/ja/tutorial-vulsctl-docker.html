@@ -90,11 +90,12 @@
 <p>The following spec is recommended.</p>
 <ul>
 <li>Disk: About 15 GB is enough.</li>
-<li>4GB or more of memory is recommended.
+<li><del>4GB or more of memory is recommended.</del>
 <ul>
-<li>Vulnerability DB (NVD) fetch consumes about 2.5 GB of memory.</li>
-<li>If it's not enough, it will be out of memory.</li>
-<li>t3.medium is fine (AWS EC2).</li>
+<li><del>Vulnerability DB (NVD) fetch consumes about 2.5 GB of memory.</del></li>
+<li><del>If it's not enough, it will be out of memory.</del></li>
+<li><del>t3.medium is fine (AWS EC2).</del></li>
+<li>Since <a href="https://github.com/vulsio/go-cve-dictionary/releases/tag/v0.8.1">go-cve-dictionary-v0.8.1</a>, memory consumption has been reduced, You can use a smaller instance.</li>
 </ul></li>
 </ul>
 <p>In this tutorial, we will use CentOS 7 as an example.</p>
