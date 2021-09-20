@@ -27,10 +27,11 @@ Any major Linux will work.
 The following spec is recommended.
 
 - Disk: About 15 GB is enough.
-- 4GB or more of memory is recommended.
-  - Vulnerability DB (NVD) fetch consumes about 2.5 GB of memory.
-  - If it's not enough, it will be out of memory.
-  - t3.medium is fine (AWS EC2).
+- ~~4GB or more of memory is recommended.~~
+  - ~~Vulnerability DB (NVD) fetch consumes about 2.5 GB of memory.~~
+  - ~~If it's not enough, it will be out of memory.~~
+  - ~~t3.medium is fine (AWS EC2).~~
+  - Since [go-cve-dictionary-v0.8.1](https://github.com/vulsio/go-cve-dictionary/releases/tag/v0.8.1), memory consumption has been reduced, You can use a smaller instance.
 
 In this tutorial, we will use CentOS 7 as an example.
 
