@@ -16,15 +16,7 @@ To scan vulnerabilities of `non-OS-packages`, there are some options.
 ## Library Vulns Scan
 
 Vuls over v0.8.0 can scan libraries using [aquasecurity/trivy](https://github.com/aquasecurity/trivy).
-Trivy detects lock files listed below.
-
-- Gemfile.lock
-- Pipfile.lock
-- poetry.lock
-- composer.lock
-- package-lock.json
-- yarn.lock
-- Cargo.lock
+Trivy detects lock files listed [here](https://aquasecurity.github.io/trivy/v0.19.2/vulnerability/detection/language/)
 
 A sample of config.toml is blow.  
 specify the path of lockfiles, Vuls can detect vulns of libs without defining CPEs.
@@ -40,14 +32,15 @@ keyPath     = "/Users/amachi/.ssh/id_dsa"
 findLock = true # auto detect lockfile
 lockfiles = [
   "/home/tamachi/lockfiles/package-lock.json",
-  "/home/tamachi/lockfiles/yarn.lock"
+  "/home/tamachi/lockfiles/yarn.lock",
+  "/home/tamachi/lockfiles/struts.jar",
 ]
 ```
 
 ## Usage: Integrate with GitHub Security Alerts
 
 GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
-It becomes possible to import vulnerabilities detected by GitHub via GitHub 's API.
+It becomes possible to import vulnerabilities detected by GitHub via GitHub's API.
 
 First, enable GitHub security alerts on your repo. [see](https://help.github.com/en/github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization)
 
