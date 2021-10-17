@@ -214,7 +214,7 @@ class Index extends React.Component {
             <h2>{"Sponsor"}</h2>
             <div className="logos">
               <a href='https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=vuls'>
-                <img src='/img/icons/tines.svg' title='tines.com'/>
+                <img src='/img/icons/tines.png' title='tines.com'/>
               </a>
               <a href='https://www.sakura.ad.jp/'>
                 <img src='/img/icons/sakura.svg' title='SAKURA internet'/>
