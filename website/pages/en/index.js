@@ -211,6 +211,20 @@ class Index extends React.Component {
 
           <Container padding={['bottom', 'top']}>
           <div className="productShowcaseSection paddingBottom">
+            <h2>{"Sponsor"}</h2>
+            <div className="logos">
+              <a href='https://www.tines.com/?utm_source=oss&utm_medium=sponsorship&utm_campaign=vuls'>
+                <img src='/img/icons/tines.svg' title='tines.com'/>
+              </a>
+              <a href='https://www.sakura.ad.jp/'>
+                <img src='/img/icons/sakura.svg' title='SAKURA internet'/>
+              </a>
+            </div>
+          </div>
+          </Container>
+
+          <Container padding={['bottom', 'top']}>
+          <div className="productShowcaseSection paddingBottom">
             <h2>{"Who's Using This?"}</h2>
             <p>This project is used by all these people</p>
             <div className="logos">{showcase}</div>
@@ -223,18 +237,6 @@ class Index extends React.Component {
                 More {siteConfig.title} Users
               </a>
             </div>
-          </div>
-          </Container>
-
-          <Container padding={['bottom', 'top']}>
-          <div className="productShowcaseSection paddingBottom">
-            <h2>{"Test Environment Sponsor"}</h2>
-	    <p>Sponsoring company for the test environment</p>
-            <div className="logos">
-              <a href='https://www.sakura.ad.jp/'>
-                <img src='/img/icons/sakura.svg' title='SAKURA internet'/>
-              </a>
-	    </div>
           </div>
           </Container>
 
