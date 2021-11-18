@@ -65,6 +65,17 @@ $ git pull
 $ make install
 ```
 
+- Update go-kev
+
+If the DB schema was changed, use a new database.
+Vuls doesn't migrate old schema to new schema.
+
+```bash
+$ cd $GOPATH/src/github.com/vulsio/go-kev
+$ git pull
+$ make install
+```
+
 - Update vuls
 
 ```bash

@@ -131,6 +131,7 @@ Vuls detects CVEs, gets the information of CVEs and filters.
   - [Metasploits](https://www.rapid7.com/ja/db/?type=metasploit)
   - [NVD](https://nvd.nist.gov/vuln)
   - [JVN](https://jvndb.jvn.jp/)
+  - [CISA (Known Exploited Vulnerabilities Catalog)](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
   - [Exploit Database (exploit)](https://www.exploit-db.com/)
 
 
