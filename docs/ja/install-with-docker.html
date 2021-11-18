@@ -112,20 +112,10 @@ Go Exploit DB
 <blockquote>
 <p>New version Vuls 0.11.0 now possible to display metasploit modules have been published at <a href="https://github.com/rapid7/metasploit-framework">Metasploit</a>. If you don't need to know about metasploit modules for detected CVEs, skip this section.</p>
 </blockquote>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker pull vuls/go-msfdb</span>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker pull vuls/gost</span>
 <span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-msfdb <span class="hljs-built_in">help</span></span>
 
 Go Metasploit DB
-[...]
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="installupdate-go-kev"></a><a href="#installupdate-go-kev" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>install/update go-kev</h2>
-<blockquote>
-<p>New version Vuls 0.xx.y now possible to display Known Exploited Vulnerabilities have been published at <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">Cybersecurity &amp; Infrastructure Security Agency</a>. If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.</p>
-</blockquote>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker pull vuls/go-kev</span>
-<span class="hljs-meta">$</span><span class="bash"> docker run --rm  vuls/go-kev <span class="hljs-built_in">help</span></span>
-
-Go Known Exploited Vulnerabilities
 [...]
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="installupdate-vuls"></a><a href="#installupdate-vuls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>install/update Vuls</h2>
@@ -140,44 +130,23 @@ vuls v0.1.xxx xxxx
 <ul>
 <li>go-cve-dictionary</li>
 </ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-cve-dictionary version</span>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-cve-dictionary -v</span>
 
 go-cve-dictionary v0.0.xxx xxxx
 </code></pre>
 <ul>
 <li>goval-dictionary</li>
 </ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/goval-dictionary version</span>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/goval-dictionary -v</span>
 
 goval-dictionary v0.0.xxx xxxx
 </code></pre>
 <ul>
 <li>gost</li>
 </ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/gost version</span>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/gost -v</span>
 
 gost v0.0.xxx xxxx
-</code></pre>
-<ul>
-<li>go-exploitdb</li>
-</ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-exploitdb version</span>
-
-go-exploitdb v0.0.xxx xxxx
-</code></pre>
-<ul>
-<li>go-msfdb</li>
-</ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-msfdb version</span>
-
-go-msfdb v0.0.xxx xxxx
-</code></pre>
-<ul>
-<li>go-kev</li>
-</ul>
-<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run  --rm  vuls/go-kev version</span>
-
-go-kev v0.0.xxx xxxx
 </code></pre>
 <ul>
 <li>vuls</li>
@@ -191,9 +160,6 @@ vuls v0.0.xxx xxxx
 <li><a href="https://hub.docker.com/r/vuls/go-cve-dictionary/">vuls/go-cve-dictionary</a></li>
 <li><a href="https://hub.docker.com/r/vuls/goval-dictionary/">vuls/goval-dictionary</a></li>
 <li><a href="https://hub.docker.com/r/vuls/gost/">vuls/gost</a></li>
-<li><a href="https://hub.docker.com/r/vuls/go-exploitdb/">vuls/go-exploitdb</a></li>
-<li><a href="https://hub.docker.com/r/vuls/go-msfdb/">vuls/go-msfdb</a></li>
-<li><a href="https://hub.docker.com/r/vuls/go-kev/">vuls/go-kev</a></li>
 <li><a href="https://hub.docker.com/r/vuls/vuls/">vuls/vuls</a></li>
 <li><a href="https://hub.docker.com/r/vuls/vulsrepo/">vuls/vulsrepo</a></li>
 </ul>
