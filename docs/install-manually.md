@@ -202,7 +202,7 @@ $ go-msfdb fetch msfdb
 ## Deploy go-kev
 
 [go-kev](https://github.com/vulsio/go-kev)
-> New version Vuls 0.xx.y now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
+> New version Vuls 0.19.0 now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
 
 ```bash
 $ sudo mkdir /var/log/go-kev

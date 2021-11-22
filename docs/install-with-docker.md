@@ -62,7 +62,7 @@ Go Metasploit DB
 ```
 
 ## install/update go-kev
-> New version Vuls 0.xx.y now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
+> New version Vuls 0.19.0 now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
 
 ```console
 $ docker pull vuls/go-kev
