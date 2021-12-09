@@ -314,8 +314,8 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://${VUL
 You need release got by a command such as below.
 
 ```bash
-# e.g. "2 (Karoo)"
-RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
+# e.g. "2 (Karoo), 2022 (Amazon Linux)"
+RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2022/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2022/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
 ```
 
 ```json
