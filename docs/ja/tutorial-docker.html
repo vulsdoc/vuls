@@ -119,17 +119,25 @@
 </code></pre>
 <p>To fetch Debian security tracker, See <a href="https://github.com/vulsio/gost#fetch-debian">Gost README</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step35-go-exploitdb-の取得"></a><a href="#step35-go-exploitdb-の取得" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.5. go-exploitdb の取得</h2>
+<p><a href="https://github.com/vulsio/go-exploitdb">go-exploitdb</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
 </code></pre>
-<p>To fetch deep go-exploitdb, See <a href="https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit">this</a></p>
 <h2><a class="anchor" aria-hidden="true" id="step36-fetch-go-msfdb"></a><a href="#step36-fetch-go-msfdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.6. Fetch go-msfdb</h2>
+<p><a href="https://github.com/vulsio/go-msfdb">go-msfdb</a></p>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
     -v $PWD:/go-msfdb \
     -v $PWD/go-msfdb-log:/var/log/go-msfdb \
     vuls/go-msfdb fetch msfdb
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="step37-fetch-go-kev"></a><a href="#step37-fetch-go-kev" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step3.7. Fetch go-kev</h2>
+<p><a href="https://github.com/vulsio/go-kev">go-kev</a></p>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -i \</span>
+    -v $PWD:/go-kev \
+    -v $PWD/go-kev-log:/var/log/go-kev \
+    vuls/go-kev fetch kevuln
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="step4-configuration"></a><a href="#step4-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step4. Configuration</h2>
 <p>Create config.toml referring to <a href="config.toml.md">this</a>.</p>
@@ -195,6 +203,10 @@
 <span class="hljs-section">[metasploit]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
 <span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/db/go-msfdb.sqlite3"</span>
+
+<span class="hljs-section">[kevuln]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"sqlite3"</span>
+<span class="hljs-attr">SQLite3Path</span> = <span class="hljs-string">"/path/to/db/go-kev.sqlite3"</span>
 </code></pre>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v ~/.ssh:/root/.ssh:ro \
@@ -258,7 +270,7 @@
     -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     --expose 1326 \
-    -p 1325:1326 \
+    -p 1326:1326 \
     vuls/go-exploitdb server --bind=0.0.0.0
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="go-msfdb"></a><a href="#go-msfdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-msfdb</h3>
@@ -267,8 +279,17 @@
     -v $PWD:/go-msfdb \
     -v $PWD/go-msfdb-log:/var/log/go-msfdb \
     --expose 1327 \
-    -p 1325:1327 \
+    -p 1327:1327 \
     vuls/go-msfdb server --bind=0.0.0.0
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="go-kev"></a><a href="#go-kev" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go-kev</h3>
+<pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run -dt \</span>
+    --name go-kev \
+    -v $PWD:/go-kev \
+    -v $PWD/go-kev-log:/var/log/go-kev \
+    --expose 1328 \
+    -p 1328:1328 \
+    vuls/go-kev server --bind=0.0.0.0
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="report"></a><a href="#report" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Report</h3>
 <pre><code class="hljs css language-toml"><span class="hljs-section">[cveDict]</span>
@@ -290,6 +311,10 @@
 <span class="hljs-section">[metasploit]</span>
 <span class="hljs-attr">type</span> = <span class="hljs-string">"http"</span>
 <span class="hljs-attr">url</span> = <span class="hljs-string">"http://hostname:1327"</span>
+
+<span class="hljs-section">[kevuln]</span>
+<span class="hljs-attr">type</span> = <span class="hljs-string">"http"</span>
+<span class="hljs-attr">url</span> = <span class="hljs-string">"http://hostname:1328"</span>
 </code></pre>
 <pre><code class="hljs css language-console"><span class="hljs-meta">$</span><span class="bash"> docker run --rm -it \</span>
     -v ~/.ssh:/root/.ssh:ro \
