@@ -44,12 +44,6 @@ const users = [
     pinned: true,
   },
   {
-    caption: 'SmartHR',
-    image: '/img/icons/smarthr.svg',
-    infoLink: 'https://smarthr.jp/',
-    pinned: true,
-  },
-  {
     caption: 'Velc',
     image: '/img/icons/velc.svg',
     infoLink: 'https://www.velc.co.jp/',
