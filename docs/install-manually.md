@@ -199,6 +199,31 @@ Then fetch msf-db information. [README](https://github.com/vulsio/go-msfdb#usage
 $ go-msfdb fetch msfdb
 ```
 
+## Deploy go-kev
+
+[go-kev](https://github.com/vulsio/go-kev)
+> New version Vuls 0.19.0 now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
+
+```bash
+$ sudo mkdir /var/log/go-kev
+$ sudo chown <user> /var/log/go-kev
+$ sudo chmod 700 /var/log/go-kev
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
+$ git clone https://github.com/vulsio/go-kev.git
+$ cd go-kev
+$ make install
+$ ln -s $GOPATH/src/github.com/vulsio/go-kev/go-kev.sqlite3 $HOME/go-kev.sqlite3
+```
+
+The binary was built under `$GOPATH/bin`
+
+Then fetch Known Exploited Vulnerabilities information. [README](https://github.com/vulsio/go-kev#fetch-known-exploited-vulnerabilities)
+
+```bash
+$ go-kev fetch kevuln
+```
+
 ## Deploy Vuls
 
 ```bash

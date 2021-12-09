@@ -492,6 +492,16 @@ It is possible to obtain JPCERT/CC and US-CERT alerts and display whether the de
 
 ---
 
+## CISA Known Exploited Vulnerabilities alert information.
+
+It is possible to obtain CISA Known Exploited Vulnerabilities alerts and display whether the detected vulnerability corresponds to the alert information.
+
+- [Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+
+- [vulsio/go-kev](https://github.com/vulsio/go-kev) fetch.
+
+---
+
 ## Scan in fast-root mode
 
 The [fast-root](https://vuls.io/docs/en/architecture-fast-root-scan.html) scan mode issues commands that require root privileges. This allows you to display process information, and network port listen information, and other information useful in making triage decisions.
@@ -682,12 +692,6 @@ This will take over an hour in my environment.
 
 ```bash
 $ ./update-all.sh
-```
-
-To fetch Vulnerability database for Japanese(JVN).
-
-```bash
-$ ./jvn.sh
 ```
 
 ## Misc

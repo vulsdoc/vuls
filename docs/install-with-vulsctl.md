@@ -40,12 +40,6 @@ $ cd docker
 $ ./update-all.sh
 ```
 
-To fetch Vulnerability database for Japanese(JVN).
-
-```bash
-$ ./jvn.sh
-```
-
 ## Config, Scan, Report
 
 Prepare the **config.toml** in the **vulsctl** install directory similar to

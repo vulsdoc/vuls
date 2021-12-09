@@ -72,6 +72,8 @@ To fetch Debian security tracker, See [Gost README](https://github.com/vulsio/go
 
 ## Step3.5. Fetch go-exploitdb
 
+[go-exploitdb](https://github.com/vulsio/go-exploitdb)
+
 ```console
 $ docker run --rm -i \
     -v $PWD:/go-exploitdb \
@@ -79,15 +81,26 @@ $ docker run --rm -i \
     vuls/go-exploitdb fetch exploitdb
 ```
 
-To fetch deep go-exploitdb, See [this](https://github.com/vulsio/go-exploitdb#deep-fetch-and-insert-exploit)
-
 ## Step3.6. Fetch go-msfdb
+
+[go-msfdb](https://github.com/vulsio/go-msfdb)
 
 ```console
 $ docker run --rm -i \
     -v $PWD:/go-msfdb \
     -v $PWD/go-msfdb-log:/var/log/go-msfdb \
     vuls/go-msfdb fetch msfdb
+```
+
+## Step3.7. Fetch go-kev
+
+[go-kev](https://github.com/vulsio/go-kev)
+
+```console
+$ docker run --rm -i \
+    -v $PWD:/go-kev \
+    -v $PWD/go-kev-log:/var/log/go-kev \
+    vuls/go-kev fetch kevuln
 ```
 
 ## Step4. Configuration
@@ -172,6 +185,10 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 [metasploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/db/go-msfdb.sqlite3"
+
+[kevuln]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/go-kev.sqlite3"
 ```
 
 ```console
@@ -260,7 +277,7 @@ $ docker run -dt \
     -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     --expose 1326 \
-    -p 1325:1326 \
+    -p 1326:1326 \
     vuls/go-exploitdb server --bind=0.0.0.0
 ```
 
@@ -272,8 +289,20 @@ $ docker run -dt \
     -v $PWD:/go-msfdb \
     -v $PWD/go-msfdb-log:/var/log/go-msfdb \
     --expose 1327 \
-    -p 1325:1327 \
+    -p 1327:1327 \
     vuls/go-msfdb server --bind=0.0.0.0
+```
+
+### go-kev
+
+```console
+$ docker run -dt \
+    --name go-kev \
+    -v $PWD:/go-kev \
+    -v $PWD/go-kev-log:/var/log/go-kev \
+    --expose 1328 \
+    -p 1328:1328 \
+    vuls/go-kev server --bind=0.0.0.0
 ```
 
 ### Report
@@ -298,6 +327,10 @@ url = "http://hostname:1326"
 [metasploit]
 type = "http"
 url = "http://hostname:1327"
+
+[kevuln]
+type = "http"
+url = "http://hostname:1328"
 ```
 
 ```console

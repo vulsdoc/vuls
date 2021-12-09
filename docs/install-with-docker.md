@@ -61,6 +61,16 @@ Go Metasploit DB
 [...]
 ```
 
+## install/update go-kev
+> New version Vuls 0.19.0 now possible to display Known Exploited Vulnerabilities have been published at [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). If you don't need to know about Known Exploited Vulnerabilities for detected CVEs, skip this section.
+
+```console
+$ docker pull vuls/go-kev
+$ docker run --rm  vuls/go-kev help
+
+Go Known Exploited Vulnerabilities
+[...]
+```
 ## install/update Vuls
 
 ```console
@@ -79,7 +89,7 @@ See [Tutorial:Docker](tutorial-docker.md)
 - go-cve-dictionary
 
 ```console
-$ docker run  --rm  vuls/go-cve-dictionary -v
+$ docker run  --rm  vuls/go-cve-dictionary version
 
 go-cve-dictionary v0.0.xxx xxxx
 ```
@@ -87,7 +97,7 @@ go-cve-dictionary v0.0.xxx xxxx
 - goval-dictionary
 
 ```console
-$ docker run  --rm  vuls/goval-dictionary -v
+$ docker run  --rm  vuls/goval-dictionary version
 
 goval-dictionary v0.0.xxx xxxx
 ```
@@ -95,9 +105,33 @@ goval-dictionary v0.0.xxx xxxx
 - gost
 
 ```console
-$ docker run  --rm  vuls/gost -v
+$ docker run  --rm  vuls/gost version
 
 gost v0.0.xxx xxxx
+```
+
+- go-exploitdb
+
+```console
+$ docker run  --rm  vuls/go-exploitdb version
+
+go-exploitdb v0.0.xxx xxxx
+```
+
+- go-msfdb
+
+```console
+$ docker run  --rm  vuls/go-msfdb version
+
+go-msfdb v0.0.xxx xxxx
+```
+
+- go-kev
+
+```console
+$ docker run  --rm  vuls/go-kev version
+
+go-kev v0.0.xxx xxxx
 ```
 
 - vuls
@@ -113,6 +147,9 @@ vuls v0.0.xxx xxxx
 - [vuls/go-cve-dictionary](https://hub.docker.com/r/vuls/go-cve-dictionary/)
 - [vuls/goval-dictionary](https://hub.docker.com/r/vuls/goval-dictionary/)
 - [vuls/gost](https://hub.docker.com/r/vuls/gost/)
+- [vuls/go-exploitdb](https://hub.docker.com/r/vuls/go-exploitdb/)
+- [vuls/go-msfdb](https://hub.docker.com/r/vuls/go-msfdb/)
+- [vuls/go-kev](https://hub.docker.com/r/vuls/go-kev/)
 - [vuls/vuls](https://hub.docker.com/r/vuls/vuls/)
 - [vuls/vulsrepo](https://hub.docker.com/r/vuls/vulsrepo/)
 
