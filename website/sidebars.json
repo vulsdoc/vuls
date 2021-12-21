@@ -60,6 +60,7 @@
       "gost",
       "go-exploitdb",
       "go-msfdb",
+      "go-kev",
       "related-projects",
       "tips"
     ]
