@@ -38,7 +38,7 @@ Scan with -offline option, vuls scans with no internet access.
 | Ubuntu      |                                   Fast |　                No |            Supported |                                      No |
 | Debian      |                                   Fast |　                No |            Supported |                                      No |
 | Raspbian    |                                   Fast |　                No |  Partially Supported |                                      No |
-| Amazo       |                                   Fast |　                No |            Supported |                                      No |
+| Amazon      |                                   Fast |　                No |            Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                      No |
 
 The offline scan mode is not supported for FreeBSD.
