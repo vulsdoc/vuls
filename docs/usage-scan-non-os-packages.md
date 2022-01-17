@@ -16,7 +16,7 @@ To scan vulnerabilities of `non-OS-packages`, there are some options.
 ## Library Vulns Scan
 
 Vuls over v0.8.0 can scan libraries using [aquasecurity/trivy](https://github.com/aquasecurity/trivy).
-Trivy detects lock files listed [here](https://aquasecurity.github.io/trivy/v0.19.2/vulnerability/detection/language/)
+Trivy detects lock files listed [here](https://aquasecurity.github.io/trivy/v0.22.0/vulnerability/detection/language/)
 
 A sample of config.toml is blow.  
 specify the path of lockfiles, Vuls can detect vulns of libs without defining CPEs.
