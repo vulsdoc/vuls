@@ -108,7 +108,7 @@ The binary was built under `$GOPATH/bin`
  Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
 ```bash
-$ goval-dictionary fetch-redhat 7
+$ goval-dictionary fetch redhat 7
 ```
 
 If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.

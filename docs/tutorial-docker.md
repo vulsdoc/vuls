@@ -387,7 +387,7 @@ Bye
 root@4e4440bbbcb5:/# exit
 exit
 
-bash-3.2$ go build && ./goval-dictionary fetch-ubuntu -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 18
+bash-3.2$ go build && ./goval-dictionary fetch ubuntu -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 18.04
 INFO[08-21|21:41:58] Fetching...                              URL=https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml
 
 
@@ -397,7 +397,7 @@ INFO[08-21|21:47:56] Fetched                                  URL=https://people
 INFO[08-21|21:47:56] Refreshing...                            Family=ubuntu Version=18
 
 
-bash-3.2$ go build && ./goval-dictionary fetch-debian -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 9
+bash-3.2$ go build && ./goval-dictionary fetch debian -dbtype mysql -dbpath "root:chHUIDCUAUaidfhasuadasuda@(127.0.0.1:3306)/oval?parseTime=true" 9
 INFO[08-21|21:49:43] Fetching...                              URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml
 INFO[08-21|21:50:14] Fetched...                               URL=https://www.debian.org/security/oval/oval-definitions-stretch.xml
 INFO[08-21|21:50:14] Finished fetching OVAL definitions
