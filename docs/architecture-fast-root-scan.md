@@ -10,10 +10,9 @@ sidebar_label: Fast-Root Scan
 |:------------|:--------------------------------------:|:-------------------:|:--------------------:|:---------------------------------------:|
 | Alpine      |                                   Fast |　                No |            Supported |                                    Need |
 | CentOS      |                                   Fast |　              Need |            Supported |                                    Need |
-| AlmaLinux   |                                   Fast |　              Need |            Supported |                                    Need |
+| Alma  Linux |                                   Fast |　              Need |            Supported |                                    Need |
 | Rocky Linux |                                   Fast |　              Need |            Supported |                                    Need |
 | RHEL        |                                   Fast |　              Need |            Supported |                                    Need |
-| Fedora      |                                   Fast |　              Need |            Supported |                                    Need |
 | Oracle      |                                   Fast |　              Need |            Supported |                                    Need |
 | Ubuntu      |                                   Fast |　              Need |            Supported |                                    Need |
 | Debian      |                                   Fast |　              Need |            Supported |                                    Need |
@@ -23,7 +22,7 @@ sidebar_label: Fast-Root Scan
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                    Need |
 
 Raspbian has been modified from its previous Changelog only scan to scan using Debian OVAL and Debian Security Tracker, Changelog.
-The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi).
+The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi). 
 In summary, the behavior of each scan mode in Raspbian is shown in the table below.
 
 |     Scan Mode    | fast |                 fast-root                |         deep         |
@@ -41,10 +40,9 @@ Scan with -offline option, vuls scans with no internet access.
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
 | Alpine      |                                   Fast |　                No |  Supported |                                    No |
 | CentOS      |                                   Fast |　              Need |  Supported |                                    No |
-| AlmaLinux   |                                   Fast |　              Need |  Supported |                                    No |
+| Alma  Linux |                                   Fast |　              Need |  Supported |                                    No |
 | Rocky Linux |                                   Fast |　              Need |  Supported |                                    No |
 | RHEL        |                                   Fast |　              Need |  Supported |                                    No |
-| Fedora      |                                   Fast |　              Need |  Supported |                                    No |
 | Oracle      |                                   Fast |　              Need |  Supported |                                    No |
 | Ubuntu      |                                   Fast |　              Need |  Supported |                                    No |
 | Debian      |                                   Fast |　              Need |  Supported |                                    No |
@@ -53,7 +51,7 @@ Scan with -offline option, vuls scans with no internet access.
 
 Offline scan mode is not supported FreeBSD, Raspbian.
 
-In Fast-Root Scan and Deep Scan, Raspbian scans a combination of Debian OVAL and Debian Security Tracker, Changelog, so Offline Scan mode cannot be provided completely.
+In Fast-Root Scan and Deep Scan, Raspbian scans a combination of Debian OVAL and Debian Security Tracker, Changelog, so Offline Scan mode cannot be provided completely. 
 If you execute Offline Scan, you can get the result of Debian OVAL and Debian Security Tracker only (same result as Fast Scan).
 
 ## Dependencies and /etc/sudoers
@@ -67,7 +65,7 @@ For details, see
 
 ### Detect processes affected by next package update
 
-It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, AlmaLinux, Rocky Linux,OracleLinux and Amazon Linux
+It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, Alma Linux, Rocky Linux,OracleLinux and Amazon Linux
 
 ### Detect not-restarted-processes
 
