@@ -133,7 +133,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 - RHEL
 - Fedora
 - CentOS
-- Alma Linux
+- AlmaLinux
 - Rocky Linux
 - Amazon Linux
 - Debian

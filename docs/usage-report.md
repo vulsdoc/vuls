@@ -274,8 +274,8 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 
   | Detection Method       | Confidence |  type                            |Description|
   |:-----------------------|-----------:|:---------------------------------|:--|
-  | OvalMatch              | 100        | CentOS, Alma Linux, Rocky Linux, RHEL, Fedora, Oracle, Ubuntu, Debian, SUSE |OVAL |
-  | RedHatAPIMatch         | 100        | CentOS, Alma Linux, Rocky Linux, RHEL |Red Hat API |
+  | OvalMatch              | 100        | CentOS, AlmaLinux, Rocky Linux, RHEL, Fedora, Oracle, Ubuntu, Debian, SUSE |OVAL |
+  | RedHatAPIMatch         | 100        | CentOS, AlmaLinux, Rocky Linux, RHEL |Red Hat API |
   | UbuntuAPIMatch         | 100        | Ubuntu                           |Ubuntu API |
   | DebianSecurityTrackerMatch| 100     | Debian                           |Debian Security Tracker |
   | TrivyMatch             | 100        | Container image and Lockfile     |trivy |
