@@ -15,6 +15,7 @@ Fast scan mode scans without root privilege, no dependencies almost no load on t
 | Alma  Linux |                                   Fast |　                No |            Supported |                                     Need |
 | Rocky Linux |                                   Fast |　                No |            Supported |                                     Need |
 | RHEL        |                                   Fast |　                No |            Supported |                                     Need |
+| Fedora      |                                   Fast |　                No |            Supported |                                     Need |
 | Oracle      |                                   Fast |　                No |            Supported |                                     Need |
 | Ubuntu      |                                   Fast |　                No |            Supported |                                     Need |
 | Debian      |                                   Fast |　                No |            Supported |                                     Need |
@@ -34,6 +35,7 @@ Scan with -offline option, vuls scans with no internet access.
 | Alma  Linux |                                   Fast |　                No |            Supported |                                      No |
 | Rocky Linux |                                   Fast |　                No |            Supported |                                      No |
 | RHEL        |                                   Fast |　                No |            Supported |                                      No |
+| Fedora      |                                   Fast |　                No |            Supported |                                      No |
 | Oracle      |                                   Fast |　                No |            Supported |                                      No |
 | Ubuntu      |                                   Fast |　                No |            Supported |                                      No |
 | Debian      |                                   Fast |　                No |            Supported |                                      No |
