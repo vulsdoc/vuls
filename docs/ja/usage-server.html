@@ -143,7 +143,7 @@ Server:
 <ul>
 <li>X-Vuls-OS-Family (必須)
 <ul>
-<li>OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian)</li>
+<li>OS Family of your target server (rhel, centos, alma, rocky, amazon, ubuntu and debian, raspbian)</li>
 </ul></li>
 <li>X-Vuls-OS-Release (必須)
 <ul>
@@ -169,7 +169,8 @@ Server:
 </code></pre>
 <p>上記の設定をcronにします。</p>
 <h3><a class="anchor" aria-hidden="true" id="applicationjson"></a><a href="#applicationjson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>application/json</h3>
-<p>Send JSON to your Vuls server. This is supposed to be used from programs etc.</p>
+<p>Send JSON to your Vuls server.<br>
+This is supposed to be used from programs etc.</p>
 <p>以下のようなJSONを送ってください。</p>
 <pre><code class="hljs css language-json">$ cat centos6.json
 {
@@ -201,9 +202,8 @@ Server:
 <h2><a class="anchor" aria-hidden="true" id="supported-os"></a><a href="#supported-os" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supported OS</h2>
 <ul>
 <li>RHEL</li>
-<li>Fedora</li>
 <li>CentOS</li>
-<li>AlmaLinux</li>
+<li>Alma Linux</li>
 <li>Rocky Linux</li>
 <li>Amazon Linux</li>
 <li>Debian</li>
@@ -228,10 +228,6 @@ INFO[08-25|18:10:49] Migrating DB.                            db=sqlite3
 <p>RHEL</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">export</span> VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H <span class="hljs-string">"Content-Type: text/plain"</span> -H <span class="hljs-string">"X-Vuls-OS-Family: `awk '{print tolower(<span class="hljs-variable">$1</span>)}' /etc/redhat-release`"</span> -H <span class="hljs-string">"X-Vuls-OS-Release: `awk '{print <span class="hljs-variable">$7</span>}' /etc/redhat-release`"</span> -H <span class="hljs-string">"X-Vuls-Kernel-Release: `uname -r`"</span> -H <span class="hljs-string">"X-Vuls-Server-Name: `hostname`"</span> --data-binary <span class="hljs-string">"`rpm -qa --queryformat "</span>%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n<span class="hljs-string">"`"</span> http://<span class="hljs-variable">${VULS_SERVER}</span>:5515/vuls
-</code></pre>
-<p>Fedora</p>
-<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">export</span> VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H <span class="hljs-string">"Content-Type: text/plain"</span> -H <span class="hljs-string">"X-Vuls-OS-Family: `awk '{print tolower(<span class="hljs-variable">$1</span>)}' /etc/fedora-release`"</span> -H <span class="hljs-string">"X-Vuls-OS-Release: `awk '{print <span class="hljs-variable">$3</span>}' /etc/fedora-release`"</span> -H <span class="hljs-string">"X-Vuls-Kernel-Release: `uname -r`"</span> -H <span class="hljs-string">"X-Vuls-Server-Name: `hostname`"</span> --data-binary <span class="hljs-string">"`rpm -qa --queryformat "</span>%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n<span class="hljs-string">"`"</span> http://<span class="hljs-variable">${VULS_SERVER}</span>:5515/vuls
 </code></pre>
 <p>CentOS 6</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">export</span> VULS_SERVER=[Your Vuls Server]
@@ -268,7 +264,8 @@ $ curl -X POST -H <span class="hljs-string">"Content-Type: text/plain"</span> -H
 <pre><code class="hljs css language-bash">$ vuls server -listen 0.0.0.0:5515 -to-localfile
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="client"></a><a href="#client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client</h3>
-<p>Log in your target server and execute only one command. <code>X-Vuls-Server-Name</code> header is also required.</p>
+<p>Log in your target server and execute only one command.<br>
+<code>X-Vuls-Server-Name</code> header is also required.</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">export</span> VULS_SERVER=[Your Vuls Server]
 $ <span class="hljs-built_in">export</span> SERVER_NAME=$(hostname)
 
@@ -288,7 +285,8 @@ $ curl -X POST -H <span class="hljs-string">"Content-Type: text/plain"</span> -H
 <pre><code class="hljs css language-bash">$ vuls server -listen 0.0.0.0:5515 -to-localfile
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="client-1"></a><a href="#client-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client</h3>
-<p>Install Vuls to the target server. Scan normally and sent the scan results to Vuls server by <code>-to-http</code> option.</p>
+<p>Install Vuls to the target server.<br>
+Scan normally and sent the scan results to Vuls server by <code>-to-http</code> option.</p>
 <pre><code class="hljs css language-bash">$ vuls scan
 $ <span class="hljs-built_in">export</span> VULS_SERVER=[Your Vuls Server]
 $ <span class="hljs-built_in">export</span> VULS_HTTP_URL=http://<span class="hljs-variable">${VULS_SERVER}</span>:5515/vuls
