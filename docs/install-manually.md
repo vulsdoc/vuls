@@ -114,7 +114,8 @@ $ goval-dictionary fetch redhat 7
 If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.
 
 - [Alpine](https://github.com/vulsio/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
-- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+- [Red Hat, CentOS, AlmaLinux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+- [Fedora](https://github.com/vulsio/goval-dictionary#usage-fetch-security-updates-from-fedora)
 - [Debian](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-debian)
 - [Ubuntu](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
 - [Oracle Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)

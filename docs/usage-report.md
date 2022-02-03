@@ -274,8 +274,8 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
 
   | Detection Method       | Confidence |  type                            |Description|
   |:-----------------------|-----------:|:---------------------------------|:--|
-  | OvalMatch              | 100        | CentOS, Alma Linux, Rocky Linux, RHEL, Oracle, Ubuntu, Debian, SUSE |OVAL |
-  | RedHatAPIMatch         | 100        | CentOS, Alma Linux, Rocky Linux, RHEL |Red Hat API |
+  | OvalMatch              | 100        | CentOS, AlmaLinux, Rocky Linux, RHEL, Fedora, Oracle, Ubuntu, Debian, SUSE |OVAL |
+  | RedHatAPIMatch         | 100        | CentOS, AlmaLinux, Rocky Linux, RHEL |Red Hat API |
   | UbuntuAPIMatch         | 100        | Ubuntu                           |Ubuntu API |
   | DebianSecurityTrackerMatch| 100     | Debian                           |Debian Security Tracker |
   | TrivyMatch             | 100        | Container image and Lockfile     |trivy |
@@ -288,7 +288,7 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
   | JvnVendorProductMatch  |  10        |                         CPE scan |Detected by Jvn. Affected Version in JVN is not a parsable format, so it is matched by Part,  Vendor and Product. There is a possibility of false positives.|
   | ChangelogExactMatch    |  95        | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version.|
   | ChangelogRoughMatch    |  50        |         Ubuntu, Debian, Raspbian |Rough version match between changelog and package version.|
-  
+
 ## Example: Generate all client scan reports
 
 ```bash

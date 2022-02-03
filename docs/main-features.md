@@ -8,7 +8,7 @@ sidebar_label: Main Features
 
 [Supports major Linux/FreeBSD](supported-os.md)
 
-- Alpine, Ubuntu, Debian, CentOS, Alma Linux, Rocky Linux, Amazon Linux, RHEL, Oracle Linux, SUSE Enterprise Linux and Raspbian, FreeBSD
+- Alpine, Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Amazon Linux, RHEL, Fedora, Oracle Linux, SUSE Enterprise Linux and Raspbian, FreeBSD
 - Cloud, on-premise, Docker
 
 ## High quality scan
@@ -59,15 +59,15 @@ Vuls uses Multiple vulnerability databases
 
 - Scan without root privilege, no dependencies
 - Almost no load on the scan target server
-- Offline mode scan with no internet access. (Red Hat, CentOS, Alma Linux, Rocky Linux,OracleLinux, Ubuntu, Debian)
+- Offline mode scan with no internet access. (Red Hat, Fedora, CentOS, AlmaLinux, Rocky Linux,OracleLinux, Ubuntu, Debian)
 
 [Fast Root Scan](architecture-fast-root-scan.md)
 
 - Scan with root privilege
 - Almost no load on the scan target server
-- Detect processes affected by update using yum-ps (Red Hat, CentOS, Alma Linux, Rocky Linux, Oracle Linux and Amazon Linux)
+- Detect processes affected by update using yum-ps (Red Hat, Fedora, CentOS, AlmaLinux, Rocky Linux, Oracle Linux and Amazon Linux)
 - Detect processes which updated before but not restarting yet using checkrestart of debian-goodies (Debian and Ubuntu)
-- Offline mode scan with no internet access. (Red Hat, CentOS, Alma Linux, Rocky Linux, OracleLinux, Ubuntu, Debian)
+- Offline mode scan with no internet access. (Red Hat, Fedora, CentOS, AlmaLinux, Rocky Linux, OracleLinux, Ubuntu, Debian)
 
 [Deep Scan](architecture-deep-scan.md)
 
