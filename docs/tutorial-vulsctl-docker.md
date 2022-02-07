@@ -88,6 +88,7 @@ Vuls `remote scan mode` only supports SSH public key authentication.
 Create a key pair and SSH to the server to be scanned beforehand. To register the fingerprint of the server to be scanned in `$HOME/.ssh/known_hosts`.
 This time, create a key with no password. Make sure you can SSH without a password prompt.
 If you see the password prompt, you can't scan, so you need to review your SSH settings and configure your SSH to use public key authentication with no password.
+If you need to use a key with password, please see [it](#Scan-with-ssh-key-with-password)
 
 ```bash
 $ ssh-keygen -q -f ~/.ssh/id_rsa -N ""
@@ -499,6 +500,72 @@ It is possible to obtain CISA Known Exploited Vulnerabilities alerts and display
 - [Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 - [vulsio/go-kev](https://github.com/vulsio/go-kev) fetch.
+
+---
+
+## Scan with ssh key with password
+
+If you need to scan a server with ssh-key with password, you can do 1. or 2. below instead of `./scan.sh`.
+Vuls uses ssh many times, so you will be asked to type password again and again when vuls scans.
+So we reccomend using ssh-agent like below.
+
+1. Use ssh-agent in the container
+```
+$ pwd
+/home/vuls/vulsctl/docker
+$ docker run -it \
+  -v $HOME/.ssh:/root/.ssh:ro \
+  -v $PWD:/vuls \
+  --entrypoint="/bin/ash" \
+  vuls/vuls
+/vuls # eval `ssh-agent`
+/vuls # ssh-add /root/.ssh/id_rsa
+Enter passphrase for /root/.ssh/id_rsa:
+Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
+/vuls # vuls scan -log-dir=/vuls/log -config=/vuls/config.toml
+```
+Or you can do it with one-liner like this.
+
+```
+$ docker run -it \
+  -v $HOME/.ssh:/root/.ssh:ro \
+  -v $PWD:/vuls \
+  --entrypoint="/bin/ash" \
+  vuls/vuls \
+  -c "eval \`ssh-agent\` && ssh-add /root/.ssh/id_rsa && vuls scan  -log-dir=/vuls/log -config=/vuls/config.toml"
+```
+
+2. Use ssh-agent in host machine and share it with the container
+```
+$ pwd
+/home/vuls/vulsctl/docker
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /Users/nikkely/.ssh/id_rsa:
+Identity added: /Users/nikkely/.ssh/id_rsa (/Users/nikkely/.ssh/id_rsa)
+$ docker run -it \
+  -v $HOME/.ssh:/root/.ssh:ro \
+  -v $PWD:/vuls \
+  -v $SSH_AUTH_SOCK:$SSH_AUTH_SOCK \
+  -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
+  vuls/vuls scan \
+  -log-dir=/vuls/log \
+  -config=/vuls/config.toml \
+```
+
+If you use docker for mac, use it instead.
+```
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /Users/nikkely/.ssh/id_rsa:
+Identity added: /Users/nikkely/.ssh/id_rsa (/Users/nikkely/.ssh/id_rsa)
+$ docker run -it \
+-v $HOME/.ssh:/root/.ssh:ro \
+-v $PWD:/vuls \
+-v /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock \
+-e SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock \
+vuls/vuls scan \
+-log-dir=/vuls/log \
+-config=/vuls/config.toml \
+```
 
 ---
 
