@@ -88,7 +88,7 @@ Vuls `remote scan mode` only supports SSH public key authentication.
 Create a key pair and SSH to the server to be scanned beforehand. To register the fingerprint of the server to be scanned in `$HOME/.ssh/known_hosts`.
 This time, create a key with no password. Make sure you can SSH without a password prompt.
 If you see the password prompt, you can't scan, so you need to review your SSH settings and configure your SSH to use public key authentication with no password.
-If you need to use a key with password, please see [it](#Scan-with-ssh-key-with-password)
+If you need to use a key with password, please see [scan with ssh-key with password](#Scan-with-ssh-key-with-password)
 
 ```bash
 $ ssh-keygen -q -f ~/.ssh/id_rsa -N ""
@@ -510,7 +510,7 @@ Vuls uses ssh many times, so you will be asked to type password again and again 
 So we reccomend using ssh-agent like below.
 
 1. Use ssh-agent in the container
-```
+```bash
 $ pwd
 /home/vuls/vulsctl/docker
 $ docker run -it \
@@ -526,7 +526,7 @@ Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
 ```
 Or you can do it with one-liner like this.
 
-```
+```bash
 $ docker run -it \
   -v $HOME/.ssh:/root/.ssh:ro \
   -v $PWD:/vuls \
@@ -536,7 +536,7 @@ $ docker run -it \
 ```
 
 2. Use ssh-agent in host machine and share it with the container
-```
+```bash
 $ pwd
 /home/vuls/vulsctl/docker
 $ ssh-add ~/.ssh/id_rsa
@@ -553,7 +553,7 @@ $ docker run -it \
 ```
 
 If you use docker for mac, use it instead.
-```
+```bash
 $ ssh-add ~/.ssh/id_rsa
 Enter passphrase for /Users/***/.ssh/id_rsa:
 Identity added: /Users/***/.ssh/id_rsa (/Users/***/.ssh/id_rsa)
