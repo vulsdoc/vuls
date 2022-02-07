@@ -540,8 +540,8 @@ $ docker run -it \
 $ pwd
 /home/vuls/vulsctl/docker
 $ ssh-add ~/.ssh/id_rsa
-Enter passphrase for /Users/nikkely/.ssh/id_rsa:
-Identity added: /Users/nikkely/.ssh/id_rsa (/Users/nikkely/.ssh/id_rsa)
+Enter passphrase for /Users/***/.ssh/id_rsa:
+Identity added: /Users/***/.ssh/id_rsa (/Users/***/.ssh/id_rsa)
 $ docker run -it \
   -v $HOME/.ssh:/root/.ssh:ro \
   -v $PWD:/vuls \
@@ -555,8 +555,8 @@ $ docker run -it \
 If you use docker for mac, use it instead.
 ```
 $ ssh-add ~/.ssh/id_rsa
-Enter passphrase for /Users/nikkely/.ssh/id_rsa:
-Identity added: /Users/nikkely/.ssh/id_rsa (/Users/nikkely/.ssh/id_rsa)
+Enter passphrase for /Users/***/.ssh/id_rsa:
+Identity added: /Users/***/.ssh/id_rsa (/Users/***/.ssh/id_rsa)
 $ docker run -it \
 -v $HOME/.ssh:/root/.ssh:ro \
 -v $PWD:/vuls \
