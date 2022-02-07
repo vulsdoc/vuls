@@ -26,6 +26,7 @@ To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log i
 
 Vuls doesn't support SSH password authentication. So you have to use SSH key-based authentication.  
 Create a keypair on the localhost then append the public key to authorized_keys on the remote host.  
+If you need to use a key with password, please see [scan with ssh key with password](#scan-with-ssh-key-with-password)
 
 ### localhost
 
@@ -83,6 +84,23 @@ see [Usage: configtest](usage-configtest.md)
 ## Step5. Start Scanning
 
 ```bash
+$ vuls scan ubuntu
+... snip ...
+
+One Line Summary
+================
+ubuntu  ubuntu16.04     30 updatable packages
+```
+
+### scan with ssh-key with password
+If you need to scan a server with ssh-key with password, we reccomend using ssh-agent.
+Vuls uses ssh many times, so you will be asked to type password again and again when vuls scans.
+Specifically you can use ssh-agent beforehand like below.
+
+```bash
+$ ssh-add ~/.ssh/authorized_keys
+Enter passphrase for ~/.ssh/id_rsa:
+Identity added: ~/.ssh/id_rsa (~/.ssh/id_rsa)
 $ vuls scan ubuntu
 ... snip ...
 
