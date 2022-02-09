@@ -71,7 +71,7 @@ Server:
 #### Headers
 
 - X-Vuls-OS-Family (required)
-  - OS Family of your target server (rhel, centos, alma, rocky, amazon, ubuntu and debian, raspbian)
+  - OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian)
 - X-Vuls-OS-Release (required)
   - OS Family of your target server  (e.g. 6.9, 16.04, etc.)
 - X-Vuls-Kernel-Release (required)
@@ -92,7 +92,7 @@ Set the above setting to cron.
 
 ### application/json
 
-Send JSON to your Vuls server.  
+Send JSON to your Vuls server.
 This is supposed to be used from programs etc.
 
 Like the following JSON.
@@ -131,14 +131,15 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 ## Supported OS
 
 - RHEL
+- Fedora
 - CentOS
-- Alma Linux
+- AlmaLinux
 - Rocky Linux
 - Amazon Linux
 - Debian
 - Raspbian(Raspberry Pi OS)
 - Ubuntu
-- SLES 
+- SLES
 
 ## Example: One liner scan
 
@@ -167,6 +168,13 @@ RHEL
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $7}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+```
+
+Fedora
+
+```bash
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/fedora-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/fedora-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 CentOS 6
@@ -230,7 +238,7 @@ $ vuls server -listen 0.0.0.0:5515 -to-localfile
 
 ### Client
 
-Log in your target server and execute only one command.  
+Log in your target server and execute only one command.
 `X-Vuls-Server-Name` header is also required.
 
 ```bash
@@ -261,7 +269,7 @@ $ vuls server -listen 0.0.0.0:5515 -to-localfile
 
 ### Client
 
-Install Vuls to the target server.  
+Install Vuls to the target server.
 Scan normally and sent the scan results to Vuls server by `-to-http` option.
 
 ```bash

@@ -26,7 +26,7 @@ $ vuls report
 
 ## Usage: Update OVAL Data
 
-- [Red Hat, CentOS, Alma Linux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+- [Red Hat, CentOS, AlmaLinux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
 - [Ubuntu](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
 - [Debian](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-debian)
 - [Oracle](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)

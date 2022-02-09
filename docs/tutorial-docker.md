@@ -10,7 +10,7 @@ This tutorial will let you scan the vulnerabilities on the remote host via SSH w
 
 Before doing this tutorial, you have to [setup vuls with Docker](install-with-docker.md).
 
-This can be done in the following steps.  
+This can be done in the following steps.
 
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
@@ -57,7 +57,7 @@ $ docker run --rm -it \
 
 To fetch other OVAL, See [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
 
-## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/Alma Linux/Rocky Linux, Debian and Ubuntu)
+## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/AlmaLinux/Rocky Linux, Debian and Ubuntu)
 
 [gost (go-security-tracker)](https://github.com/vulsio/gost)
 
