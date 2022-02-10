@@ -90,6 +90,73 @@ Use SSH Key-Based Authentication with no passphrase or ssh-agent.</p>
 <p>Write <code>StrictHostKeyChecking no</code> to the config file used for SSH connection.
 Then, describe the PATH to the config file used by ssh in <code>sshConfigPath</code> of config.toml.
 see <a href="/docs/en/config.toml.html#servers-section">setting server section</a>, <a href="https://github.com/future-architect/vuls/pull/1005">#1005</a></p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-scan-with-ssh-key-with-passphrase"></a><a href="#how-to-scan-with-ssh-key-with-passphrase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to scan with SSH key with passphrase</h2>
+<p>Vuls calls ssh many times, so you will be asked to type password again and again when vuls scans.
+If you need to scan a server with ssh-key with password, we recommend using ssh-agent.
+Specifically you can use ssh-agent beforehand like below.</p>
+<pre><code class="hljs css language-bash">$ ssh-add ~/.ssh/authorized_keys
+Enter passphrase <span class="hljs-keyword">for</span> ~/.ssh/id_rsa:
+Identity added: ~/.ssh/id_rsa (~/.ssh/id_rsa)
+$ vuls scan ubuntu
+... snip ...
+
+One Line Summary
+================
+ubuntu  ubuntu16.04     30 updatable packages
+</code></pre>
+<p>If you run Vuls in Docker container, you can do below instead of above.</p>
+<h3><a class="anchor" aria-hidden="true" id="scan-in-docker-container"></a><a href="#scan-in-docker-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scan in Docker container</h3>
+<p>If you need to scan a server with ssh-key with password, you can do 1. or 2. below.</p>
+<h4><a class="anchor" aria-hidden="true" id="1-use-ssh-agent-in-the-container"></a><a href="#1-use-ssh-agent-in-the-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Use ssh-agent in the container</h4>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">pwd</span>
+/home/vuls/vulsctl/docker
+$ docker run -it \
+  -v <span class="hljs-variable">$HOME</span>/.ssh:/root/.ssh:ro \
+  -v <span class="hljs-variable">$PWD</span>:/vuls \
+  --entrypoint=<span class="hljs-string">"/bin/ash"</span> \
+  vuls/vuls
+/vuls <span class="hljs-comment"># eval `ssh-agent`</span>
+/vuls <span class="hljs-comment"># ssh-add /root/.ssh/id_rsa</span>
+Enter passphrase <span class="hljs-keyword">for</span> /root/.ssh/id_rsa:
+Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
+/vuls <span class="hljs-comment"># vuls scan -log-dir=/vuls/log -config=/vuls/config.toml</span>
+</code></pre>
+<p>Or you can do it with one-liner like this.</p>
+<pre><code class="hljs css language-bash">$ docker run -it \
+  -v <span class="hljs-variable">$HOME</span>/.ssh:/root/.ssh:ro \
+  -v <span class="hljs-variable">$PWD</span>:/vuls \
+  --entrypoint=<span class="hljs-string">"/bin/ash"</span> \
+  vuls/vuls \
+  -c <span class="hljs-string">"eval \`ssh-agent\` &amp;&amp; ssh-add /root/.ssh/id_rsa &amp;&amp; vuls scan  -log-dir=/vuls/log -config=/vuls/config.toml"</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="2-use-ssh-agent-in-host-machine-and-share-it-with-the-container"></a><a href="#2-use-ssh-agent-in-host-machine-and-share-it-with-the-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Use ssh-agent in host machine and share it with the container</h4>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">pwd</span>
+/home/vuls/vulsctl/docker
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase <span class="hljs-keyword">for</span> /Users/***/.ssh/id_rsa:
+Identity added: /Users/***/.ssh/id_rsa (/Users/***/.ssh/id_rsa)
+$ docker run -it \
+  -v <span class="hljs-variable">$HOME</span>/.ssh:/root/.ssh:ro \
+  -v <span class="hljs-variable">$PWD</span>:/vuls \
+  -v <span class="hljs-variable">$SSH_AUTH_SOCK</span>:<span class="hljs-variable">$SSH_AUTH_SOCK</span> \
+  -e SSH_AUTH_SOCK=<span class="hljs-variable">$SSH_AUTH_SOCK</span> \
+  vuls/vuls scan \
+  -<span class="hljs-built_in">log</span>-dir=/vuls/<span class="hljs-built_in">log</span> \
+  -config=/vuls/config.toml \
+</code></pre>
+<p>If you use docker for mac, use it instead.</p>
+<pre><code class="hljs css language-bash">$ ssh-add ~/.ssh/id_rsa
+Enter passphrase <span class="hljs-keyword">for</span> /Users/***/.ssh/id_rsa:
+Identity added: /Users/***/.ssh/id_rsa (/Users/***/.ssh/id_rsa)
+$ docker run -it \
+-v <span class="hljs-variable">$HOME</span>/.ssh:/root/.ssh:ro \
+-v <span class="hljs-variable">$PWD</span>:/vuls \
+-v /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock \
+-e SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock \
+vuls/vuls scan \
+-<span class="hljs-built_in">log</span>-dir=/vuls/<span class="hljs-built_in">log</span> \
+-config=/vuls/config.toml \
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="how-to-cross-compile"></a><a href="#how-to-cross-compile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to cross compile</h2>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> /path/to/your/<span class="hljs-built_in">local</span>-git-repository/vuls
 $ GOOS=linux GOARCH=amd64 go build -o vuls.amd64 ./cmd/vuls

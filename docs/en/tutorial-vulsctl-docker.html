@@ -135,7 +135,8 @@ $ <span class="hljs-built_in">pwd</span>
 <p>Vuls <code>remote scan mode</code> only supports SSH public key authentication.
 Create a key pair and SSH to the server to be scanned beforehand. To register the fingerprint of the server to be scanned in <code>$HOME/.ssh/known_hosts</code>.
 This time, create a key with no password. Make sure you can SSH without a password prompt.
-If you see the password prompt, you can't scan, so you need to review your SSH settings and configure your SSH to use public key authentication with no password.</p>
+If you see the password prompt, you can't scan, so you need to review your SSH settings and configure your SSH to use public key authentication with no password.
+If you need to use a key with password, see the tips of <a href="/docs/en/tips.html#Scan-in-Docker-container">Scan in Docker container</a></p>
 <pre><code class="hljs css language-bash">$ ssh-keygen -q -f ~/.ssh/id_rsa -N <span class="hljs-string">""</span>
 $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 $ chmod 600 ~/.ssh/*
