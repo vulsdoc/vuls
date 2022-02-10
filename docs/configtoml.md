@@ -390,7 +390,8 @@ Multiple SSH authentication methods are supported.
 
 - SSH agent
 - SSH public key authentication (with password and empty password)
-Password authentication is not supported.
+
+If you need password authentication, see the tips of [How to scan with SSH key with passphrase](tips.md#How-to-scan-with-SSH-key-with-passphrase)
 
 - [How to Log in With No Password While Using ssh-agent](https://docs.oracle.com/cd/E19683-01/806-4078/6jd6cjru9/index.html)
 
