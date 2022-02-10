@@ -40,6 +40,11 @@ $ vuls discover 127.0.0.1/32
 #sqlite3Path = "/path/to/go-msfdb.sqlite3"
 #url        = ""
 
+[kevuln]
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-kev.sqlite3"
+#url        = ""
+
 # https://vuls.io/docs/en/config.toml.html#slack-section
 #[slack]
 #hookURL      = "https://hooks.slack.com/services/abc123/defghijklmnopqrstuvwxyz"
@@ -193,6 +198,11 @@ host                = "127.0.0.1"
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
 #sqlite3Path = "/path/to/go-msfdb.sqlite3"
 #url        = ""
+
+[kevuln]
+#type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
+#sqlite3Path = "/path/to/go-kev.sqlite3"
+#url        = ""
 ```
 
 - type : the method of access for the database. (Default: "sqlite3")
@@ -202,11 +212,12 @@ host                = "127.0.0.1"
 These can also be specified by an environment variable.
 Refer to the source code for the environment variable names.
 
-- [cveDict](https://github.com/future-architect/vuls/blob/master/config/gocvedictconf.go#L30-L32)
-- [ovalDict](https://github.com/future-architect/vuls/blob/master/config/govaldictconf.go#L31-L33)
-- [gost](https://github.com/future-architect/vuls/blob/master/config/gostconf.go#L30-L32)
-- [exploit](https://github.com/future-architect/vuls/blob/master/config/exploitconf.go#L30-L32)
-- [metasploit](https://github.com/future-architect/vuls/blob/master/config/metasploitconf.go#L30-L32)
+- [cveDict](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L202-L204)
+- [ovalDict](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L148-L150)
+- [gost](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L229-L231)
+- [exploit](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L175-L177)
+- [metasploit](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L256-L258)
+- [kevuln](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L283-L285)
 
 ## Slack section
 
@@ -391,7 +402,7 @@ Multiple SSH authentication methods are supported.
 - SSH agent
 - SSH public key authentication (with password and empty password)
 
-If you need password authentication, see the tips of [How to scan with SSH key with passphrase](tips.md#How-to-scan-with-SSH-key-with-passphrase)
+If you need password authentication, see the tips of [How to scan with SSH key with passphrase](tips.md#how-to-scan-with-ssh-key-with-passphrase)
 
 - [How to Log in With No Password While Using ssh-agent](https://docs.oracle.com/cd/E19683-01/806-4078/6jd6cjru9/index.html)
 
