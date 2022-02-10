@@ -92,23 +92,6 @@ One Line Summary
 ubuntu  ubuntu16.04     30 updatable packages
 ```
 
-### scan with ssh-key with password
-If you need to scan a server with ssh-key with password, we reccomend using ssh-agent.
-Vuls uses ssh many times, so you will be asked to type password again and again when vuls scans.
-Specifically you can use ssh-agent beforehand like below.
-
-```bash
-$ ssh-add ~/.ssh/authorized_keys
-Enter passphrase for ~/.ssh/id_rsa:
-Identity added: ~/.ssh/id_rsa (~/.ssh/id_rsa)
-$ vuls scan ubuntu
-... snip ...
-
-One Line Summary
-================
-ubuntu  ubuntu16.04     30 updatable packages
-```
-
 ## Step6. Reporting
 
 - See [Tutorial: Local Scan#Step6. Reporting](tutorial-local-scan.md#step6-reporting)
