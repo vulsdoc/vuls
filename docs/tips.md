@@ -50,7 +50,7 @@ One Line Summary
 ubuntu  ubuntu16.04     30 updatable packages
 ```
 
-If you run vuls in Docker container, you can do below instead of above.
+If you run Vuls in Docker container, you can do below instead of above.
 
 ### Scan in Docker container
 

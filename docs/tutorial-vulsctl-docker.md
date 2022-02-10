@@ -88,7 +88,7 @@ Vuls `remote scan mode` only supports SSH public key authentication.
 Create a key pair and SSH to the server to be scanned beforehand. To register the fingerprint of the server to be scanned in `$HOME/.ssh/known_hosts`.
 This time, create a key with no password. Make sure you can SSH without a password prompt.
 If you see the password prompt, you can't scan, so you need to review your SSH settings and configure your SSH to use public key authentication with no password.
-If you need to use a key with password, please see [scan with ssh-key with password](#Scan-with-ssh-key-with-password)
+If you need to use a key with password, see the tips of [Scan in Docker container](tips.md#Scan-in-Docker-container)
 
 ```bash
 $ ssh-keygen -q -f ~/.ssh/id_rsa -N ""
