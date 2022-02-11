@@ -10,14 +10,10 @@ configtest:
         configtest
                         [-config=/path/to/config.toml]
                         [-log-dir=/path/to/log]
-                        [-ask-key-password]
-                        [-ssh-config]
                         [-timeout=300]
                         [-debug]
 
                         [SERVER]...
-  -ask-key-password
-        Ask ssh privatekey password before scanning
   -config string
         /path/to/toml (default "/Users/kotakanbe/go/src/github.com/future-architect/vuls/config.toml")
   -debug
@@ -26,8 +22,6 @@ configtest:
         http://proxy-url:port (default: empty)
   -log-dir string
         /path/to/log (default "/var/log/vuls")
-  -ssh-config
-        [Deprecated] Use SSH options specified in ssh_config preferentially
   -timeout int
         Timeout(Sec) (default 300)
 

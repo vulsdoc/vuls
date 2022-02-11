@@ -12,18 +12,14 @@ scan:
                 [-results-dir=/path/to/results]
                 [-log-dir=/path/to/log]
                 [-cachedb-path=/path/to/cache.db]
-                [-ssh-config]
                 [-skip-broken]
                 [-http-proxy=http://192.168.0.1:8080]
-                [-ask-key-password]
                 [-timeout=300]
                 [-timeout-scan=7200]
                 [-debug]
                 [-pipe]
 
                 [SERVER]...
-  -ask-key-password
-        Ask ssh privatekey password before scanning
   -cachedb-path string
         /path/to/cache.db (local cache of changelog for Ubuntu/Debian)
   -config string
@@ -40,8 +36,6 @@ scan:
         /path/to/results
   -skip-broken
         [For CentOS] yum update changelog with --skip-broken option
-  -ssh-config
-        [Deprecated] Use SSH options specified in ssh_config preferentially
   -timeout int
         Number of seconds for processing other than scan (default 300)
   -timeout-scan int
@@ -130,13 +124,13 @@ removed in https://github.com/future-architect/vuls/issues/1181
 ## Example: Scan all servers defined in config file
 
 ```bash
-$ vuls scan -ask-key-password
+$ vuls scan
 ```
 
 With this sample command, it will ..
 
-* Ask SSH key password before scanning
 * Scan all servers defined in the config file
+* Use SSH Key-Based authentication with an empty password (If you want to use a passphrase, see the tips of [How to scan with SSH key with passphrase](tips.md#how-to-scan-with-ssh-key-with-passphrase).)
 
 ## Example: Scan specific servers
 
@@ -146,7 +140,6 @@ $ vuls scan server1 server2
 
 With this sample command, it will ..
 
-* Use SSH Key-Based authentication with an empty password (without -ask-key-password option)
 * Scan only 2 servers (server1, server2)
 
 ## Example: Scan via shell instead of SSH
