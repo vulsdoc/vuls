@@ -8,7 +8,7 @@ sidebar_label: Main Features
 
 [Supports major Linux/FreeBSD](supported-os.md)
 
-- Alpine, Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Amazon Linux, RHEL, Fedora, Oracle Linux, SUSE Enterprise Linux and Raspbian, FreeBSD
+- Alpine, Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Amazon Linux, RHEL, Fedora, Oracle Linux, openSUSE, openSUSE Leap, SUSE Enterprise Linux and Raspbian, FreeBSD
 - Cloud, on-premise, Docker
 
 ## High quality scan
