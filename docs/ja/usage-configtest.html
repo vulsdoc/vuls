@@ -79,14 +79,10 @@ configtest:
         configtest
                         [-config=/path/to/config.toml]
                         [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
-                        [-ask-key-password]
-                        [-ssh-config]
                         [-timeout=300]
                         [-debug]
 
                         [SERVER]...
-  -ask-key-password
-        Ask ssh privatekey password before scanning
   -config string
         /path/to/toml (default <span class="hljs-string">"/Users/kotakanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
   -debug
@@ -95,8 +91,6 @@ configtest:
         http://proxy-url:port (default: empty)
   -<span class="hljs-built_in">log</span>-dir string
         /path/to/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
-  -ssh-config
-        [Deprecated] Use SSH options specified <span class="hljs-keyword">in</span> ssh_config preferentially
   -timeout int
         Timeout(Sec) (default 300)
 
