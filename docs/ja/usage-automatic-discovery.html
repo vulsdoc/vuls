@@ -180,6 +180,7 @@ discover:
 <span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
 <span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
 <span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
@@ -203,6 +204,8 @@ host                = <span class="hljs-string">"192.168.11.6"</span>
 <span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
 <span class="hljs-comment">#type               = "pseudo"</span>
 <span class="hljs-comment">#memo               = "DB Server"</span>
+<span class="hljs-comment">#findLock = true</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
 <span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
 <span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>

@@ -181,6 +181,7 @@
 <span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
 <span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
 <span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
@@ -204,6 +205,8 @@
 <span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
 <span class="hljs-comment">#type               = "pseudo"</span>
 <span class="hljs-comment">#memo               = "DB Server"</span>
+<span class="hljs-comment">#findLock = true</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
 <span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
 <span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>
@@ -388,6 +391,7 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <span class="hljs-comment">#port        = "22"</span>
 <span class="hljs-comment">#user        = "username"</span>
 <span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
@@ -408,6 +412,8 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <span class="hljs-comment">#sshConfigPath      = "/home/username/.ssh/config"</span>
 <span class="hljs-comment">#keyPath     = "/home/username/.ssh/id_rsa"</span>
 <span class="hljs-comment">#type          = "pseudo"</span>
+<span class="hljs-comment">#findLock = true</span>
+<span class="hljs-comment">#lockfiles = ["/path/to/package-lock.json"]</span>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
@@ -429,7 +435,8 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <li>sshConfigPath: SSH config file path. see <a href="https://github.com/future-architect/vuls/pull/1005">#1005</a></li>
 <li>keyPath: SSH private key path</li>
 <li>type: &quot;pseudo&quot; for non-ssh scanning. see <a href="https://github.com/future-architect/vuls/pull/531">#531</a></li>
-<li>cpeNames: see <a href="/docs/ja/usage-scan-non-os-packages.html">Usage: Scan vulnerability of non-OS package</a></li>
+<li>findLock, lockfiles: see <a href="/docs/ja/usage-scan-non-os-packages.html#library-vulns-scan">Usage: Scan vulnerability of non-OS package#Library Vulns Scan</a></li>
+<li>cpeNames: see <a href="/docs/ja/usage-scan-non-os-packages.html#cpe-scan">Usage: Scan vulnerability of non-OS package#CPE Scan</a></li>
 <li>ignoreCves: CVE IDs that will not be reported. But output to JSON file.</li>
 <li>optional: Add additional information to JSON report.</li>
 <li>containers: see <a href="/docs/ja/usage-scan.html#example-scan-containers-docker-lxd-lxc">Example: Scan containers (Docker/LXD)</a></li>
