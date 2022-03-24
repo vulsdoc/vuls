@@ -113,9 +113,11 @@ configtest:
 <tr><td style="text-align:left">RHEL</td><td style="text-align:right">5, 6, 7, 8</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">Fedora</td><td style="text-align:right">32, 33, 34, 35</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">Oracle Linux</td><td style="text-align:right">5, 6, 7</td><td style="text-align:left">-</td></tr>
-<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:right">11, 12</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">openSUSE</td><td style="text-align:right">tumbleweed</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">openSUSE Leap</td><td style="text-align:right">15.2, 15.3</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:right">11, 12, 15</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">FreeBSD</td><td style="text-align:right">10, 11</td><td style="text-align:left">-</td></tr>
-<tr><td style="text-align:left">Raspbian</td><td style="text-align:right">Jessie, Stretch</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">Raspbian</td><td style="text-align:right">Jessie, Stretch, Buster</td><td style="text-align:left">-</td></tr>
 </tbody>
 </table>
 <h3><a class="anchor" aria-hidden="true" id="fast-root-scan-mode"></a><a href="#fast-root-scan-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fast-root scan mode</h3>
@@ -137,7 +139,9 @@ configtest:
 <tr><td style="text-align:left">RHEL</td><td style="text-align:right">8</td><td style="text-align:left">lsof</td></tr>
 <tr><td style="text-align:left">Fedora</td><td style="text-align:right">32, 33, 34, 35</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">Oracle Linux</td><td style="text-align:right">5, 6, 7</td><td style="text-align:left">-</td></tr>
-<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:right">11, 12</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">openSUSE</td><td style="text-align:right">tumbleweed</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">openSUSE Leap</td><td style="text-align:right">15.2, 15.3</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">SUSE Enterprise</td><td style="text-align:right">11, 12, 15</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">FreeBSD</td><td style="text-align:right">10, 11</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">Raspbian</td><td style="text-align:right">Jessie, Stretch, Buster</td><td style="text-align:left">debian-goodies</td></tr>
 </tbody>
@@ -167,7 +171,7 @@ configtest:
 <tr><td style="text-align:left">Amazon Linux 2022</td><td style="text-align:left">-</td><td style="text-align:left"><code>vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n</code></td><td style="text-align:left">same as <code>fast-root</code></td></tr>
 <tr><td style="text-align:left">RHEL 6, 7, 8</td><td style="text-align:left">-</td><td style="text-align:left"><code>vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n</code></td><td style="text-align:left">same as <code>fast-root</code></td></tr>
 <tr><td style="text-align:left">Oracle Linux 6, 7</td><td style="text-align:left">-</td><td style="text-align:left"><code>vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes</code></td><td style="text-align:left">same as <code>fast-root</code></td></tr>
-<tr><td style="text-align:left">SUSE Enterprise 11, 12</td><td style="text-align:left">-</td><td style="text-align:left">-</td><td style="text-align:left">-</td></tr>
+<tr><td style="text-align:left">SUSE Enterprise 11, 12, 15</td><td style="text-align:left">-</td><td style="text-align:left"><code>vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/which, /usr/bin/zypper ps, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n</code></td><td style="text-align:left">same as <code>fast-root</code></td></tr>
 <tr><td style="text-align:left">FreeBSD 10</td><td style="text-align:left">-</td><td style="text-align:left">-</td><td style="text-align:left">-</td></tr>
 <tr><td style="text-align:left">Raspbian</td><td style="text-align:left">-</td><td style="text-align:left"><code>vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n</code></td><td style="text-align:left">same as <code>fast-root</code></td></tr>
 </tbody>

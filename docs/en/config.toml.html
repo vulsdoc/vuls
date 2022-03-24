@@ -187,6 +187,7 @@
 <span class="hljs-comment">#]</span>
 <span class="hljs-comment">#owaspDCXMLPath     = "/tmp/dependency-check-report.xml"</span>
 <span class="hljs-comment">#ignoreCves         = ["CVE-2014-6271"]</span>
+<span class="hljs-comment">#ignorePkgsRegexp   = ["^kernel", "^python"]</span>
 <span class="hljs-comment">#containersOnly     = false</span>
 <span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
 <span class="hljs-comment">#containersIncluded = ["${running}"]</span>
@@ -199,7 +200,7 @@
 <span class="hljs-attr">host</span>                = <span class="hljs-string">"127.0.0.1"</span>
 <span class="hljs-comment">#port               = "22"</span>
 <span class="hljs-comment">#user               = "root"</span>
-<span class="hljs-comment">#sshConfigPath          = "/home/username/.ssh/config"</span>
+<span class="hljs-comment">#sshConfigPath      = "/home/username/.ssh/config"</span>
 <span class="hljs-comment">#keyPath            = "/home/username/.ssh/id_rsa"</span>
 <span class="hljs-comment">#scanMode           = ["fast", "fast-root", "deep", "offline"]</span>
 <span class="hljs-comment">#scanModules        = ["ospkg", "wordpress", "lockfile", "port"]</span>
@@ -210,15 +211,17 @@
 <span class="hljs-comment">#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
 <span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
 <span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>
+<span class="hljs-comment">#ignorePkgsRegexp   = ["^kernel", "^python"]</span>
 <span class="hljs-comment">#containersOnly     = false</span>
 <span class="hljs-comment">#containerType      = "docker" #or "lxd" or "lxc" default: docker</span>
 <span class="hljs-comment">#containersIncluded = ["${running}"]</span>
 <span class="hljs-comment">#containersExcluded = ["container_name_a"]</span>
 
 <span class="hljs-comment">#[servers.127-0-0-1.containers.container_name_a]</span>
-<span class="hljs-comment">#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
-<span class="hljs-comment">#owaspDCXMLPath = "/path/to/dependency-check-report.xml"</span>
-<span class="hljs-comment">#ignoreCves     = ["CVE-2014-0160"]</span>
+<span class="hljs-comment">#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]</span>
+<span class="hljs-comment">#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2014-0160"]</span>
+<span class="hljs-comment">#ignorePkgsRegexp   = ["^kernel", "^python"]</span>
 
 <span class="hljs-comment">#[servers.127-0-0-1.githubs."owner/repo"]</span>
 <span class="hljs-comment">#token   = "yourToken"</span>
@@ -397,7 +400,8 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
-<span class="hljs-comment">#ignoreCves = ["CVE-2016-6313"]</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2016-6313"]</span>
+<span class="hljs-comment">#ignorePkgsRegexp   = ["^kernel", "^python"]</span>
 <span class="hljs-comment">#optional = [</span>
 <span class="hljs-comment">#    ["key", "value"],</span>
 <span class="hljs-comment">#]</span>
@@ -419,7 +423,8 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <span class="hljs-comment">#cpeNames = [</span>
 <span class="hljs-comment">#  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",</span>
 <span class="hljs-comment">#]</span>
-<span class="hljs-comment">#ignoreCves = ["CVE-2016-6314"]</span>
+<span class="hljs-comment">#ignoreCves         = ["CVE-2016-6314"]</span>
+<span class="hljs-comment">#ignorePkgsRegexp   = ["^kernel", "^python"]</span>
 <span class="hljs-comment">#optional = [</span>
 <span class="hljs-comment">#    ["key", "value"],</span>
 <span class="hljs-comment">#]</span>
@@ -440,6 +445,7 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 <li>findLock, lockfiles: see <a href="/docs/en/usage-scan-non-os-packages.html#library-vulns-scan">Usage: Scan vulnerability of non-OS package#Library Vulns Scan</a></li>
 <li>cpeNames: see <a href="/docs/en/usage-scan-non-os-packages.html#cpe-scan">Usage: Scan vulnerability of non-OS package#CPE Scan</a></li>
 <li>ignoreCves: CVE IDs that will not be reported. But output to JSON file.</li>
+<li>ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. But output to JSON file.</li>
 <li>optional: Add additional information to JSON report.</li>
 <li>containers: see <a href="/docs/en/usage-scan.html#example-scan-containers-docker-lxd-lxc">Example: Scan containers (Docker/LXD)</a></li>
 </ul>
