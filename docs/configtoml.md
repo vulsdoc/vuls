@@ -121,6 +121,7 @@ $ vuls discover 127.0.0.1/32
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-6271"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
@@ -133,7 +134,7 @@ $ vuls discover 127.0.0.1/32
 host                = "127.0.0.1"
 #port               = "22"
 #user               = "root"
-#sshConfigPath          = "/home/username/.ssh/config"
+#sshConfigPath      = "/home/username/.ssh/config"
 #keyPath            = "/home/username/.ssh/id_rsa"
 #scanMode           = ["fast", "fast-root", "deep", "offline"]
 #scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
@@ -144,15 +145,17 @@ host                = "127.0.0.1"
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
 #[servers.127-0-0-1.containers.container_name_a]
-#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
-#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
-#ignoreCves     = ["CVE-2014-0160"]
+#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
+#ignoreCves         = ["CVE-2014-0160"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 
 #[servers.127-0-0-1.githubs."owner/repo"]
 #token   = "yourToken"
@@ -353,7 +356,8 @@ verbose     = false
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
-#ignoreCves = ["CVE-2016-6313"]
+#ignoreCves         = ["CVE-2016-6313"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #optional = [
 #    ["key", "value"],
 #]
@@ -379,7 +383,8 @@ host         = "172.31.4.82"
 #cpeNames = [
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
-#ignoreCves = ["CVE-2016-6314"]
+#ignoreCves         = ["CVE-2016-6314"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #optional = [
 #    ["key", "value"],
 #]
@@ -401,6 +406,7 @@ You can overwrite the default value specified in default section.
 - findLock, lockfiles: see [Usage: Scan vulnerability of non-OS package#Library Vulns Scan](usage-scan-non-os-packages.md#library-vulns-scan)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package#CPE Scan](usage-scan-non-os-packages.md#cpe-scan)
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
+- ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. But output to JSON file.
 - optional: Add additional information to JSON report.
 - containers: see [Example: Scan containers (Docker/LXD)](usage-scan.md#example-scan-containers-docker-lxd-lxc)
 

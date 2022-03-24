@@ -121,6 +121,7 @@ $ vuls discover 192.168.11.0/24
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-6271"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
@@ -144,15 +145,17 @@ host                = "192.168.11.6"
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
 #[servers.192-168-11-6.containers.container_name_a]
-#cpeNames       = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
-#owaspDCXMLPath = "/path/to/dependency-check-report.xml"
-#ignoreCves     = ["CVE-2014-0160"]
+#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
+#ignoreCves         = ["CVE-2014-0160"]
+#ignorePkgsRegexp   = ["^kernel", "^python"]
 
 #[servers.192-168-11-6.githubs."owner/repo"]
 #token   = "yourToken"

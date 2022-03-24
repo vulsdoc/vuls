@@ -38,7 +38,7 @@ Server:
   -ignore-unfixed
     	Don't show the unfixed CVEs
   -ignore-unscored-cves
-    	Don't Server the unscored CVEs
+    	Don't show the unscored CVEs
   -lang string
     	[en|ja] (default "en")
   -listen string
