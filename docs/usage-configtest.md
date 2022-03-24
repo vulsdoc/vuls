@@ -33,43 +33,47 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 
 ### fast scan mode
 
-| Distribution |            Release | Requirements |
-|:-------------|-------------------:|:-------------|
-| Alpine       |      3.2 and later | - |
-| Ubuntu       |      14, 16, 18, 20| - |
-| Debian       |     7, 8, 9, 10, 11| (reboot-notifier) |
-| CentOS       |             6, 7, 8| - |
-| AlmaLinux    |             6, 7, 8| - |
-| Rocky Linux  |             6, 7, 8| - |
-| Amazon       |                All | - |
-| RHEL         |         5, 6, 7, 8 | - |
-| Fedora       |     32, 33, 34, 35 | - |
-| Oracle Linux |            5, 6, 7 | - |
-| SUSE Enterprise|            11, 12| - |
-| FreeBSD      |             10, 11 | - |
-| Raspbian     |    Jessie, Stretch | - |
+| Distribution    |                    Release | Requirements |
+|:----------------|---------------------------:|:-------------|
+| Alpine          |              3.2 and later | - |
+| Ubuntu          |             14, 16, 18, 20 | - |
+| Debian          |            7, 8, 9, 10, 11 | (reboot-notifier) |
+| CentOS          |                    6, 7, 8 | - |
+| AlmaLinux       |                    6, 7, 8 | - |
+| Rocky Linux     |                    6, 7, 8 | - |
+| Amazon          |                        All | - |
+| RHEL            |                 5, 6, 7, 8 | - |
+| Fedora          |             32, 33, 34, 35 | - |
+| Oracle Linux    |                    5, 6, 7 | - |
+| openSUSE        |                 tumbleweed | - |
+| openSUSE Leap   |                 15.2, 15.3 | - |
+| SUSE Enterprise |                 11, 12, 15 | - |
+| FreeBSD         |                     10, 11 | - |
+| Raspbian        |    Jessie, Stretch, Buster | - |
 
 ### fast-root scan mode
 
 The configtest subcommand with `fast-root` mode checks whether the packages are installed on the scan target server and also check `/etc/sudoers`
 
-| Distribution |                    Release | Requirements |
-|:-------------|---------------------------:|:-------------|
-| Alpine       |              3.2 and later | - |
-| Ubuntu       |              14, 16, 18, 20| debian-goodies |
-| Debian       |                8, 9, 10, 11| debian-goodies, reboot-notifier |
-| CentOS       |                     6, 7, 8| - |
-| AlmaLinux    |                           8| - |
-| Rocky Linux  |                           8| - |
-| Amazon       |                        All | - |
-| RHEL         |                          6 | - |
-| RHEL         |                          7 | - |
-| RHEL         |                          8 | lsof |
-| Fedora       |             32, 33, 34, 35 | - |
-| Oracle Linux |                    5, 6, 7 | - |
-| SUSE Enterprise|                   11, 12 | - |
-| FreeBSD      |                     10, 11 | - |
-| Raspbian     |    Jessie, Stretch, Buster | debian-goodies |
+| Distribution    |                    Release | Requirements |
+|:----------------|---------------------------:|:-------------|
+| Alpine          |              3.2 and later | - |
+| Ubuntu          |             14, 16, 18, 20 | debian-goodies |
+| Debian          |               8, 9, 10, 11 | debian-goodies, reboot-notifier |
+| CentOS          |                    6, 7, 8 | - |
+| AlmaLinux       |                          8 | - |
+| Rocky Linux     |                          8 | - |
+| Amazon          |                        All | - |
+| RHEL            |                          6 | - |
+| RHEL            |                          7 | - |
+| RHEL            |                          8 | lsof |
+| Fedora          |             32, 33, 34, 35 | - |
+| Oracle Linux    |                    5, 6, 7 | - |
+| openSUSE        |                 tumbleweed | - |
+| openSUSE Leap   |                 15.2, 15.3 | - |
+| SUSE Enterprise |                 11, 12, 15 | - |
+| FreeBSD         |                     10, 11 | - |
+| Raspbian        |    Jessie, Stretch, Buster | debian-goodies |
 
 ### deep scan mode
 
@@ -104,7 +108,7 @@ Defaults:vuls !requiretty
 | Amazon Linux 2022| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes` |same as `fast-root` |
-| SUSE Enterprise 11, 12 |  - | -            | - |
+| SUSE Enterprise 11, 12, 15 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/which, /usr/bin/zypper ps, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n` | same as `fast-root` |
 | FreeBSD 10 | -  | -            | - |
 | Raspbian | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`   | same as `fast-root`|
 
