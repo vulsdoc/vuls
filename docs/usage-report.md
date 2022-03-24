@@ -546,6 +546,15 @@ $ export AZURE_STORAGE_ACCESS_KEY=access-key-string
 $ vuls report -to-azure-blob
 ```
 
+## Example: Put results in Google Cloud Storage
+`vuls report` doesn’t support Google Cloud Strorage option
+If you want to put scan result(JSON) in Google Cloud Storage,
+please use `gsutil`
+```
+$ gsutil cp ./results/yyyyMMdd_HHmm/servername.json gs://my-awesome-bucket
+```
+see [Quickstart: Using the gsutil tool](https://cloud.google.com/storage/docs/quickstart-gsutil)
+
 ## Example: IgnoreCves
 
 Define ignoreCves in config if you don't want to report(Slack, EMail, Text...) specific CVE IDs.
