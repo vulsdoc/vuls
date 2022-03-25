@@ -467,6 +467,14 @@ INFO[09-12|15:09:37] Inserting 44270 Exploits
 44270 / 44270 [------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 4717 p/s
 INFO[09-12|15:09:46] No CveID Exploit Count                   count=32084
 INFO[09-12|15:09:46] CveID Exploit Count                      count=12186
+INFO[03-25|04:50:03] Fetching Trickest Exploit 
+INFO[03-25|04:50:24] Trickest Exploit                         count=99503
+INFO[03-25|04:50:24] Insert Exploit into go-exploitdb.        db=sqlite3
+INFO[03-25|04:50:24] Inserting 99503 Exploits 
+INFO[03-25|04:50:24] Inserting new Exploits 
+99503 / 99503 [---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 25593 p/s
+INFO[03-25|04:50:29] No CveID Exploit Count                   count=0
+INFO[03-25|04:50:29] CveID Exploit Count                      count=99503
 ```
 
 Scan again and view the report to see the PoC information in the Exploit Database.

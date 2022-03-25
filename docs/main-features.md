@@ -38,6 +38,7 @@ Vuls uses Multiple vulnerability databases
 - PoC, Exploit
   - [Exploit Database](https://www.exploit-db.com/)
   - [Metasploit-Framework modules](https://www.rapid7.com/db/?q=&type=metasploit)
+  - [trickest/cve](https://github.com/trickest/cve)
 
 - CERT
   - [US-CERT](https://www.us-cert.gov/ncas/alerts)

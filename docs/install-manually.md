@@ -171,6 +171,7 @@ Then fetch exploit-db information. [README](https://github.com/vulsio/go-exploit
 
 ```bash
 $ go-exploitdb fetch exploitdb
+$ go-exploitdb fetch trickest
 ```
 
 Fetch with --deep option, Many exploits information will be obtained. But fetch time is too long...
