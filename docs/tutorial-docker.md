@@ -79,6 +79,10 @@ $ docker run --rm -i \
     -v $PWD:/go-exploitdb \
     -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
     vuls/go-exploitdb fetch exploitdb
+$ docker run --rm -i \
+    -v $PWD:/go-exploitdb \
+    -v $PWD/go-exploitdb-log:/var/log/go-exploitdb \
+    vuls/go-exploitdb fetch trickest
 ```
 
 ## Step3.6. Fetch go-msfdb
