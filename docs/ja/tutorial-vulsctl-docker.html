@@ -404,24 +404,51 @@ $ ./tui.sh
 $ ./exploitdb.sh
 Using default tag: latest
 latest: Pulling from vuls/go-exploitdb
-c87736221ed0: Pull complete
-e0d679e82107: Pull complete
-7a7a6055cf29: Pull complete
-Digest: sha256:1a2721baa6ca5fb533748558c5bf358518c6bd9452be5921db4a2337d0964339
+36ccefbf3d8a: Already exists 
+84ce22b2ba2c: Pull complete 
+b1b2d52f4b6e: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:90c7d3a7c5fc6636a024c1eb33bb23f856e1d170d6c4f6ed11e6d619f1ea6f7e
 Status: Downloaded newer image <span class="hljs-keyword">for</span> vuls/go-exploitdb:latest
 docker.io/vuls/go-exploitdb:latest
-INFO[09-12|15:08:46] Opening Database.                        db=sqlite3
-INFO[09-12|15:08:46] Migrating DB.                            db=sqlite3
-INFO[09-12|15:08:46] Fetching Offensive Security Exploit 
-INFO[09-12|15:08:46] Fetching                                 URL=https://cve.mitre.org/data/downloads/allitems-cvrf.xml
-INFO[09-12|15:09:36] Fetching                                 URL=https://raw.githubusercontent.com/offensive-security/exploitdb/master/files_shellcodes.csv
-INFO[09-12|15:09:36] Fetching                                 URL=https://raw.githubusercontent.com/offensive-security/exploitdb/master/files_exploits.csv
-INFO[09-12|15:09:37] Offensive Security Exploit               count=44270
-INFO[09-12|15:09:37] Insert Exploit into go-exploitdb.        db=sqlite3
-INFO[09-12|15:09:37] Inserting 44270 Exploits
-44270 / 44270 [------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 4717 p/s
-INFO[09-12|15:09:46] No CveID Exploit Count                   count=32084
-INFO[09-12|15:09:46] CveID Exploit Count                      count=12186
+go-exploitdb  
+INFO[03-24|23:31:07] Fetching Offensive Security Exploit 
+INFO[03-24|23:31:07] Fetching                                 URL=https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+INFO[03-24|23:32:07] Fetching                                 URL=https://raw.githubusercontent.com/offensive-security/exploitdb/master/files_shellcodes.csv
+INFO[03-24|23:32:07] Fetching                                 URL=https://raw.githubusercontent.com/offensive-security/exploitdb/master/files_exploits.csv
+INFO[03-24|23:32:08] Fetching                                 URL=https://raw.githubusercontent.com/offensive-security/exploitdb-papers/master/files_papers.csv
+INFO[03-24|23:32:08] Offensive Security Exploit               count=49153
+INFO[03-24|23:32:08] Insert Exploit into go-exploitdb.        db=sqlite3
+INFO[03-24|23:32:08] Inserting 49153 Exploits 
+INFO[03-24|23:32:08] Inserting new Exploits 
+49153 / 49153 [---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 41581 p/s
+INFO[03-24|23:32:10] No CveID Exploit Count                   count=36406
+INFO[03-24|23:32:10] CveID Exploit Count                      count=12747
+INFO[03-24|23:32:10] Fetching Awesome Poc Exploit 
+INFO[03-24|23:32:11] Awesome Poc Exploit                      count=823
+INFO[03-24|23:32:11] Insert Exploit into go-exploitdb.        db=sqlite3
+INFO[03-24|23:32:11] Inserting 823 Exploits 
+INFO[03-24|23:32:11] Inserting new Exploits 
+823 / 823 [-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% ? p/s
+INFO[03-24|23:32:11] No CveID Exploit Count                   count=0
+INFO[03-24|23:32:11] CveID Exploit Count                      count=823
+INFO[03-24|23:32:11] Fetching GitHub Repos Exploit 
+WARN[03-24|23:32:11] Recommend installing git (<span class="hljs-keyword">if</span> not, DB update is very slow) 
+INFO[03-24|23:32:37] GitHub Repos Exploit                     count=2808
+INFO[03-24|23:32:37] Insert Exploit into go-exploitdb.        db=sqlite3
+INFO[03-24|23:32:37] Inserting 2808 Exploits 
+INFO[03-24|23:32:37] Inserting new Exploits 
+2808 / 2808 [---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% ? p/s
+INFO[03-24|23:32:37] No CveID Exploit Count                   count=0
+INFO[03-24|23:32:37] CveID Exploit Count                      count=2808
+INFO[03-24|23:32:38] Fetching inTheWild Poc Exploit 
+INFO[03-24|23:32:48] inTheWild Poc Exploit                    count=71653
+INFO[03-24|23:32:48] Insert Exploit into go-exploitdb.        db=sqlite3
+INFO[03-24|23:32:48] Inserting 71653 Exploits 
+INFO[03-24|23:32:48] Inserting new Exploits 
+71653 / 71653 [---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 52870 p/s
+INFO[03-24|23:32:49] No CveID Exploit Count                   count=0
+INFO[03-24|23:32:49] CveID Exploit Count                      count=71653
 </code></pre>
 <p>Scan again and view the report to see the PoC information in the Exploit Database.</p>
 <pre><code class="hljs css language-bash">$ <span class="hljs-built_in">pwd</span>
