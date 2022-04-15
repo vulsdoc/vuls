@@ -355,6 +355,14 @@ SQLite3Path = "/path/to/go-exploitdb.sqlite3"
 [metasploit]
 type = "sqlite3"
 SQLite3Path = "/path/to/go-msfdb.sqlite3"
+
+[kevuln]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-kev.sqlite3"
+
+[cti]
+type = "sqlite3"
+SQLite3Path = "/path/to/go-cti.sqlite3"
 ```
 
 ## Example: Send scan results to another endpoint

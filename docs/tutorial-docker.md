@@ -15,8 +15,10 @@ This can be done in the following steps.
 1. fetch nvd (vuls/go-cve-dictionary)
 1. fetch oval (vuls/goval-dictionary)
 1. fetch gost (vuls/gost)
-1. fetch go-exploitdb(vuls/exploitdb)
-1. fetch go-msfdb(vuls/msfdb)
+1. fetch go-exploitdb(vuls/go-exploitdb)
+1. fetch go-msfdb(vuls/go-msfdb)
+1. fetch go-kev(vuls/go-kev)
+1. fetch go-cti(vuls/go-cti)
 1. configuration (vuls/vuls)
 1. configtest (vuls/vuls)
 1. scan (vuls/vuls)
@@ -115,6 +117,17 @@ $ docker run --rm -i \
     vuls/go-kev fetch kevuln
 ```
 
+## Step3.8. Fetch go-cti
+
+[go-cti](https://github.com/vulsio/go-cti)
+
+```console
+$ docker run --rm -i \
+    -v $PWD:/go-cti \
+    -v $PWD/go-cti-log:/var/log/go-cti \
+    vuls/go-cti fetch threat
+```
+
 ## Step4. Configuration
 
 Create config.toml referring to [this](config.toml.md).
@@ -201,6 +214,10 @@ SQLite3Path = "/path/to/db/go-msfdb.sqlite3"
 [kevuln]
 type = "sqlite3"
 SQLite3Path = "/path/to/db/go-kev.sqlite3"
+
+[cti]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/go-cti.sqlite3"
 ```
 
 ```console
@@ -315,6 +332,18 @@ $ docker run -dt \
     --expose 1328 \
     -p 1328:1328 \
     vuls/go-kev server --bind=0.0.0.0
+```
+
+### go-cti
+
+```console
+$ docker run -dt \
+    --name go-cti \
+    -v $PWD:/go-cti \
+    -v $PWD/go-cti-log:/var/log/go-cti \
+    --expose 1329 \
+    -p 1329:1329 \
+    vuls/go-cti server --bind=0.0.0.0
 ```
 
 ### Report

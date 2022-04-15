@@ -61,6 +61,7 @@
       "go-exploitdb",
       "go-msfdb",
       "go-kev",
+      "go-cti",
       "related-projects",
       "tips"
     ]
