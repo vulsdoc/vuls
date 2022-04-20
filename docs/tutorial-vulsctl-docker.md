@@ -572,39 +572,42 @@ Digest: sha256:f0f0fc109d6de6b160b82c72ba6a70df65ff5ca28bf727be0d122b9d918508e5
 Status: Downloaded newer image for vuls/go-cti:latest
 docker.io/vuls/go-cti:latest
 go-cti
-INFO[04-15|00:19:57] Fetching Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings 
-INFO[04-15|00:19:57] Fetching MITRE ATT&CK... 
-INFO[04-15|00:19:59] Fetching CAPEC... 
-INFO[04-15|00:20:00] Fetching CWE... 
-INFO[04-15|00:20:04] Fetching NVD CVE...                      year=recent
-INFO[04-15|00:20:05] Fetching NVD CVE...                      year=modified
-INFO[04-15|00:20:06] Fetching NVD CVE...                      year=2002
-INFO[04-15|00:20:09] Fetching NVD CVE...                      year=2003
-INFO[04-15|00:20:10] Fetching NVD CVE...                      year=2004
-INFO[04-15|00:20:12] Fetching NVD CVE...                      year=2005
-INFO[04-15|00:20:15] Fetching NVD CVE...                      year=2006
-INFO[04-15|00:20:18] Fetching NVD CVE...                      year=2007
-INFO[04-15|00:20:21] Fetching NVD CVE...                      year=2008
-INFO[04-15|00:20:25] Fetching NVD CVE...                      year=2009
-INFO[04-15|00:20:28] Fetching NVD CVE...                      year=2010
-INFO[04-15|00:20:30] Fetching NVD CVE...                      year=2011
-INFO[04-15|00:20:34] Fetching NVD CVE...                      year=2012
-INFO[04-15|00:20:37] Fetching NVD CVE...                      year=2013
-INFO[04-15|00:20:41] Fetching NVD CVE...                      year=2014
-INFO[04-15|00:20:44] Fetching NVD CVE...                      year=2015
-INFO[04-15|00:20:47] Fetching NVD CVE...                      year=2016
-INFO[04-15|00:20:51] Fetching NVD CVE...                      year=2017
-INFO[04-15|00:20:56] Fetching NVD CVE...                      year=2018
-INFO[04-15|00:21:01] Fetching NVD CVE...                      year=2019
-INFO[04-15|00:21:08] Fetching NVD CVE...                      year=2020
-INFO[04-15|00:21:13] Fetching NVD CVE...                      year=2021
-INFO[04-15|00:21:18] Fetching NVD CVE...                      year=2022
-INFO[04-15|00:21:21] Fetched Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings ctis=1112 mappings=97710
-INFO[04-15|00:21:21] Insert Cyber Threat Intelligences and CVE-ID to CTI-ID Mappings into go-cti. db=sqlite3
-INFO[04-15|00:21:21] Inserting Cyber Threat Intelligences... 
-1112 / 1112 [--------------------------------------------------------------------------] 100.00% 2067 p/s
-INFO[04-15|00:21:22] Inserting CVE-ID to CTI-ID Mappings... 
-97710 / 97710 [-----------------------------------------------------------------------] 100.00% 10084 p/s
+INFO[04-20|03:27:56] Fetching Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings 
+INFO[04-20|03:27:56] Fetching MITRE ATT&CK... 
+INFO[04-20|03:27:57] Fetching CAPEC... 
+INFO[04-20|03:27:57] Fetching CWE... 
+INFO[04-20|03:28:01] Fetching NVD CVE...                      year=recent
+INFO[04-20|03:28:03] Fetching NVD CVE...                      year=modified
+INFO[04-20|03:28:05] Fetching NVD CVE...                      year=2002
+INFO[04-20|03:28:07] Fetching NVD CVE...                      year=2003
+INFO[04-20|03:28:09] Fetching NVD CVE...                      year=2004
+INFO[04-20|03:28:12] Fetching NVD CVE...                      year=2005
+INFO[04-20|03:28:14] Fetching NVD CVE...                      year=2006
+INFO[04-20|03:28:17] Fetching NVD CVE...                      year=2007
+INFO[04-20|03:28:19] Fetching NVD CVE...                      year=2008
+INFO[04-20|03:28:23] Fetching NVD CVE...                      year=2009
+INFO[04-20|03:28:25] Fetching NVD CVE...                      year=2010
+INFO[04-20|03:28:28] Fetching NVD CVE...                      year=2011
+INFO[04-20|03:28:31] Fetching NVD CVE...                      year=2012
+INFO[04-20|03:28:33] Fetching NVD CVE...                      year=2013
+INFO[04-20|03:28:36] Fetching NVD CVE...                      year=2014
+INFO[04-20|03:28:39] Fetching NVD CVE...                      year=2015
+INFO[04-20|03:28:42] Fetching NVD CVE...                      year=2016
+INFO[04-20|03:28:45] Fetching NVD CVE...                      year=2017
+INFO[04-20|03:28:48] Fetching NVD CVE...                      year=2018
+INFO[04-20|03:28:52] Fetching NVD CVE...                      year=2019
+INFO[04-20|03:28:56] Fetching NVD CVE...                      year=2020
+INFO[04-20|03:29:00] Fetching NVD CVE...                      year=2021
+INFO[04-20|03:29:05] Fetching NVD CVE...                      year=2022
+INFO[04-20|03:29:07] Fetched Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings techniques=1112 mappings=98011 attackers=672
+INFO[04-20|03:29:07] Insert Cyber Threat Intelligences and CVE-ID to CTI-ID Mappings into go-cti. db=sqlite3
+INFO[04-20|03:29:07] Inserting Cyber Threat Intelligences... 
+INFO[04-20|03:29:07] Inserting Techniques... 
+1112 / 1112 [------------------------------------------------] 100.00% 2475 p/s
+INFO[04-20|03:29:08] Inserting CVE-ID to CTI-ID CveToTechniques... 
+98011 / 98011 [----------------------------------------------] 100.00% 7459 p/s
+INFO[04-20|03:29:21] Inserting Attackers... 
+672 / 672 [-----------------------------------------------------] 100.00% ? p/s
 ```
 
 Scan again and view the report to see the Cyber Threat Intelligence.
