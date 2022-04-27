@@ -36,7 +36,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | Distribution    |                    Release | Requirements |
 |:----------------|---------------------------:|:-------------|
 | Alpine          |              3.2 and later | - |
-| Ubuntu          |             14, 16, 18, 20 | - |
+| Ubuntu          |     14, 16, 18, 20, 21, 22 | - |
 | Debian          |            7, 8, 9, 10, 11 | (reboot-notifier) |
 | CentOS          |                    6, 7, 8 | - |
 | AlmaLinux       |                    6, 7, 8 | - |
@@ -58,7 +58,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | Distribution    |                    Release | Requirements |
 |:----------------|---------------------------:|:-------------|
 | Alpine          |              3.2 and later | - |
-| Ubuntu          |             14, 16, 18, 20 | debian-goodies |
+| Ubuntu          |     14, 16, 18, 20, 21, 22 | debian-goodies |
 | Debian          |               8, 9, 10, 11 | debian-goodies, reboot-notifier |
 | CentOS          |                    6, 7, 8 | - |
 | AlmaLinux       |                          8 | - |
@@ -98,7 +98,7 @@ Defaults:vuls !requiretty
 
 | Distribution | fast | fast-root           | deep         |
 |:------------------|:-------------|:-------------|:-------------|
-| Ubuntu 14, 16, 18, 20| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n` | same as `fast-root` |
+| Ubuntu 14, 16, 18, 20, 21, 22| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n` | same as `fast-root` |
 | Debian 8, 9, 10, 11| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`  | same as `fast-root`|
 | CentOS 6, 7, 8  | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
 | AlmaLinux 8    | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
