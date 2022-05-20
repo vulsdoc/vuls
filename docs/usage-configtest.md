@@ -42,7 +42,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | AlmaLinux       |                    6, 7, 8 | - |
 | Rocky Linux     |                    6, 7, 8 | - |
 | Amazon          |                        All | - |
-| RHEL            |                 5, 6, 7, 8 | - |
+| RHEL            |              5, 6, 7, 8, 9 | - |
 | Fedora          |             32, 33, 34, 35 | - |
 | Oracle Linux    |                    5, 6, 7 | - |
 | openSUSE        |                 tumbleweed | - |
@@ -64,9 +64,8 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | AlmaLinux       |                          8 | - |
 | Rocky Linux     |                          8 | - |
 | Amazon          |                        All | - |
-| RHEL            |                          6 | - |
-| RHEL            |                          7 | - |
-| RHEL            |                          8 | lsof |
+| RHEL            |                       6, 7 | - |
+| RHEL            |                       8, 9 | lsof |
 | Fedora          |             32, 33, 34, 35 | - |
 | Oracle Linux    |                    5, 6, 7 | - |
 | openSUSE        |                 tumbleweed | - |
@@ -106,7 +105,7 @@ Defaults:vuls !requiretty
 | Amazon Linux | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | Amazon Linux 2| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | Amazon Linux 2022| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
-| RHEL 6, 7, 8 | - |  `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
+| RHEL 6, 7, 8, 9 | - |  `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n`     |same as `fast-root` |
 | Oracle Linux 6, 7 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /usr/bin/repoquery, /usr/bin/yum makecache --assumeyes` |same as `fast-root` |
 | SUSE Enterprise 11, 12, 15 | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/which, /usr/bin/zypper ps, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n, /usr/sbin/lsof -i -P -n` | same as `fast-root` |
 | FreeBSD 10 | -  | -            | - |
