@@ -52,7 +52,7 @@ To fetch JVN(Japanese), See [README](https://github.com/vulsio/go-cve-dictionary
 $ docker run --rm -it \
     -v $PWD:/goval-dictionary \
     -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
-    vuls/goval-dictionary fetch redhat 5 6 7 8
+    vuls/goval-dictionary fetch redhat 5 6 7 8 9
 ```
 
 To fetch other OVAL, See [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
