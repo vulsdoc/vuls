@@ -372,6 +372,7 @@ Items of the default section will be used if not specified.
 
 [servers.172-31-4-82]
 host         = "172.31.4.82"
+#ignoreIPAddresses = ["127.0.0.2"]
 #jumpServer  = ["test@test.com:22", "test@test1.com:2222"]
 #port        = "22"
 #user        = "root"
@@ -396,7 +397,8 @@ host         = "172.31.4.82"
 
 You can overwrite the default value specified in default section.  
 
-- host: IP address or hostname of target server
+- host: IP address or hostname of target server (support CIDR range)
+- ignoreIPAddresses: IP address to be removed from the host described in the CIDR Range. (CIDR Range is also possible)
 - jumpServer: IP address or hostname with port number of proxy
 - port: SSH Port number
 - user: SSH username

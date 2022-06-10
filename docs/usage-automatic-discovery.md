@@ -132,6 +132,7 @@ $ vuls discover 192.168.11.0/24
 
 [servers.192-168-11-6]
 host                = "192.168.11.6"
+#ignoreIPAddresses = ["192.168.11.6"]
 #port               = "22"
 #user               = "root"
 #sshConfigPath		= "/home/username/.ssh/config"
