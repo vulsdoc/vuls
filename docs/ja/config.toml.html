@@ -410,6 +410,7 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 
 <span class="hljs-section">[servers.172-31-4-82]</span>
 <span class="hljs-attr">host</span>         = <span class="hljs-string">"172.31.4.82"</span>
+<span class="hljs-comment">#ignoreIPAddresses = ["127.0.0.2"]</span>
 <span class="hljs-comment">#jumpServer  = ["test@test.com:22", "test@test1.com:2222"]</span>
 <span class="hljs-comment">#port        = "22"</span>
 <span class="hljs-comment">#user        = "root"</span>
@@ -433,7 +434,8 @@ If protocol is empty, vuls will connect to the local syslog server.</li>
 </code></pre>
 <p>You can overwrite the default value specified in default section.</p>
 <ul>
-<li>host: IP address or hostname of target server</li>
+<li>host: IP address or hostname of target server (support CIDR range)</li>
+<li>ignoreIPAddresses: IP address to be removed from the host described in the CIDR Range. (CIDR Range is also possible)</li>
 <li>jumpServer: IP address or hostname with port number of proxy</li>
 <li>port: SSH Port number</li>
 <li>user: SSH username</li>
