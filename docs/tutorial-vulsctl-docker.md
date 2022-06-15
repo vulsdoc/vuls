@@ -509,6 +509,120 @@ $ ./tui.sh
 
 ---
 
+## Show CISA Known Exploited Vulnerabilities Alert
+
+The [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) has a list of CVE-IDs that have actually been exploited in attacks.
+
+Vuls can show whether a detected CVE-ID is a CVE-ID in the CISA Known Exploited Vulnerabilities Catalog.
+
+Fetch [go-kev](https://github.com/vulsio/go-kev).
+
+```bash
+$ pwd
+/home/vuls/vulsctl/docker
+$ ./kev.sh
+Using default tag: latest
+latest: Pulling from vuls/go-kev
+97518928ae5f: Pull complete 
+62b85d17d49f: Pull complete 
+dc5e1f7a485e: Pull complete 
+Digest: sha256:f0f0fc109d6de6b160b82c72ba6a70df65ff5ca28bf727be0d122b9d918508e5
+Status: Downloaded newer image for vuls/go-kev:latest
+docker.io/vuls/go-kev:latest
+go-kev  
+INFO[04-15|17:13:38] Fetching Known Exploited Vulnerabilities 
+INFO[04-15|17:13:38] Fetching                                 URL=https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+INFO[04-15|17:13:39] Insert Known Exploited Vulnerabilities into go-kev. db=sqlite3
+INFO[04-15|17:13:39] Inserting Known Exploited Vulnerabilities... 
+644 / 644 [-------------------------------------------------------------------------------] 100.00% ? p/s
+INFO[04-15|17:13:39] CveID Count                              count=644
+```
+
+Scan again and view the report to see the CISA Known Exploited Vulnerabilities Alert.
+
+```bash
+$ pwd
+/home/vuls/vulsctl/docker
+$ ./scan.sh
+$ ./tui.sh
+```
+
+![cisa-kev](https://user-images.githubusercontent.com/16035056/143046990-ba3f1345-5396-466f-a98a-58cc871801e8.png)
+
+---
+
+## Show Cyber Threat Intelligence(MITER ATT&CK and CAPEC)
+
+The [Cyber Threat Intelligence(MITRE ATT&CK and CAPEC)](https://github.com/mitre/cti) has information on attack techniques, etc.
+
+Vuls displays the Cyber Threat Intelligence associated with the detected CVE-ID.
+
+Fetch [go-cti](https://github.com/vulsio/go-cti).
+
+```bash
+$ pwd
+/home/vuls/vulsctl/docker
+$ ./cti.sh
+Using default tag: latest
+latest: Pulling from vuls/go-cti
+97518928ae5f: Pull complete 
+62b85d17d49f: Pull complete 
+dc5e1f7a485e: Pull complete 
+Digest: sha256:f0f0fc109d6de6b160b82c72ba6a70df65ff5ca28bf727be0d122b9d918508e5
+Status: Downloaded newer image for vuls/go-cti:latest
+docker.io/vuls/go-cti:latest
+go-cti
+INFO[04-20|03:27:56] Fetching Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings 
+INFO[04-20|03:27:56] Fetching MITRE ATT&CK... 
+INFO[04-20|03:27:57] Fetching CAPEC... 
+INFO[04-20|03:27:57] Fetching CWE... 
+INFO[04-20|03:28:01] Fetching NVD CVE...                      year=recent
+INFO[04-20|03:28:03] Fetching NVD CVE...                      year=modified
+INFO[04-20|03:28:05] Fetching NVD CVE...                      year=2002
+INFO[04-20|03:28:07] Fetching NVD CVE...                      year=2003
+INFO[04-20|03:28:09] Fetching NVD CVE...                      year=2004
+INFO[04-20|03:28:12] Fetching NVD CVE...                      year=2005
+INFO[04-20|03:28:14] Fetching NVD CVE...                      year=2006
+INFO[04-20|03:28:17] Fetching NVD CVE...                      year=2007
+INFO[04-20|03:28:19] Fetching NVD CVE...                      year=2008
+INFO[04-20|03:28:23] Fetching NVD CVE...                      year=2009
+INFO[04-20|03:28:25] Fetching NVD CVE...                      year=2010
+INFO[04-20|03:28:28] Fetching NVD CVE...                      year=2011
+INFO[04-20|03:28:31] Fetching NVD CVE...                      year=2012
+INFO[04-20|03:28:33] Fetching NVD CVE...                      year=2013
+INFO[04-20|03:28:36] Fetching NVD CVE...                      year=2014
+INFO[04-20|03:28:39] Fetching NVD CVE...                      year=2015
+INFO[04-20|03:28:42] Fetching NVD CVE...                      year=2016
+INFO[04-20|03:28:45] Fetching NVD CVE...                      year=2017
+INFO[04-20|03:28:48] Fetching NVD CVE...                      year=2018
+INFO[04-20|03:28:52] Fetching NVD CVE...                      year=2019
+INFO[04-20|03:28:56] Fetching NVD CVE...                      year=2020
+INFO[04-20|03:29:00] Fetching NVD CVE...                      year=2021
+INFO[04-20|03:29:05] Fetching NVD CVE...                      year=2022
+INFO[04-20|03:29:07] Fetched Cyber Threat Intelligence and CVE-ID to CTI-ID Mappings techniques=1112 mappings=98011 attackers=672
+INFO[04-20|03:29:07] Insert Cyber Threat Intelligences and CVE-ID to CTI-ID Mappings into go-cti. db=sqlite3
+INFO[04-20|03:29:07] Inserting Cyber Threat Intelligences... 
+INFO[04-20|03:29:07] Inserting Techniques... 
+1112 / 1112 [------------------------------------------------] 100.00% 2475 p/s
+INFO[04-20|03:29:08] Inserting CVE-ID to CTI-ID CveToTechniques... 
+98011 / 98011 [----------------------------------------------] 100.00% 7459 p/s
+INFO[04-20|03:29:21] Inserting Attackers... 
+672 / 672 [-----------------------------------------------------] 100.00% ? p/s
+```
+
+Scan again and view the report to see the Cyber Threat Intelligence.
+
+```bash
+$ pwd
+/home/vuls/vulsctl/docker
+$ ./scan.sh
+$ ./tui.sh
+```
+
+![cti](https://user-images.githubusercontent.com/16035056/163449537-e2e5464a-37ff-49fc-b516-97b96e42074f.png)
+
+---
+
 ## JPCERT/CC and USCERT alert information.
 
 It is possible to obtain JPCERT/CC and US-CERT alerts and display whether the detected vulnerability corresponds to the alert information.
@@ -527,6 +641,16 @@ It is possible to obtain CISA Known Exploited Vulnerabilities alerts and display
 - [Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 - [vulsio/go-kev](https://github.com/vulsio/go-kev) fetch.
+
+---
+
+## Cyber Threat Intelligence(MITRE ATT&CK and CAPEC) information.
+
+It is possible to obtain Cyber Threat Information(MITRE ATT&CK and CAPEC) and display whether the detected vulnerability corresponds to the Cyber Threat Information.
+
+- [mitre/cti](https://github.com/mitre/cti)
+
+- [vulsio/go-cti](https://github.com/vulsio/go-cti) fetch.
 
 ---
 

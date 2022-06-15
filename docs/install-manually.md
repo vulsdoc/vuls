@@ -226,6 +226,31 @@ Then fetch Known Exploited Vulnerabilities information. [README](https://github.
 $ go-kev fetch kevuln
 ```
 
+## Deploy go-cti
+
+[go-cti](https://github.com/vulsio/go-cti)
+> New version Vuls 0.19.6 now possible to display Cyber Threat Intelligence(MITER ATT&CK and CAPEC) have been published at [mitre/cti](https://github.com/mitre/cti). If you don't need to know about Cyber Threat Intelligence for detected CVEs, skip this section.
+
+```bash
+$ sudo mkdir /var/log/go-cti
+$ sudo chown <user> /var/log/go-cti
+$ sudo chmod 700 /var/log/go-cti
+$ mkdir -p $GOPATH/src/github.com/vulsio
+$ cd $GOPATH/src/github.com/vulsio
+$ git clone https://github.com/vulsio/go-cti.git
+$ cd go-cti
+$ make install
+$ ln -s $GOPATH/src/github.com/vulsio/go-cti/go-cti.sqlite3 $HOME/go-cti.sqlite3
+```
+
+The binary was built under `$GOPATH/bin`
+
+Then fetch Cyber Threat Intelligence information. [README](https://github.com/vulsio/go-cti#fetch-mitre-attck-and-capec)
+
+```bash
+$ go-cti fetch threat
+```
+
 ## Deploy Vuls
 
 ```bash
