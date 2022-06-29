@@ -10,10 +10,11 @@ report:
 		[-lang=en|ja]
 		[-config=/path/to/config.toml]
 		[-results-dir=/path/to/results]
+		[-log-to-file]
 		[-log-dir=/path/to/log]
 		[-refresh-cve]
-		[-confidence-over=80]
 		[-cvss-over=7]
+		[-confidence-over=80]
 		[-diff]
 		[-diff-minus]
 		[-diff-plus]
@@ -23,11 +24,11 @@ report:
 		[-to-http]
 		[-to-slack]
 		[-to-chatwork]
+		[-to-googlechat]
 		[-to-telegram]
 		[-to-localfile]
 		[-to-s3]
 		[-to-azure-blob]
-		[-to-saas]
 		[-format-json]
 		[-format-one-email]
 		[-format-one-line-text]
@@ -44,10 +45,10 @@ report:
 		[-trivy-cachedb-dir=/path/to/dir]
 
 		[RFC3339 datetime format under results dir]
-  -config string
-    	/path/to/toml (default "/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml")
   -confidence-over int
-      -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
+    	-confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
+  -config string
+    	/path/to/toml (default "$HOME/config.toml")
   -cvss-over float
     	-cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -60,6 +61,8 @@ report:
     	Minus Difference between previous result and current result
   -diff-plus
     	Plus Difference between previous result and current result
+  -format-csv
+    	CSV format
   -format-full-text
     	Detail report in plain text
   -format-json
@@ -82,6 +85,10 @@ report:
     	[en|ja] (default "en")
   -log-dir string
     	/path/to/log (default "/var/log/vuls")
+  -log-to-file
+    	Output log to file
+  -no-progress
+    	Suppress progress bar
   -pipe
     	Use args passed via PIPE
   -quiet
@@ -89,21 +96,21 @@ report:
   -refresh-cve
     	Refresh CVE information in JSON file under results dir
   -results-dir string
-    	/path/to/results (default "/Users/kanbe/go/src/github.com/future-architect/vuls/results")
+    	/path/to/results (default "$HOME/results")
   -to-azure-blob
-    	Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
+    	Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/txt)
   -to-chatwork
     	Send report via chatwork
   -to-email
     	Send report via Email
+  -to-googlechat
+    	Send report via Google Chat
   -to-http
     	Send report via HTTP POST
   -to-localfile
     	Write report to localfile
   -to-s3
-    	Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
-  -to-saas
-    	Upload report to Future Vuls(https://vuls.biz/) before report
+    	Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/txt)
   -to-slack
     	Send report via Slack
   -to-syslog
@@ -111,7 +118,7 @@ report:
   -to-telegram
     	Send report via Telegram
   -trivy-cachedb-dir string
-    	/path/to/dir (default "/Users/hoge/Library/Caches/trivy")
+    	/path/to/dir (default "$HOME/.cache/trivy")
 
 ```
 
