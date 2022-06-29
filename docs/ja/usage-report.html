@@ -79,10 +79,11 @@
     [-lang=en|ja]
     [-config=/path/to/config.toml]
     [-results-dir=/path/to/results]
+    [-<span class="hljs-built_in">log</span>-to-file]
     [-<span class="hljs-built_in">log</span>-dir=/path/to/<span class="hljs-built_in">log</span>]
     [-refresh-cve]
-    [-confidence-over=80]
     [-cvss-over=7]
+    [-confidence-over=80]
     [-diff]
     [-diff-minus]
     [-diff-plus]
@@ -92,11 +93,11 @@
     [-to-http]
     [-to-slack]
     [-to-chatwork]
+    [-to-googlechat]
     [-to-telegram]
     [-to-localfile]
     [-to-s3]
     [-to-azure-blob]
-    [-to-saas]
     [-format-json]
     [-format-one-email]
     [-format-one-line-text]
@@ -113,10 +114,10 @@
     [-trivy-cachedb-dir=/path/to/dir]
 
     [RFC3339 datetime format under results dir]
-  -config string
-      /path/to/toml (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/config.toml"</span>)
   -confidence-over int
       -confidence-over=40 means reporting Confidence Score 40 and over (default: 80) (default 80)
+  -config string
+      /path/to/toml (default <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/config.toml"</span>)
   -cvss-over <span class="hljs-built_in">float</span>
       -cvss-over=6.5 means reporting CVSS Score 6.5 and over (default: 0 (means report all))
   -debug
@@ -129,6 +130,8 @@
       Minus Difference between previous result and current result
   -diff-plus
       Plus Difference between previous result and current result
+  -format-csv
+      CSV format
   -format-full-text
       Detail report <span class="hljs-keyword">in</span> plain text
   -format-json
@@ -151,6 +154,10 @@
       [en|ja] (default <span class="hljs-string">"en"</span>)
   -<span class="hljs-built_in">log</span>-dir string
       /path/to/<span class="hljs-built_in">log</span> (default <span class="hljs-string">"/var/log/vuls"</span>)
+  -<span class="hljs-built_in">log</span>-to-file
+      Output <span class="hljs-built_in">log</span> to file
+  -no-progress
+      Suppress progress bar
   -pipe
       Use args passed via PIPE
   -quiet
@@ -158,21 +165,21 @@
   -refresh-cve
       Refresh CVE information <span class="hljs-keyword">in</span> JSON file under results dir
   -results-dir string
-      /path/to/results (default <span class="hljs-string">"/Users/kanbe/go/src/github.com/future-architect/vuls/results"</span>)
+      /path/to/results (default <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/results"</span>)
   -to-azure-blob
-      Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/xml/txt)
+      Write report to Azure Storage blob (container/yyyyMMdd_HHmm/servername.json/txt)
   -to-chatwork
       Send report via chatwork
   -to-email
       Send report via Email
+  -to-googlechat
+      Send report via Google Chat
   -to-http
       Send report via HTTP POST
   -to-localfile
       Write report to localfile
   -to-s3
-      Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/xml/txt)
-  -to-saas
-      Upload report to Future Vuls(https://vuls.biz/) before report
+      Write report to S3 (bucket/yyyyMMdd_HHmm/servername.json/txt)
   -to-slack
       Send report via Slack
   -to-syslog
@@ -180,7 +187,7 @@
   -to-telegram
       Send report via Telegram
   -trivy-cachedb-dir string
-      /path/to/dir (default <span class="hljs-string">"/Users/hoge/Library/Caches/trivy"</span>)
+      /path/to/dir (default <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.cache/trivy"</span>)
 
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="how-to-detect-cve-in-vuls"></a><a href="#how-to-detect-cve-in-vuls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to detect CVE in Vuls?</h2>
