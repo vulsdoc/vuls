@@ -14,7 +14,7 @@ sidebar_label: Supported OS
 | Oracle Linux    |                    5, 6, 7 |
 | CentOS          |  6, 7, 8, stream8, stream9 |
 | AlmaLinux       |                       8, 9 |
-| Rocky Linux     |                          8 |
+| Rocky Linux     |                       8, 9 |
 | Amazon Linux    |                        All |
 | FreeBSD         |                     10, 11 |
 | openSUSE        |                 tumbleweed |

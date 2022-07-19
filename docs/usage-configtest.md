@@ -40,7 +40,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | Debian          |            7, 8, 9, 10, 11 | (reboot-notifier) |
 | CentOS          |  6, 7, 8, stream8, stream9 | - |
 | AlmaLinux       |                       8, 9 | - |
-| Rocky Linux     |                          8 | - |
+| Rocky Linux     |                       8, 9 | - |
 | Amazon          |                        All | - |
 | RHEL            |              5, 6, 7, 8, 9 | - |
 | Fedora          |             32, 33, 34, 35 | - |
@@ -62,7 +62,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | Debian          |               8, 9, 10, 11 | debian-goodies, reboot-notifier |
 | CentOS          |  6, 7, 8, stream8, stream9 | - |
 | AlmaLinux       |                       8, 9 | - |
-| Rocky Linux     |                          8 | - |
+| Rocky Linux     |                       8, 9 | - |
 | Amazon          |                        All | - |
 | RHEL            |                       6, 7 | - |
 | RHEL            |                       8, 9 | lsof |
