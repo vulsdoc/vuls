@@ -37,7 +37,7 @@ A sample configuration is below.
 ```
 
 * token:  A token of [wpscan.com](https://wpscan.com/api)
-* ignoreInactive : Ignore plugins or themes which are inactive state
+* detectInactive : Detect plugins or themes which are inactive state
 * cmdPath :  A path of `wp` on the wordpress server
 * osUser : A OS user of `wp` on the wordpress server
 * docRoot : A path of document root on the wordpress server
@@ -76,7 +76,7 @@ Vuls detects vulnerabilities via accessing [WPScan.com](https://wpscan.com/api) 
 
 ## Tips
 
-* If you have some virtual WordPres sites in a server.
+* If you have some virtual WordPress sites in a server.
 * If you want a report of only WordPress without OS packages.
 
 
