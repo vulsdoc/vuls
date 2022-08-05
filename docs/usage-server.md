@@ -207,7 +207,7 @@ $ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) prin
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 # Amazon Linux 2 : recommendation
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`repoquery --all --pkgnarrow=installed --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{ARCH} %{UI_FROM_REPO}"`" http://${VULS_SERVER}:5515/vuls
-# Amazon Linux 2 : If yum-utils cannot be installed, or if only amzn2-core repository is used. Otherwise, there is a possibility of false positives.
+# Amazon Linux 2 : If using only amzn2-core repository. Otherwise, there is a possibility of false positives.
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
