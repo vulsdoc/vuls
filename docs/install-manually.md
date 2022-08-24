@@ -229,7 +229,7 @@ $ go-kev fetch kevuln
 ## Deploy go-cti
 
 [go-cti](https://github.com/vulsio/go-cti)
-> New version Vuls 0.19.6 now possible to display Cyber Threat Intelligence(MITER ATT&CK and CAPEC) have been published at [mitre/cti](https://github.com/mitre/cti). If you don't need to know about Cyber Threat Intelligence for detected CVEs, skip this section.
+> New version Vuls 0.19.8 now possible to display Cyber Threat Intelligence(MITER ATT&CK and CAPEC) have been published at [mitre/cti](https://github.com/mitre/cti). If you don't need to know about Cyber Threat Intelligence for detected CVEs, skip this section.
 
 ```bash
 $ sudo mkdir /var/log/go-cti
