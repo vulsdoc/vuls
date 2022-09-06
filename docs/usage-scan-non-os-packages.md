@@ -37,6 +37,10 @@ lockfiles = [
 ]
 ```
 
+NOTE: When `findLock = true`, the target lockfile depends on the scan mode and scan user privilege.
+When scan mode is fast, it depends on the privilege of the scan user. If the scan user does not have the root privilege, lockfiles that require the root privilege will not be detected.
+When scan mode is fast-root, lockfiles are detected with root privileges.
+
 ## Usage: Integrate with GitHub Security Alerts
 
 GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. [GitHub Security Alerts](https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/).
