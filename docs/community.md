@@ -6,7 +6,7 @@ sidebar_label: Community
 
 ## Slack
 
-[Join Slack](http://goo.gl/forms/xm5KFo35tu) and connect with Vuls users. Ask how other people solved similar problems.
+[Join Slack](https://join.slack.com/t/vuls-github/shared_invite/zt-1fculjwj4-6nex2JNE7DpOSiKZ1ztDFw) and connect with Vuls users. Ask how other people solved similar problems.
 [Vuls Slack team](https://vuls-github.slack.com/)
 
 ## Stay up to date

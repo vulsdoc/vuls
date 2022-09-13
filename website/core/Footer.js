@@ -53,7 +53,7 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Community</h5>
-            <a href="http://goo.gl/forms/xm5KFo35tu">Join Slack</a>
+            <a href="https://join.slack.com/t/vuls-github/shared_invite/zt-1fculjwj4-6nex2JNE7DpOSiKZ1ztDFw">Join Slack</a>
             <a href="https://vuls-github.slack.com/">Slack</a>
             <a href="https://twitter.com/vuls_en">Twitter(English)</a>
             <a href="https://twitter.com/vuls_ja">Twitter(Japanese)</a>
