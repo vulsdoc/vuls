@@ -34,6 +34,9 @@ report:
 		[-format-one-line-text]
 		[-format-list]
 		[-format-full-text]
+		[-format-csv]
+		[-format-cyclonedx-json]
+		[-format-cyclonedx-xml]
 		[-gzip]
 		[-http-proxy=http://192.168.0.1:8080]
 		[-debug]
@@ -63,6 +66,10 @@ report:
     	Plus Difference between previous result and current result
   -format-csv
     	CSV format
+  -format-cyclonedx-json
+    	CycloneDX JSON format
+  -format-cyclonedx-xml
+    	CycloneDX XML format
   -format-full-text
     	Detail report in plain text
   -format-json
