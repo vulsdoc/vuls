@@ -10,18 +10,20 @@ Docker images for Vuls are built per commit and push to [DockerHub/Vuls](https:/
 
 ```console
 $ docker pull vuls/go-cve-dictionary
-$ docker run  --rm  vuls/go-cve-dictionary -v
+$ docker run  --rm  vuls/go-cve-dictionary help
 
-go-cve-dictionary v0.1.xxx xxxx
+GO CVE Dictionary
+[...]
 ```
 
 ## install/update goval-dictionary
 
 ```console
 $ docker pull vuls/goval-dictionary
-$ docker run  --rm  vuls/goval-dictionary -v
+$ docker run  --rm  vuls/goval-dictionary help
 
-goval-dictionary v0.1.xxx xxxx
+OVAL(Open Vulnerability and Assessment Language) dictionary
+[...]
 ```
 
 ## install/update gost
@@ -30,9 +32,10 @@ goval-dictionary v0.1.xxx xxxx
 
 ```console
 $ docker pull vuls/gost
-$ docker run  --rm  vuls/gost  -v
+$ docker run  --rm  vuls/gost help
 
-gost  v0.1.xxx xxxx
+Security Tracker
+[...]
 ```
 
 ## install/update go-exploitdb
@@ -87,9 +90,10 @@ Go collect Cyber Threat Intelligence
 
 ```console
 $ docker pull vuls/vuls
-$ docker run  --rm  vuls/vuls -v
+$ docker run  --rm  vuls/vuls help
 
-vuls v0.1.xxx xxxx
+Usage: vuls <flags> <subcommand> <subcommand args>
+[...]
 ```
 
 ## Scan
