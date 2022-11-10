@@ -152,6 +152,7 @@ host                = "192.168.11.6"
 #type               = "pseudo"
 #memo               = "DB Server"
 #findLock = true
+#findLockDirs       = ["/path/to/dir"]
 #lockfiles = ["/path/to/package-lock.json"]
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"

@@ -145,8 +145,9 @@ host                = "127.0.0.1"
 #scanModules        = ["ospkg", "wordpress", "lockfile", "port"]
 #type               = "pseudo"
 #memo               = "DB Server"
-#findLock = true
-#lockfiles = ["/path/to/package-lock.json"]
+#findLock           = true
+#findLockDirs       = ["/path/to/dir"]
+#lockfiles          = ["/path/to/package-lock.json"]
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
@@ -415,7 +416,7 @@ You can overwrite the default value specified in default section.
 - sshConfigPath: SSH config file path. see [#1005](https://github.com/future-architect/vuls/pull/1005)
 - keyPath: SSH private key path
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
-- findLock, lockfiles: see [Usage: Scan vulnerability of non-OS package#Library Vulns Scan](usage-scan-non-os-packages.md#library-vulns-scan)
+- findLock, findLockDirs and lockfiles: see [Usage: Scan vulnerability of non-OS package#Library Vulns Scan](usage-scan-non-os-packages.md#library-vulns-scan)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package#CPE Scan](usage-scan-non-os-packages.md#cpe-scan)
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
 - ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. But output to JSON file.
