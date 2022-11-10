@@ -93,14 +93,28 @@ host         = <span class="hljs-string">"xxx.xxx.xxx"</span>
 port        = <span class="hljs-string">"22"</span>
 user        = <span class="hljs-string">"tamachi"</span>
 keyPath     = <span class="hljs-string">"/Users/amachi/.ssh/id_dsa"</span>
-findLock = <span class="hljs-literal">true</span> <span class="hljs-comment"># auto detect lockfile</span>
 lockfiles = [
   <span class="hljs-string">"/home/tamachi/lockfiles/package-lock.json"</span>,
   <span class="hljs-string">"/home/tamachi/lockfiles/yarn.lock"</span>,
   <span class="hljs-string">"/home/tamachi/lockfiles/struts.jar"</span>,
 ]
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" id="automatic-lockfile-detection"></a><a href="#automatic-lockfile-detection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Automatic lockfile detection</h3>
+<p>If <code>findLock=true</code> and <code>findLockDirs</code> are specified, libraries on the local file system can be automatically detected by the <code>find</code> command.</p>
 <p>NOTE: When <code>findLock = true</code>, the target lockfile depends on the scan mode and scan user privilege. When scan mode is fast, it depends on the privilege of the scan user. If the scan user does not have the root privilege, lockfiles that require the root privilege will not be detected. When scan mode is fast-root, lockfiles are detected with root privileges.</p>
+<pre><code class="hljs css language-bash">[servers]
+
+[servers.ubuntu]
+host         = <span class="hljs-string">"xxx.xxx.xxx"</span>
+port        = <span class="hljs-string">"22"</span>
+user        = <span class="hljs-string">"tamachi"</span>
+keyPath     = <span class="hljs-string">"/Users/amachi/.ssh/id_dsa"</span>
+findLock = <span class="hljs-literal">true</span> <span class="hljs-comment"># auto detect lockfile</span>
+findLockDirs = [
+  <span class="hljs-string">"/path/to/prject/lib"</span>,
+  <span class="hljs-string">"/path/to/prject2/lib"</span>,
+]
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="usage-integrate-with-github-security-alerts"></a><a href="#usage-integrate-with-github-security-alerts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage: Integrate with GitHub Security Alerts</h2>
 <p>GitHub tracks reported vulnerabilities in certain dependencies and provides security alerts to affected repositories. <a href="https://help.github.com/articles/about-security-alerts-for-vulnerable-dependencies/">GitHub Security Alerts</a>. It becomes possible to import vulnerabilities detected by GitHub via GitHub's API.</p>
 <p>First, enable GitHub security alerts on your repo. <a href="https://help.github.com/en/github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization">see</a></p>
@@ -123,7 +137,7 @@ lockfiles = [
 <p><a href="https://github.com/vulsio/go-cpe-dictionary">go-cpe-dictionary</a> is a good choice for geeks. <a href="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0"><img src="https://asciinema.org/a/asvc87lbpad5999shqk0xvtc0.png" alt="asciicast"></a></p>
 <p>You can search a CPE name by the application name incrementally.</p>
 <h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
-<h3><a class="anchor" aria-hidden="true" id="ホストos"></a><a href="#ホストos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ホストOS</h3>
+<h3><a class="anchor" aria-hidden="true" id="host-os"></a><a href="#host-os" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Host OS</h3>
 <p>To detect the vulnerability of Ruby on Rails v4.2.1 and PostgreSQL9.6.2, cpeNames needs to be set in the servers section.</p>
 <pre><code class="hljs css language-bash">[servers]
 
@@ -136,7 +150,7 @@ cpeNames = [
     <span class="hljs-string">"cpe:2.3:a:postgresql:postgresql:9.6.2:*:*:*:*:*:*:*"</span>,
 ]
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="コンテナ"></a><a href="#コンテナ" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>コンテナ</h3>
+<h3><a class="anchor" aria-hidden="true" id="container"></a><a href="#container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container</h3>
 <p>To detect the vulnerability of Ruby on Rails v4.2.1 on specific container, cpeNames needs to be set in the servers&gt;containers section. The following is an example of running Ruby on Rails v4.2.1 and PostgreSQL9.6.2 on dockerA.</p>
 <pre><code class="hljs css language-bash">[servers]
 
