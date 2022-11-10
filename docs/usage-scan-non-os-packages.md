@@ -29,7 +29,6 @@ host         = "xxx.xxx.xxx"
 port        = "22"
 user        = "tamachi"
 keyPath     = "/Users/amachi/.ssh/id_dsa"
-findLock = true # auto detect lockfile
 lockfiles = [
   "/home/tamachi/lockfiles/package-lock.json",
   "/home/tamachi/lockfiles/yarn.lock",
@@ -37,9 +36,28 @@ lockfiles = [
 ]
 ```
 
+### Automatic lockfile detection
+
+If `findLock=true` and `findLockDirs` are specified, libraries on the local file system can be automatically detected by the `find` command.
+
 NOTE: When `findLock = true`, the target lockfile depends on the scan mode and scan user privilege.
 When scan mode is fast, it depends on the privilege of the scan user. If the scan user does not have the root privilege, lockfiles that require the root privilege will not be detected.
 When scan mode is fast-root, lockfiles are detected with root privileges.
+
+```bash
+[servers]
+
+[servers.ubuntu]
+host         = "xxx.xxx.xxx"
+port        = "22"
+user        = "tamachi"
+keyPath     = "/Users/amachi/.ssh/id_dsa"
+findLock = true # auto detect lockfile
+findLockDirs = [
+  "/path/to/prject/lib",
+  "/path/to/prject2/lib",
+]
+```
 
 ## Usage: Integrate with GitHub Security Alerts
 
