@@ -20,7 +20,7 @@ Vuls requires the following packages.
 - git
 - gcc
 - GNU Make
-- Greater than or equal to Go v1.13 (The latest version is recommended)
+- Greater than or equal to Go v1.18 (The latest version is recommended)
   - [Install Go](https://golang.org/doc/install)
 
 ```bash
