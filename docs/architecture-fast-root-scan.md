@@ -23,6 +23,7 @@ sidebar_label: Fast-Root Scan
 | openSUSE        |                                Fast |　                No |            Supported |                                    Need |
 | openSUSE Leap   |                                Fast |　                No |            Supported |                                    Need |
 | SUSE Enterprise |                                Fast |　                No |            Supported |                                    Need |
+| Windows         |                                Fast |　         Partially |            Supported |                               Partially |
 
 Raspbian has been modified from its previous Changelog only scan to scan using Debian OVAL and Debian Security Tracker, Changelog.
 The difference between Fast-Root scan and Deep scan is that the packages that use change logs are limited (because Debian OVAL and Debian Security Tracker cannot detect packages that only exist on the Raspberry Pi).
@@ -54,6 +55,7 @@ Scan with -offline option, vuls scans with no internet access.
 | openSUSE        |                               Fast |　                No |  Supported |                                    No |
 | openSUSE Leap   |                               Fast |　                No |  Supported |                                    No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                    No |
+| Windows         |                               Fast |　         Partially |  Supported |                                    No |
 
 Offline scan mode is not supported FreeBSD, Raspbian.
 

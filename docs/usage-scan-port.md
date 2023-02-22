@@ -15,14 +15,14 @@ The following config.toml will use an external scanner (currently only nmap is s
 ```toml
 [servers]
 
-[servers.192-168-11-6]
-host                = "192.168.11.6"
+[servers.127-0-0-1]
+host                = "127.0.0.1"
 port               = "22"
 user               = "root"
 scanMode           = ["fast-root"]
 scanModules        = ["ospkg", "port"]
 
-[servers.192-168-11-6.portscan]
+[servers.127-0-0-1.portscan]
 scannerBinPath = "/usr/bin/nmap"
 hasPrivileged = true
 scanTechniques = ["sS"]

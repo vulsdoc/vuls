@@ -50,6 +50,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | SUSE Enterprise |                 11, 12, 15 | - |
 | FreeBSD         |                     10, 11 | - |
 | Raspbian        |    Jessie, Stretch, Buster | - |
+| Windows         |             Client, Server | - |
 
 ### fast-root scan mode
 
@@ -73,6 +74,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | SUSE Enterprise |                 11, 12, 15 | - |
 | FreeBSD         |                     10, 11 | - |
 | Raspbian        |    Jessie, Stretch, Buster | debian-goodies |
+| Windows         |             Client, Server | - |
 
 ### deep scan mode
 
