@@ -605,7 +605,7 @@ Open the following page in a new window.
 | CVSS Calculator V2       | `Common Vulnerability Scoring System Calculator Version 2` page from [NIST](https://www.nist.gov/)                                          |
 | CVSS Calculator V3       | `Common Vulnerability Scoring System Calculator Version 3.0` page from [NIST](https://www.nist.gov/)                                        |
 | CVSS Calculator V3 (JVN) | [Common Vulnerability Scoring System Version 3.0 Calculator](https://jvndb.jvn.jp/cvss/ja/v3.html) page provided by [JVN](https://jvn.jp/). |
-| Amazon                   | (Amazon Linux only) [Amazon Linux Security Advisories](https://alas.aws.amazon.com/alas.html), [Amazon Linux2 Security Advisories](https://alas.aws.amazon.com/alas2.html), [Amazon Linux2022 Security Advisories](https://alas.aws.amazon.com/alas2022.html)                                                |
+| Amazon                   | (Amazon Linux only) [Amazon Linux Security Advisories](https://alas.aws.amazon.com/alas.html), [Amazon Linux2 Security Advisories](https://alas.aws.amazon.com/alas2.html), [Amazon Linux2022 Security Advisories](https://alas.aws.amazon.com/alas2022.html), [Amazon Linux2023 Security Advisories](https://alas.aws.amazon.com/alas2023.html)                                                          |
 | RedHat Network           | (RedHat only) [Red Hat Product Errata](https://access.redhat.com/errata/)                                                                   |
 | OracleLinux Errata       | (Oracle Linux only) [Unbreakable Linux Network](https://linux.oracle.com/errata/)                                                           |
 
