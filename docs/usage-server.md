@@ -202,8 +202,8 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print 
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
-# Amazon Linux 1, Amazon Linux 2022
+$ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2023/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2023/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2022/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2022/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
+# Amazon Linux 1, Amazon Linux 2022, Amazon Linux 2023
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
 # Amazon Linux 2 : recommendation
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`repoquery --all --pkgnarrow=installed --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{ARCH} %{UI_FROM_REPO}"`" http://${VULS_SERVER}:5515/vuls
@@ -327,8 +327,8 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://${VUL
 You need release got by a command such as below.
 
 ```bash
-# e.g. "2 (Karoo), 2022 (Amazon Linux)"
-RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2022/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2022/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
+# e.g. "2 (Karoo), 2022 (Amazon Linux), 2023 (Amazon Linux)"
+RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2023/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2023/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2022/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2022/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
 ```
 
 ```json
