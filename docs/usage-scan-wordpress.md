@@ -34,6 +34,7 @@ A sample configuration is below.
     cmdPath = "/usr/local/bin/wp"
     osUser = "wordpress"
     docRoot = "/home/kusanagi/wp/DocumentRoot/"
+    noSudo = false
 ```
 
 * token:  A token of [wpscan.com](https://wpscan.com/api)
@@ -41,6 +42,7 @@ A sample configuration is below.
 * cmdPath :  A path of `wp` on the wordpress server
 * osUser : A OS user of `wp` on the wordpress server
 * docRoot : A path of document root on the wordpress server
+* noSudo : Run the `wp` command with sudo privileges
 
 ## Scan
 
@@ -98,4 +100,22 @@ host = "wordpress"
 scanModules = ["wordpress"]
 [servers.bar.wordpress]
 docRoot = "/home/bar/wordpress/"
+```
+
+### If sudo cannot be executed with scan user
+
+Set `noSudo = true` to execute the command without sudo.  
+If scan user and wordpress osUser are different, it is necessary to be able to switch from scan user to wordpress osUser without a password, since the command is executed by switching to wordpress osUser.  
+See [PR #1523](https://github.com/future-architect/vuls/pull/1523) if you want to know the actual command to be executed.
+
+For example, the following config requires that the switch from user to wordpress (`user $ su - wordpress`) can be executed without a password.
+```toml
+[servers.wordpress]
+user = "user"
+
+[servers.wordpress.wordpress]
+cmdPath     = "/usr/local/bin/wp"
+osUser      = "wordpress"
+docRoot     = "/var/www/html"
+noSudo      = true
 ```
