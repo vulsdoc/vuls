@@ -281,3 +281,7 @@ For Details, see [Scan vulnerabilities of non-OS packages](https://vuls.io/docs/
 ## Example: scan Port by External Port Scanner(nmap)
 
 For Details, see [Scan Port by External Port Scanner](usage-scan-port.md)
+
+## Example: scan Windows
+
+For Details, see [Scan Windows](usage-windows.md)

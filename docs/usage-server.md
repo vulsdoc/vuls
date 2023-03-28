@@ -70,16 +70,17 @@ Server:
 
 #### Headers
 
-- X-Vuls-OS-Family (required)
-  - OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian)
-- X-Vuls-OS-Release (required)
-  - OS Family of your target server  (e.g. 6.9, 16.04, etc.)
-- X-Vuls-Kernel-Release (required)
+- X-Vuls-OS-Family (linux: required, windows: required)
+  - OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian, windows)
+- X-Vuls-OS-Release (linux: required, windows: optional)
+  - OS Release of your target server  (e.g. 6.9, 16.04, etc.)
+- X-Vuls-Kernel-Release (linux: required, windows: not required)
   - Kernel release of your target server  (e.g. 2.6.32-696.6.3.el6.x86_64)
-  - Collect by a command such as `uname -r`
-- X-Vuls-Kernel-Version (optional)
+  - linux: Collect by a command such as `uname -r`
+- X-Vuls-Kernel-Version (linux: optional, windows: optional)
   - Required when Debian (e.g. 3.16.51-2)
-  - Collect by a command such as `uname -a | awk '{print $7}'`
+  - linux: Collect by a command such as `uname -a | awk '{print $7}'`
+  - windows: Version such as `<major>.<minor>.<build>(.<revision>)` in winver.exe, systeminfo.exe, etc.
 - X-Vuls-Server-Name (optional)
   - Required when using `-to-localfile` option)
   - Server name of your target server (e.g. web01)
@@ -140,6 +141,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 - Raspbian(Raspberry Pi OS)
 - Ubuntu
 - SLES
+- Windows
 
 ## Example: One liner scan
 
@@ -227,6 +229,14 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: debian" -H "X
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `lsb_release -si | awk '{print tolower($1)}'`" -H "X-Vuls-OS-Release: `lsb_release -sr | awk '{print $1}'`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls > $LOCAL_REPORT
+```
+
+
+### Windows
+
+```bash
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: windows" --data-binary "$(systeminfo.exe)" http://${VULS_SERVER}:5515/vuls
 ```
 
 ## Example: Save scan results to Vuls server
@@ -442,4 +452,28 @@ $ cat sles12.json
 
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: application/json" -d @sles12.json http://${VULS_SERVER}:5515/vuls
+```
+
+### Windows
+
+```json
+$ cat windows.json
+{
+  "family": "windows",
+  "release": "Windows 10 Version 22H2 for x64-based System",
+  "runningKernel": {
+    "version": "10.0.19045.2546"
+  },
+  "windowsKB": {
+    "applied": [
+      "5020030"
+    ],
+    "unapplied": [
+      "5022834"
+    ]
+  }
+}
+
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: application/json" -d @windows.json http://${VULS_SERVER}:5515/vuls
 ```

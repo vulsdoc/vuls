@@ -21,3 +21,4 @@ sidebar_label: Supported OS
 | openSUSE Leap   |                 15.2, 15.3 |
 | SUSE Enterprise |                 11, 12, 15 |
 | Raspbian        |    Jessie, Stretch, Buster |
+| Windows         |             Client, Server |

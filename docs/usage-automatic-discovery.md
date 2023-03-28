@@ -140,9 +140,9 @@ $ vuls discover 192.168.11.0/24
 # https://vuls.io/docs/en/config.toml.html#servers-section
 [servers]
 
-[servers.192-168-11-6]
-host                = "192.168.11.6"
-#ignoreIPAddresses = ["192.168.11.6"]
+[servers.127-0-0-1]
+host                = "127.0.0.1"
+#ignoreIPAddresses = ["127.0.0.1"]
 #port               = "22"
 #user               = "root"
 #sshConfigPath		= "/home/username/.ssh/config"
@@ -163,27 +163,31 @@ host                = "192.168.11.6"
 #containersIncluded = ["${running}"]
 #containersExcluded = ["container_name_a"]
 
-#[servers.192-168-11-6.containers.container_name_a]
+#[servers.127-0-0-1.containers.container_name_a]
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
 #ignorePkgsRegexp   = ["^kernel", "^python"]
 
-#[servers.192-168-11-6.githubs."owner/repo"]
+#[servers.127-0-0-1.githubs."owner/repo"]
 #token   = "yourToken"
 
-#[servers.192-168-11-6.wordpress]
+#[servers.127-0-0-1.wordpress]
 #cmdPath = "/usr/local/bin/wp"
 #osUser = "wordpress"
 #docRoot = "/path/to/DocumentRoot/"
 
-#[servers.192-168-11-6.portscan]
+#[servers.127-0-0-1.portscan]
 #scannerBinPath = "/usr/bin/nmap"
 #hasPrivileged = true
 #scanTechniques = ["sS"]
 #sourcePort = "65535"
 
-#[servers.192-168-11-6.optional]
+#[servers.127-0-0-1.windows]
+#serverSelection = 3
+#cabPath = "/path/to/wsusscn2.cab"
+
+#[servers.127-0-0-1.optional]
 #key = "value1"
 ```
 

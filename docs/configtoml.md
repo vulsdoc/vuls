@@ -173,11 +173,15 @@ host                = "127.0.0.1"
 #osUser = "wordpress"
 #docRoot = "/path/to/DocumentRoot/"
 
-#[servers.192-168-11-6.portscan]
+#[servers.127-0-0-1.portscan]
 #scannerBinPath = "/usr/bin/nmap"
 #hasPrivileged = true
 #scanTechniques = ["sS"]
 #sourcePort = "65535"
+
+#[servers.127-0-0-1.windows]
+#serverSelection = 3
+#cabPath = "/path/to/wsusscn2.cab"
 
 #[servers.127-0-0-1.optional]
 #key = "value1"
@@ -235,6 +239,7 @@ Refer to the source code for the environment variable names.
 - [exploit](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L175-L177)
 - [metasploit](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L256-L258)
 - [kevuln](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L283-L285)
+- [cti](https://github.com/future-architect/vuls/blob/master/config/vulnDictConf.go#L310-L312)
 
 ## Slack section
 

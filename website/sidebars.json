@@ -34,7 +34,8 @@
       "tutorial-scan-docker-image",
       "usage-scan-non-os-packages",
       "usage-scan-wordpress",
-      "usage-scan-port"
+      "usage-scan-port",
+      "usage-windows"
     ],
     "Usage": [
       "config.toml",
