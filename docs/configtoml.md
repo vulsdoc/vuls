@@ -426,7 +426,7 @@ You can overwrite the default value specified in default section.
 - ignoreCves: CVE IDs that will not be reported. But output to JSON file.
 - ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. But output to JSON file.
 - optional: Add additional information to JSON report.
-- containers: see [Example: Scan containers (Docker/LXD)](usage-scan.md#example-scan-containers-docker-lxd-lxc)
+- containers: see [Example: Scan Running containers (Docker/LXD/LXC)](usage-scan.md#example-scan-running-containers-dockerlxdlxc)
 
 Multiple SSH authentication methods are supported.  
 
