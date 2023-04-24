@@ -613,7 +613,7 @@ ignoreCves = ["CVE-2016-6314"]
 
 Define ignorePkgsRegexp in config if you don't want to report(Slack, EMail, Text...) match against the specific regexp [google/re2](https://github.com/google/re2/wiki/Syntax).
 
-```bash
+```toml
 [servers.c74]
 host     = "192.168.11.11"
 user     = "kanbe"
@@ -621,6 +621,33 @@ ignorePkgsRegexp = ["^kernel", "^python"]
 
 [servers.c74.containers.romantic_goldberg]
 ignorePkgsRegexp = ["^vim"]
+```
+
+## Example: IgnoreFixStates
+
+Define IgnoreFixStates in config if you don't want to report(Slack, EMail, Text...) specific FixState.
+
+```toml
+[servers.host]
+host     = "192.168.11.11"
+user     = "user"
+ignoreFixStates = ["ignored"]
+```
+
+## Note: If you want to output JSON reflecting the results of Ignore*
+
+The JSON generated in the results dir when `-to-localfile` and `-format-json` are not specified does not reflect the results of Ignore*.
+If you want to generate JSON reflecting Ignore* in the results dir, you need to specify `-to-localfile` and `-format-json`.
+
+```toml
+[servers.bsd]
+host     = "192.168.11.11"
+user     = "kanbe"
+ignoreCves = ["CVE-2016-6314"]
+```
+
+```console
+$ vuls report -to-localfile -format-json
 ```
 
 ## Example: GitHub Security Alerts Integration
