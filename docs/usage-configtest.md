@@ -37,7 +37,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 |:----------------|------------------------------------------------------------------:|:-------------|
 | Alpine          |                                                     3.2 and later | - |
 | Ubuntu          |     14.04, 16.04, 18.04, 20.04, 21.04, 21.10, 22.04, 22.10, 23.04 | - |
-| Debian          |                                                   7, 8, 9, 10, 11 | (reboot-notifier) |
+| Debian          |                                               7, 8, 9, 10, 11, 12 | (reboot-notifier) |
 | CentOS          |                                         6, 7, 8, stream8, stream9 | - |
 | AlmaLinux       |                                                              8, 9 | - |
 | Rocky Linux     |                                                              8, 9 | - |
@@ -60,7 +60,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 |:----------------|------------------------------------------------------------------:|:-------------|
 | Alpine          |                                                     3.2 and later | - |
 | Ubuntu          |     14.04, 16.04, 18.04, 20.04, 21.04, 21.10, 22.04, 22.10, 23.04 | debian-goodies |
-| Debian          |                                                      8, 9, 10, 11 | debian-goodies, reboot-notifier |
+| Debian          |                                                  8, 9, 10, 11, 12 | debian-goodies, reboot-notifier |
 | CentOS          |                                         6, 7, 8, stream8, stream9 | - |
 | AlmaLinux       |                                                              8, 9 | - |
 | Rocky Linux     |                                                              8, 9 | - |
@@ -100,7 +100,7 @@ Defaults:vuls !requiretty
 | Distribution | fast | fast-root           | deep         |
 |:------------------|:-------------|:-------------|:-------------|
 | Ubuntu 14.04, 16.04, 18.04, 20.04, 21.04, 21.10, 22.04, 22.10, 23.04| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n` | same as `fast-root` |
-| Debian 8, 9, 10, 11| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`  | same as `fast-root`|
+| Debian 8, 9, 10, 11, 12| - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n`  | same as `fast-root`|
 | CentOS 6, 7, 8, stream8, stream9  | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
 | AlmaLinux 8, 9    | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
 | Rocky Linux 8  | - | `vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/sbin/lsof -i -P -n`  |same as `fast-root` |
