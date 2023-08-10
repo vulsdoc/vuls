@@ -6,9 +6,9 @@ sidebar_label: Main Features
 
 ## Scan for any vulnerabilities in Linux/FreeBSD Server
 
-[Supports major Linux/FreeBSD/Windows](supported-os.md)
+[Supports major Linux/FreeBSD/Windows/MacOS](supported-os.md)
 
-- Alpine, Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Amazon Linux, RHEL, Fedora, Oracle Linux, openSUSE, openSUSE Leap, SUSE Enterprise Linux and Raspbian, FreeBSD, Windows
+- Alpine, Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Amazon Linux, RHEL, Fedora, Oracle Linux, openSUSE, openSUSE Leap, SUSE Enterprise Linux and Raspbian, FreeBSD, Windows, MacOS
 - Cloud, on-premise, Docker
 
 ## High quality scan

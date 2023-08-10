@@ -140,7 +140,3 @@ Run with --debug, --sql-debug option.
 
 ~~No, Vuls needs a user on the server for bash login.~~  
 Yes, fixed in [#545](https://github.com/future-architect/vuls/pull/545)
-
-## Windows  
-
-Use Microsoft Baseline Security Analyzer. [MBSA](https://technet.microsoft.com/en-us/security/cc184924.aspx)

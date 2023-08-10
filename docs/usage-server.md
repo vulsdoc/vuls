@@ -70,14 +70,14 @@ Server:
 
 #### Headers
 
-- X-Vuls-OS-Family (linux: required, windows: required)
-  - OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian, windows)
-- X-Vuls-OS-Release (linux: required, windows: optional)
+- X-Vuls-OS-Family (linux: required, windows: required, macos: required)
+  - OS Family of your target server (rhel, fedora, centos, alma, rocky, amazon, ubuntu and debian, raspbian, windows, macos)
+- X-Vuls-OS-Release (linux: required, windows: optional, macos: required)
   - OS Release of your target server  (e.g. 6.9, 16.04, etc.)
-- X-Vuls-Kernel-Release (linux: required, windows: not required)
+- X-Vuls-Kernel-Release (linux: required, windows: not required, macos: not required)
   - Kernel release of your target server  (e.g. 2.6.32-696.6.3.el6.x86_64)
   - linux: Collect by a command such as `uname -r`
-- X-Vuls-Kernel-Version (linux: optional, windows: optional)
+- X-Vuls-Kernel-Version (linux: optional, windows: optional, macos: optional)
   - Required when Debian (e.g. 3.16.51-2)
   - linux: Collect by a command such as `uname -a | awk '{print $7}'`
   - windows: Version such as `<major>.<minor>.<build>(.<revision>)` in winver.exe, systeminfo.exe, etc.
@@ -142,6 +142,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @centos6.json http://local
 - Ubuntu
 - SLES
 - Windows
+- MacOS
 
 ## Example: One liner scan
 
@@ -237,6 +238,12 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `lsb_release 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: windows" --data-binary "$(systeminfo.exe)" http://${VULS_SERVER}:5515/vuls
+```
+
+### MacOS
+```bash
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `sw_vers -productName | tr "A-Z" "a-z" | sed -e "y/ /_/")` -H "X-Vuls-OS-Release: $(sw_vers -productVersion)" --data-binary `while read -d $'\0' f; do echo "Info.plist: ${f}"; (echo -n "CFBundleDisplayName: "; plutil -extract "CFBundleDisplayName" raw ${f} -o -) | paste - -; (echo -n "CFBundleName: "; plutil -extract "CFBundleName" raw ${f} -o -) | paste - -; (echo -n "CFBundleShortVersionString: "; plutil -extract "CFBundleShortVersionString" raw ${f} -o -) | paste - -; (echo -n "CFBundleIdentifier: "; plutil -extract "CFBundleIdentifier" raw ${f} -o -) | paste - -; echo; done < <(find -L /Applications /System/Applications -type f -path "*.app/Contents/Info.plist" -not -path "*.app/**/*.app/*" -print0)` http://${VULS_SERVER}:5515/vuls
 ```
 
 ## Example: Save scan results to Vuls server
@@ -476,4 +483,24 @@ $ cat windows.json
 
 $ export VULS_SERVER=[Your Vuls Server]
 $ curl -X POST -H "Content-Type: application/json" -d @windows.json http://${VULS_SERVER}:5515/vuls
+```
+
+### MacOS
+
+```json
+$ cat macos.json
+{
+  "family": "macos",
+  "release": "13.4.0",
+  "packages": {
+    "Safari": {
+      "name": "Safari",
+      "version": "16.5",
+      "repository": "com.apple.Safari"
+    }
+  }
+}
+
+$ export VULS_SERVER=[Your Vuls Server]
+$ curl -X POST -H "Content-Type: application/json" -d @macos.json http://${VULS_SERVER}:5515/vuls
 ```
