@@ -25,7 +25,8 @@ Fast scan mode scans without root privilege, no dependencies almost no load on t
 | openSUSE        |                               Fast |　                No |            Supported |                                       No |
 | openSUSE Leap   |                               Fast |　                No |            Supported |                                       No |
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                       No |
-| Windows         |                               Fast |　         Partially |            Supported |                                Partially |
+| Windows         |                               Fast |　         Partially |                   No |                                Partially |
+| MacOS         |                                 Fast |　                No |                   No |                                       No |
 
 ## With -offline option
 
@@ -48,6 +49,7 @@ Scan with -offline option, vuls scans with no internet access.
 | openSUSE Leap   |                               Fast |　                No |            Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |            Supported |                                      No |
 | Windows         |                               Fast |　         Partially |            Supported |                                      No |
+| MacOS         |                                 Fast |　                No |                   No |                                      No |
 
 The offline scan mode is not supported for FreeBSD.
 

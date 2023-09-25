@@ -22,3 +22,4 @@ sidebar_label: Supported OS
 | SUSE Enterprise |                                                        11, 12, 15 |
 | Raspbian        |                                           Jessie, Stretch, Buster |
 | Windows         |                                                    Client, Server |
+| MacOS           |                      MacOS X, MacOS X Server, MacOS, MacOS Server |
