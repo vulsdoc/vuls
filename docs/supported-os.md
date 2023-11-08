@@ -10,7 +10,7 @@ sidebar_label: Supported OS
 | Ubuntu          |     14.04, 16.04, 18.04, 20.04, 21.04, 21.10, 22.04, 22.10, 23.04, 23.10 |
 | Debian          |                                                         8, 9, 10, 11, 12 |
 | RHEL            |                                                            5, 6, 7, 8, 9 |
-| Fedora          |                                                           32, 33, 34, 35 |
+| Fedora          |                                           32, 33, 34, 35, 36, 37, 38, 39 |
 | Oracle Linux    |                                                                  5, 6, 7 |
 | CentOS          |                                                6, 7, 8, stream8, stream9 |
 | AlmaLinux       |                                                                     8, 9 |

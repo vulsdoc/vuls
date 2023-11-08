@@ -43,7 +43,7 @@ The configtest subcommand checks whether vuls is able to connect via SSH to serv
 | Rocky Linux     |                                                                     8, 9 | - |
 | Amazon          |                                                                      All | - |
 | RHEL            |                                                            5, 6, 7, 8, 9 | - |
-| Fedora          |                                                           32, 33, 34, 35 | - |
+| Fedora          |                                           32, 33, 34, 35, 36, 37, 38, 39 | - |
 | Oracle Linux    |                                                                  5, 6, 7 | - |
 | openSUSE        |                                                               tumbleweed | - |
 | openSUSE Leap   |                                                               15.2, 15.3 | - |
@@ -68,7 +68,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | Amazon          |                                                                      All | - |
 | RHEL            |                                                                     6, 7 | - |
 | RHEL            |                                                                     8, 9 | lsof |
-| Fedora          |                                                           32, 33, 34, 35 | - |
+| Fedora          |                                           32, 33, 34, 35, 36, 37, 38, 39 | - |
 | Oracle Linux    |                                                                  5, 6, 7 | - |
 | openSUSE        |                                                               tumbleweed | - |
 | openSUSE Leap   |                                                               15.2, 15.3 | - |
