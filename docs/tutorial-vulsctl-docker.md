@@ -191,6 +191,9 @@ Next, fetch the vulnerability DB in the OVAL format provided by Linux distributo
 
 As we have scanned CentOS this time, we will fetch it with ``--redhat``; for other distributions such as Ubuntu, you can fetch it with the corresponding option. For more information about options, please refer to the following page.
 
+> For reference: If you target a Debian based distribution, OVAL will be skipped when generating a report. <br/>
+> You can use the command ``$ ./gost.sh --debian`` instead to have a working DB for the report.sh script. 
+
 ```bash
 $ pwd
 /home/vuls/vulsctl/docker
