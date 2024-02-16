@@ -29,6 +29,7 @@ $ vuls discover 127.0.0.1/32
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
 #sqlite3Path = "/path/to/gost.sqlite3"
 #url        = ""
+#strict = false
 
 [exploit]
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
@@ -126,7 +127,8 @@ $ vuls discover 127.0.0.1/32
 #]
 #owaspDCXMLPath     = "/tmp/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-6271"]
-#ignorePkgsRegexp   = ["^kernel", "^python"]
+#ignorePkgsRegexp   = ["^kernel.*"]
+#ignoreFixStates = ["ignored"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
@@ -151,7 +153,8 @@ host                = "127.0.0.1"
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
-#ignorePkgsRegexp   = ["^kernel", "^python"]
+#ignorePkgsRegexp   = ["^kernel.*"]
+#ignoreFixStates = ["ignored"]
 #containersOnly     = false
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
 #containersIncluded = ["${running}"]
@@ -161,7 +164,8 @@ host                = "127.0.0.1"
 #cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
-#ignorePkgsRegexp   = ["^kernel", "^python"]
+#ignorePkgsRegexp   = ["^kernel.*"]
+#ignoreFixStates = ["ignored"]
 
 #[servers.127-0-0-1.githubs."owner/repo"]
 #token   = "yourToken"
@@ -229,6 +233,7 @@ host                = "127.0.0.1"
 - type : the method of access for the database. (Default: "sqlite3")
 - SQLite3Path : Should only be set when using "sqlite" otherwise unused. (Default: SQLite3 in current directory)
 - url : specifies the url to access the database.
+- strict: undetect vulnerabilities that may affect. (gost only)
 
 These can also be specified by an environment variable.
 Refer to the source code for the environment variable names.
@@ -373,7 +378,8 @@ verbose     = false
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves         = ["CVE-2016-6313"]
-#ignorePkgsRegexp   = ["^kernel", "^python"]
+#ignorePkgsRegexp   = ["^kernel.*"]
+#ignoreFixStates = ["ignored"]
 #optional = [
 #    ["key", "value"],
 #]
@@ -401,7 +407,8 @@ host         = "172.31.4.82"
 #  "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
 #]
 #ignoreCves         = ["CVE-2016-6314"]
-#ignorePkgsRegexp   = ["^kernel", "^python"]
+#ignorePkgsRegexp   = ["^kernel.*"]
+#ignoreFixStates = ["ignored"]
 #optional = [
 #    ["key", "value"],
 #]
@@ -423,8 +430,9 @@ You can overwrite the default value specified in default section.
 - type: "pseudo" for non-ssh scanning. see [#531](https://github.com/future-architect/vuls/pull/531)
 - findLock, findLockDirs and lockfiles: see [Usage: Scan vulnerability of non-OS package#Library Vulns Scan](usage-scan-non-os-packages.md#library-vulns-scan)
 - cpeNames: see [Usage: Scan vulnerability of non-OS package#CPE Scan](usage-scan-non-os-packages.md#cpe-scan)
-- ignoreCves: CVE IDs that will not be reported. But output to JSON file.
-- ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. But output to JSON file.
+- ignoreCves: CVE IDs that will not be reported. see [Example: IgnoreCves](usage-report.md#example-ignorecves)
+- ignorePkgsRegexp: Use regex to match any package name and ignore it from the report. see [Example: IgnorePkgsRegexp](usage-report.md#example-ignorepkgsregexp)
+- ignoreFixStates: will not report vulnerabilities that only have the specified FixState. see [Example: IgnoreFixStates](usage-report.md#example-ignorefixstates)
 - optional: Add additional information to JSON report.
 - containers: see [Example: Scan Running containers (Docker/LXD/LXC)](usage-scan.md#example-scan-running-containers-dockerlxdlxc)
 
