@@ -3,7 +3,8 @@ jobs:
   deploy-website:
     working_directory: ~/vuls
     docker:
-      - image: circleci/node:9.9.0
+      - image: cimg/node:21.6.1
+         # - image: circleci/node:9.9.0
          #- image: circleci/node:8
     steps:
       - checkout
