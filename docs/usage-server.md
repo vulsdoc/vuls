@@ -467,7 +467,7 @@ $ curl -X POST -H "Content-Type: application/json" -d @sles12.json http://${VULS
 $ cat windows.json
 {
   "family": "windows",
-  "release": "Windows 10 Version 22H2 for x64-based System",
+  "release": "Windows 10 Version 22H2 for x64-based Systems",
   "runningKernel": {
     "version": "10.0.19045.2546"
   },
