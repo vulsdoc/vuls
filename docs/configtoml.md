@@ -62,14 +62,15 @@ $ vuls discover 127.0.0.1/32
 
 # https://vuls.io/docs/en/config.toml.html#email-section
 #[email]
-#smtpAddr      = "smtp.example.com"
-#smtpPort      = "587"
-#user          = "username"
-#password      = "password"
-#from          = "from@example.com"
-#to            = ["to@example.com"]
-#cc            = ["cc@example.com"]
-#subjectPrefix = "[vuls]"
+#smtpAddr              = "smtp.example.com"
+#smtpPort              = "587"
+#tlsInsecureSkipVerify = false
+#user                  = "username"
+#password              = "password"
+#from                  = "from@example.com"
+#to                    = ["to@example.com"]
+#cc                    = ["cc@example.com"]
+#subjectPrefix         = "[vuls]"
 
 # https://vuls.io/docs/en/config.toml.html#http-section
 #[http]
@@ -302,28 +303,30 @@ url = "http://localhost:11234"
 
 ```toml
 [email]
-smtpAddr      = "smtp.gmail.com"
-smtpPort      = "587"
-user          = "username"
-password      = "password"
-from          = "from@address.com"
-to            = ["to@address.com"]
-cc            = ["cc@address.com"]
-subjectPrefix = "[vuls]"
+smtpAddr              = "smtp.gmail.com"
+smtpPort              = "587"
+tlsInsecureSkipVerify = false
+user                  = "username"
+password              = "password"
+from                  = "from@address.com"
+to                    = ["to@address.com"]
+cc                    = ["cc@address.com"]
+subjectPrefix         = "[vuls]"
 ```
 
 - If you use SMTPS when send email, please set config.toml as follows.
 
 ```toml
 [email]
-smtpAddr      = "smtp.gmail.com"
-smtpPort      = "465"
-user          = "username"
-password      = "password"
-from          = "from@address.com"
-to            = ["to@address.com"]
-cc            = ["cc@address.com"]
-subjectPrefix = "[vuls]"
+smtpAddr              = "smtp.gmail.com"
+smtpPort              = "465"
+tlsInsecureSkipVerify = false
+user                  = "username"
+password              = "password"
+from                  = "from@address.com"
+to                    = ["to@address.com"]
+cc                    = ["cc@address.com"]
+subjectPrefix         = "[vuls]"
 ```
 
 ### Gmail account setting
