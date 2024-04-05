@@ -64,6 +64,7 @@ $ vuls discover 127.0.0.1/32
 #[email]
 #smtpAddr              = "smtp.example.com"
 #smtpPort              = "587"
+#tlsMode               = "STARTTLS"
 #tlsInsecureSkipVerify = false
 #user                  = "username"
 #password              = "password"
@@ -305,6 +306,7 @@ url = "http://localhost:11234"
 [email]
 smtpAddr              = "smtp.gmail.com"
 smtpPort              = "587"
+tlsMode               = "STARTTLS"
 tlsInsecureSkipVerify = false
 user                  = "username"
 password              = "password"
@@ -320,6 +322,7 @@ subjectPrefix         = "[vuls]"
 [email]
 smtpAddr              = "smtp.gmail.com"
 smtpPort              = "465"
+tlsMode               = "SMTPS"
 tlsInsecureSkipVerify = false
 user                  = "username"
 password              = "password"

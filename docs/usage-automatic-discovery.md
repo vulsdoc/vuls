@@ -69,6 +69,7 @@ $ vuls discover 192.168.11.0/24
 #[email]
 #smtpAddr              = "smtp.example.com"
 #smtpPort              = "587"
+#tlsMode               = "STARTTLS"
 #tlsInsecureSkipVerify = false
 #user                  = "username"
 #password              = "password"
