@@ -67,7 +67,7 @@ The configtest subcommand with `fast-root` mode checks whether the packages are 
 | Rocky Linux     |                                                                            8, 9 | - |
 | Amazon          |                                                                             All | - |
 | RHEL            |                                                                            6, 7 | - |
-| RHEL            |                                                                            8, 9 | lsof |
+| RHEL            |                                                                            8, 9 | lsof, yum-utils |
 | Fedora          |                                                  32, 33, 34, 35, 36, 37, 38, 39 | - |
 | Oracle Linux    |                                                                         5, 6, 7 | - |
 | openSUSE        |                                                                      tumbleweed | - |
