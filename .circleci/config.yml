@@ -47,6 +47,6 @@ workflows:
   build-and-deploy:
     jobs:
       - deploy-website:
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: fix-ci/java-version
