@@ -21,11 +21,7 @@ jobs:
       - run:
           name: Install apt packages
           command: |
-            sudo apt-get update && sudo apt install rsync git
-      - run:
-          name: Install Java 17
-          command: |
-            sudo apt-get install openjdk-17-jdk
+            sudo apt-get update && sudo apt-get install rsync git openjdk-17-jdk
       - save_cache:
           key: website-node-modules-{{ checksum "website/yarn.lock" }}
           paths:
