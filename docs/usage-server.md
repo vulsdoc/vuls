@@ -79,7 +79,7 @@ Server:
   - linux: Collect by a command such as `uname -r`
 - X-Vuls-Kernel-Version (linux: optional, windows: optional, macos: optional)
   - Required when Debian (e.g. 3.16.51-2)
-  - linux: Collect by a command such as `uname -a | awk '{print $7}'`
+  - linux: Collect by a command such as `dpkg-query -W -f='${Version}' linux-image-$(uname -r)`
   - windows: Version such as `<major>.<minor>.<build>(.<revision>)` in winver.exe, systeminfo.exe, etc.
 - X-Vuls-Server-Name (optional)
   - Required when using `-to-localfile` option)
@@ -221,7 +221,7 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
 $ export KERNEL_RELEASE=$(uname -r)
-$ export KERNEL_VERSION=$(uname -a | awk '{print $7}')
+$ export KERNEL_VERSION=$(dpkg-query -W -f='${Version}' linux-image-$(uname -r))
 $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: debian" -H "X-Vuls-OS-Release: `cat /etc/debian_version`" -H "X-Vuls-Kernel-Release: ${KERNEL_RELEASE}" -H "X-Vuls-Kernel-Version: ${KERNEL_VERSION}" -H "X-Vuls-Server-Name: `hostname`" --data-binary "$(dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n")" http://${VULS_SERVER}:5515/vuls
 ```
 
