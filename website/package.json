@@ -11,6 +11,6 @@
     "crowdin-download": "export CROWDIN_DOCUSAURUS_PROJECT_ID=$CROWDIN_PROJECT_ID; export CROWDIN_DOCUSAURUS_API_KEY=$CROWDIN_API_KEY; crowdin-cli --config ../crowdin.yaml download -b master"
   },
   "devDependencies": {
-    "docusaurus": "^1.14.4"
+    "docusaurus": "^1.14.7"
   }
 }
