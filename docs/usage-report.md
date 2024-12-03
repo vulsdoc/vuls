@@ -317,14 +317,19 @@ Total: 23 (High:22 Medium:1 Low:0), 9/23 Fixed, 708 installed, 285 updatable
   | RedHatAPIMatch         | 100        | CentOS, AlmaLinux, Rocky Linux, RHEL |Red Hat API |
   | UbuntuAPIMatch         | 100        | Ubuntu                           |Ubuntu API |
   | DebianSecurityTrackerMatch| 100     | Debian                           |Debian Security Tracker |
+  | WindowsUpdateSearch    | 100        | Windows                          |KB or fixed version is clear. Unfixed vulnerabilities are also included. |
+  | WindowsRoughMatch      |  30        | Windows                          |KB or fixed version is not clear. |
   | TrivyMatch             | 100        | Container image and Lockfile     |trivy |
   | PkgAuditMatch          | 100        |                          FreeBSD |pkg audit|
   | WPScanMatch            | 100        |                        WordPress |wpscan.com |
   | GitHubMatch            | 100        |  library                         |Detected by GitHub Security Alerts |
   | NvdExactVersionMatch   | 100        |                         CPE scan |Range match in semantic versioning format or an exact match.|
   | NvdRoughVersionMatch   |  80        |                         CPE scan |Rough version match for non-semantic versioning as defined in NVD.|
-  | NvdVendorProductMatch  |  10        |                         CPE scan |If the version is not defined for the CPE specified in config.toml. There is a possibility of false positives.|
+  | NvdVendorProductMatch  |  10        |                         CPE scan |When the version is not defined for the CPE specified in config.toml. There is a possibility of false positives.|
   | JvnVendorProductMatch  |  10        |                         CPE scan |Detected by Jvn. Affected Version in JVN is not a parsable format, so it is matched by Part,  Vendor and Product. There is a possibility of false positives.|
+  | FortinetExactVersionMatch  | 100    |                         CPE scan |Range match in semantic versioning format or an exact match.|
+  | FortinetRoughVersionMatch  |  80    |                         CPE scan |Rough version match for non-semantic versioning as defined in Fortinet.|
+  | FortinetVendorProductMatch |  10    |                         CPE scan |When the version is not defined for the CPE specified in config.toml. There is a possibility of false positives.|
   | ChangelogExactMatch    |  95        | CentOS, Ubuntu, Debian, Raspbian |Exact version match between changelog and package version.|
   | ChangelogRoughMatch    |  50        |         Ubuntu, Debian, Raspbian |Rough version match between changelog and package version.|
 
