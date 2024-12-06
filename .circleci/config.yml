@@ -1,5 +1,47 @@
 version: 2
 jobs:
+  ci-test-fail:
+    working_directory: ~/vuls
+    docker:
+      - image: cimg/node:21.6.1
+         # - image: circleci/node:9.9.0
+         #- image: circleci/node:8
+    steps:
+      - deploy-test:
+          name: Publish gh-pages
+          command: |
+                  git config --global user.email "kotakanbe@users.noreply.github.com"
+                  git config --global user.name "kotakanbe"
+                  echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
+                  # install Docusaurus and generate file of English strings
+                  #cd website && npm install && npm run write-translations && cd ..
+                  yarn && cd website && yarn run write-translations && cd ..
+                  wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb
+                  sudo dpkg -i crowdin.deb
+                  crowdin --config crowdin.yaml upload sources --auto-update -b master
+                  crowdin --config crowdin.yaml download -b master
+  
+  ci-test-success:
+    working_directory: ~/vuls
+    docker:
+      - image: cimg/node:21.6.1
+         # - image: circleci/node:9.9.0
+         #- image: circleci/node:8
+    steps:
+      - deploy-test:
+          name: Publish gh-pages
+          command: |
+                  git config --global user.email "kotakanbe@users.noreply.github.com"
+                  git config --global user.name "kotakanbe"
+                  echo "machine github.com login kotakanbe password $GITHUB_TOKEN" > ~/.netrc
+                  # install Docusaurus and generate file of English strings
+                  #cd website && npm install && npm run write-translations && cd ..
+                  yarn && cd website && yarn run write-translations && cd ..
+                  wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb
+                  sudo dpkg -i crowdin.deb
+                  crowdin upload sources --auto-update -b master --config crowdin.yaml
+                  crowdin download -b master --config crowdin.yaml
+
   deploy-website:
     working_directory: ~/vuls
     docker:
@@ -49,3 +91,7 @@ workflows:
           filters:
             branches:
               only: master
+  ci-test:
+    jobs:
+      - ci-test-fail
+      - ci-test-success
