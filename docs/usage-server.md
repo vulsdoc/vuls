@@ -86,7 +86,7 @@ Server:
   - Server name of your target server (e.g. web01)
 
 ```bash
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: centos" -H "X-Vuls-OS-Release: 6.9" -H "X-Vuls-Kernel-Release: 2.6.32-696.30.1.el6.x86_64" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://localhost:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: centos" -H "X-Vuls-OS-Release: 6.9" -H "X-Vuls-Kernel-Release: 2.6.32-696.30.1.el6.x86_64" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://localhost:5515/vuls
 ```
 
 Set the above setting to cron.
@@ -170,35 +170,35 @@ RHEL
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $7}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $7}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 Fedora
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/fedora-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/fedora-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/fedora-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/fedora-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 CentOS 6
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 CentOS 7
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $4}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Oracle Linux
 
 ```bash
 $ export VULS_SERVER=[Your Vuls Server]
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/oracle-release`" -H "X-Vuls-OS-Release: `awk '{print $5}' /etc/oracle-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/oracle-release`" -H "X-Vuls-OS-Release: `awk '{print $5}' /etc/oracle-release`" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Amazon Linux
@@ -207,11 +207,11 @@ $ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print 
 $ export VULS_SERVER=[Your Vuls Server]
 $ export AMAZON_LINUX_RELEASE=$(awk '{if ($0 ~ /Amazon\ Linux\ release\ 2023/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2023/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2022/) for (i=4; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ 2022/) for (i=3; i<=NF; i++) printf("%s ", $i); else if ($0 ~ /Amazon\ Linux\ release\ 2/) printf("%s %s",$4, $5); else if ($0 ~ /Amazon\ Linux\ 2/) for (i=3; i<=NF; i++) printf("%s ", $i); else if (NF==5) print $5}' /etc/system-release)
 # Amazon Linux 1, Amazon Linux 2022, Amazon Linux 2023
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 # Amazon Linux 2 : recommendation
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`repoquery --all --pkgnarrow=installed --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{ARCH} %{UI_FROM_REPO}"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`repoquery --all --pkgnarrow=installed --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM} %{UI_FROM_REPO}"`" http://${VULS_SERVER}:5515/vuls
 # Amazon Linux 2 : If using only amzn2-core repository. Otherwise, there is a possibility of false positives.
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/system-release`" -H "X-Vuls-OS-Release: $AMAZON_LINUX_RELEASE" -H "X-Vuls-Kernel-Release: `uname -r`" -H "X-Vuls-Server-Name: `hostname`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ### Debian
@@ -268,13 +268,13 @@ $ export VULS_SERVER=[Your Vuls Server]
 $ export SERVER_NAME=$(hostname)
 
 # For RHEL
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $7}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $7}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 
 # For RedHat/CentOS 6
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk '{print tolower($1)}' /etc/redhat-release`" -H "X-Vuls-OS-Release: `awk '{print $3}' /etc/redhat-release`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 
 # For RedHat/CentOS 7
-$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk -F: '{print $3}' /etc/system-release-cpe`" -H "X-Vuls-OS-Release: `awk -F: '{print $5}' /etc/system-release-cpe`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}\n"`" http://${VULS_SERVER}:5515/vuls
+$ curl -X POST -H "Content-Type: text/plain" -H "X-Vuls-Server-Name: ${SERVER_NAME}" -H "X-Vuls-OS-Family: `awk -F: '{print $3}' /etc/system-release-cpe`" -H "X-Vuls-OS-Release: `awk -F: '{print $5}' /etc/system-release-cpe`" -H "X-Vuls-Kernel-Release: `uname -r`" --data-binary "`rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH} %{SOURCERPM}\n"`" http://${VULS_SERVER}:5515/vuls
 ```
 
 ## Example: Collect the scan results from Vuls agent
