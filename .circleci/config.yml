@@ -77,8 +77,8 @@ jobs:
                   yarn && cd website && yarn run write-translations && cd ..
                   wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb
                   sudo dpkg -i crowdin.deb
-                  crowdin upload sources --auto-update -b master --config crowdin.yaml
-                  crowdin download -b master --config crowdin.yaml
+                  crowdin upload sources --auto-update -b master --config crowdin.yaml --debug
+                  crowdin download -b master --config crowdin.yaml --debug
 
   deploy-website:
     working_directory: ~/vuls
