@@ -20,16 +20,17 @@ Vuls uses Multiple vulnerability databases
   - [JVN(Japanese)](http://jvndb.jvn.jp/apis/myjvn/)
 
 - OVAL
-  - [Red Hat](https://www.redhat.com/security/data/oval/)
-  - [Debian](https://www.debian.org/security/oval/)
-  - [Ubuntu](https://people.canonical.com/~ubuntu-security/oval/)
   - [SUSE](http://ftp.suse.com/pub/projects/security/oval/)
   - [Oracle Linux](https://linux.oracle.com/security/oval/)
+
+- CSAF/VEX
+  - [Red Hat](https://security.access.redhat.com/data/csaf/v2/vex/)
 
 - Security Advisory
   - [Alpine-secdb](https://git.alpinelinux.org/cgit/alpine-secdb/)
   - [Red Hat Security Advisories](https://access.redhat.com/security/security-updates/)
   - [Debian Security Bug Tracker](https://security-tracker.debian.org/tracker/)
+  - [Ubuntu CVE Tracker](https://git.launchpad.net/ubuntu-cve-tracker)
 
 - Commands(yum, zypper, pkg-audit)
   - RHSA / ALAS / ELSA / FreeBSD-SA

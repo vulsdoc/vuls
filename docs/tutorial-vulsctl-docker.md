@@ -189,7 +189,7 @@ host centos7.6.1810  359 installed, 63 updatable
 
 Next, fetch the vulnerability DB in the OVAL format provided by Linux distributors.
 
-As we have scanned CentOS this time, we will fetch it with ``--redhat``; for other distributions such as Ubuntu, you can fetch it with the corresponding option. For more information about options, please refer to the following page.
+As we have scanned CentOS this time, we can skip this step. For other distributions such as Oracle, you can fetch it with the option ``--oracle``. For more information about options, please refer to the following page.
 
 > For reference: If you target a Debian based distribution, OVAL will be skipped when generating a report. <br/>
 > You can use the command ``$ ./gost.sh --debian`` instead to have a working DB for the report.sh script. 
@@ -197,20 +197,8 @@ As we have scanned CentOS this time, we will fetch it with ``--redhat``; for oth
 ```bash
 $ pwd
 /home/vuls/vulsctl/docker
-$ ./oval.sh --redhat
-INFO[09-12|06:28:12] Fetching...                              URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2
-INFO[09-12|06:28:12] Fetching...                              URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
-INFO[09-12|06:28:12] Fetching...                              URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
-INFO[09-12|06:28:13] Fetched...                               URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
-INFO[09-12|06:28:13] Fetched...                               URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2
-INFO[09-12|06:28:13] Fetched...                               URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
-INFO[09-12|06:28:13] Finished fetching OVAL definitions 
-INFO[09-12|06:28:13] Fetched                                  URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2 OVAL definitions=60
-INFO[09-12|06:28:13] Refreshing...                            Family=redhat Version=8
-INFO[09-12|06:28:14] Fetched                                  URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2 OVAL definitions=1130
-INFO[09-12|06:28:14] Refreshing...                            Family=redhat Version=6
-INFO[09-12|06:28:16] Fetched                                  URL=https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2 OVAL definitions=887
-INFO[09-12|06:28:16] Refreshing...                            Family=redhat Version=7
+$ ./oval.sh --oracle
+[snip the output]
 $ ls oval.sqlite3
 oval.sqlite3
 $ ls -alh oval.sqlite3

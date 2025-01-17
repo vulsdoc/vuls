@@ -46,7 +46,7 @@ $ docker run --rm -it \
 
 To fetch JVN(Japanese), See [README](https://github.com/vulsio/go-cve-dictionary#usage-fetch-jvn-data)
 
-## Step2. Fetch OVAL (e.g. redhat)
+## Step2. Fetch OVAL (e.g. Oracle Linux)
 
 [goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
@@ -54,10 +54,10 @@ To fetch JVN(Japanese), See [README](https://github.com/vulsio/go-cve-dictionary
 $ docker run --rm -it \
     -v $PWD:/goval-dictionary \
     -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
-    vuls/goval-dictionary fetch redhat 5 6 7 8 9
+    vuls/goval-dictionary fetch oracle 7 8 9
 ```
 
-To fetch other OVAL, See [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+To fetch other OVAL, See [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data)
 
 ## Step3. Fetch gost(Go Security Tracker) (for RedHat/CentOS/AlmaLinux/Rocky Linux, Debian and Ubuntu)
 
