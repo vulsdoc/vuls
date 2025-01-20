@@ -92,6 +92,14 @@ $ ls -alh cve.sqlite3
 
 ## Deploy goval-dictionary
 
+For RedHat, CentOS, AlmaLinux and Rocky Linux, you can skip this step.
+If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.
+
+- [Alpine](https://github.com/vulsio/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
+- [Fedora](https://github.com/vulsio/goval-dictionary#usage-fetch-security-updates-from-fedora)
+- [Oracle Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)
+- [SUSE](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-suse)
+
 [goval-dictionary](https://github.com/vulsio/goval-dictionary)
 
 ```bash
@@ -105,21 +113,11 @@ $ ln -s $GOPATH/src/github.com/vulsio/goval-dictionary/oval.sqlite3 $HOME/oval.s
 
 The binary was built under `$GOPATH/bin`
 
- Then fetch OVAL data of Red Hat since the server to be scanned is CentOS. [README](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
+For example, if your scan target is Oracle Linux 9, command to fetch is:
 
 ```bash
-$ goval-dictionary fetch redhat 7
+$ goval-dictionary fetch oracle 9
 ```
-
-If you would like to scan other Linux distributions then retrieve the OVAL data according to the OS type and version of scan target server in advance.
-
-- [Alpine](https://github.com/vulsio/goval-dictionary#usage-fetch-alpine-secdb-as-oval-data-type)
-- [Red Hat, CentOS, AlmaLinux, Rocky Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-redhat)
-- [Fedora](https://github.com/vulsio/goval-dictionary#usage-fetch-security-updates-from-fedora)
-- [Debian](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-debian)
-- [Ubuntu](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-ubuntu)
-- [Oracle Linux](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-oracle)
-- [SUSE](https://github.com/vulsio/goval-dictionary#usage-fetch-oval-data-from-suse)
 
 ## Deploy gost
 

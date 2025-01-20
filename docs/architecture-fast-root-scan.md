@@ -75,7 +75,7 @@ For details, see
 
 ### Detect processes affected by next package update
 
-It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, AlmaLinux, Rocky Linux,OracleLinux and Amazon Linux
+It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, AlmaLinux, Rocky Linux, OracleLinux and Amazon Linux
 
 ### Detect not-restarted-processes
 
