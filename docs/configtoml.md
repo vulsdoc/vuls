@@ -231,6 +231,11 @@ host                = "127.0.0.1"
 #type = ["sqlite3", "mysql", "postgres", "redis", "http" ]
 #sqlite3Path = "/path/to/go-cti.sqlite3"
 #url        = ""
+
+[vuls2]
+# Path = "/path/to/vuls.db"
+# Repository = "ghcr.io/vulsio/vuls-nightly-db:<schema-version>"
+# SkipUpdate = false
 ```
 
 - type : the method of access for the database. (Default: "sqlite3")
