@@ -51,9 +51,9 @@ $ vuls discover 127.0.0.1/32
 #url        = ""
 
 [vuls2]
-# Path = "/path/to/vuls.db"
-# Repository = "ghcr.io/vulsio/vuls-nightly-db:<schema-version>"
-# SkipUpdate = false
+#Path = "/path/to/vuls.db"
+#Repository = "ghcr.io/vulsio/vuls-nightly-db:<schema-version>"
+#SkipUpdate = false
 
 # https://vuls.io/docs/en/config.toml.html#slack-section
 #[slack]
@@ -233,9 +233,9 @@ host                = "127.0.0.1"
 #url        = ""
 
 [vuls2]
-# Path = "/path/to/vuls.db"
-# Repository = "ghcr.io/vulsio/vuls-nightly-db:<schema-version>"
-# SkipUpdate = false
+#Path = "/path/to/vuls.db"
+#Repository = "ghcr.io/vulsio/vuls-nightly-db:<schema-version>"
+#SkipUpdate = false
 ```
 
 - type : the method of access for the database. (Default: "sqlite3")
