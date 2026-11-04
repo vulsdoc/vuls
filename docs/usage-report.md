@@ -422,7 +422,7 @@ Source: `vuls.php`
 
 ## Example: Send scan results to email
 
-Define EMail section in [config.toml](https://vuls.io/docs/ja/config.toml.html#email-section)
+Define EMail section in [config.toml](https://vuls.io/docs/en/config.toml.html#email-section)
 
 ```bash
 $ vuls report \

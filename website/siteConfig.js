@@ -116,7 +116,6 @@ const siteConfig = {
     {doc: 'community', label: 'Community'},
     {blog: true, label: 'Blog'},
     { search: true },
-    { languages: true },
     {
       href: "https://github.com/future-architect/vuls",
       label: "GitHub",
