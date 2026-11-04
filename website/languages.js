@@ -12,11 +12,6 @@ const languages = [
     tag: 'en',
   },
   {
-    enabled: true,
-    name: '日本語',
-    tag: 'ja',
-  },
-  {
     enabled: false,
     name: 'العربية',
     tag: 'ar',
